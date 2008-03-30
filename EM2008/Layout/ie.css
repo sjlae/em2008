@@ -1,0 +1,9 @@
+#menu {
+	width: 190px;
+}
+
+h2#register {
+	margin-right: -25px;
+	background-color: white;
+	filter: alpha(opacity=0);
+}
