@@ -19,7 +19,7 @@
 	<a href="#cont" id="skip" accesskey="s">Zum Inhalt</a>
 
 	<h1><a href="#" title="Zur Startseite" accesskey="1">Das ultimative EM-Tippspiel</a></h1>
-	<?
+	<?php
 		include ('Menu/Menu.php');
 		$menu = new Menu();
 		include($menu->getMenu());
