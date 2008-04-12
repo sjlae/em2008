@@ -38,6 +38,9 @@ class Login implements Page{
 
 			$passwort = md5($passwort);
 
+			@mysql_connect("localhost", "root", "") OR die(mysql_error());
+			mysql_select_db("em2008") OR die(mysql_error());
+
 			$abfrage = "SELECT * FROM User where email='".$email."' and passwort='".$passwort."'";
 
 			$ergebnis = mysql_query($abfrage);
