@@ -30,7 +30,7 @@ class Register implements Page {
 		if($nachname == '');
 			$_SESSION['errors'][] = "Bitte das Feld 'Passwort' ausf&uuml;llen";
 		if($nachname == '');
-			$_SESSION['errors'][] = "Bitte das Feld 'Name' ausf&uuml;llen";
+			$_SESSION['errors'][] = "Bitte das Feld 'Passwort erneut' ausf&uuml;llen";
 	}
 
 	public function getView() {
