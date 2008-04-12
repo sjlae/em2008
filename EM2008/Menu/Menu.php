@@ -1,19 +1,16 @@
 <?php
+
 class Menu {
 	public function getMenu() {
-		$registered = $this->isRegistered();
-		
-		if($registered) {
+		$registered = $_SESSION['eingeloggt'];
+		echo $_SESSION['eingeloggt'];
+		if($registered == 'yes') {
 			return 'Menu/layout/registered.tpl';
 		}
 		else {
 			return 'Menu/layout/notRegistered.tpl';
 		}
 		
-	}
-	
-	private function isRegistered() {
-		return false;
 	}
 }
 ?>
