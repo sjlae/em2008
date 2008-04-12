@@ -12,8 +12,8 @@
 <? if(count($_SESSION['errors']) > 0): ?>
 <p>Fehler</p>
 <ul>	
-<?foreach($_SESSION['errors'] as $info):?>
-	<li><?echo $info; ?></li>
+<?foreach($_SESSION['errors'] as $error):?>
+	<li><?echo $error; ?></li>
 <?endforeach ?>
 <?unset($_SESSION['errors']); ?>
 </ul>
