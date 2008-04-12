@@ -8,22 +8,22 @@ require_once('Ranking/Ranking.php');
 require_once('MyTipps/MyTipps.php');
 require_once('OtherTipps/OtherTipps.php');
 
-$go = $_GET['go'];
+//unset($_SESSION['eingeloggt']);
+//unset($_SESSION['infos']);
 
+$go = $_GET['go'];
 $login = new Login();
 
 switch($go) {
 	case 'home':
 		$home = new Home();
-		$login->checkLogin($home);
+		$home->getView();
 		break;
 	case 'rules':
 		$rules = new Rules();
 		$rules->getView();
 		break;
 	case 'login':
-		$login = new Login();
-		$login->getView();
 		break;
 	case 'register':
 		$register = new Register();

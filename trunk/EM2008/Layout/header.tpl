@@ -1,3 +1,4 @@
+<?session_start(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
@@ -7,6 +8,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="content-language" content="de" />
 		<meta name="language" content="de" />
+		
 		<link rel="stylesheet" href="Layout/style.css" type="text/css" />
 		
        
