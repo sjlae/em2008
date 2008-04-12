@@ -51,7 +51,7 @@ class Login implements Page{
 			{
 				$ok = true;
 				$_SESSION['eingeloggt'] = 'yes';
-				$_SESSION['infos'][] = "Sie wurden erfolgreich eingeloggt";
+				$_SESSION['infos'][] = "Sie haben erfolgreich eingeloggt";
 			}
 			if($ok == false) {
 				$_SESSION['errors'][] = "Email und Passwort stimmen nicht &uuml;berein";
