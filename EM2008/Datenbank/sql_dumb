@@ -1,0 +1,181 @@
+-- phpMyAdmin SQL Dump
+-- version 2.10.2
+-- http://www.phpmyadmin.net
+-- 
+-- Host: localhost
+-- Erstellungszeit: 12. April 2008 um 13:13
+-- Server Version: 5.0.41
+-- PHP-Version: 5.2.3
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+-- 
+-- Datenbank: `em2008`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `Hauptrunde`
+-- 
+
+CREATE TABLE `Hauptrunde` (
+  `hauptrundeid` int(11) NOT NULL auto_increment,
+  `viertelfinal1` int(11) NOT NULL,
+  `viertelfinal2` int(11) NOT NULL,
+  `viertelfinal3` int(11) NOT NULL,
+  `viertelfinal4` int(11) NOT NULL,
+  `viertelfinal5` int(11) NOT NULL,
+  `viertelfinal6` int(11) NOT NULL,
+  `viertelfinal7` int(11) NOT NULL,
+  `viertelfinal8` int(11) NOT NULL,
+  `halbfinal1` int(11) NOT NULL,
+  `halbfinal2` int(11) NOT NULL,
+  `halbfinal3` int(11) NOT NULL,
+  `halbfinal4` int(11) NOT NULL,
+  `final1` int(11) NOT NULL,
+  `final2` int(11) NOT NULL,
+  `europameister` int(11) NOT NULL,
+  PRIMARY KEY  (`hauptrundeid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Daten für Tabelle `Hauptrunde`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `News`
+-- 
+
+CREATE TABLE `News` (
+  `newsid` int(11) NOT NULL auto_increment,
+  `datum` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `titel` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  PRIMARY KEY  (`newsid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Daten für Tabelle `News`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `Teams`
+-- 
+
+CREATE TABLE `Teams` (
+  `teamid` int(11) NOT NULL auto_increment,
+  `land` varchar(255) NOT NULL,
+  PRIMARY KEY  (`teamid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Daten für Tabelle `Teams`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `User`
+-- 
+
+CREATE TABLE `User` (
+  `userid` int(11) NOT NULL auto_increment,
+  `nachname` varchar(255) NOT NULL,
+  `vorname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `passwort` varchar(255) NOT NULL,
+  `bezahlt` int(11) NOT NULL,
+  `punkte` int(11) NOT NULL,
+  `woherfsid` int(11) NOT NULL,
+  `admin` int(11) NOT NULL,
+  `uservorrundefsid` int(11) NOT NULL,
+  `hauptrundefsid` int(11) NOT NULL,
+  PRIMARY KEY  (`userid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Daten für Tabelle `User`
+-- 
+
+INSERT INTO `User` VALUES (1, '', '', 'test', 'e10adc3949ba59abbe56e057f20f883e', 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `UserVorrunde`
+-- 
+
+CREATE TABLE `UserVorrunde` (
+  `userfsid` int(11) NOT NULL,
+  `vorrundefsid` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Daten für Tabelle `UserVorrunde`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `Vorrunde`
+-- 
+
+CREATE TABLE `Vorrunde` (
+  `vorrundeid` int(11) NOT NULL auto_increment,
+  `result1` int(11) NOT NULL,
+  `result2` int(11) NOT NULL,
+  `vorrundeteamsfsid` int(11) NOT NULL,
+  PRIMARY KEY  (`vorrundeid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Daten für Tabelle `Vorrunde`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `VorrundeTeams`
+-- 
+
+CREATE TABLE `VorrundeTeams` (
+  `vorrundeteamsid` int(11) NOT NULL auto_increment,
+  `start` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `team1fsid` int(11) NOT NULL,
+  `team2fsid` int(11) NOT NULL,
+  `realresult1` int(11) NOT NULL,
+  `realresult2` int(11) NOT NULL,
+  PRIMARY KEY  (`vorrundeteamsid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Daten für Tabelle `VorrundeTeams`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `Woher`
+-- 
+
+CREATE TABLE `Woher` (
+  `woherid` int(11) NOT NULL auto_increment,
+  `bezeichnung` varchar(255) NOT NULL,
+  PRIMARY KEY  (`woherid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Daten für Tabelle `Woher`
+-- 
+
