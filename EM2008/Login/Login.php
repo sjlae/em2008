@@ -1,6 +1,7 @@
 <?php
 require_once('Page.php');
 require_once('Home/Home.php');
+require_once('Datenbank/db.php');
 
 class Login implements Page{
 
@@ -37,17 +38,20 @@ class Login implements Page{
 
 			$passwort = md5($passwort);
 
-			@mysql_connect("localhost:8888", "root", "root") OR die(mysql_error());
-			mysql_select_db("em2008") OR die(mysql_error());
-
 			$abfrage = "SELECT * FROM User where email='".$email."' and passwort='".$passwort."'";
 
 			$ergebnis = mysql_query($abfrage);
-
+			
+			$ok = false;
+			
 			while($row = mysql_fetch_assoc($ergebnis))
 			{
+				$ok = true;
 				$_SESSION['eingeloggt'] = 'yes';
-				$_SESSION['infos'][] = "Sie wurden erfolgreich eingeloggt.";
+				$_SESSION['infos'][] = "Sie wurden erfolgreich eingeloggt";
+			}
+			if($ok == false) {
+				$_SESSION['errors'][] = "Email und Passwort stimmen nicht &uuml;berein";
 			}
 		}
 	}
