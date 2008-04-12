@@ -27,7 +27,6 @@ switch($go) {
 		break;
 	case 'register':
 		$register = new Register();
-		$register->getView();
 		break;
 	case 'ranking':
 		$ranking = new Ranking();
