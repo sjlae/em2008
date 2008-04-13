@@ -1,4 +1,24 @@
-<h2>Registrieren</h2>
+<h2>Register</h2>
+
+<? if(count($_SESSION['infos']) > 0): ?>
+<p>Information/en:</p>
+<ul>	
+<?foreach($_SESSION['infos'] as $info):?>
+	<li><?echo $info; ?></li>
+<?endforeach ?>
+<?unset($_SESSION['infos']); ?>
+</ul>
+<?endif?>
+<? if(count($_SESSION['errors']) > 0): ?>
+<p>Fehler</p>
+<ul>	
+<?foreach($_SESSION['errors'] as $error):?>
+	<li><?echo $error; ?></li>
+<?endforeach ?>
+<?unset($_SESSION['errors']); ?>
+</ul>
+<?endif?>
+
 <form action="index.php?go=register&action=register" method="POST">
 	<table>
 		<tr>
