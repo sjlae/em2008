@@ -1,5 +1,6 @@
 <?php
-include_once('Layout/header.tpl');
+session_start();
+
 include_once('Home/Home.php');
 include_once('Login/Login.php');
 require_once('Rules/Rules.php');
@@ -8,25 +9,24 @@ require_once('Ranking/Ranking.php');
 require_once('MyTipps/MyTipps.php');
 require_once('OtherTipps/OtherTipps.php');
 
+
 //unset($_SESSION['eingeloggt']);
 //unset($_SESSION['infos']);
 
-$go = $_GET['go'];
-$login = new Login();
+$go = isset($_GET['go']) ? $_GET['go'] : '';
 
 switch($go) {
-	case 'home':
-		$home = new Home();
-		$home->getView();
-		break;
 	case 'rules':
 		$rules = new Rules();
 		$rules->getView();
 		break;
 	case 'login':
+		$login = new Login();
+		$login->getView();
 		break;
 	case 'register':
 		$register = new Register();
+		$register->getView();
 		break;
 	case 'ranking':
 		$ranking = new Ranking();
@@ -45,5 +45,4 @@ switch($go) {
 		$home->getView();
 }
 
-include('Layout/footer.tpl')
 ?>

@@ -1,24 +1,5 @@
 <h2>Register</h2>
-
-<? if(count($_SESSION['infos']) > 0): ?>
-<p>Information/en:</p>
-<ul>	
-<?foreach($_SESSION['infos'] as $info):?>
-	<li><?echo $info; ?></li>
-<?endforeach ?>
-<?unset($_SESSION['infos']); ?>
-</ul>
-<?endif?>
-<? if(count($_SESSION['errors']) > 0): ?>
-<p>Fehler</p>
-<ul>	
-<?foreach($_SESSION['errors'] as $error):?>
-	<li><?echo $error; ?></li>
-<?endforeach ?>
-<?unset($_SESSION['errors']); ?>
-</ul>
-<?endif?>
-
+<?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=register&action=register" method="POST">
 	<table>
 		<tr>
@@ -26,7 +7,7 @@
 				Name:
 			</td>
 			<td>
-				<input type="text" name="nachname" />
+				<input type="text" name="nachname" value="<?php echo $this->nachname; ?>" />
 			</td>
 		</tr>
 		<tr>
@@ -34,7 +15,7 @@
 				Vorname:
 			</td>
 			<td>
-				<input type="text" name="vorname" />
+				<input type="text" name="vorname" value="<?php echo $this->vorname; ?>" />
 			</td>
 		</tr>
 		<tr>
@@ -42,7 +23,7 @@
 				Email:
 			</td>
 			<td>
-				<input type="text" name="email" />
+				<input type="text" name="email" value="<?php echo $this->email; ?>" />
 			</td>
 		</tr>
 		<tr>
@@ -50,7 +31,7 @@
 				Passwort:
 			</td>
 			<td>
-				<input type="password" name="passwort" />
+				<input type="password" name="passwort1" />
 			</td>
 		</tr>
 		<tr>
