@@ -1,23 +1,6 @@
 <h2>Login</h2>
-
-<? if(count($_SESSION['infos']) > 0): ?>
-<p>Information/en:</p>
-<ul>	
-<?foreach($_SESSION['infos'] as $info):?>
-	<li><?echo $info; ?></li>
-<?endforeach ?>
-<?unset($_SESSION['infos']); ?>
-</ul>
-<?endif?>
-<? if(count($_SESSION['errors']) > 0): ?>
-<p>Fehler</p>
-<ul>	
-<?foreach($_SESSION['errors'] as $error):?>
-	<li><?echo $error; ?></li>
-<?endforeach ?>
-<?unset($_SESSION['errors']); ?>
-</ul>
-<?endif?>
+<?php require_once('Layout/infos.tpl'); ?>
+<?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=login&action=login" method="POST">
 <table>
 	<tr>
@@ -25,7 +8,7 @@
 			E-Mail:
 		</td>
 		<td>
-			<input type="text" name="email" />
+			<input type="text" name="email" value="<?php echo $this->email; ?>"/>
 		</td>
 	</tr>
 	<tr>

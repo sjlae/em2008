@@ -3,17 +3,14 @@ require_once('Page.php');
 require_once('Home/Home.php');
 require_once('Datenbank/db.php');
 
-class Login implements Page{
-
+class Login extends HTMLPage implements Page{
+	
+	private $errors = array();
+	
+	private $email = '';
+	private $paswort = '';
+	
 	public function __construct() {
-		$action = $_GET['action'];
-		$go = $_GET['go'];
-		if($action == "login") {
-			$this->login();
-		}
-		if($go == 'login') {
-			$this->getView();
-		}
 	}
 
 	public function checkLogin(Page $page) {
@@ -26,40 +23,52 @@ class Login implements Page{
 	}
 
 	private function login() {
-		$email = $_POST['email'];
-		$passwort = $_POST['passwort'];
-
-		if($email == '')
-			$_SESSION['errors'][] = "Bitte das Feld 'Email' ausf&uuml;llen";
-		if($passwort == '')
-			$_SESSION['errors'][] = "Bitte das Feld 'Passwort' ausf&uuml;llen";
+		$this->email = $_POST['email'];
+		$this->passwort = $_POST['passwort'];
+		if($this->email == '')
+			$this->errors[] = "Bitte das Feld 'Email' ausf&uuml;llen";
+		if($this->passwort == '')
+			$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen";
 			
-		if(count($_SESSION['errors']) == 0) {
+		if(count($this->errors) == 0) {
 
-			$passwort = md5($passwort);
 
-			@mysql_connect("localhost", "root", "") OR die(mysql_error());
-			mysql_select_db("em2008") OR die(mysql_error());
+			$this->passwort = md5($this->passwort);
 
-			$abfrage = "SELECT * FROM User where email='".$email."' and passwort='".$passwort."'";
+			$abfrage = "SELECT * FROM User where email='".$this->email."' and passwort='".$this->passwort."'";
 
 			$ergebnis = mysql_query($abfrage);
 			
 			$ok = false;
-			
 			while($row = mysql_fetch_assoc($ergebnis))
 			{
 				$ok = true;
-				$_SESSION['eingeloggt'] = 'yes';
+				$_SESSION['eingeloggt'] = true;
 				$_SESSION['infos'][] = "Sie haben erfolgreich eingeloggt";
+				
+			
+				header('location:index.php');
+				return false;
 			}
 			if($ok == false) {
-				$_SESSION['errors'][] = "Email und Passwort stimmen nicht &uuml;berein";
+				$this->errors[] = "Email und Passwort stimmen nicht &uuml;berein";
 			}
 		}
+		
+		return true;
 	}
-
-	public function getView() {
+	
+	public function init() {
+		$action = isset($_GET['action']) ? $_GET['action'] : '';
+		
+		if($action == "login") {
+			return $this->login();
+		}
+		
+		return true;
+	}
+	
+	public function getHTML() {
 		include('layout/login.tpl');
 	}
 }

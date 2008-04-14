@@ -3,8 +3,7 @@
 class Menu {
 	public function getMenu() {
 		$registered = $_SESSION['eingeloggt'];
-		echo $_SESSION['eingeloggt'];
-		if($registered == 'yes') {
+		if($registered) {
 			return 'Menu/layout/registered.tpl';
 		}
 		else {

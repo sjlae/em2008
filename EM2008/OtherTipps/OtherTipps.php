@@ -1,8 +1,8 @@
 <?php
 require_once("Page.php");
 
-class OtherTipps implements Page {
-public function getView() {
+class OtherTipps extends HTMLPage implements Page {
+public function getHTML() {
 		include('layout/otherTipps.tpl');
 	}
 }
