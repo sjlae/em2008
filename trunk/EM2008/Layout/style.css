@@ -11,7 +11,7 @@ body {
 
 #container {
 	margin: 0 auto;
-	width: 750px;
+	width: 722px;
 	text-align: left;
 }
 
@@ -39,7 +39,7 @@ h1 a {
 #menu {
 	float: right;
 	margin: 0;
-	width: 200px;
+	width: 175px;
 	padding: 0;
 	margin: 60px 0;
 	padding-top: 10px;
@@ -78,7 +78,7 @@ body#Overview #mn_Overview {
 
 #content {
 	margin-left: 50px;
-	margin-right: 200px;
+	margin-right: 180px;
 	padding: 15px 25px;
 	font-size:  0.8em;
 	min-height: 100px;
@@ -99,7 +99,7 @@ body#Overview #mn_Overview {
 #footer {
 	margin-top: 2em;
 	margin-left: 52px;
-	margin-right: 200px;
+	margin-right: 175px;
 	padding: 10px 25px;
 	background-color: white;
 }
