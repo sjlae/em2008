@@ -44,7 +44,7 @@ class Register extends HTMLPage implements Page {
 		if(count($this->errors) == 0) {
 			$pwd = md5($this->passwort1);
 			
-			$query = "Insert into User(nachname, vorname, email, passwort, woherfsid) values('".$this->nachname."', '".$this->vorname."', '".$this->email."', '".$this->passwort1."', '".$this->where."')";
+			$query = "Insert into User(nachname, vorname, email, passwort, woherfsid) values('".$this->nachname."', '".$this->vorname."', '".$this->email."', '".$pwd."', '".$this->where."')";
 			
 			mysql_query($query);
 			
