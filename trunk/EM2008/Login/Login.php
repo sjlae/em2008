@@ -8,7 +8,7 @@ class Login extends HTMLPage implements Page{
 	private $errors = array();
 	
 	private $email = '';
-	private $paswort = '';
+	private $passwort = '';
 	
 	public function __construct() {
 	}

@@ -1,9 +1,30 @@
 <?php
 require_once("Page.php");
+require_once('Datenbank/db.php');
 
 class Ranking extends HTMLPage implements Page {
-public function getHTML() {
+		
+	public function getHTML() {
+		$abfrage = "SELECT vorname, nachname, punkte FROM user ORDER BY user.punkte DESC";
+
+		$ergebnis = mysql_query($abfrage);
+		
+		$counter = 0;
+		
+		while($row = mysql_fetch_assoc($ergebnis))
+		{
+			$rankingArray[$counter]['vorname'] = $row['vorname'];
+			$rankingArray[$counter]['nachname'] = $row['nachname'];
+			$rankingArray[$counter]['punkte'] = $row['punkte'];
+
+			$counter++;
+		}
 		include('layout/ranking.tpl');
 	}
+	
+	public function __construct() {
+		
+	}
+	
 }
 ?>
