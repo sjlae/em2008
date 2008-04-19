@@ -34,12 +34,29 @@
 							}
 						?>
 					</td>
-					<td style="padding-left: 10px">
-						<?echo $ranking['vorname'] ?>
-					</td>
-					<td style="padding-left: 10px">
-						<?echo $ranking['nachname'] ?>
-					</td>
+					<?
+						if($ranking['bezahlt'] == 0){
+					?>
+							<td style="padding-left: 10px; color: red">
+								<?echo $ranking['vorname']?>
+							</td>
+							<td style="padding-left: 10px; color:red">
+								<?echo $ranking['nachname'] ?>
+								(nnb)
+							</td>
+					<?
+						}
+						else{
+					?>
+							<td style="padding-left: 10px;">
+								<?echo $ranking['vorname']?>
+							</td>
+							<td style="padding-left: 10px;">
+								<?echo $ranking['nachname'] ?>
+							</td>
+					<?
+						}
+					?>
 					<td style="padding-left: 10px">
 						<?echo $ranking['punkte'] ?>
 					</td>
@@ -51,3 +68,5 @@
 		}
 	?>
 </table>
+<br><br>
+<span style="color: red">nnb --> noch nicht bezahlt</span>
