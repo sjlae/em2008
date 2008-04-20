@@ -16,16 +16,10 @@ class Admin extends HTMLPage implements Page{
 	}
 
 	private function setPayFlag() {
-		echo $_POST['maxUser'];
-		echo "blbla"+$_POST['user0'];
 		for($i=0; $i<=$_POST['maxUser']; $i++) {
-			echo "t1t";
-			
-			if($_POST['user'+$i] != '') {
-				echo "t2t";
-				$userid = $_POST['user'+$i];
-
-				$abfrage = "Update User set bezahlt=1 where userid="+$userid;
+			if($_POST["user$i"] != '') {
+				$userid = $_POST["user$i"];
+				$abfrage = "Update User set bezahlt=1 where userid=$userid";
 				mysql_query($abfrage);
 
 			}

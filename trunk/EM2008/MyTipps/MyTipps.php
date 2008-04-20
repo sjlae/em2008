@@ -50,7 +50,7 @@ class MyTipps extends HTMLPage implements Page {
 	 * todo depeding on time
 	 */
 	private function isDisabled() {
-		return "disabled";
+		return "enabled";
 	}
 	private function getData() {
 		$abfrage = "SELECT * FROM VorrundeTeams";
