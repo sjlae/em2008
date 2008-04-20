@@ -44,7 +44,7 @@ switch($go) {
 		break;
 	case 'admin':
 		$admin = new Admin();
-		$admin->getView();
+		LoggedIn::isAdmin($admin);
 		break;
 	default:
 		$home = new Home();
