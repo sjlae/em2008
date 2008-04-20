@@ -24,7 +24,6 @@ class Ranking extends HTMLPage implements Page {
 	}
 	
 	public function __construct() {
-		
 	}
 	
 }
