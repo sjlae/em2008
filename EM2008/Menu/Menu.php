@@ -1,4 +1,5 @@
 <?php
+require_once('Datenbank/db.php');
 
 class Menu {
 	public function getMenu() {
@@ -8,8 +9,7 @@ class Menu {
 		}
 		else {
 			return 'Menu/layout/notRegistered.tpl';
-		}
-		
+		}	
 	}
 }
 ?>
