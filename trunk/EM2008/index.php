@@ -1,13 +1,15 @@
 <?php
 session_start();
 
-include_once('Home/Home.php');
-include_once('Login/Login.php');
+require_once('Home/Home.php');
+require_once('Login/Login.php');
+require_once('Login/LoggedIn.php');
 require_once('Rules/Rules.php');
 require_once('Register/Register.php');
 require_once('Ranking/Ranking.php');
 require_once('MyTipps/MyTipps.php');
 require_once('OtherTipps/OtherTipps.php');
+require_once('Admin/Admin.php');
 
 
 //unset($_SESSION['eingeloggt']);
@@ -34,11 +36,15 @@ switch($go) {
 		break;
 	case 'myTipps':
 		$myTipps = new MyTipps();
-		$myTipps->getView();
+		LoggedIn::isRegistered($myTipps);
 		break;
 	case 'otherTipps':
 		$otherTipps = new OtherTipps();
-		$otherTipps->getView();
+		LoggedIn::isRegistered($otherTipps);
+		break;
+	case 'admin':
+		$admin = new Admin();
+		$admin->getView();
 		break;
 	default:
 		$home = new Home();

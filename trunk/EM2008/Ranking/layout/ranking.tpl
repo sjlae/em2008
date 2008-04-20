@@ -19,6 +19,8 @@
 	<? 
 		$rang = 1;
 		$previousPoints = null;
+		
+		if($rankingArray != null){
 			foreach($rankingArray as $ranking): 
 	?>
 				<tr>
@@ -63,7 +65,7 @@
 			$rang++;
 			$previousPoints = $ranking['punkte'];
 			endforeach; 
-	
+		}
 	?>
 </table>
 <br><br>
