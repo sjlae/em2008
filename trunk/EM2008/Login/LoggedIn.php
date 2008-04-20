@@ -12,5 +12,28 @@ class LoggedIn extends Login{
 			$login->getView(); 
 		}
 	}
+	public static function isAdmin(Page $page) {
+		$registered = $_SESSION['eingeloggt'];
+		if($registered) {
+			$abfrage = "SELECT * FROM User where userid='".$_SESSION['userid']."'";
+	
+			$ergebnis = mysql_query($abfrage);
+			
+			while($row = mysql_fetch_assoc($ergebnis))
+			{
+				if($row['admin'] == '1'){
+					$page->getView();
+				}
+				else{
+					$home = new Home();
+					$home->getView();
+				}
+			}
+		}
+		else{
+			$login = new Login();
+			$login->getView(); 
+		}	
+	}
 }
 ?>
