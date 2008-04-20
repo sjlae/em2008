@@ -19,5 +19,16 @@
 	<?php $i++; ?>
 	<?php endforeach; ?>
 </table>
+<input type="hidden" name="maxUser" value="<?php echo $i-1; ?>" />
 <input type="submit" value="Erfassen" />
 </form>
+<h3>Resultate erfassen</h3>
+<table>
+	<tr>
+		<td>#</td>
+		<td>Team1</td>
+		<td>Team2</td>
+		<td>Resultat1</td>
+		<td>Resultat2</td>
+	</tr>
+</table>
