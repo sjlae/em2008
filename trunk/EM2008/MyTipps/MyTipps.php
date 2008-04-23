@@ -18,22 +18,43 @@ class MyTipps extends HTMLPage implements Page {
 	private function setTipps() {
 		//set user vorrunde tipps
 		for($i=1;$i<=24;$i++) {
-			if($_POST['result1'.$i] != '' || $_POST['result2'.$i] != '') {
-				$this->isExisting($i);
+			$result1 = $_POST['result1'.$i]; 
+			$result2 = $_POST['result2'.$i];
+			if($result1 != '' || $result2 != '') {
+				if($this->isExisting($i)) {
+					$this->updateTipp($i, $result1, $result2);
+				} else {
+					$this->addTipp($i, $result1, $result2);
+				}
 			}
 		}
 		//set hauptrunde tipps
 	}
 	
-	private function isExisting($vorrundenteamsid) {
+	private function addTipp($i, $result1, $result2) {
+		if(isDisabled == 'enalbled') {
+			
+		} else {
+			//Too late
+		}
+	}
+	
+	private function updateTipp($i, $result1, $result2) {
+	if(isDisabled == 'enalbled') {
+			
+		} else {
+			//Too late
+		}
+	}
+	
+	private function isExisting($vorrundeteamsid) {
 		$userid = $_SESSION['userid'];
 
-		$abfrage = "SELECT * FROM UserVorrunde, Vorrunde where vorrundefsid=".$vorrundeteamsid." and userfsid=".$userid;
+		$abfrage = "SELECT * FROM UserVorrunde where vorrundefsid=".$vorrundeteamsid." and userfsid=".$userid;
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{	
-			echo "test";
 			return true;
 		}
 
@@ -68,7 +89,9 @@ class MyTipps extends HTMLPage implements Page {
 	/*
 	 * todo depeding on time
 	 */
-	private function isDisabled() {
+	private function isDisabled($start) {
+		 if(mktime() >= strtotime($start))
+		 	return "disabled";
 		return "enabled";
 	}
 	private function getData() {
@@ -82,7 +105,7 @@ class MyTipps extends HTMLPage implements Page {
 		{
 			$this->vorrunde[$i]['id'] = $row['vorrundeteamsid'];
 			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
-			$this->vorrunde[$i]['disabled'] = $this->isDisabled();
+			$this->vorrunde[$i]['disabled'] = $this->isDisabled($row['start']);
 			$this->vorrunde[$i]['team1'] = $this->getTeam($row['team1fsid']);
 			$this->vorrunde[$i]['team2'] = $this->getTeam($row['team2fsid']);
 			$results = $this->getUserResult($row['vorrundeteamsid']);

@@ -17,8 +17,8 @@
 		<td><?php echo $spiel['start']; ?></td>
 		<td><?php echo $spiel['team1']; ?></td>
 		<td><?php echo $spiel['team2']; ?></td>
-		<td align="center"><input type="text" style="width: 15px" value="<?php echo $spiel['result1']; ?>" <?php echo $spiel['disabled']; ?> name="result1<?php $spiel['id']; ?>" /></td>
-		<td align="center"><input type="text" style="width: 15px" value="<?php echo $spiel['result2']; ?>" <?php echo $spiel['disabled']; ?> name="result2<?php $spiel['id']; ?>" /></td>
+		<td align="center"><input type="text" style="width: 15px" value="<?php echo $spiel['result1']; ?>" <?php echo $spiel['disabled']; ?> name="result1<?php echo $spiel['id']; ?>" /></td>
+		<td align="center"><input type="text" style="width: 15px" value="<?php echo $spiel['result2']; ?>" <?php echo $spiel['disabled']; ?> name="result2<?php echo $spiel['id']; ?>" /></td>
 		<td align="center"><?php echo $spiel['realresult1']; ?></td>
 		<td align="center"><?php echo $spiel['realresult2']; ?></td>
 	</tr>
