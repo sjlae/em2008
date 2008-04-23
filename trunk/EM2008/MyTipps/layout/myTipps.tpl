@@ -1,6 +1,6 @@
 <h2>Meine Tipps</h2>
 <form action="index.php?go=myTipps&action=setTipps" method="POST">
-<table border="1 black solid">
+<table border="0">
 	<tr>
 		<td align="center" style="white-space: nowrap"><b>#</b></td>
 		<td style="white-space: nowrap"><b>Datum</b></td>
@@ -8,20 +8,22 @@
 		<td style="white-space: nowrap"><b>Team 2</b></td>
 		<td style="white-space: nowrap"><b>Tore 1</b></td>
 		<td style="white-space: nowrap"><b>Tore 2</b></td>
-		<td style="white-space: nowrap"><b>Resultat 1</b></td>
-		<td style="white-space: nowrap"><b>Resultat 2</b></td>
+		<td style="white-space: nowrap"><b>Res. 1</b></td>
+		<td style="white-space: nowrap"><b>Res. 2</b></td>
 	</tr>
+	<?php $i = 0; ?>
 	<?php foreach($this->vorrunde as $spiel): ?>
 	<tr>
 		<td align="center"><?php echo $spiel['id']; ?></td>
 		<td><?php echo $spiel['start']; ?></td>
 		<td><?php echo $spiel['team1']; ?></td>
 		<td><?php echo $spiel['team2']; ?></td>
-		<td align="center"><input type="text" style="width: 15px" value="<?php echo $spiel['result1']; ?>" <?php echo $spiel['disabled']; ?> /></td>
-		<td align="center"><input type="text" style="width: 15px" value="<?php echo $spiel['result2']; ?>" <?php echo $spiel['disabled']; ?> /></td>
+		<td align="center"><input type="text" style="width: 15px" value="<?php echo $spiel['result1']; ?>" <?php echo $spiel['disabled']; ?> name="result1<?php echo $i; ?>" /></td>
+		<td align="center"><input type="text" style="width: 15px" value="<?php echo $spiel['result2']; ?>" <?php echo $spiel['disabled']; ?> name="result2<?php echo $i; ?>" /></td>
 		<td align="center"><?php echo $spiel['realresult1']; ?></td>
 		<td align="center"><?php echo $spiel['realresult2']; ?></td>
 	</tr>
+	<?php $i++; ?>
 	<?php endforeach; ?>
 </table>
 <h3>Viertelfinalteilnehmer</h3>
