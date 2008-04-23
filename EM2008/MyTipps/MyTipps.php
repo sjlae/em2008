@@ -17,8 +17,27 @@ class MyTipps extends HTMLPage implements Page {
 	
 	private function setTipps() {
 		//set user vorrunde tipps
-		
+		for($i=1;$i<=24;$i++) {
+			if($_POST['result1'.$i] != '' || $_POST['result2'.$i] != '') {
+				$this->isExisting($i);
+			}
+		}
 		//set hauptrunde tipps
+	}
+	
+	private function isExisting($vorrundenteamsid) {
+		$userid = $_SESSION['userid'];
+
+		$abfrage = "SELECT * FROM UserVorrunde, Vorrunde where vorrundefsid=".$vorrundeteamsid." and userfsid=".$userid;
+
+		$ergebnis = mysql_query($abfrage);
+		while($row = mysql_fetch_assoc($ergebnis))
+		{	
+			echo "test";
+			return true;
+		}
+
+		return false;
 	}
 	
 	private function getTeam($id) {
@@ -62,7 +81,7 @@ class MyTipps extends HTMLPage implements Page {
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
 			$this->vorrunde[$i]['id'] = $row['vorrundeteamsid'];
-			$this->vorrunde[$i]['start'] = date('d.m.Y h:m', strtotime($row['start']));
+			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
 			$this->vorrunde[$i]['disabled'] = $this->isDisabled();
 			$this->vorrunde[$i]['team1'] = $this->getTeam($row['team1fsid']);
 			$this->vorrunde[$i]['team2'] = $this->getTeam($row['team2fsid']);
@@ -76,7 +95,7 @@ class MyTipps extends HTMLPage implements Page {
 		}
 	}
 	private function getCountries() {
-		$abfrage = "SELECT * FROM Teams";
+		$abfrage = "SELECT * FROM Teams order by land asc";
 
 		$ergebnis = mysql_query($abfrage);
 		
