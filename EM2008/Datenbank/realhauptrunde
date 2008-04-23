@@ -1,0 +1,19 @@
+CREATE TABLE  `realhauptrunde` (
+ `realhauptrundeid` INT( 11 ) NOT NULL AUTO_INCREMENT ,
+ `viertelfinal1` INT( 11 ) NOT NULL ,
+ `viertelfinal2` INT( 11 ) NOT NULL ,
+ `viertelfinal3` INT( 11 ) NOT NULL ,
+ `viertelfinal4` INT( 11 ) NOT NULL ,
+ `viertelfinal5` INT( 11 ) NOT NULL ,
+ `viertelfinal6` INT( 11 ) NOT NULL ,
+ `viertelfinal7` INT( 11 ) NOT NULL ,
+ `viertelfinal8` INT( 11 ) NOT NULL ,
+ `halbfinal1` INT( 11 ) NOT NULL ,
+ `halbfinal2` INT( 11 ) NOT NULL ,
+ `halbfinal3` INT( 11 ) NOT NULL ,
+ `halbfinal4` INT( 11 ) NOT NULL ,
+ `final1` INT( 11 ) NOT NULL ,
+ `final2` INT( 11 ) NOT NULL ,
+ `europameister` INT( 11 ) NOT NULL ,
+PRIMARY KEY (  `realhauptrundeid` )
+) ENGINE = MYISAM DEFAULT CHARSET = latin1 AUTO_INCREMENT =1;
