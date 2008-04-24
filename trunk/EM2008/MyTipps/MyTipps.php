@@ -6,19 +6,19 @@ class MyTipps extends HTMLPage implements Page {
 
 	private $vorrunde = array();
 	private $countries = array();
-	
+
 	public function __construct() {
-	$action = isset($_GET['action']) ? $_GET['action'] : '';
-		
+		$action = isset($_GET['action']) ? $_GET['action'] : '';
+
 		if($action == "setTipps") {
 			$this->setTipps();
 		}
 	}
-	
+
 	private function setTipps() {
 		//set user vorrunde tipps
 		for($i=1;$i<=24;$i++) {
-			$result1 = $_POST['result1'.$i]; 
+			$result1 = $_POST['result1'.$i];
 			$result2 = $_POST['result2'.$i];
 			if($result1 != '' || $result2 != '') {
 				if($this->isExisting($i)) {
@@ -29,24 +29,54 @@ class MyTipps extends HTMLPage implements Page {
 			}
 		}
 		//set hauptrunde tipps
-	}
+		//viertelfinale
+		//Existingcheck
+		//in usertabelle schauen ob fsid gesetzt ist, dann ein flag machen
+		$isExisting = $this->isExistingHauptrunde();
 	
+		for($i=1;$i<=8;$i++) {
+			$team = $_POST['viertelfinal'.$i];
+			if(isset($team) && $team != '') {
+
+				//$this->addHauptrundeTipp();
+			} else {
+				//Do nothing
+			}
+		}
+	}
+
+	private function isExistingHauptrunde() {
+		$userid = $_SESSION['userid'];
+
+		$abfrage = "SELECT hauptrundefsid FROM User where userid=".$userid;
+
+		$ergebnis = mysql_query($abfrage);
+		while($row = mysql_fetch_assoc($ergebnis))
+		{
+			if($row['hauptrundefsid'] == 0)
+				return false;
+			else 
+				return true;
+		}
+		return false;
+	}
+
 	private function addTipp($i, $result1, $result2) {
 		if(isDisabled == 'enalbled') {
-			
+				
 		} else {
 			//Too late
 		}
 	}
-	
+
 	private function updateTipp($i, $result1, $result2) {
-	if(isDisabled == 'enalbled') {
-			
+		if(isDisabled == 'enalbled') {
+				
 		} else {
 			//Too late
 		}
 	}
-	
+
 	private function isExisting($vorrundeteamsid) {
 		$userid = $_SESSION['userid'];
 
@@ -54,13 +84,13 @@ class MyTipps extends HTMLPage implements Page {
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
-		{	
+		{
 			return true;
 		}
 
 		return false;
 	}
-	
+
 	private function getTeam($id) {
 		$abfrage = "SELECT * FROM Teams where teamid=".$id;
 
@@ -74,7 +104,7 @@ class MyTipps extends HTMLPage implements Page {
 	private function getUserResult($vorrundeteamsid) {
 		$userid = $_SESSION['userid'];
 
-		$abfrage = "SELECT result1, result2 FROM UserVorrunde, Vorrunde where vorrundefsid=".$vorrundeteamsid." and userfsid=".$userid;
+		$abfrage = "SELECT result1, result2 FROM UserVorrunde, Vorrunde where vorrundeteamsfsid=".$vorrundeteamsid." and userfsid=".$userid;
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
@@ -90,8 +120,8 @@ class MyTipps extends HTMLPage implements Page {
 	 * todo depeding on time
 	 */
 	private function isDisabled($start) {
-		 if(mktime() >= strtotime($start))
-		 	return "disabled";
+		if(mktime() > strtotime($start))
+		return "disabled";
 		return "enabled";
 	}
 	private function getData() {
@@ -113,7 +143,7 @@ class MyTipps extends HTMLPage implements Page {
 			$this->vorrunde[$i]['result2'] = $results[1];
 			$this->vorrunde[$i]['realresult1'] = $row['realresult1'];
 			$this->vorrunde[$i]['realresult2'] = $row['realresult2'];
-				
+
 			$i++;
 		}
 	}
@@ -121,7 +151,7 @@ class MyTipps extends HTMLPage implements Page {
 		$abfrage = "SELECT * FROM Teams order by land asc";
 
 		$ergebnis = mysql_query($abfrage);
-		
+
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
 			$this->countries[] = $row['land'];
