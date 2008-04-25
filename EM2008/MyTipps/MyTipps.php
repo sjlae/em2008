@@ -104,17 +104,26 @@ class MyTipps extends HTMLPage implements Page {
 	private function getUserResult($vorrundeteamsid) {
 		$userid = $_SESSION['userid'];
 
-		$abfrage = "SELECT result1, result2 FROM UserVorrunde, Vorrunde where vorrundeteamsfsid=".$vorrundeteamsid." and userfsid=".$userid;
-
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
+		$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=$userid";
+		$resultUserTipps = mysql_query($anzahlUserTipps);
+		
+		while($row = mysql_fetch_assoc($resultUserTipps))
 		{
-			$results[] = $row['result1'];
-			$results[] = $row['result2'];
+			$vorrundeid = $row['vorrundefsid'];
+			
+			$tippedMatch = "SELECT * FROM Vorrunde where vorrundeid=$vorrundeid";
+			$resultTippedMatch = mysql_query($tippedMatch);
+			
+			while($row = mysql_fetch_assoc($resultTippedMatch))
+			{
+				if($vorrundeteamsid == $row['vorrundeteamsfsid']){
+					$results[] = $row['result1'];
+					$results[] = $row['result2'];
+					
+					return $results;
+				}
+			}
 		}
-
-		return $results;
-
 	}
 	/*
 	 * todo depeding on time
