@@ -34,6 +34,7 @@ class Admin extends HTMLPage implements Page{
 		if($action == 'results') {
 			$this->setVorrundenResults();
 			$this->setHauptrundenTeams();
+			$this->updateUserPoints();
 		}
 	}
 
@@ -202,6 +203,76 @@ class Admin extends HTMLPage implements Page{
 			$this->final2 = $row['final2'];
 			$this->europameister = $row['europameister'];
 		}
+	}
+	
+	private function updateUserPoints() {
+		$userids = "SELECT * FROM User";
+		
+		$resultUsers = mysql_query($userids);
+		
+		while($row = mysql_fetch_assoc($resultUsers))
+			{
+				$userid = $row['userid'];
+				$points = 0;
+				
+				$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=$userid";
+				$resultUserTipps = mysql_query($anzahlUserTipps);
+				
+				while($row = mysql_fetch_assoc($resultUserTipps))
+				{
+					$vorrundeid = $row['vorrundefsid'];
+					
+					$tippedMatch = "SELECT * FROM Vorrunde where vorrundeid=$vorrundeid";
+					$resultTippedMatch = mysql_query($tippedMatch);
+					
+					while($row = mysql_fetch_assoc($resultTippedMatch))
+					{
+						$tipp1 = $row['result1'];
+						$tipp2 = $row['result2'];
+						
+						$match = $row['vorrundeteamsfsid'];
+						
+						$realResults = "SELECT realresult1, realresult2 FROM Vorrundeteams where vorrundeteamsid=".$match;
+						
+						$resultRealResults = mysql_query($realResults);
+						while($row = mysql_fetch_assoc($resultRealResults))
+						{	
+							$real1 = $row['realresult1'];
+							$real2 = $row['realresult2'];
+
+							if($real1 != '' && $real2 != ''){
+	                            if ($tipp1==$real1 && $tipp2==$real2) { 
+	                            	$points = $points+5; 
+	                            } 
+	                            else if ($real1>$real2 && $tipp1>$tipp2) { 
+	                            	if ($real1-$real2 == $tipp1-$tipp2) { 
+	                                	$points = $points+4; 
+	                                } 
+	                                else { 
+	                                	$points = $points+3; 
+	                                } 
+	                            } 
+	                            else if ($real2>$real1 && $tipp2>$tipp1) { 
+	                            	if ($real2-$real1 == $tipp2-$tipp1) { 
+	                                	$points = $points+4; 
+	                                } 
+	                                else { 
+	                                	$points = $points+3; 
+	                                }                                                    
+	                            } 
+	                            else if ($real1==$real2 && $tipp1==$tipp2) { 
+	                            	$points = $points+4; 
+	                            }
+							}
+						}
+					}
+				}
+				
+				$abfrage = "Update User set punkte=$points where userid=$userid";
+				mysql_query($abfrage);
+				
+			}
+		return $results;
 	}
 	
 	public function getHTML() {
