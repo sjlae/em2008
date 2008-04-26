@@ -399,3 +399,26 @@
 		</table>
 		<div style="padding-top: 5px"><input type="submit" value="Aktualisieren" /></div>
 	</form>
+<h3>News erfassen</h3>
+	<form action="index.php?go=admin&action=news" method="POST">
+		<table>
+			<tr>
+				<td>Titel</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" name="newsTitle" size="60" />
+				</td>
+			</tr>
+			<tr>
+				<td>Text</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea name="newsText" cols="50" rows="10"></textarea>
+				</td>
+			</tr>
+			
+		</table>
+		<input type="submit" value="Erfassen" />
+	</form>	

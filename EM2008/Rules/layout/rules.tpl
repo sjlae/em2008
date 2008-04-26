@@ -19,9 +19,9 @@
 		<h3>Punktevergabe - Teilnehmer ab Viertelfinal</h3>
 		<ul>
 			<li><b>&nbsp;6 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptest Viertelfinal-Teilnehmer-Team</li>
-			<li><b>&nbsp;7 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptest Halbfinal-Teilnehmer-Team</li>
-			<li><b>&nbsp;8 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptest Final-Teilnehmer-Team</li>
-			<li><b>10 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> f&uuml;r den richtigen Europameister</li>
+			<li><b>&nbsp;8 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptest Halbfinal-Teilnehmer-Team</li>
+			<li><b>10 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptest Final-Teilnehmer-Team</li>
+			<li><b>12 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> f&uuml;r den richtigen Europameister</li>
 		</ul>
 		<p>Damit du allf&auml;llig ben&ouml;tigte Gedankenanst&ouml;sse zur Hilfe beiziehen kannst oder mit anderen Teilnehmer &uuml;ber die abgegebenen Tipps fachsimpeln 
 		kannst, werden s&auml;mtliche Tipps von den Teilnehmern f&uuml;r alle angemeldeten Mitspieler ersichtlich sein. Der andere Grund f&uuml;r dieses Vorhaben 

@@ -11,10 +11,6 @@ require_once('MyTipps/MyTipps.php');
 require_once('OtherTipps/OtherTipps.php');
 require_once('Admin/Admin.php');
 
-
-//unset($_SESSION['eingeloggt']);
-//unset($_SESSION['infos']);
-
 $go = isset($_GET['go']) ? $_GET['go'] : '';
 
 switch($go) {
@@ -45,6 +41,11 @@ switch($go) {
 	case 'admin':
 		$admin = new Admin();
 		LoggedIn::isAdmin($admin);
+		break;
+	case 'logout':
+		unset($_SESSION['eingeloggt']);
+		$home = new Home();
+		$home->getView();
 		break;
 	default:
 		$home = new Home();

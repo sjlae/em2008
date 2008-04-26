@@ -18,4 +18,5 @@
 			}
 		}		
 	?>
+	<li class="overview" id="mn_Overview"><a href="index.php?go=logout"><span>Logout</span></a></li>
 </ul>		

@@ -36,6 +36,10 @@ class Admin extends HTMLPage implements Page{
 			$this->setHauptrundenTeams();
 			$this->updateUserPoints();
 		}
+		
+		if($action == 'news') {
+			$this->saveNews();
+		}
 	}
 
 	private function setPayFlag() {
@@ -268,11 +272,248 @@ class Admin extends HTMLPage implements Page{
 					}
 				}
 				
+				$hauptrundeIdFromUser = "SELECT hauptrundefsid FROM User where userid=$userid";
+				$resultHauptrundeIdFromUser = mysql_query($hauptrundeIdFromUser);
+				
+				while($row = mysql_fetch_assoc($resultHauptrundeIdFromUser))
+				{
+					$hauptrundeId = $row['hauptrundefsid'];
+					
+					$hauptrundeTippsFromUser = "SELECT * FROM hauptrunde where hauptrundeid=$hauptrundeId";
+					$resultHauptrundeTippsFromUser = mysql_query($hauptrundeTippsFromUser);
+					
+					while($rowUser = mysql_fetch_assoc($resultHauptrundeTippsFromUser))
+					{
+						if($rowUser['viertelfinal1'] != ''){
+							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal1'])){
+								$points = $points+6; 
+							}
+						}
+						if($rowUser['viertelfinal2'] != ''){
+							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal2'])){
+								$points = $points+6; 
+							}
+						}
+						if($rowUser['viertelfinal3'] != ''){
+							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal3'])){
+								$points = $points+6; 
+							}
+						}
+						if($rowUser['viertelfinal4'] != ''){
+							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal4'])){
+								$points = $points+6; 
+							}
+						}
+						if($rowUser['viertelfinal5'] != ''){
+							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal5'])){
+								$points = $points+6; 
+							}
+						}
+						if($rowUser['viertelfinal6'] != ''){
+							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal6'])){
+								$points = $points+6; 
+							}
+						}
+						if($rowUser['viertelfinal7'] != ''){
+							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal7'])){
+								$points = $points+6; 
+							}
+						}
+						if($rowUser['viertelfinal8'] != ''){
+							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal8'])){
+								$points = $points+6; 
+							}
+						}
+						if($rowUser['halbfinal1'] != ''){
+							if($this->isHalbfinalTippCorrect($rowUser['halbfinal1'])){
+								$points = $points+8; 
+							}
+						}
+						if($rowUser['halbfinal2'] != ''){
+							if($this->isHalbfinalTippCorrect($rowUser['halbfinal2'])){
+								$points = $points+8; 
+							}
+						}
+						if($rowUser['halbfinal3'] != ''){
+							if($this->isHalbfinalTippCorrect($rowUser['halbfinal3'])){
+								$points = $points+8; 
+							}
+						}
+						if($rowUser['halbfinal4'] != ''){
+							if($this->isHalbfinalTippCorrect($rowUser['halbfinal4'])){
+								$points = $points+8; 
+							}
+						}
+						if($rowUser['final1'] != ''){
+							if($this->isFinalTippCorrect($rowUser['final1'])){
+								$points = $points+10; 
+							}
+						}
+						if($rowUser['final2'] != ''){
+							if($this->isFinalTippCorrect($rowUser['final2'])){
+								$points = $points+10; 
+							}
+						}
+						if($rowUser['europameister'] != ''){
+							if($this->isEuropameisterTippCorrect($rowUser['europameister'])){
+								$points = $points+12; 
+							}
+						}
+					}
+				}
+				
 				$abfrage = "Update User set punkte=$points where userid=$userid";
 				mysql_query($abfrage);
 				
 			}
 		return $results;
+	}
+	
+	private function isViertelfinalTippCorrect($value){
+		$realhauptrunde = "SELECT * FROM realhauptrunde";
+		$resultRealhauptrunde = mysql_query($realhauptrunde);
+		
+		$tippCorrect = false;
+		
+		while($rowReal = mysql_fetch_assoc($resultRealhauptrunde))
+		{
+			if($rowReal['viertelfinal1'] != ''){
+				if($rowReal['viertelfinal1'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['viertelfinal2'] != ''){
+				if($rowReal['viertelfinal2'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['viertelfinal3'] != ''){
+				if($rowReal['viertelfinal3'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['viertelfinal4'] != ''){
+				if($rowReal['viertelfinal4'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['viertelfinal5'] != ''){
+				if($rowReal['viertelfinal5'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['viertelfinal6'] != ''){
+				if($rowReal['viertelfinal6'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['viertelfinal7'] != ''){
+				if($rowReal['viertelfinal7'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['viertelfinal8'] != ''){
+				if($rowReal['viertelfinal8'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			return $tippCorrect;			
+		}
+	}
+	
+	private function isHalbfinalTippCorrect($value){
+		$realhauptrunde = "SELECT * FROM realhauptrunde";
+		$resultRealhauptrunde = mysql_query($realhauptrunde);
+		
+		$tippCorrect = false;
+		
+		while($rowReal = mysql_fetch_assoc($resultRealhauptrunde))
+		{
+			if($rowReal['halbfinal1'] != ''){
+				if($rowReal['halbfinal1'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['halbfinal2'] != ''){
+				if($rowReal['halbfinal2'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['halbfinal3'] != ''){
+				if($rowReal['halbfinal3'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['halbfinal4'] != ''){
+				if($rowReal['halbfinal4'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			return $tippCorrect;			
+		}
+	}
+
+	private function isFinalTippCorrect($value){
+		$realhauptrunde = "SELECT * FROM realhauptrunde";
+		$resultRealhauptrunde = mysql_query($realhauptrunde);
+		
+		$tippCorrect = false;
+		
+		while($rowReal = mysql_fetch_assoc($resultRealhauptrunde))
+		{
+			if($rowReal['final1'] != ''){
+				if($rowReal['final1'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			if($rowReal['final2'] != ''){
+				if($rowReal['final2'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			return $tippCorrect;			
+		}
+	}
+
+	private function isEuropameisterTippCorrect($value){
+		$realhauptrunde = "SELECT europameister FROM realhauptrunde";
+		$resultRealhauptrunde = mysql_query($realhauptrunde);
+		
+		$tippCorrect = false;
+		
+		while($rowReal = mysql_fetch_assoc($resultRealhauptrunde))
+		{
+			if($rowReal['europameister'] != ''){
+				if($rowReal['europameister'] == $value){
+					$tippCorrect = true;
+					return $tippCorrect;
+				}
+			}
+			return $tippCorrect;			
+		}
+	}
+	
+	private function saveNews(){
+		$title = $_POST["newsTitle"];
+		$text = $_POST["newsText"];
+		
+		$query = "Insert into News(titel, text) values('".$title."', '".$text."')";
+			
+		mysql_query($query);
 	}
 	
 	public function getHTML() {
