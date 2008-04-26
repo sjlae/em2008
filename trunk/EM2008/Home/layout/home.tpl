@@ -1,5 +1,31 @@
 <h2 id="cont">Startseite</h2>
 <?php require_once('Layout/infos.tpl'); ?>
-<h3>04. April 08</h3>
 
-<p>Das ist ein kleiner Test</p>
+<table>
+	<?php
+		foreach($this->news as $article): 
+	?>
+			<tr>
+				<td>
+					<h3>
+						<?php
+							echo $article['date'];
+						?>
+						-
+						<?php
+							echo $article['title'];
+						?>
+					</h3>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<?php
+						echo $article['text'];
+					?>				
+				</td>
+			</tr>
+	<?php		
+		endforeach;
+	?>
+</table>
