@@ -29,20 +29,46 @@ class MyTipps extends HTMLPage implements Page {
 			}
 		}
 		//set hauptrunde tipps
-		//viertelfinale
 		//Existingcheck
-		//in usertabelle schauen ob fsid gesetzt ist, dann ein flag machen
-		$isExisting = $this->isExistingHauptrunde();
-	
-		for($i=1;$i<=8;$i++) {
-			$team = $_POST['viertelfinal'.$i];
-			if(isset($team) && $team != '') {
+		$hauptrundefsid = $this->isExistingHauptrunde();
+		$hauptrundetipps = array();
 
-				//$this->addHauptrundeTipp();
-			} else {
-				//Do nothing
-			}
+
+		for($i=1;$i<=8;$i++) {
+			$teamid = $_POST['viertelfinal'.$i];
+			$hauptrundetipps[] = $teamid;
 		}
+		//halbfinal
+		for($i=1;$i<=4;$i++) {
+			$teamid = $_POST['halbfinal'.$i];
+			$hauptrundetipps[] = $teamid;
+		}
+
+		//Final
+		for($i=1;$i<=2;$i++) {
+			$teamid = $_POST['final'.$i];
+			$hauptrundetipps[] = $teamid;
+		}
+
+		//Europameister
+		$teamid = $_POST['europameister'.$i];
+		$hauptrundetipps[] = $teamid;
+		
+		//timecheck??
+			if(!$hauptrundefsid) {
+				$this->addHauptrundeTipp($hauptrundefsid, $hauptrundetipps);
+			} else {
+				$this->updateHauptrundeTipp($hauptrundefsid, $hauptrundetipps);
+			}
+	}
+
+	private function updateHauptrundeTipp($hauptrundeid, $teamfsid) {
+
+	}
+
+	private function addHauptrundeTipp($hauptrundeid, $hauptrundetipps) {
+			$abfrage = "Insert into hauptrunde values('', '".$hauptrundetipps[0]."', '".$hauptrundetipps[1]."', '".$hauptrundetipps[2]."', '".$hauptrundetipps[3]."', '".$hauptrundetipps[4]."', '".$hauptrundetipps[5]."', '".$hauptrundetipps[6]."', '".$hauptrundetipps[7]."', '".$hauptrundetipps[8]."', '".$hauptrundetipps[9]."', '".$hauptrundetipps[10]."', '".$hauptrundetipps[11]."', '".$hauptrundetipps[12]."', '".$hauptrundetipps[13]."', '".$hauptrundetipps[14]."', '".$hauptrundetipps[15]."'";
+			echo $abfrage
 	}
 
 	private function isExistingHauptrunde() {
@@ -54,16 +80,16 @@ class MyTipps extends HTMLPage implements Page {
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
 			if($row['hauptrundefsid'] == 0)
-				return false;
-			else 
-				return true;
+			return false;
+			else
+			return $row['hauptrundefsid'];
 		}
 		return false;
 	}
 
 	private function addTipp($i, $result1, $result2) {
 		if(isDisabled == 'enalbled') {
-				
+
 		} else {
 			//Too late
 		}
@@ -71,7 +97,7 @@ class MyTipps extends HTMLPage implements Page {
 
 	private function updateTipp($i, $result1, $result2) {
 		if(isDisabled == 'enalbled') {
-				
+
 		} else {
 			//Too late
 		}
@@ -106,20 +132,20 @@ class MyTipps extends HTMLPage implements Page {
 
 		$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=$userid";
 		$resultUserTipps = mysql_query($anzahlUserTipps);
-		
+
 		while($row = mysql_fetch_assoc($resultUserTipps))
 		{
 			$vorrundeid = $row['vorrundefsid'];
-			
+
 			$tippedMatch = "SELECT * FROM Vorrunde where vorrundeid=$vorrundeid";
 			$resultTippedMatch = mysql_query($tippedMatch);
-			
+
 			while($row = mysql_fetch_assoc($resultTippedMatch))
 			{
 				if($vorrundeteamsid == $row['vorrundeteamsfsid']){
 					$results[] = $row['result1'];
 					$results[] = $row['result2'];
-					
+
 					return $results;
 				}
 			}
