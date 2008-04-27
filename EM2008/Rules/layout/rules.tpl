@@ -13,14 +13,14 @@
 		<ul>
 			<li><b>5 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> korrekter Resultattipp und der richtige Sieger bzw. untentschieden (du tippst 2:1 und das Spiel endet 2:1)</li>
 			<li><b>4 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> richtiger Sieger bzw. unentschieden mit der korrekten Tordifferenz (du tippst 2:1, aber das Spiel endet 1:0)</li>
-			<li><b>3 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> richtiger Sieger mit falscher Torrdifferenz (du tippst 2:1, aber das Spiel endet 2:0)</li>
+			<li><b>3 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> richtiger Sieger mit falscher Tordifferenz (du tippst 2:1, aber das Spiel endet 2:0)</li>
 			<li><b>0 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> falscher Sieger (du tippst 2:1, aber das Spiel endet 1:2)</li>
 		</ul>
 		<h3>Punktevergabe - Teilnehmer ab Viertelfinal</h3>
 		<ul>
-			<li><b>&nbsp;6 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptest Viertelfinal-Teilnehmer-Team</li>
-			<li><b>&nbsp;8 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptest Halbfinal-Teilnehmer-Team</li>
-			<li><b>10 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptest Final-Teilnehmer-Team</li>
+			<li><b>&nbsp;6 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptes Viertelfinal-Teilnehmer-Team</li>
+			<li><b>&nbsp;8 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptes Halbfinal-Teilnehmer-Team</li>
+			<li><b>10 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> pro korrekt getipptes Final-Teilnehmer-Team</li>
 			<li><b>12 Punkte</b> <img alt="" src="pfeil_rechts.jpg" style="width: 40px; height: 15px"/> f&uuml;r den richtigen Europameister</li>
 		</ul>
 		<p>Damit du allf&auml;llig ben&ouml;tigte Gedankenanst&ouml;sse zur Hilfe beiziehen kannst oder mit anderen Teilnehmer &uuml;ber die abgegebenen Tipps fachsimpeln 
