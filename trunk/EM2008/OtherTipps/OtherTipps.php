@@ -18,15 +18,11 @@ class OtherTipps extends HTMLPage implements Page {
 		$this->action = isset($_GET['action']) ? $_GET['action'] : '';
 		$id = isset($_GET['id']) ? $_GET['id'] : '';
 
-		if($this->action == 'getTipps')
-		$this->getUserTipps($id);
-
-		$this->getData();
-
-
-		$this->getUserHauptrundeTipps();
-
-
+		if($this->action == 'getTipps') {
+			$this->getUserTipps($id);
+			$this->getData();
+			$this->getUserHauptrundeTipps();
+		} else 
 		$this->getPlayers();
 
 
@@ -117,7 +113,7 @@ class OtherTipps extends HTMLPage implements Page {
 
 	private function getCountries() {
 		$abfrage = "SELECT * FROM Teams order by land asc";
-		
+
 		$ergebnis = mysql_query($abfrage);
 
 		$i=0;
@@ -131,7 +127,7 @@ class OtherTipps extends HTMLPage implements Page {
 
 	private function getUserHauptrundeTipps() {
 		$userid = $this->realid;
-		
+
 		$abfrage = "Select * from hauptrunde where userfsid=".$userid;
 
 		$ergebnis = mysql_query($abfrage);
