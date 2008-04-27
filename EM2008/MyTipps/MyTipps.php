@@ -8,6 +8,8 @@ class MyTipps extends HTMLPage implements Page {
 	private $countries = array();
 	private $hauptrundefsid = '';
 
+	private $errors = array();
+
 	private $userViertelfinal = array();
 	private $userHalbfinal = array();
 	private $userFinal = array();
@@ -16,20 +18,20 @@ class MyTipps extends HTMLPage implements Page {
 
 	public function __construct() {
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
-		
+
 		$this->getData();
 
 		if($action == "setTipps") {
 			$this->setTipps();
 		}
-		
+
 		$this->getData();
-		
+
 		$this->hauptrundefsid = $this->isExistingHauptrunde();
-		
+
 		if($this->hauptrundefsid) {
-		$this->getUserHauptrundeTipps();
-		} 
+			$this->getUserHauptrundeTipps();
+		}
 	}
 
 	private function getUserHauptrundeTipps() {
@@ -64,11 +66,19 @@ class MyTipps extends HTMLPage implements Page {
 		for($i=1;$i<=24;$i++) {
 			$result1 = $_POST['result1'.$i];
 			$result2 = $_POST['result2'.$i];
-			if($result1 != '' || $result2 != '') {
+			if($this->isExisting($i)) {
 				if($this->isExisting($i)) {
 					$this->updateTipp($i, $result1, $result2);
 				} else {
 					$this->addTipp($i, $result1, $result2);
+				}
+			} else {
+				if($result1 != '' || $result2 != '') {
+					if($this->isExisting($i)) {
+						$this->updateTipp($i, $result1, $result2);
+					} else {
+						$this->addTipp($i, $result1, $result2);
+					}
 				}
 			}
 		}
@@ -100,13 +110,24 @@ class MyTipps extends HTMLPage implements Page {
 
 		//timecheck??
 		$this->hauptrundefsid = $this->isExistingHauptrunde();
-		
-		if($this->hauptrundefsid) {
-			$this->updateHauptrundeTipp($hauptrundetipps);
+		if($this->isDisabledHauptrunde()=="enabled") {
+			if($this->hauptrundefsid) {
+				$this->updateHauptrundeTipp($hauptrundetipps);
+			} else {
+				$this->addHauptrundeTipp($hauptrundetipps);
+			}
 		} else {
-			$this->addHauptrundeTipp($hauptrundetipps);
-			
+			$this->errors[] = "Die Zeit ist abgelaufen, um Hauptrundentipps zu erfassen.";
 		}
+
+		$_SESSION['infos'][] = "Ihre Tipps wurden erfolgreich erfasst.";
+	}
+
+	private function isDisabledHauptrunde() {
+		if(mktime() > mktime(18, 0, 0, 6, 7, 2008))
+		return "disabled";
+
+		return "enabled";
 	}
 
 	private function updateHauptrundeTipp($hauptrundetipps) {
@@ -128,9 +149,9 @@ class MyTipps extends HTMLPage implements Page {
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
 			if($row['userfsid'] == '')
-				return false;
+			return false;
 			else
-				return true;
+			return true;
 		}
 		return false;
 	}
@@ -139,36 +160,43 @@ class MyTipps extends HTMLPage implements Page {
 		if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled') {
 			$abfrage = "Insert into vorrunde value('', '".$result1."', '".$result2."', '".$i."')";
 			mysql_query($abfrage);
-			
+
 			$vorrundeid = mysql_insert_id();
-			
+
 			$abfrage = "Insert into uservorrunde value(".$_SESSION['userid'].", ".$vorrundeid.")";
 			mysql_query($abfrage);
 		} else {
-			//Too late
-			echo "addtime";
-			
+			$this->errors[] = "Die Zeit ist abgelaufen, um Vorrudentipps zu erfassen.";
 		}
 	}
 
 	private function updateTipp($i, $result1, $result2) {
 		if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled') {
-			$abfrage = "Insert into vorrunde value('', '".$result1."', '".$result2."', '".$i."')";
-			mysql_query($abfrage);
-			
-			$vorrundeid = mysql_insert_id();
-			
-			$abfrage = "Insert into uservorrunde value(".$_SESSION['userid'].", ".$vorrundeid.")";
-			mysql_query($abfrage);
+
+			$userid = $_SESSION['userid'];
+
+			$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=$userid";
+			$resultUserTipps = mysql_query($anzahlUserTipps);
+
+			while($row = mysql_fetch_assoc($resultUserTipps))
+			{
+				$vorrundeid = $row['vorrundefsid'];
+
+				$tippedMatch = "Update Vorrunde set result1 = '".$result1."', result2 = '".$result2."' where vorrundeid=$vorrundeid and vorrundeteamsfsid=".$i;
+				
+				$resultTippedMatch = mysql_query($tippedMatch);
+
+			}
+
 		} else {
-			//Too late
+			$this->errors[] = "Die Zeit ist abgelaufen, um Vorrudentipps zu erfassen.";
 		}
 	}
 
 	private function isExisting($vorrundeteamsid) {
 		$userid = $_SESSION['userid'];
 
-		$abfrage = "SELECT * FROM UserVorrunde where vorrundefsid=".$vorrundeteamsid." and userfsid=".$userid;
+		$abfrage = "select * from uservorrunde, vorrunde where vorrundeteamsfsid=".$vorrundeteamsid." and userfsid=".$userid." and vorrundefsid=vorrundeid";
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
@@ -213,13 +241,11 @@ class MyTipps extends HTMLPage implements Page {
 			}
 		}
 	}
-	/*
-	 * todo depeding on time
-	 */
+
 	private function isDisabled($start) {
 		if(mktime() > strtotime($start))
 		return "disabled";
-		
+
 		return "enabled";
 	}
 	private function getData() {
