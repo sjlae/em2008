@@ -6,10 +6,10 @@
 			<b>Rang</b>
 		</td>
 		<td style="padding-left: 10px">
-			<b>Vorname</b>
+			<b>Nachname</b>
 		</td>
 		<td style="padding-left: 10px">
-			<b>Nachname</b>
+			<b>Vorname</b>
 		</td>
 		<td style="padding-left: 10px">
 			<b>Punkte</b>
@@ -37,22 +37,22 @@
 					<?
 						if($ranking['bezahlt'] == 0){
 					?>
-							<td style="padding-left: 10px; color: red">
-								<?echo $ranking['vorname']?>
-							</td>
 							<td style="padding-left: 10px; color:red">
 								<?echo $ranking['nachname'] ?>
 								(nnb)
+							</td>
+							<td style="padding-left: 10px; color: red">
+								<?echo $ranking['vorname']?>
 							</td>
 					<?
 						}
 						else{
 					?>
 							<td style="padding-left: 10px;">
-								<?echo $ranking['vorname']?>
+								<?echo $ranking['nachname'] ?>
 							</td>
 							<td style="padding-left: 10px;">
-								<?echo $ranking['nachname'] ?>
+								<?echo $ranking['vorname']?>
 							</td>
 					<?
 						}
