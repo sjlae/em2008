@@ -124,7 +124,7 @@ INSERT INTO `teams` (`teamid`, `land`) VALUES
 (9, 'Frankreich'),
 (10, 'Italien'),
 (11, 'Holland'),
-(12, 'Rumänien'),
+(12, 'Rum&auml;nien'),
 (13, 'Griechenland'),
 (14, 'Russland'),
 (15, 'Spanien'),
