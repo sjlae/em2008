@@ -272,92 +272,85 @@ class Admin extends HTMLPage implements Page{
 					}
 				}
 				
-				$hauptrundeIdFromUser = "SELECT hauptrundefsid FROM User where userid=$userid";
-				$resultHauptrundeIdFromUser = mysql_query($hauptrundeIdFromUser);
 				
-				while($row = mysql_fetch_assoc($resultHauptrundeIdFromUser))
+				$hauptrundeTippsFromUser = "SELECT * FROM hauptrunde where userfsid=$userid";
+				$resultHauptrundeTippsFromUser = mysql_query($hauptrundeTippsFromUser);
+				
+				while($rowUser = mysql_fetch_assoc($resultHauptrundeTippsFromUser))
 				{
-					$hauptrundeId = $row['hauptrundefsid'];
-					
-					$hauptrundeTippsFromUser = "SELECT * FROM hauptrunde where hauptrundeid=$hauptrundeId";
-					$resultHauptrundeTippsFromUser = mysql_query($hauptrundeTippsFromUser);
-					
-					while($rowUser = mysql_fetch_assoc($resultHauptrundeTippsFromUser))
-					{
-						if($rowUser['viertelfinal1'] != ''){
-							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal1'])){
-								$points = $points+6; 
-							}
+					if($rowUser['viertelfinal1'] != ''){
+						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal1'])){
+							$points = $points+6; 
 						}
-						if($rowUser['viertelfinal2'] != ''){
-							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal2'])){
-								$points = $points+6; 
-							}
+					}
+					if($rowUser['viertelfinal2'] != ''){
+						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal2'])){
+							$points = $points+6; 
 						}
-						if($rowUser['viertelfinal3'] != ''){
-							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal3'])){
-								$points = $points+6; 
-							}
+					}
+					if($rowUser['viertelfinal3'] != ''){
+						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal3'])){
+							$points = $points+6; 
 						}
-						if($rowUser['viertelfinal4'] != ''){
-							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal4'])){
-								$points = $points+6; 
-							}
+					}
+					if($rowUser['viertelfinal4'] != ''){
+						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal4'])){
+							$points = $points+6; 
 						}
-						if($rowUser['viertelfinal5'] != ''){
-							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal5'])){
-								$points = $points+6; 
-							}
+					}
+					if($rowUser['viertelfinal5'] != ''){
+						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal5'])){
+							$points = $points+6; 
 						}
-						if($rowUser['viertelfinal6'] != ''){
-							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal6'])){
-								$points = $points+6; 
-							}
+					}
+					if($rowUser['viertelfinal6'] != ''){
+						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal6'])){
+							$points = $points+6; 
 						}
-						if($rowUser['viertelfinal7'] != ''){
-							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal7'])){
-								$points = $points+6; 
-							}
+					}
+					if($rowUser['viertelfinal7'] != ''){
+						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal7'])){
+							$points = $points+6; 
 						}
-						if($rowUser['viertelfinal8'] != ''){
-							if($this->isViertelfinalTippCorrect($rowUser['viertelfinal8'])){
-								$points = $points+6; 
-							}
+					}
+					if($rowUser['viertelfinal8'] != ''){
+						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal8'])){
+							$points = $points+6; 
 						}
-						if($rowUser['halbfinal1'] != ''){
-							if($this->isHalbfinalTippCorrect($rowUser['halbfinal1'])){
-								$points = $points+8; 
-							}
+					}
+					if($rowUser['halbfinal1'] != ''){
+						if($this->isHalbfinalTippCorrect($rowUser['halbfinal1'])){
+							$points = $points+8; 
 						}
-						if($rowUser['halbfinal2'] != ''){
-							if($this->isHalbfinalTippCorrect($rowUser['halbfinal2'])){
-								$points = $points+8; 
-							}
+					}
+					if($rowUser['halbfinal2'] != ''){
+						if($this->isHalbfinalTippCorrect($rowUser['halbfinal2'])){
+							$points = $points+8; 
 						}
-						if($rowUser['halbfinal3'] != ''){
-							if($this->isHalbfinalTippCorrect($rowUser['halbfinal3'])){
-								$points = $points+8; 
-							}
+					}
+					if($rowUser['halbfinal3'] != ''){
+						if($this->isHalbfinalTippCorrect($rowUser['halbfinal3'])){
+							$points = $points+8; 
 						}
-						if($rowUser['halbfinal4'] != ''){
-							if($this->isHalbfinalTippCorrect($rowUser['halbfinal4'])){
-								$points = $points+8; 
-							}
+					}
+					if($rowUser['halbfinal4'] != ''){
+						if($this->isHalbfinalTippCorrect($rowUser['halbfinal4'])){
+							$points = $points+8; 
 						}
-						if($rowUser['final1'] != ''){
-							if($this->isFinalTippCorrect($rowUser['final1'])){
-								$points = $points+10; 
-							}
+					}
+					if($rowUser['final1'] != ''){
+						if($this->isFinalTippCorrect($rowUser['final1'])){
+							$points = $points+10; 
 						}
-						if($rowUser['final2'] != ''){
-							if($this->isFinalTippCorrect($rowUser['final2'])){
-								$points = $points+10; 
-							}
+					}
+					if($rowUser['final2'] != ''){
+						if($this->isFinalTippCorrect($rowUser['final2'])){
+							$points = $points+10; 
 						}
-						if($rowUser['europameister'] != ''){
-							if($this->isEuropameisterTippCorrect($rowUser['europameister'])){
-								$points = $points+12; 
-							}
+					}
+					if($rowUser['europameister'] != ''){
+						if($this->isEuropameisterTippCorrect($rowUser['europameister'])){
+							$points = $points+12; 
 						}
 					}
 				}
