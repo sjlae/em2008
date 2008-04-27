@@ -7,6 +7,7 @@ class MyTipps extends HTMLPage implements Page {
 	private $vorrunde = array();
 	private $countries = array();
 	private $hauptrundefsid = '';
+	private $realhauptrunde = array();
 
 	private $errors = array();
 
@@ -19,6 +20,7 @@ class MyTipps extends HTMLPage implements Page {
 	public function __construct() {
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
 
+		$this->realhauptrunde = $this->getRealHauptrunde();
 		$this->getData();
 
 		if($action == "setTipps") {
@@ -32,6 +34,36 @@ class MyTipps extends HTMLPage implements Page {
 		if($this->hauptrundefsid) {
 			$this->getUserHauptrundeTipps();
 		}
+	}
+
+	private function getRealHauptrunde() {
+		$abfrage = "Select * from realhauptrunde";
+		$realhauptrunde = array();
+
+		$ergebnis = mysql_query($abfrage);
+		while($row = mysql_fetch_assoc($ergebnis))
+		{
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal1']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal2']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal3']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal4']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal5']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal6']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal7']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal8']);
+			
+			$realhauptrunde[] = $this->getTeam($row['halbfinal1']);
+			$realhauptrunde[] = $this->getTeam($row['halbfinal2']);
+			$realhauptrunde[] = $this->getTeam($row['halbfinal3']);
+			$realhauptrunde[] = $this->getTeam($row['halbfinal4']);
+			
+			$realhauptrunde[] = $this->getTeam($row['final1']);
+			$realhauptrunde[] = $this->getTeam($row['final2']);
+			
+			$realhauptrunde[] = $this->getTeam($row['europameister']);
+		}
+		
+		return $realhauptrunde;
 	}
 
 	private function getUserHauptrundeTipps() {
@@ -183,7 +215,7 @@ class MyTipps extends HTMLPage implements Page {
 				$vorrundeid = $row['vorrundefsid'];
 
 				$tippedMatch = "Update Vorrunde set result1 = '".$result1."', result2 = '".$result2."' where vorrundeid=$vorrundeid and vorrundeteamsfsid=".$i;
-				
+
 				$resultTippedMatch = mysql_query($tippedMatch);
 
 			}
