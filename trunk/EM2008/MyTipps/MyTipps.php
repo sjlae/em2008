@@ -16,10 +16,14 @@ class MyTipps extends HTMLPage implements Page {
 
 	public function __construct() {
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
+		
+		$this->getData();
 
 		if($action == "setTipps") {
 			$this->setTipps();
 		}
+		
+		$this->getData();
 		
 		$this->hauptrundefsid = $this->isExistingHauptrunde();
 		
@@ -111,7 +115,6 @@ class MyTipps extends HTMLPage implements Page {
 	}
 
 	private function addHauptrundeTipp($hauptrundetipps) {
-		echo "insert";
 		$abfrage = "Insert into hauptrunde values(".$_SESSION['userid'].", '".$hauptrundetipps[0]."', '".$hauptrundetipps[1]."', '".$hauptrundetipps[2]."', '".$hauptrundetipps[3]."', '".$hauptrundetipps[4]."', '".$hauptrundetipps[5]."', '".$hauptrundetipps[6]."', '".$hauptrundetipps[7]."', '".$hauptrundetipps[8]."', '".$hauptrundetipps[9]."', '".$hauptrundetipps[10]."', '".$hauptrundetipps[11]."', '".$hauptrundetipps[12]."', '".$hauptrundetipps[13]."', '".$hauptrundetipps[14]."')";
 		mysql_query($abfrage);
 	}
@@ -133,16 +136,30 @@ class MyTipps extends HTMLPage implements Page {
 	}
 
 	private function addTipp($i, $result1, $result2) {
-		if(isDisabled == 'enalbled') {
-
+		if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled') {
+			$abfrage = "Insert into vorrunde value('', '".$result1."', '".$result2."', '".$i."')";
+			mysql_query($abfrage);
+			
+			$vorrundeid = mysql_insert_id();
+			
+			$abfrage = "Insert into uservorrunde value(".$_SESSION['userid'].", ".$vorrundeid.")";
+			mysql_query($abfrage);
 		} else {
 			//Too late
+			echo "addtime";
+			
 		}
 	}
 
 	private function updateTipp($i, $result1, $result2) {
-		if(isDisabled == 'enalbled') {
-
+		if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled') {
+			$abfrage = "Insert into vorrunde value('', '".$result1."', '".$result2."', '".$i."')";
+			mysql_query($abfrage);
+			
+			$vorrundeid = mysql_insert_id();
+			
+			$abfrage = "Insert into uservorrunde value(".$_SESSION['userid'].", ".$vorrundeid.")";
+			mysql_query($abfrage);
 		} else {
 			//Too late
 		}
@@ -202,6 +219,7 @@ class MyTipps extends HTMLPage implements Page {
 	private function isDisabled($start) {
 		if(mktime() > strtotime($start))
 		return "disabled";
+		
 		return "enabled";
 	}
 	private function getData() {
@@ -241,7 +259,6 @@ class MyTipps extends HTMLPage implements Page {
 		}
 	}
 	public function getHTML() {
-		$this->getData();
 		$this->getCountries();
 		include('layout/myTipps.tpl');
 	}
