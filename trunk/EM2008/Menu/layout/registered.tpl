@@ -5,7 +5,7 @@
 	<li class="overview" id="mn_Overview"><a href="index.php?go=rules"><span>Spielregeln</span></a></li>
 	<li class="overview" id="mn_Overview"><a href="index.php?go=ranking"><span>Rangliste</span></a></li>
 	<?php
-		$abfrage = "SELECT * FROM User where userid='".$_SESSION['userid']."'";
+		$abfrage = "SELECT * FROM user where userid='".$_SESSION['userid']."'";
 
 		$ergebnis = mysql_query($abfrage);
 		

@@ -97,7 +97,7 @@ class Admin extends HTMLPage implements Page{
 		for($i=0; $i<=$_POST['maxUser']; $i++) {
 			if($_POST["user$i"] != '') {
 				$userid = $_POST["user$i"];
-				$abfrage = "Update User set bezahlt=1 where userid=$userid";
+				$abfrage = "Update user set bezahlt=1 where userid=$userid";
 				mysql_query($abfrage);
 			}
 		}
@@ -108,7 +108,7 @@ class Admin extends HTMLPage implements Page{
 			if($_POST["result1_$counter"] != '' || $_POST["result1_$counter"] != '') {
 				$result1 = $_POST["result1_$counter"];
 				$result2 = $_POST["result2_$counter"];
-				$abfrage = "Update Vorrundeteams set realresult1=$result1, realresult2=$result2 where vorrundeteamsid=$counter";
+				$abfrage = "Update vorrundeteams set realresult1=$result1, realresult2=$result2 where vorrundeteamsid=$counter";
 				mysql_query($abfrage);
 			}
 		}
@@ -116,15 +116,15 @@ class Admin extends HTMLPage implements Page{
 	
 	private function setHauptrundenTeams() {
 		$viertelfinal1 = $_POST["viertelfinal1"];
-		$abfrage = "Update Realhauptrunde set viertelfinal1='".$viertelfinal1."'";
+		$abfrage = "Update realhauptrunde set viertelfinal1='".$viertelfinal1."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal2 = $_POST["viertelfinal2"];
-		$abfrage = "Update Realhauptrunde set viertelfinal2='".$viertelfinal2."'";
+		$abfrage = "Update realhauptrunde set viertelfinal2='".$viertelfinal2."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal3 = $_POST["viertelfinal3"];
-		$abfrage = "Update Realhauptrunde set viertelfinal3='".$viertelfinal3."'";
+		$abfrage = "Update realhauptrunde set viertelfinal3='".$viertelfinal3."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal4 = $_POST["viertelfinal4"];
@@ -132,52 +132,52 @@ class Admin extends HTMLPage implements Page{
 		mysql_query($abfrage);
 		
 		$viertelfinal5 = $_POST["viertelfinal5"];
-		$abfrage = "Update Realhauptrunde set viertelfinal5='".$viertelfinal5."'";
+		$abfrage = "Update realhauptrunde set viertelfinal5='".$viertelfinal5."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal6 = $_POST["viertelfinal6"];
-		$abfrage = "Update Realhauptrunde set viertelfinal6='".$viertelfinal6."'";
+		$abfrage = "Update realhauptrunde set viertelfinal6='".$viertelfinal6."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal7 = $_POST["viertelfinal7"];
-		$abfrage = "Update Realhauptrunde set viertelfinal7='".$viertelfinal7."'";
+		$abfrage = "Update realhauptrunde set viertelfinal7='".$viertelfinal7."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal8 = $_POST["viertelfinal8"];
-		$abfrage = "Update Realhauptrunde set viertelfinal8='".$viertelfinal8."'";
+		$abfrage = "Update realhauptrunde set viertelfinal8='".$viertelfinal8."'";
 		mysql_query($abfrage);
 		
 		$halbfinal1 = $_POST["halbfinal1"];
-		$abfrage = "Update Realhauptrunde set halbfinal1='".$halbfinal1."'";
+		$abfrage = "Update realhauptrunde set halbfinal1='".$halbfinal1."'";
 		mysql_query($abfrage);
 		
 		$halbfinal2 = $_POST["halbfinal2"];
-		$abfrage = "Update Realhauptrunde set halbfinal2='".$halbfinal2."'";
+		$abfrage = "Update realhauptrunde set halbfinal2='".$halbfinal2."'";
 		mysql_query($abfrage);
 		
 		$halbfinal3 = $_POST["halbfinal3"];
-		$abfrage = "Update Realhauptrunde set halbfinal3='".$halbfinal3."'";
+		$abfrage = "Update realhauptrunde set halbfinal3='".$halbfinal3."'";
 		mysql_query($abfrage);
 		
 		$halbfinal4 = $_POST["halbfinal4"];
-		$abfrage = "Update Realhauptrunde set halbfinal4='".$halbfinal4."'";
+		$abfrage = "Update realhauptrunde set halbfinal4='".$halbfinal4."'";
 		mysql_query($abfrage);
 		
 		$final1 = $_POST["final1"];
-		$abfrage = "Update Realhauptrunde set final1='".$final1."'";
+		$abfrage = "Update realhauptrunde set final1='".$final1."'";
 		mysql_query($abfrage);
 		
 		$final2 = $_POST["final2"];
-		$abfrage = "Update Realhauptrunde set final2='".$final2."'";
+		$abfrage = "Update realhauptrunde set final2='".$final2."'";
 		mysql_query($abfrage);
 		
 		$europameister = $_POST["europameister"];
-		$abfrage = "Update Realhauptrunde set europameister='".$europameister."'";
+		$abfrage = "Update realhauptrunde set europameister='".$europameister."'";
 		mysql_query($abfrage);
 	}
 
 	private function getNNB() {
-		$abfrage = "SELECT * FROM User where bezahlt=0 order by nachname ASC";
+		$abfrage = "SELECT * FROM user where bezahlt=0 order by nachname ASC";
 
 		$ergebnis = mysql_query($abfrage);
 		$counter = 0;
@@ -195,7 +195,7 @@ class Admin extends HTMLPage implements Page{
 	}
 
 	private function getGames() {
-		$abfrage = "SELECT * FROM VorrundeTeams";
+		$abfrage = "SELECT * FROM vorrundeteams";
 
 		$ergebnis = mysql_query($abfrage);
 
@@ -215,7 +215,7 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function getTeam($id) {
-		$abfrage = "SELECT * FROM Teams where teamid=".$id;
+		$abfrage = "SELECT * FROM teams where teamid=".$id;
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
@@ -225,7 +225,7 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function getCountries() {
-		$abfrage = "SELECT * FROM Teams order by land asc";
+		$abfrage = "SELECT * FROM teams order by land asc";
 
 		$ergebnis = mysql_query($abfrage);
 		$counter = 0;
@@ -238,7 +238,7 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function getRealHauptrundenTeams() {
-		$abfrage = "SELECT * FROM Realhauptrunde";
+		$abfrage = "SELECT * FROM realhauptrunde";
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
@@ -261,7 +261,7 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function updateUserPoints() {
-		$userids = "SELECT * FROM User";
+		$userids = "SELECT * FROM user";
 		
 		$resultUsers = mysql_query($userids);
 		
@@ -270,14 +270,14 @@ class Admin extends HTMLPage implements Page{
 				$userid = $row['userid'];
 				$points = 0;
 				
-				$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=$userid";
+				$anzahlUserTipps = "SELECT vorrundefsid FROM uservorrunde where userfsid=$userid";
 				$resultUserTipps = mysql_query($anzahlUserTipps);
 				
 				while($row = mysql_fetch_assoc($resultUserTipps))
 				{
 					$vorrundeid = $row['vorrundefsid'];
 					
-					$tippedMatch = "SELECT * FROM Vorrunde where vorrundeid=$vorrundeid";
+					$tippedMatch = "SELECT * FROM vorrunde where vorrundeid=$vorrundeid";
 					$resultTippedMatch = mysql_query($tippedMatch);
 					
 					while($row = mysql_fetch_assoc($resultTippedMatch))
@@ -287,7 +287,7 @@ class Admin extends HTMLPage implements Page{
 						
 						$match = $row['vorrundeteamsfsid'];
 						
-						$realResults = "SELECT realresult1, realresult2 FROM Vorrundeteams where vorrundeteamsid=".$match;
+						$realResults = "SELECT realresult1, realresult2 FROM vorrundeteams where vorrundeteamsid=".$match;
 						
 						$resultRealResults = mysql_query($realResults);
 						while($row = mysql_fetch_assoc($resultRealResults))
@@ -407,7 +407,7 @@ class Admin extends HTMLPage implements Page{
 					}
 				}
 				
-				$abfrage = "Update User set punkte=$points where userid=$userid";
+				$abfrage = "Update user set punkte=$points where userid=$userid";
 				mysql_query($abfrage);
 				
 			}
@@ -556,7 +556,7 @@ class Admin extends HTMLPage implements Page{
 		$title = $_POST["newsTitle"];
 		$text = $_POST["newsText"];
 		
-		$query = "Insert into News(titel, text) values('".$title."', '".$text."')";
+		$query = "Insert into news(titel, text) values('".$title."', '".$text."')";
 			
 		mysql_query($query);
 	}

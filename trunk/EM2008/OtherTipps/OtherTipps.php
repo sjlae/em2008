@@ -31,7 +31,7 @@ class OtherTipps extends HTMLPage implements Page {
 
 	private function getUserResult($vorrundeteamsid) {
 
-		$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=".$this->realid;
+		$anzahlUserTipps = "SELECT vorrundefsid FROM uservorrunde where userfsid=".$this->realid;
 
 		$resultUserTipps = mysql_query($anzahlUserTipps);
 
@@ -39,7 +39,7 @@ class OtherTipps extends HTMLPage implements Page {
 		{
 			$vorrundeid = $row['vorrundefsid'];
 
-			$tippedMatch = "SELECT * FROM Vorrunde where vorrundeid=$vorrundeid";
+			$tippedMatch = "SELECT * FROM vorrunde where vorrundeid=$vorrundeid";
 			$resultTippedMatch = mysql_query($tippedMatch);
 
 			while($row = mysql_fetch_assoc($resultTippedMatch))
@@ -56,7 +56,7 @@ class OtherTipps extends HTMLPage implements Page {
 
 	private function getTeam($id) {
 		if($id != ''){
-			$abfrage = "SELECT * FROM Teams where teamid=".$id;
+			$abfrage = "SELECT * FROM teams where teamid=".$id;
 
 			$ergebnis = mysql_query($abfrage);
 			while($row = mysql_fetch_assoc($ergebnis))
@@ -67,7 +67,7 @@ class OtherTipps extends HTMLPage implements Page {
 	}
 
 	private function getData() {
-		$abfrage = "SELECT * FROM VorrundeTeams";
+		$abfrage = "SELECT * FROM vorrundeteams";
 
 		$ergebnis = mysql_query($abfrage);
 
@@ -112,7 +112,7 @@ class OtherTipps extends HTMLPage implements Page {
 	}
 
 	private function getCountries() {
-		$abfrage = "SELECT * FROM Teams order by land asc";
+		$abfrage = "SELECT * FROM teams order by land asc";
 
 		$ergebnis = mysql_query($abfrage);
 

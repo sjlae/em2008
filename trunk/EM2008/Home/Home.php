@@ -12,7 +12,7 @@ class Home extends HTMLPage implements Page{
 	}
 	
 	private function getNews(){
-		$abfrage = "SELECT * FROM News order by datum desc";
+		$abfrage = "SELECT * FROM news order by datum desc";
 
 		$ergebnis = mysql_query($abfrage);
 		$counter = 0;

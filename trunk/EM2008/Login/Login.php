@@ -35,7 +35,7 @@ class Login extends HTMLPage implements Page{
 
 			$this->passwort = md5($this->passwort);
 
-			$abfrage = "SELECT * FROM User where email='".$this->email."' and passwort='".$this->passwort."'";
+			$abfrage = "SELECT * FROM user where email='".$this->email."' and passwort='".$this->passwort."'";
 
 			$ergebnis = mysql_query($abfrage);
 			

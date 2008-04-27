@@ -212,14 +212,14 @@ class MyTipps extends HTMLPage implements Page {
 
 			$userid = $_SESSION['userid'];
 
-			$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=$userid";
+			$anzahlUserTipps = "SELECT vorrundefsid FROM uservorrunde where userfsid=$userid";
 			$resultUserTipps = mysql_query($anzahlUserTipps);
 
 			while($row = mysql_fetch_assoc($resultUserTipps))
 			{
 				$vorrundeid = $row['vorrundefsid'];
 
-				$tippedMatch = "Update Vorrunde set result1 = '".$result1."', result2 = '".$result2."' where vorrundeid=$vorrundeid and vorrundeteamsfsid=".$i;
+				$tippedMatch = "Update vorrunde set result1 = '".$result1."', result2 = '".$result2."' where vorrundeid=$vorrundeid and vorrundeteamsfsid=".$i;
 
 				$resultTippedMatch = mysql_query($tippedMatch);
 
@@ -246,7 +246,7 @@ class MyTipps extends HTMLPage implements Page {
 
 	private function getTeam($id) {
 		if($id != ''){
-			$abfrage = "SELECT * FROM Teams where teamid=".$id;
+			$abfrage = "SELECT * FROM teams where teamid=".$id;
 	
 			$ergebnis = mysql_query($abfrage);
 			while($row = mysql_fetch_assoc($ergebnis))
@@ -259,14 +259,14 @@ class MyTipps extends HTMLPage implements Page {
 	private function getUserResult($vorrundeteamsid) {
 		$userid = $_SESSION['userid'];
 
-		$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=$userid";
+		$anzahlUserTipps = "SELECT vorrundefsid FROM uservorrunde where userfsid=$userid";
 		$resultUserTipps = mysql_query($anzahlUserTipps);
 
 		while($row = mysql_fetch_assoc($resultUserTipps))
 		{
 			$vorrundeid = $row['vorrundefsid'];
 
-			$tippedMatch = "SELECT * FROM Vorrunde where vorrundeid=$vorrundeid";
+			$tippedMatch = "SELECT * FROM vorrunde where vorrundeid=$vorrundeid";
 			$resultTippedMatch = mysql_query($tippedMatch);
 
 			while($row = mysql_fetch_assoc($resultTippedMatch))
@@ -288,7 +288,7 @@ class MyTipps extends HTMLPage implements Page {
 		return "enabled";
 	}
 	private function getData() {
-		$abfrage = "SELECT * FROM VorrundeTeams";
+		$abfrage = "SELECT * FROM vorrundeteams";
 
 		$ergebnis = mysql_query($abfrage);
 
@@ -311,7 +311,7 @@ class MyTipps extends HTMLPage implements Page {
 		}
 	}
 	private function getCountries() {
-		$abfrage = "SELECT * FROM Teams order by land asc";
+		$abfrage = "SELECT * FROM teams order by land asc";
 
 		$ergebnis = mysql_query($abfrage);
 
