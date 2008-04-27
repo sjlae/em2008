@@ -6,12 +6,52 @@ class MyTipps extends HTMLPage implements Page {
 
 	private $vorrunde = array();
 	private $countries = array();
+	private $hauptrundefsid = '';
+
+	private $userViertelfinal = array();
+	private $userHalbfinal = array();
+	private $userFinal = array();
+	private $userEuropameister= '';
+
 
 	public function __construct() {
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
 
 		if($action == "setTipps") {
 			$this->setTipps();
+		}
+		
+		$this->hauptrundefsid = $this->isExistingHauptrunde();
+		
+		if($this->hauptrundefsid) {
+		$this->getUserHauptrundeTipps();
+		} 
+	}
+
+	private function getUserHauptrundeTipps() {
+		$userid = $_SESSION['userid'];
+
+		$abfrage = "Select * from hauptrunde where userfsid=".$userid;
+
+		$ergebnis = mysql_query($abfrage);
+		while($row = mysql_fetch_assoc($ergebnis))
+		{
+			for($i=1;$i<=8;$i++) {
+				$this->userViertelfinal[$i] = $row['viertelfinal'.$i];
+			}
+			//halbfinal
+			for($i=1;$i<=4;$i++) {
+				$this->userHalbfinal[$i] = $row['halbfinal'.$i];
+			}
+
+			//Final
+			for($i=1;$i<=2;$i++) {
+				$this->userFinal[$i] = $row['final'.$i];
+			}
+
+
+			//Europameister
+			$this->userEuropameister = $row['europameister'];
 		}
 	}
 
@@ -30,7 +70,7 @@ class MyTipps extends HTMLPage implements Page {
 		}
 		//set hauptrunde tipps
 		//Existingcheck
-		$hauptrundefsid = $this->isExistingHauptrunde();
+
 		$hauptrundetipps = array();
 
 
@@ -51,38 +91,43 @@ class MyTipps extends HTMLPage implements Page {
 		}
 
 		//Europameister
-		$teamid = $_POST['europameister'.$i];
+		$teamid = $_POST['europameister'];
 		$hauptrundetipps[] = $teamid;
-		
+
 		//timecheck??
-			if(!$hauptrundefsid) {
-				$this->addHauptrundeTipp($hauptrundefsid, $hauptrundetipps);
-			} else {
-				$this->updateHauptrundeTipp($hauptrundefsid, $hauptrundetipps);
-			}
+		$this->hauptrundefsid = $this->isExistingHauptrunde();
+		
+		if($this->hauptrundefsid) {
+			$this->updateHauptrundeTipp($hauptrundetipps);
+		} else {
+			$this->addHauptrundeTipp($hauptrundetipps);
+			
+		}
 	}
 
-	private function updateHauptrundeTipp($hauptrundeid, $teamfsid) {
-
+	private function updateHauptrundeTipp($hauptrundetipps) {
+		$abfrage = "Update hauptrunde set viertelfinal1 = '".$hauptrundetipps[0]."', viertelfinal2 = '".$hauptrundetipps[1]."', viertelfinal3 = '".$hauptrundetipps[2]."', viertelfinal4 = '".$hauptrundetipps[3]."', viertelfinal5 = '".$hauptrundetipps[4]."', viertelfinal6 = '".$hauptrundetipps[5]."', viertelfinal7 = '".$hauptrundetipps[6]."', viertelfinal8 = '".$hauptrundetipps[7]."', halbfinal1 = '".$hauptrundetipps[8]."', halbfinal2 = '".$hauptrundetipps[9]."', halbfinal3 = '".$hauptrundetipps[10]."', halbfinal4 = '".$hauptrundetipps[11]."', final1 = '".$hauptrundetipps[12]."', final2 = '".$hauptrundetipps[13]."', europameister = '".$hauptrundetipps[14]."' where userfsid=".$_SESSION['userid'];
+		mysql_query($abfrage);
 	}
 
-	private function addHauptrundeTipp($hauptrundeid, $hauptrundetipps) {
-			$abfrage = "Insert into hauptrunde values('', '".$hauptrundetipps[0]."', '".$hauptrundetipps[1]."', '".$hauptrundetipps[2]."', '".$hauptrundetipps[3]."', '".$hauptrundetipps[4]."', '".$hauptrundetipps[5]."', '".$hauptrundetipps[6]."', '".$hauptrundetipps[7]."', '".$hauptrundetipps[8]."', '".$hauptrundetipps[9]."', '".$hauptrundetipps[10]."', '".$hauptrundetipps[11]."', '".$hauptrundetipps[12]."', '".$hauptrundetipps[13]."', '".$hauptrundetipps[14]."', '".$hauptrundetipps[15]."'";
-			echo $abfrage;
+	private function addHauptrundeTipp($hauptrundetipps) {
+		echo "insert";
+		$abfrage = "Insert into hauptrunde values(".$_SESSION['userid'].", '".$hauptrundetipps[0]."', '".$hauptrundetipps[1]."', '".$hauptrundetipps[2]."', '".$hauptrundetipps[3]."', '".$hauptrundetipps[4]."', '".$hauptrundetipps[5]."', '".$hauptrundetipps[6]."', '".$hauptrundetipps[7]."', '".$hauptrundetipps[8]."', '".$hauptrundetipps[9]."', '".$hauptrundetipps[10]."', '".$hauptrundetipps[11]."', '".$hauptrundetipps[12]."', '".$hauptrundetipps[13]."', '".$hauptrundetipps[14]."')";
+		mysql_query($abfrage);
 	}
 
 	private function isExistingHauptrunde() {
 		$userid = $_SESSION['userid'];
 
-		$abfrage = "SELECT hauptrundefsid FROM User where userid=".$userid;
+		$abfrage = "SELECT userfsid FROM hauptrunde where userfsid=".$userid;
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
-			if($row['hauptrundefsid'] == 0)
-			return false;
+			if($row['userfsid'] == '')
+				return false;
 			else
-			return $row['hauptrundefsid'];
+				return true;
 		}
 		return false;
 	}
@@ -187,9 +232,12 @@ class MyTipps extends HTMLPage implements Page {
 
 		$ergebnis = mysql_query($abfrage);
 
+		$i=0;
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
-			$this->countries[] = $row['land'];
+			$this->countries[$i]['id'] = $row['teamid'];
+			$this->countries[$i]['land'] = $row['land'];
+			$i++;
 		}
 	}
 	public function getHTML() {
