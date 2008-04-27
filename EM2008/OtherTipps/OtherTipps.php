@@ -7,25 +7,36 @@ class OtherTipps extends HTMLPage implements Page {
 	private $realid = '';
 	private $action = '';
 
+	private $countries = array();
 	private $vorrunde = array();
+	private $userViertelfinal = array();
+	private $userHalbfinal = array();
+	private $userFinal = array();
+	private $userEuropameister= '';
 
 	public function __construct() {
 		$this->action = isset($_GET['action']) ? $_GET['action'] : '';
 		$id = isset($_GET['id']) ? $_GET['id'] : '';
 
-		$this->getData();
-		
-		$this->getPlayers();
-
 		if($this->action == 'getTipps')
 		$this->getUserTipps($id);
 
+		$this->getData();
+
+
+		$this->getUserHauptrundeTipps();
+
+
+		$this->getPlayers();
+
+
 
 	}
-	
-private function getUserResult($vorrundeteamsid) {
-		
-		$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=$this->realid";
+
+	private function getUserResult($vorrundeteamsid) {
+
+		$anzahlUserTipps = "SELECT vorrundefsid FROM UserVorrunde where userfsid=".$this->realid;
+
 		$resultUserTipps = mysql_query($anzahlUserTipps);
 
 		while($row = mysql_fetch_assoc($resultUserTipps))
@@ -46,7 +57,19 @@ private function getUserResult($vorrundeteamsid) {
 			}
 		}
 	}
-	
+
+	private function getTeam($id) {
+		if($id != ''){
+			$abfrage = "SELECT * FROM Teams where teamid=".$id;
+
+			$ergebnis = mysql_query($abfrage);
+			while($row = mysql_fetch_assoc($ergebnis))
+			{
+				return $row['land'];
+			}
+		}
+	}
+
 	private function getData() {
 		$abfrage = "SELECT * FROM VorrundeTeams";
 
@@ -76,7 +99,7 @@ private function getUserResult($vorrundeteamsid) {
 	}
 
 	private function getPlayers() {
-		$abfrage = "Select * from user group by nachname asc";
+		$abfrage = "Select * from user order by nachname asc";
 
 		$ergebnis = mysql_query($abfrage);
 
@@ -87,9 +110,58 @@ private function getUserResult($vorrundeteamsid) {
 			$this->players[$row['userid']]['nachname'] = $row['nachname'];
 		}
 	}
+
+	private function isDisabledHauptrunde() {
+		return "disabled";
+	}
+
+	private function getCountries() {
+		$abfrage = "SELECT * FROM Teams order by land asc";
+		
+		$ergebnis = mysql_query($abfrage);
+
+		$i=0;
+		while($row = mysql_fetch_assoc($ergebnis))
+		{
+			$this->countries[$i]['id'] = $row['teamid'];
+			$this->countries[$i]['land'] = $row['land'];
+			$i++;
+		}
+	}
+
+	private function getUserHauptrundeTipps() {
+		$userid = $this->realid;
+		
+		$abfrage = "Select * from hauptrunde where userfsid=".$userid;
+
+		$ergebnis = mysql_query($abfrage);
+		while($row = mysql_fetch_assoc($ergebnis))
+		{
+			for($i=1;$i<=8;$i++) {
+				$this->userViertelfinal[$i] = $row['viertelfinal'.$i];
+			}
+			//halbfinal
+			for($i=1;$i<=4;$i++) {
+				$this->userHalbfinal[$i] = $row['halbfinal'.$i];
+			}
+
+			//Final
+			for($i=1;$i<=2;$i++) {
+				$this->userFinal[$i] = $row['final'.$i];
+			}
+
+
+			//Europameister
+			$this->userEuropameister = $row['europameister'];
+		}
+	}
+
+
 	public function getHTML() {
-		if($this->action == "getTipps")
-		include('layout/userTipps.tpl');
+		if($this->action == "getTipps") {
+			$this->getCountries();
+			include('layout/userTipps.tpl');
+		}
 		else
 		include('layout/overviewUsers.tpl');
 			
