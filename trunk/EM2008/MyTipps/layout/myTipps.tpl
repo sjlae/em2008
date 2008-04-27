@@ -91,6 +91,12 @@
 		</select></td>
 	</tr>
 	<tr>
+		<td><?php echo $this->realhauptrunde[0]; ?></td>
+		<td><?php echo $this->realhauptrunde[1]; ?></td>
+		<td><?php echo $this->realhauptrunde[2]; ?></td>
+		<td><?php echo $this->realhauptrunde[3]; ?></td>
+	</tr>
+	<tr>
 		<td>Team 5</td>
 		<td>Team 6</td>
 		<td>Team 7</td>
@@ -137,6 +143,12 @@
 			<?php endif; ?>
 			<?php endforeach; ?>
 		</select></td>
+	</tr>
+	<tr>
+		<td><?php echo $this->realhauptrunde[4]; ?></td>
+		<td><?php echo $this->realhauptrunde[5]; ?></td>
+		<td><?php echo $this->realhauptrunde[6]; ?></td>
+		<td><?php echo $this->realhauptrunde[7]; ?></td>
 	</tr>
 </table>
 <h3>Halbfinalteilnehmer</h3>
@@ -189,6 +201,12 @@
 			<?php endforeach; ?>
 		</select></td>
 	</tr>
+	<tr>
+		<td><?php echo $this->realhauptrunde[8]; ?></td>
+		<td><?php echo $this->realhauptrunde[9]; ?></td>
+		<td><?php echo $this->realhauptrunde[10]; ?></td>
+		<td><?php echo $this->realhauptrunde[11]; ?></td>
+	</tr>
 </table>
 <h3>Finateilnehmer</h3>
 <table>
@@ -218,6 +236,10 @@
 			<?php endforeach; ?>
 		</select></td>
 	</tr>
+	<tr>
+		<td><?php echo $this->realhauptrunde[12]; ?></td>
+		<td><?php echo $this->realhauptrunde[13]; ?></td>
+	</tr>
 </table>
 <h3>Europameister</h3>
 <div><select name="europameister" <?php echo $this->isDisabledHauptrunde(); ?>>
@@ -230,5 +252,8 @@
 	<?php endif; ?>
 	<?php endforeach; ?>
 </select></div>
+<div>
+<?php echo $this->realhauptrunde[14]; ?>
+</div>
 <div style="text-align: right;"><input type="submit" value="Speichern" /></div>
 </form>
