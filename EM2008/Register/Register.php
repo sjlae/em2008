@@ -39,6 +39,9 @@ class Register extends HTMLPage implements Page {
 		}else if($this->passwort1 != $this->passwort2) {
 			$this->errors[] = "Bitte zwei Mal das gleiche Passwort w&auml;hlen";
 		}
+		if($this->checkExistingEmail($this->email)) {
+			$this->errors[] = "Diese Email ist schon vorhanden";
+		}
 		
 		if(count($this->errors) == 0) {
 			$pwd = md5($this->passwort1);
@@ -54,6 +57,18 @@ class Register extends HTMLPage implements Page {
 		}
 		
 		return true;
+	}
+	
+	public function checkExistingEmail($email) {
+		$abfrage = "SELECT * FROM user where email='".$email."'";
+
+		$result = mysql_query($abfrage);
+
+		while($row = mysql_fetch_assoc($result))
+		{
+			return true;
+		} 
+		return false;
 	}
 	
 	/**
