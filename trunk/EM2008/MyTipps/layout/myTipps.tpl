@@ -1,4 +1,6 @@
 <h2>Meine Tipps</h2>
+<?php require_once('Layout/infos.tpl'); ?>
+<?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=myTipps&action=setTipps" method="POST">
 <table border="0">
 	<tr>
@@ -26,12 +28,12 @@
 		<td align="center"><input type="text" style="width: 15px"
 			value="<?php echo $spiel['result1']; ?>"
 			<?php echo $spiel['disabled']; ?>
-			name="result1<?php echo $spiel['id']; ?>" /></td>
+			name="result1<?php echo $spiel['id']; ?>" maxLength="2" /></td>
 		<td>:</td>
 		<td align="center"><input type="text" style="width: 15px"
 			value="<?php echo $spiel['result2']; ?>"
 			<?php echo $spiel['disabled']; ?>
-			name="result2<?php echo $spiel['id']; ?>" /></td>
+			name="result2<?php echo $spiel['id']; ?>" maxLength="2" /></td>
 		<td align="center"><?php echo $spiel['realresult1']; ?></td>
 		<td>:</td>
 		<td align="center"><?php echo $spiel['realresult2']; ?></td>
@@ -47,7 +49,7 @@
 		<td>Team 4</td>
 	</tr>
 	<tr>
-		<td><select name="viertelfinal1">
+		<td><select name="viertelfinal1" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userViertelfinal[1] == $country['id']): ?>
@@ -57,7 +59,7 @@
 			<?php endif; ?>
 			<?endforeach; ?>
 		</select></td>
-		<td><select name="viertelfinal2">
+		<td><select name="viertelfinal2" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userViertelfinal[2] == $country['id']): ?>
@@ -67,7 +69,7 @@
 			<?php endif; ?>
 			<?endforeach; ?>
 		</select></td>
-		<td><select name="viertelfinal3">
+		<td><select name="viertelfinal3" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userViertelfinal[3] == $country['id']): ?>
@@ -77,7 +79,7 @@
 			<?php endif; ?>
 			<?endforeach; ?>
 		</select></td>
-		<td><select name="viertelfinal4">
+		<td><select name="viertelfinal4" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userViertelfinal[4] == $country['id']): ?>
@@ -95,7 +97,7 @@
 		<td>Team 8</td>
 	</tr>
 	<tr>
-		<td><select name="viertelfinal5">
+		<td><select name="viertelfinal5" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userViertelfinal[5] == $country['id']): ?>
@@ -105,7 +107,7 @@
 			<?php endif; ?>
 			<?php endforeach; ?>
 		</select></td>
-		<td><select name="viertelfinal6">
+		<td><select name="viertelfinal6" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userViertelfinal[6] == $country['id']): ?>
@@ -115,7 +117,7 @@
 			<?php endif; ?>
 			<?php endforeach; ?>
 		</select></td>
-		<td><select name="viertelfinal7">
+		<td><select name="viertelfinal7" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userViertelfinal[7] == $country['id']): ?>
@@ -125,7 +127,7 @@
 			<?php endif; ?>
 			<?php endforeach; ?>
 		</select></td>
-		<td><select name="viertelfinal8">
+		<td><select name="viertelfinal8" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userViertelfinal[8] == $country['id']): ?>
@@ -146,7 +148,7 @@
 		<td>Team 4</td>
 	</tr>
 	<tr>
-		<td><select name="halbfinal1">
+		<td><select name="halbfinal1" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userHalbfinal[1] == $country['id']): ?>
@@ -156,7 +158,7 @@
 			<?php endif; ?>
 			<?php endforeach; ?>
 		</select></td>
-		<td><select name="halbfinal2">
+		<td><select name="halbfinal2" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userHalbfinal[2] == $country['id']): ?>
@@ -166,7 +168,7 @@
 			<?php endif; ?>
 			<?php endforeach; ?>
 		</select></td>
-		<td><select name="halbfinal3">
+		<td><select name="halbfinal3" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userHalbfinal[3] == $country['id']): ?>
@@ -176,7 +178,7 @@
 			<?php endif; ?>
 			<?php endforeach; ?>
 		</select></td>
-		<td><select name="halbfinal4">
+		<td><select name="halbfinal4" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 			<?php if($this->userHalbfinal[4] == $country['id']): ?>
@@ -195,7 +197,7 @@
 		<td>Team 2</td>
 	</tr>
 	<tr>
-		<td><select name="final1">
+		<td><select name="final1" <?php echo $this->isDisabledHauptrunde(); ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
 		<?php if($this->userFinal[1] == $country['id']): ?>
@@ -205,7 +207,7 @@
 			<?php endif; ?>
 			<?php endforeach; ?>
 		</select></td>
-		<td><select name="final2">
+		<td><select name="final2" <?php echo $this->isDisabledHauptrunde(); ?>>
 		<option value=''></option>
 		<?foreach($this->countries as $country): ?>
 		<?php if($this->userFinal[2] == $country['id']): ?>
@@ -218,7 +220,7 @@
 	</tr>
 </table>
 <h3>Europameister</h3>
-<div><select name="europameister">
+<div><select name="europameister" <?php echo $this->isDisabledHauptrunde(); ?>>
 	<option value=''></option>
 	<?foreach($this->countries as $country): ?>
 	<?php if($this->userEuropameister == $country['id']): ?>
