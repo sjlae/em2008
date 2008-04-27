@@ -198,7 +198,7 @@ class MyTipps extends HTMLPage implements Page {
 			$abfrage = "Insert into uservorrunde value(".$_SESSION['userid'].", ".$vorrundeid.")";
 			mysql_query($abfrage);
 		} else {
-			$this->errors[] = "Die Zeit ist abgelaufen, um Vorrudentipps zu erfassen.";
+			$this->errors[] = "Die Zeit ist abgelaufen, um Vorrundentipps zu erfassen.";
 		}
 	}
 
