@@ -15,7 +15,7 @@ class LoggedIn extends Login{
 	public static function isAdmin(Page $page) {
 		$registered = $_SESSION['eingeloggt'];
 		if($registered) {
-			$abfrage = "SELECT * FROM User where userid='".$_SESSION['userid']."'";
+			$abfrage = "SELECT * FROM user where userid='".$_SESSION['userid']."'";
 	
 			$ergebnis = mysql_query($abfrage);
 			

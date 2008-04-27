@@ -5,7 +5,7 @@ require_once('Datenbank/db.php');
 class Ranking extends HTMLPage implements Page {
 		
 	public function getHTML() {
-		$abfrage = "SELECT vorname, nachname, punkte, bezahlt FROM User ORDER BY User.punkte DESC";
+		$abfrage = "SELECT vorname, nachname, punkte, bezahlt FROM user ORDER BY punkte DESC";
 
 		$ergebnis = mysql_query($abfrage);
 		
