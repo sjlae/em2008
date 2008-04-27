@@ -68,7 +68,7 @@ class MyTipps extends HTMLPage implements Page {
 
 	private function addHauptrundeTipp($hauptrundeid, $hauptrundetipps) {
 			$abfrage = "Insert into hauptrunde values('', '".$hauptrundetipps[0]."', '".$hauptrundetipps[1]."', '".$hauptrundetipps[2]."', '".$hauptrundetipps[3]."', '".$hauptrundetipps[4]."', '".$hauptrundetipps[5]."', '".$hauptrundetipps[6]."', '".$hauptrundetipps[7]."', '".$hauptrundetipps[8]."', '".$hauptrundetipps[9]."', '".$hauptrundetipps[10]."', '".$hauptrundetipps[11]."', '".$hauptrundetipps[12]."', '".$hauptrundetipps[13]."', '".$hauptrundetipps[14]."', '".$hauptrundetipps[15]."'";
-			echo $abfrage
+			echo $abfrage;
 	}
 
 	private function isExistingHauptrunde() {
