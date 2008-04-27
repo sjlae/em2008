@@ -114,6 +114,11 @@ class MyTipps extends HTMLPage implements Page {
 				}
 			}
 		}
+
+		if($this->hasEqualTeams()){
+			return false;
+		}
+		
 		//set hauptrunde tipps
 		//Existingcheck
 
@@ -240,12 +245,14 @@ class MyTipps extends HTMLPage implements Page {
 	}
 
 	private function getTeam($id) {
-		$abfrage = "SELECT * FROM Teams where teamid=".$id;
-
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
-		{
-			return $row['land'];
+		if($id != ''){
+			$abfrage = "SELECT * FROM Teams where teamid=".$id;
+	
+			$ergebnis = mysql_query($abfrage);
+			while($row = mysql_fetch_assoc($ergebnis))
+			{
+				return $row['land'];
+			}
 		}
 	}
 
@@ -316,6 +323,53 @@ class MyTipps extends HTMLPage implements Page {
 			$i++;
 		}
 	}
+	
+	private function hasEqualTeams(){
+		$viertelfinalArray = array();
+		
+		$viertelfinalArray[0] = $_POST["viertelfinal1"];
+		$viertelfinalArray[1] = $_POST["viertelfinal2"];
+		$viertelfinalArray[2] = $_POST["viertelfinal3"];
+		$viertelfinalArray[3] = $_POST["viertelfinal4"];
+		$viertelfinalArray[4] = $_POST["viertelfinal5"];
+		$viertelfinalArray[5] = $_POST["viertelfinal6"];
+		$viertelfinalArray[6] = $_POST["viertelfinal7"];
+		$viertelfinalArray[7] = $_POST["viertelfinal8"];
+		
+		$resultViertelFinalArray = array_count_values($viertelfinalArray);
+			
+		if(count($resultViertelFinalArray) <= (8 - ($resultViertelFinalArray[''] == 0 ? 1 : $resultViertelFinalArray['']))){
+				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
+				return true;
+		}
+		
+		$halbfinalArray = array();
+		
+		$halbfinalArray[0] = $_POST["halbfinal1"];
+		$halbfinalArray[1] = $_POST["halbfinal2"];
+		$halbfinalArray[2] = $_POST["halbfinal3"];
+		$halbfinalArray[3] = $_POST["halbfinal4"];
+		
+		$resultHalbFinalArray = array_count_values($halbfinalArray);
+		
+		if(count($resultHalbFinalArray) <= (4 - ($resultHalbFinalArray[''] == 0 ? 1 : $resultHalbFinalArray['']))){
+				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
+				return true;
+		}
+		
+		$finalArray = array();
+		
+		$finalArray[0] = $_POST["final1"];
+		$finalArray[1] = $_POST["final2"];
+		
+		$resultFinalArray = array_count_values($finalArray);
+		
+		if(count($resultFinalArray) <= (2 - ($resultFinalArray[''] == 0 ? 1 : $resultFinalArray['']))){
+				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
+				return true;
+		}
+	}
+	
 	public function getHTML() {
 		$this->getCountries();
 		include('layout/myTipps.tpl');

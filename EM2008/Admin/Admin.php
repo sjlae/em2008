@@ -5,6 +5,8 @@ require_once('Datenbank/db.php');
 
 class Admin extends HTMLPage implements Page{
 
+	private $errors = array();
+	
 	private $nnb = array();
 	private $countries = array();
 	private $vorrunde = array();
@@ -33,8 +35,11 @@ class Admin extends HTMLPage implements Page{
 		
 		if($action == 'results') {
 			$this->setVorrundenResults();
-			$this->setHauptrundenTeams();
-			$this->updateUserPoints();
+			$this->hasEqualTeams();
+			if(count($this->errors) == 0){
+				$this->setHauptrundenTeams();
+				$this->updateUserPoints();
+			}
 		}
 		
 		if($action == 'news') {
@@ -42,6 +47,52 @@ class Admin extends HTMLPage implements Page{
 		}
 	}
 
+	private function hasEqualTeams(){
+		$viertelfinalArray = array();
+		
+		$viertelfinalArray[0] = $_POST["viertelfinal1"];
+		$viertelfinalArray[1] = $_POST["viertelfinal2"];
+		$viertelfinalArray[2] = $_POST["viertelfinal3"];
+		$viertelfinalArray[3] = $_POST["viertelfinal4"];
+		$viertelfinalArray[4] = $_POST["viertelfinal5"];
+		$viertelfinalArray[5] = $_POST["viertelfinal6"];
+		$viertelfinalArray[6] = $_POST["viertelfinal7"];
+		$viertelfinalArray[7] = $_POST["viertelfinal8"];
+		
+		$resultViertelFinalArray = array_count_values($viertelfinalArray);
+			
+		if(count($resultViertelFinalArray) <= (8 - ($resultViertelFinalArray[''] == 0 ? 1 : $resultViertelFinalArray['']))){
+				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
+				return;
+		}
+		
+		$halbfinalArray = array();
+		
+		$halbfinalArray[0] = $_POST["halbfinal1"];
+		$halbfinalArray[1] = $_POST["halbfinal2"];
+		$halbfinalArray[2] = $_POST["halbfinal3"];
+		$halbfinalArray[3] = $_POST["halbfinal4"];
+		
+		$resultHalbFinalArray = array_count_values($halbfinalArray);
+		
+		if(count($resultHalbFinalArray) <= (4 - ($resultHalbFinalArray[''] == 0 ? 1 : $resultHalbFinalArray['']))){
+				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
+				return;
+		}
+		
+		$finalArray = array();
+		
+		$finalArray[0] = $_POST["final1"];
+		$finalArray[1] = $_POST["final2"];
+		
+		$resultFinalArray = array_count_values($finalArray);
+		
+		if(count($resultFinalArray) <= (2 - ($resultFinalArray[''] == 0 ? 1 : $resultFinalArray['']))){
+				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
+				return;
+		}
+	}
+		
 	private function setPayFlag() {
 		for($i=0; $i<=$_POST['maxUser']; $i++) {
 			if($_POST["user$i"] != '') {
@@ -65,63 +116,63 @@ class Admin extends HTMLPage implements Page{
 	
 	private function setHauptrundenTeams() {
 		$viertelfinal1 = $_POST["viertelfinal1"];
-		$abfrage = "Update Realhauptrunde set viertelfinal1=$viertelfinal1";
+		$abfrage = "Update Realhauptrunde set viertelfinal1='".$viertelfinal1."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal2 = $_POST["viertelfinal2"];
-		$abfrage = "Update Realhauptrunde set viertelfinal2=$viertelfinal2";
+		$abfrage = "Update Realhauptrunde set viertelfinal2='".$viertelfinal2."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal3 = $_POST["viertelfinal3"];
-		$abfrage = "Update Realhauptrunde set viertelfinal3=$viertelfinal3";
+		$abfrage = "Update Realhauptrunde set viertelfinal3='".$viertelfinal3."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal4 = $_POST["viertelfinal4"];
-		$abfrage = "Update Realhauptrunde set viertelfinal4=$viertelfinal4";
+		$abfrage = "Update Realhauptrunde set viertelfinal4='".$viertelfinal4."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal5 = $_POST["viertelfinal5"];
-		$abfrage = "Update Realhauptrunde set viertelfinal5=$viertelfinal5";
+		$abfrage = "Update Realhauptrunde set viertelfinal5='".$viertelfinal5."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal6 = $_POST["viertelfinal6"];
-		$abfrage = "Update Realhauptrunde set viertelfinal6=$viertelfinal6";
+		$abfrage = "Update Realhauptrunde set viertelfinal6='".$viertelfinal6."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal7 = $_POST["viertelfinal7"];
-		$abfrage = "Update Realhauptrunde set viertelfinal7=$viertelfinal7";
+		$abfrage = "Update Realhauptrunde set viertelfinal7='".$viertelfinal7."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal8 = $_POST["viertelfinal8"];
-		$abfrage = "Update Realhauptrunde set viertelfinal8=$viertelfinal8";
+		$abfrage = "Update Realhauptrunde set viertelfinal8='".$viertelfinal8."'";
 		mysql_query($abfrage);
 		
 		$halbfinal1 = $_POST["halbfinal1"];
-		$abfrage = "Update Realhauptrunde set halbfinal1=$halbfinal1";
+		$abfrage = "Update Realhauptrunde set halbfinal1='".$halbfinal1."'";
 		mysql_query($abfrage);
 		
 		$halbfinal2 = $_POST["halbfinal2"];
-		$abfrage = "Update Realhauptrunde set halbfinal2=$halbfinal2";
+		$abfrage = "Update Realhauptrunde set halbfinal2='".$halbfinal2."'";
 		mysql_query($abfrage);
 		
 		$halbfinal3 = $_POST["halbfinal3"];
-		$abfrage = "Update Realhauptrunde set halbfinal3=$halbfinal3";
+		$abfrage = "Update Realhauptrunde set halbfinal3='".$halbfinal3."'";
 		mysql_query($abfrage);
 		
 		$halbfinal4 = $_POST["halbfinal4"];
-		$abfrage = "Update Realhauptrunde set halbfinal4=$halbfinal4";
+		$abfrage = "Update Realhauptrunde set halbfinal4='".$halbfinal4."'";
 		mysql_query($abfrage);
 		
 		$final1 = $_POST["final1"];
-		$abfrage = "Update Realhauptrunde set final1=$final1";
+		$abfrage = "Update Realhauptrunde set final1='".$final1."'";
 		mysql_query($abfrage);
 		
 		$final2 = $_POST["final2"];
-		$abfrage = "Update Realhauptrunde set final2=$final2";
+		$abfrage = "Update Realhauptrunde set final2='".$final2."'";
 		mysql_query($abfrage);
 		
 		$europameister = $_POST["europameister"];
-		$abfrage = "Update Realhauptrunde set europameister=$europameister";
+		$abfrage = "Update Realhauptrunde set europameister='".$europameister."'";
 		mysql_query($abfrage);
 	}
 
@@ -243,8 +294,8 @@ class Admin extends HTMLPage implements Page{
 						{	
 							$real1 = $row['realresult1'];
 							$real2 = $row['realresult2'];
-
-							if($real1 != '' && $real2 != ''){
+							
+							if($real1 != '' && $real2 != '' && $tipp1 != '' && $tipp2 != ''){
 	                            if ($tipp1==$real1 && $tipp2==$real2) { 
 	                            	$points = $points+5; 
 	                            } 
@@ -272,6 +323,7 @@ class Admin extends HTMLPage implements Page{
 					}
 				}
 				
+				echo $points;
 				
 				$hauptrundeTippsFromUser = "SELECT * FROM hauptrunde where userfsid=$userid";
 				$resultHauptrundeTippsFromUser = mysql_query($hauptrundeTippsFromUser);

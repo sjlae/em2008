@@ -26,11 +26,10 @@ class Register extends HTMLPage implements Page {
 		$this->passwort2 = $_POST['passwort2'];
 		$$where = $_POST['where'];
 		
-		if($this->nachname == '') {
-			$this->errors[] = "Bitte das Feld 'Name' ausf&uuml;llen";
-		}
 		if($this->vorname == '')
 			$this->errors[] = "Bitte das Feld 'Vorname' ausf&uuml;llen";
+		if($this->nachname == '')
+			$this->errors[] = "Bitte das Feld 'Name' ausf&uuml;llen";
 		if($this->email == '')
 			$this->errors[] = "Bitte das Feld 'Email' ausf&uuml;llen";
 		if($this->passwort1 == '') {
