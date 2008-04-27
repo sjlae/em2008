@@ -1,3 +1,5 @@
+<?php require_once('Layout/errors.tpl'); ?>
+
 <h2>Admin</h2>
 <h3>Zahlungen erfassen</h3>
 	<form action="index.php?go=admin&action=nnb" method="POST">

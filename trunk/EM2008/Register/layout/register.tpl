@@ -3,19 +3,19 @@
 <form action="index.php?go=register&action=register" method="POST">
 	<table>
 		<tr>
-			<td>
-				Name:
-			</td>
-			<td>
-				<input type="text" name="nachname" value="<?php echo $this->nachname; ?>" />
-			</td>
-		</tr>
-		<tr>
 			<td style="padding-top: 5px">	
 				Vorname:
 			</td>
 			<td>
 				<input type="text" name="vorname" value="<?php echo $this->vorname; ?>" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Name:
+			</td>
+			<td>
+				<input type="text" name="nachname" value="<?php echo $this->nachname; ?>" />
 			</td>
 		</tr>
 		<tr>
