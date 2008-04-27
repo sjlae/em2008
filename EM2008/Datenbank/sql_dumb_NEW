@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 27. April 2008 um 16:02
+-- Erstellungszeit: 27. April 2008 um 16:08
 -- Server Version: 5.0.51
 -- PHP-Version: 5.2.5
 
@@ -20,6 +20,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE `hauptrunde` (
+  `userfsid` int(11) NOT NULL,
   `viertelfinal1` varchar(11) default NULL,
   `viertelfinal2` varchar(11) default NULL,
   `viertelfinal3` varchar(11) default NULL,
@@ -35,7 +36,6 @@ CREATE TABLE `hauptrunde` (
   `final1` varchar(11) default NULL,
   `final2` varchar(11) default NULL,
   `europameister` varchar(11) default NULL,
-  `userfsid` int(11) NOT NULL,
   PRIMARY KEY  (`userfsid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
