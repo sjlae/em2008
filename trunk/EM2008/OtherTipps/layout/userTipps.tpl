@@ -1,39 +1,35 @@
 <h2>Tipps von <?php echo $this->players[$this->realid]['nachname']; ?> <?php echo $this->players[$this->realid]['vorname']; ?></h2>
 <table border="0">
 	<tr>
-		<td align="center" style="white-space: nowrap"><b>#</b></td>
-		<td style="white-space: nowrap"><b>Datum</b></td>
-		<td style="white-space: nowrap"><b>Team 1</b></td>
-		<td style="white-space: nowrap"><b>Team 2</b></td>
-		<td style="white-space: nowrap"><b>Tipp 1</b></td>
-		<td />
-		
-		
-		<td style="white-space: nowrap"><b>Tipp 2</b></td>
-		<td style="white-space: nowrap"><b>Res. 1</b></td>
-		<td />
-		
-		
-		<td style="white-space: nowrap"><b>Res. 2</b></td>
+		<td align="center" style="white-space: nowrap; padding-bottom: 5px"><b>#</b></td>
+		<td style="white-space: nowrap; padding-bottom: 5px"><b>Datum</b></td>
+		<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 1</b></td>
+		<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 2</b></td>
+		<td style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 1</b></td>
+		<td padding-bottom: 5px/>
+		<td style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 2</b></td>
+		<td style="white-space: nowrap; padding-bottom: 5px"><b>Res. 1</b></td>
+		<td padding-bottom: 5px/>
+		<td style="white-space: nowrap; padding-bottom: 5px"><b>Res. 2</b></td>
 	</tr>
 	<?php foreach($this->vorrunde as $spiel): ?>
 	<tr>
-		<td align="center"><?php echo $spiel['id']; ?></td>
-		<td><?php echo $spiel['start']; ?></td>
-		<td><?php echo $spiel['team1']; ?></td>
-		<td><?php echo $spiel['team2']; ?></td>
-		<td align="center"><input type="text" style="width: 15px"
+		<td align="center" valign="top"><?php echo $spiel['id']; ?></td>
+		<td valign="top"><?php echo $spiel['start']; ?></td>
+		<td valign="top"><?php echo $spiel['team1']; ?></td>
+		<td valign="top"><?php echo $spiel['team2']; ?></td>
+		<td align="center" valign="top"><input type="text" style="width: 15px"
 			value="<?php echo $spiel['result1']; ?>"
 			<?php echo $spiel['disabled']; ?>
 			name="result1<?php echo $spiel['id']; ?>" maxLength="2" /></td>
-		<td>:</td>
-		<td align="center"><input type="text" style="width: 15px"
+		<td valign="top">:</td>
+		<td align="center" valign="top"><input type="text" style="width: 15px"
 			value="<?php echo $spiel['result2']; ?>"
 			<?php echo $spiel['disabled']; ?>
 			name="result2<?php echo $spiel['id']; ?>" maxLength="2" /></td>
-		<td align="center"><?php echo $spiel['realresult1']; ?></td>
-		<td>:</td>
-		<td align="center"><?php echo $spiel['realresult2']; ?></td>
+		<td align="center" valign="top"><?php echo $spiel['realresult1']; ?></td>
+		<td valign="top">:</td>
+		<td align="center" valign="top"><?php echo $spiel['realresult2']; ?></td>
 	</tr>
 	<?php endforeach; ?>
 </table>

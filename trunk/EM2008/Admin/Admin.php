@@ -323,8 +323,6 @@ class Admin extends HTMLPage implements Page{
 					}
 				}
 				
-				echo $points;
-				
 				$hauptrundeTippsFromUser = "SELECT * FROM hauptrunde where userfsid=$userid";
 				$resultHauptrundeTippsFromUser = mysql_query($hauptrundeTippsFromUser);
 				
