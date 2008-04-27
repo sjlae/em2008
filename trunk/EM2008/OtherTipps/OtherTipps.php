@@ -22,7 +22,7 @@ class OtherTipps extends HTMLPage implements Page {
 			$this->getUserTipps($id);
 			$this->getData();
 			$this->getUserHauptrundeTipps();
-		} else 
+		}
 		$this->getPlayers();
 
 
