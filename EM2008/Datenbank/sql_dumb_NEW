@@ -1,0 +1,257 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.5
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Erstellungszeit: 27. April 2008 um 16:02
+-- Server Version: 5.0.51
+-- PHP-Version: 5.2.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Datenbank: `em2008`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `hauptrunde`
+--
+
+CREATE TABLE `hauptrunde` (
+  `viertelfinal1` varchar(11) default NULL,
+  `viertelfinal2` varchar(11) default NULL,
+  `viertelfinal3` varchar(11) default NULL,
+  `viertelfinal4` varchar(11) default NULL,
+  `viertelfinal5` varchar(11) default NULL,
+  `viertelfinal6` varchar(11) default NULL,
+  `viertelfinal7` varchar(11) default NULL,
+  `viertelfinal8` varchar(11) default NULL,
+  `halbfinal1` varchar(11) default NULL,
+  `halbfinal2` varchar(11) default NULL,
+  `halbfinal3` varchar(11) default NULL,
+  `halbfinal4` varchar(11) default NULL,
+  `final1` varchar(11) default NULL,
+  `final2` varchar(11) default NULL,
+  `europameister` varchar(11) default NULL,
+  `userfsid` int(11) NOT NULL,
+  PRIMARY KEY  (`userfsid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `hauptrunde`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `news`
+--
+
+CREATE TABLE `news` (
+  `newsid` int(11) NOT NULL auto_increment,
+  `datum` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `titel` varchar(255) NOT NULL,
+  `text` text NOT NULL,
+  PRIMARY KEY  (`newsid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Daten für Tabelle `news`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `realhauptrunde`
+--
+
+CREATE TABLE `realhauptrunde` (
+  `realhauptrundeid` int(11) NOT NULL auto_increment,
+  `viertelfinal1` varchar(11) default NULL,
+  `viertelfinal2` varchar(11) default NULL,
+  `viertelfinal3` varchar(11) default NULL,
+  `viertelfinal4` varchar(11) default NULL,
+  `viertelfinal5` varchar(11) default NULL,
+  `viertelfinal6` varchar(11) default NULL,
+  `viertelfinal7` varchar(11) default NULL,
+  `viertelfinal8` varchar(11) default NULL,
+  `halbfinal1` varchar(11) default NULL,
+  `halbfinal2` varchar(11) default NULL,
+  `halbfinal3` varchar(11) default NULL,
+  `halbfinal4` varchar(11) default NULL,
+  `final1` varchar(11) default NULL,
+  `final2` varchar(11) default NULL,
+  `europameister` varchar(11) default NULL,
+  PRIMARY KEY  (`realhauptrundeid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Daten für Tabelle `realhauptrunde`
+--
+
+INSERT INTO `realhauptrunde` (`realhauptrundeid`, `viertelfinal1`, `viertelfinal2`, `viertelfinal3`, `viertelfinal4`, `viertelfinal5`, `viertelfinal6`, `viertelfinal7`, `viertelfinal8`, `halbfinal1`, `halbfinal2`, `halbfinal3`, `halbfinal4`, `final1`, `final2`, `europameister`) VALUES
+(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `teams`
+--
+
+CREATE TABLE `teams` (
+  `teamid` int(11) NOT NULL auto_increment,
+  `land` varchar(255) NOT NULL,
+  PRIMARY KEY  (`teamid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+
+--
+-- Daten für Tabelle `teams`
+--
+
+INSERT INTO `teams` (`teamid`, `land`) VALUES
+(1, 'Tschechien'),
+(2, 'Portugal'),
+(3, 'Schweiz'),
+(4, 'T&uuml;rkei'),
+(5, '&Ouml;sterreich'),
+(6, 'Kroatien'),
+(7, 'Deutschland'),
+(8, 'Polen'),
+(9, 'Frankreich'),
+(10, 'Italien'),
+(11, 'Holland'),
+(12, 'RumÃ¤nien'),
+(13, 'Griechenland'),
+(14, 'Russland'),
+(15, 'Spanien'),
+(16, 'Schweden');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `user`
+--
+
+CREATE TABLE `user` (
+  `userid` int(11) NOT NULL auto_increment,
+  `nachname` varchar(255) NOT NULL,
+  `vorname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `passwort` varchar(255) NOT NULL,
+  `bezahlt` int(11) NOT NULL,
+  `punkte` int(11) NOT NULL,
+  `woherfsid` int(11) NOT NULL,
+  `admin` int(11) NOT NULL,
+  PRIMARY KEY  (`userid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+
+--
+-- Daten für Tabelle `user`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `uservorrunde`
+--
+
+CREATE TABLE `uservorrunde` (
+  `userfsid` int(11) NOT NULL,
+  `vorrundefsid` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `uservorrunde`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `vorrunde`
+--
+
+CREATE TABLE `vorrunde` (
+  `vorrundeid` int(11) NOT NULL auto_increment,
+  `result1` varchar(11) default NULL,
+  `result2` varchar(11) default NULL,
+  `vorrundeteamsfsid` int(11) NOT NULL,
+  PRIMARY KEY  (`vorrundeid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Daten für Tabelle `vorrunde`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `vorrundeteams`
+--
+
+CREATE TABLE `vorrundeteams` (
+  `vorrundeteamsid` int(11) NOT NULL auto_increment,
+  `start` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `team1fsid` int(11) NOT NULL,
+  `team2fsid` int(11) NOT NULL,
+  `realresult1` varchar(11) default NULL,
+  `realresult2` varchar(11) default NULL,
+  PRIMARY KEY  (`vorrundeteamsid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+
+--
+-- Daten für Tabelle `vorrundeteams`
+--
+
+INSERT INTO `vorrundeteams` (`vorrundeteamsid`, `start`, `team1fsid`, `team2fsid`, `realresult1`, `realresult2`) VALUES
+(1, '2008-06-07 18:00:00', 3, 1, '', ''),
+(2, '2008-06-07 20:45:00', 2, 4, '', ''),
+(3, '2008-06-08 18:00:00', 5, 6, '', ''),
+(4, '2008-06-08 20:45:00', 7, 8, '', ''),
+(5, '2008-06-09 18:00:00', 12, 9, '', ''),
+(6, '2008-06-09 20:45:00', 11, 10, '', ''),
+(7, '2008-06-10 18:00:00', 15, 14, '', ''),
+(8, '2008-06-10 20:45:00', 13, 16, '', ''),
+(9, '2008-06-11 18:00:00', 1, 2, '', ''),
+(10, '2008-06-11 20:45:00', 3, 4, '', ''),
+(11, '2008-06-12 18:00:00', 6, 7, '', ''),
+(12, '2008-06-12 20:45:00', 5, 8, '', ''),
+(13, '2008-06-13 18:00:00', 10, 12, '', ''),
+(14, '2008-06-13 20:45:00', 11, 9, '', ''),
+(15, '2008-06-14 18:00:00', 16, 15, '', ''),
+(16, '2008-06-14 20:45:00', 13, 14, '', ''),
+(17, '2008-06-15 20:45:00', 3, 2, '', ''),
+(18, '2008-06-15 20:45:00', 4, 1, '', ''),
+(19, '2008-06-16 20:45:00', 8, 6, '', ''),
+(20, '2008-06-16 20:45:00', 5, 7, '', ''),
+(21, '2008-06-17 20:45:00', 11, 12, '', ''),
+(22, '2008-06-17 20:45:00', 9, 10, '', ''),
+(23, '2008-06-18 20:45:00', 13, 15, '', ''),
+(24, '2008-06-18 20:45:00', 14, 16, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `woher`
+--
+
+CREATE TABLE `woher` (
+  `woherid` int(11) NOT NULL auto_increment,
+  `bezeichnung` varchar(255) NOT NULL,
+  PRIMARY KEY  (`woherid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Daten für Tabelle `woher`
+--
+
+INSERT INTO `woher` (`woherid`, `bezeichnung`) VALUES
+(1, 'Kenne Organisatoren'),
+(2, 'Ein/e Kollege/Kollegin kennt Organisatoren'),
+(3, 'Zuf&auml;llig im Internet darauf gestossen');
