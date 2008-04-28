@@ -26,7 +26,7 @@ class MyTipps extends HTMLPage implements Page {
 		if($action == "setTipps") {
 			$this->setTipps();
 		}
-
+		
 		$this->getData();
 
 		$this->hauptrundefsid = $this->isExistingHauptrunde();
@@ -98,18 +98,20 @@ class MyTipps extends HTMLPage implements Page {
 		for($i=1;$i<=24;$i++) {
 			$result1 = $_POST['result1'.$i];
 			$result2 = $_POST['result2'.$i];
-			if($this->isExisting($i)) {
+			if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled' || ($this->isDisabled($this->vorrunde[$i-1]['start']) == 'disabled' && ($result1 != '' || $result2 != ''))) {
 				if($this->isExisting($i)) {
-					$this->updateTipp($i, $result1, $result2);
-				} else {
-					$this->addTipp($i, $result1, $result2);
-				}
-			} else {
-				if($result1 != '' || $result2 != '') {
 					if($this->isExisting($i)) {
 						$this->updateTipp($i, $result1, $result2);
 					} else {
 						$this->addTipp($i, $result1, $result2);
+					}
+				} else {
+					if($result1 != '' || $result2 != '') {
+						if($this->isExisting($i)) {
+							$this->updateTipp($i, $result1, $result2);
+						} else {
+							$this->addTipp($i, $result1, $result2);
+						}
 					}
 				}
 			}
@@ -123,28 +125,38 @@ class MyTipps extends HTMLPage implements Page {
 		//Existingcheck
 
 		$hauptrundetipps = array();
-
+		
+		$isStillEnabled = false;
 
 		for($i=1;$i<=8;$i++) {
 			$teamid = $_POST['viertelfinal'.$i];
 			$hauptrundetipps[] = $teamid;
+			if(!$isStillEnabled && $teamid != ''){
+				$isStillEnabled = true;
+			}
 		}
 		//halbfinal
 		for($i=1;$i<=4;$i++) {
 			$teamid = $_POST['halbfinal'.$i];
 			$hauptrundetipps[] = $teamid;
+			if(!$isStillEnabled && $teamid != ''){
+				$isStillEnabled = true;
+			}
 		}
 
 		//Final
 		for($i=1;$i<=2;$i++) {
 			$teamid = $_POST['final'.$i];
 			$hauptrundetipps[] = $teamid;
+			if(!$isStillEnabled && $teamid != ''){
+				$isStillEnabled = true;
+			}
 		}
 
 		//Europameister
 		$teamid = $_POST['europameister'];
 		$hauptrundetipps[] = $teamid;
-
+		
 		//timecheck??
 		$this->hauptrundefsid = $this->isExistingHauptrunde();
 		if($this->isDisabledHauptrunde()=="enabled") {
@@ -153,7 +165,7 @@ class MyTipps extends HTMLPage implements Page {
 			} else {
 				$this->addHauptrundeTipp($hauptrundetipps);
 			}
-		} else {
+		} else if($isStillEnabled) {
 			$this->errors[] = "Die Zeit ist abgelaufen, um Hauptrundentipps zu erfassen.";
 		}
 
@@ -161,7 +173,7 @@ class MyTipps extends HTMLPage implements Page {
 	}
 
 	private function isDisabledHauptrunde() {
-		if(mktime() > mktime(18, 0, 0, 6, 7, 2008))
+		if(mktime() > mktime(19, 21, 0, 4, 28, 2008))
 		return "disabled";
 
 		return "enabled";
@@ -325,6 +337,10 @@ class MyTipps extends HTMLPage implements Page {
 	}
 	
 	private function hasEqualTeams(){
+		if($this->isDisabledHauptrunde() == "disabled"){
+			return false;
+		}
+		
 		$viertelfinalArray = array();
 		
 		$viertelfinalArray[0] = $_POST["viertelfinal1"];

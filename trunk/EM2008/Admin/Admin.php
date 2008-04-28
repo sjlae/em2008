@@ -105,12 +105,10 @@ class Admin extends HTMLPage implements Page{
 	
 	private function setVorrundenResults() {
 		for($counter=1; $counter<=24; $counter++) {
-			if($_POST["result1_$counter"] != '' || $_POST["result1_$counter"] != '') {
-				$result1 = $_POST["result1_$counter"];
-				$result2 = $_POST["result2_$counter"];
-				$abfrage = "Update vorrundeteams set realresult1=$result1, realresult2=$result2 where vorrundeteamsid=$counter";
-				mysql_query($abfrage);
-			}
+			$result1 = $_POST["result1_$counter"];
+			$result2 = $_POST["result2_$counter"];
+			$abfrage = "Update vorrundeteams set realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
+			mysql_query($abfrage);
 		}
 	}
 	
@@ -128,7 +126,7 @@ class Admin extends HTMLPage implements Page{
 		mysql_query($abfrage);
 		
 		$viertelfinal4 = $_POST["viertelfinal4"];
-		$abfrage = "Update Realhauptrunde set viertelfinal4='".$viertelfinal4."'";
+		$abfrage = "Update realhauptrunde set viertelfinal4='".$viertelfinal4."'";
 		mysql_query($abfrage);
 		
 		$viertelfinal5 = $_POST["viertelfinal5"];
@@ -295,7 +293,7 @@ class Admin extends HTMLPage implements Page{
 							$real1 = $row['realresult1'];
 							$real2 = $row['realresult2'];
 							
-							if($real1 != '' && $real2 != '' && $tipp1 != '' && $tipp2 != '' && $tipp1>0 && $tipp2>0){
+							if($real1 != '' && $real2 != '' && $tipp1 != '' && $tipp2 != '' && $tipp1>=0 && $tipp2>=0){
 	                            if ($tipp1==$real1 && $tipp2==$real2) { 
 	                            	$points = $points+5; 
 	                            } 

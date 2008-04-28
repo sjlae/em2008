@@ -13,7 +13,8 @@ class OtherTipps extends HTMLPage implements Page {
 	private $userHalbfinal = array();
 	private $userFinal = array();
 	private $userEuropameister= '';
-
+	private $realhauptrunde = array();
+	
 	public function __construct() {
 		$this->action = isset($_GET['action']) ? $_GET['action'] : '';
 		$id = isset($_GET['id']) ? $_GET['id'] : '';
@@ -22,6 +23,7 @@ class OtherTipps extends HTMLPage implements Page {
 			$this->getUserTipps($id);
 			$this->getData();
 			$this->getUserHauptrundeTipps();
+			$this->realhauptrunde = $this->getRealHauptrunde();
 		}
 		$this->getPlayers();
 
@@ -152,6 +154,35 @@ class OtherTipps extends HTMLPage implements Page {
 		}
 	}
 
+	private function getRealHauptrunde() {
+		$abfrage = "Select * from realhauptrunde";
+		$realhauptrunde = array();
+
+		$ergebnis = mysql_query($abfrage);
+		while($row = mysql_fetch_assoc($ergebnis))
+		{
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal1']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal2']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal3']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal4']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal5']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal6']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal7']);
+			$realhauptrunde[] = $this->getTeam($row['viertelfinal8']);
+			
+			$realhauptrunde[] = $this->getTeam($row['halbfinal1']);
+			$realhauptrunde[] = $this->getTeam($row['halbfinal2']);
+			$realhauptrunde[] = $this->getTeam($row['halbfinal3']);
+			$realhauptrunde[] = $this->getTeam($row['halbfinal4']);
+			
+			$realhauptrunde[] = $this->getTeam($row['final1']);
+			$realhauptrunde[] = $this->getTeam($row['final2']);
+			
+			$realhauptrunde[] = $this->getTeam($row['europameister']);
+		}
+		
+		return $realhauptrunde;
+	}
 
 	public function getHTML() {
 		if($this->action == "getTipps") {

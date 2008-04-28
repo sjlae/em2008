@@ -84,12 +84,6 @@
 		</select></td>
 	</tr>
 	<tr>
-		<td><?php echo $this->realhauptrunde[0]; ?></td>
-		<td><?php echo $this->realhauptrunde[1]; ?></td>
-		<td><?php echo $this->realhauptrunde[2]; ?></td>
-		<td><?php echo $this->realhauptrunde[3]; ?></td>
-	</tr>
-	<tr>
 		<td>Team 5</td>
 		<td>Team 6</td>
 		<td>Team 7</td>
@@ -137,12 +131,23 @@
 			<?php endforeach; ?>
 		</select></td>
 	</tr>
-	<tr>
-		<td><?php echo $this->realhauptrunde[4]; ?></td>
-		<td><?php echo $this->realhauptrunde[5]; ?></td>
-		<td><?php echo $this->realhauptrunde[6]; ?></td>
-		<td><?php echo $this->realhauptrunde[7]; ?></td>
-	</tr>
+	<?php if($this->realhauptrunde[0] != ''){ ?>
+		<tr>
+			<td colspan="4" style="padding-top: 5px"><b>Tats&auml;chlich qualifizierte L&auml;nder:</b></td>
+		</tr>
+		<tr>
+			<td style="color: red"><?php echo $this->realhauptrunde[0]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[1]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[2]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[3]; ?></td>
+		</tr>
+		<tr>
+			<td style="color: red"><?php echo $this->realhauptrunde[4]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[5]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[6]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[7]; ?></td>
+		</tr>
+	<?php } ?>
 </table>
 <h3>Halbfinalteilnehmer</h3>
 <table>
@@ -194,12 +199,17 @@
 			<?php endforeach; ?>
 		</select></td>
 	</tr>
-	<tr>
-		<td><?php echo $this->realhauptrunde[8]; ?></td>
-		<td><?php echo $this->realhauptrunde[9]; ?></td>
-		<td><?php echo $this->realhauptrunde[10]; ?></td>
-		<td><?php echo $this->realhauptrunde[11]; ?></td>
-	</tr>
+	<?php if($this->realhauptrunde[8] != ''){ ?>
+		<tr>
+			<td colspan="4" style="padding-top: 5px"><b>Tats&auml;chlich qualifizierte L&auml;nder:</b></td>
+		</tr>
+		<tr>
+			<td style="color: red"><?php echo $this->realhauptrunde[8]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[9]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[10]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[11]; ?></td>
+		</tr>
+	<?php } ?>
 </table>
 <h3>Finateilnehmer</h3>
 <table>
@@ -229,10 +239,15 @@
 			<?php endforeach; ?>
 		</select></td>
 	</tr>
-	<tr>
-		<td><?php echo $this->realhauptrunde[12]; ?></td>
-		<td><?php echo $this->realhauptrunde[13]; ?></td>
-	</tr>
+	<?php if($this->realhauptrunde[8] != ''){ ?>
+		<tr>
+			<td colspan="4" style="padding-top: 5px"><b>Tats&auml;chlich qualifizierte L&auml;nder:</b></td>
+		</tr>
+		<tr>
+			<td style="color: red"><?php echo $this->realhauptrunde[12]; ?></td>
+			<td style="color: red"><?php echo $this->realhauptrunde[13]; ?></td>
+		</tr>
+	<?php }?>
 </table>
 <h3>Europameister</h3>
 <div><select name="europameister" <?php echo $this->isDisabledHauptrunde(); ?>>
@@ -245,6 +260,11 @@
 	<?php endif; ?>
 	<?php endforeach; ?>
 </select></div>
-<div>
-<?php echo $this->realhauptrunde[14]; ?>
-</div>
+<?php if($this->realhauptrunde[14] != ''){ ?>
+	<div style="padding-top: 5px">
+		<b>Tats&auml;chlicher Europameister:</b>
+	</div>
+	<div style="color: red">
+	<?php echo $this->realhauptrunde[14]; ?>
+	</div>
+<?php } ?>
