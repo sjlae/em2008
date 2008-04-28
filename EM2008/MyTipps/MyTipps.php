@@ -173,7 +173,7 @@ class MyTipps extends HTMLPage implements Page {
 	}
 
 	private function isDisabledHauptrunde() {
-		if(mktime() > mktime(19, 21, 0, 4, 28, 2008))
+		if(mktime() > mktime(10, 0, 0, 4, 29, 2008))
 		return "disabled";
 
 		return "enabled";
