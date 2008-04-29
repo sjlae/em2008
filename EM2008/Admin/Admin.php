@@ -293,7 +293,7 @@ class Admin extends HTMLPage implements Page{
 							$real1 = $row['realresult1'];
 							$real2 = $row['realresult2'];
 							
-							if($real1 != '' && $real2 != '' && $tipp1 != '' && $tipp2 != '' && $tipp1>=0 && $tipp2>=0){
+							if($real1 != '' && $real2 != '' && $tipp1 != '' && $tipp2 != '' && $tipp1>=0 && $tipp2>=0 && is_numeric($tipp1) && is_numeric($tipp2)){
 	                            if ($tipp1==$real1 && $tipp2==$real2) { 
 	                            	$points = $points+5; 
 	                            } 
