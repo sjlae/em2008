@@ -70,9 +70,7 @@ h1 a {
 	text-decoration: underline;
 }
 
-body#Startseite #mn_Startseite,
-body#Zwischenstand #mn_Zwischenstand,
-body#Overview #mn_Overview {
+body#Startseite #mn_Standard{
 	font-style: italic;
 }
 
