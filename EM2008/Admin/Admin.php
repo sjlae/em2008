@@ -25,8 +25,12 @@ class Admin extends HTMLPage implements Page{
 	private $final1 = '';
 	private $final2 = '';
 	private $europameister = '';
-		
+
+	private $link = '';
+	
 	public function __construct() {
+		$this->link = Db::getConnection();
+	
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
 
 		if($action == 'nnb') {

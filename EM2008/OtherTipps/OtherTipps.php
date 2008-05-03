@@ -14,8 +14,12 @@ class OtherTipps extends HTMLPage implements Page {
 	private $userFinal = array();
 	private $userEuropameister= '';
 	private $realhauptrunde = array();
-	
+
+	private $link = '';
+
 	public function __construct() {
+		$this->link = Db::getConnection();
+
 		$this->action = isset($_GET['action']) ? $_GET['action'] : '';
 		$id = isset($_GET['id']) ? $_GET['id'] : '';
 
@@ -169,18 +173,18 @@ class OtherTipps extends HTMLPage implements Page {
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal6']);
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal7']);
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal8']);
-			
+				
 			$realhauptrunde[] = $this->getTeam($row['halbfinal1']);
 			$realhauptrunde[] = $this->getTeam($row['halbfinal2']);
 			$realhauptrunde[] = $this->getTeam($row['halbfinal3']);
 			$realhauptrunde[] = $this->getTeam($row['halbfinal4']);
-			
+				
 			$realhauptrunde[] = $this->getTeam($row['final1']);
 			$realhauptrunde[] = $this->getTeam($row['final2']);
-			
+				
 			$realhauptrunde[] = $this->getTeam($row['europameister']);
 		}
-		
+
 		return $realhauptrunde;
 	}
 

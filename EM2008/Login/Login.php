@@ -3,14 +3,19 @@ require_once('Page.php');
 require_once('Home/Home.php');
 require_once('Datenbank/db.php');
 
+
+
 class Login extends HTMLPage implements Page{
-	
+
 	private $errors = array();
-	
+
 	private $email = '';
 	private $passwort = '';
-	
+
+	private $link = '';
+
 	public function __construct() {
+		$this->link = Db::getConnection();
 	}
 
 	public function checkLogin(Page $page) {
@@ -26,19 +31,19 @@ class Login extends HTMLPage implements Page{
 		$this->email = $_POST['email'];
 		$this->passwort = $_POST['passwort'];
 		if($this->email == '')
-			$this->errors[] = "Bitte das Feld 'Email' ausf&uuml;llen";
+		$this->errors[] = "Bitte das Feld 'Email' ausf&uuml;llen";
 		if($this->passwort == '')
-			$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen";
+		$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen";
 			
 		if(count($this->errors) == 0) {
 
 
 			$this->passwort = md5($this->passwort);
+				
+			$abfrage = sprintf("SELECT * FROM user where email='%s' and passwort='%s'",  mysql_real_escape_string($this->email, $this->link), mysql_real_escape_string($this->passwort, $this->link));
 
-			$abfrage = "SELECT * FROM user where email='".$this->email."' and passwort='".$this->passwort."'";
-
-			$ergebnis = mysql_query($abfrage);
-			
+			$ergebnis = mysql_query($abfrage, $this->link);
+				
 			$ok = false;
 			while($row = mysql_fetch_assoc($ergebnis))
 			{
@@ -46,8 +51,8 @@ class Login extends HTMLPage implements Page{
 				$_SESSION['eingeloggt'] = true;
 				$_SESSION['userid'] = $row['userid'];
 				$_SESSION['infos'][] = "Sie haben erfolgreich eingeloggt";
-				
-			
+
+					
 				header('location:index.php');
 				return false;
 			}
@@ -55,20 +60,20 @@ class Login extends HTMLPage implements Page{
 				$this->errors[] = "Email und Passwort stimmen nicht &uuml;berein";
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	public function init() {
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
-		
+
 		if($action == "login") {
 			return $this->login();
 		}
-		
+
 		return true;
 	}
-	
+
 	public function getHTML() {
 		include('layout/login.tpl');
 	}

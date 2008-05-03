@@ -2,6 +2,13 @@
 require_once('Datenbank/db.php');
 
 class Menu {
+
+	private $link = '';
+
+	public function __construct() {
+		$this->link = Db::getConnection();
+	}
+
 	public function getMenu() {
 		$registered = $_SESSION['eingeloggt'];
 		if($registered) {
@@ -9,7 +16,7 @@ class Menu {
 		}
 		else {
 			return 'Menu/layout/notRegistered.tpl';
-		}	
+		}
 	}
 }
 ?>
