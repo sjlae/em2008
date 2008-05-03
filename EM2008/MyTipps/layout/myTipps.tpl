@@ -242,7 +242,7 @@
 			<?php endforeach; ?>
 		</select></td>
 	</tr>
-	<?php if($this->realhauptrunde[8] != ''){ ?>
+	<?php if($this->realhauptrunde[12] != ''){ ?>
 		<tr>
 			<td colspan="4" style="padding-top: 5px"><b>Tats&auml;chlich qualifizierte L&auml;nder:</b></td>
 		</tr>
