@@ -4,13 +4,17 @@ require_once('Home/Home.php');
 require_once('Datenbank/db.php');
 
 class Home extends HTMLPage implements Page{
-	
+
 	private $news = array();
-	
+
+	private $link = '';
+
 	public function __construct() {
+		$this->link = Db::getConnection();
+
 		$this->getNews();
 	}
-	
+
 	private function getNews(){
 		$abfrage = "SELECT * FROM news order by datum desc";
 
@@ -24,7 +28,7 @@ class Home extends HTMLPage implements Page{
 			$counter++;
 		}
 	}
-	
+
 	public function getHTML() {
 		include('layout/home.tpl');
 	}
