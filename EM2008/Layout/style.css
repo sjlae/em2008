@@ -75,7 +75,7 @@ body#Startseite #mn_Standard{
 }
 
 #content {
-	margin-left: 50px;
+	margin-left: 55px;
 	margin-right: 180px;
 	padding: 15px 15px;
 	font-size:  0.8em;
@@ -96,8 +96,8 @@ body#Startseite #mn_Standard{
 
 #footer {
 	margin-top: 2em;
-	margin-left: 52px;
-	margin-right: 175px;
+	margin-left: 55px;
+	margin-right: 180px;
 	padding: 10px 25px;
 	background-color: white;
 }
