@@ -1,5 +1,6 @@
 <h2>Rangliste</h2>
-
+Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
+<br><br>
 <table>
 	<tr>
 		<td>
