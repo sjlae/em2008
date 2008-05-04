@@ -11,6 +11,9 @@ class Ranking extends HTMLPage implements Page {
 	}
 
 	public function getHTML() {
+		$count = "SELECT COUNT(*) FROM user";
+		$countPlayers = mysql_query($count);
+		
 		$abfrage = "SELECT vorname, nachname, punkte, bezahlt FROM user ORDER BY punkte DESC";
 
 		$ergebnis = mysql_query($abfrage);
