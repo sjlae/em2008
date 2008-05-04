@@ -316,7 +316,7 @@ class MyTipps extends HTMLPage implements Page {
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
 			$this->vorrunde[$i]['id'] = $row['vorrundeteamsid'];
-			$this->vorrunde[$i]['start'] = date('d.m.y H:i', strtotime($row['start']));
+			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
 			$this->vorrunde[$i]['disabled'] = $this->isDisabled($row['start']);
 			$this->vorrunde[$i]['team1'] = $this->getTeam($row['team1fsid']);
 			$this->vorrunde[$i]['team2'] = $this->getTeam($row['team2fsid']);
