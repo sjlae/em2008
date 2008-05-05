@@ -214,7 +214,7 @@
 		</tr>
 	<?php } ?>
 </table>
-<h3>Finateilnehmer</h3>
+<h3>Finalteilnehmer</h3>
 <table>
 	<tr>
 		<td>Team 1</td>
