@@ -26,7 +26,7 @@ class Register extends HTMLPage implements Page {
 		$this->email = $_POST['email'];
 		$this->passwort1 = $_POST['passwort1'];
 		$this->passwort2 = $_POST['passwort2'];
-		$$where = $_POST['where'];
+		$where = $_POST['where'];
 
 		if($this->vorname == '')
 		$this->errors[] = "Bitte das Feld 'Vorname' ausf&uuml;llen";
@@ -48,7 +48,7 @@ class Register extends HTMLPage implements Page {
 		if(count($this->errors) == 0) {
 			$pwd = md5($this->passwort1);
 
-			$query = sprintf("Insert into user(nachname, vorname, email, passwort, woherfsid) values('%s', '%s', '%s', '%s', '%s')", mysql_real_escape_string($this->nachname, $this->link), mysql_real_escape_string($this->vorname, $this->link), mysql_real_escape_string($this->email, $this->link), mysql_real_escape_string($pwd, $this->link), mysql_real_escape_string($this->where, $this->link));
+			$query = sprintf("Insert into user(nachname, vorname, email, passwort, woherfsid) values('%s', '%s', '%s', '%s', '%s')", mysql_real_escape_string($this->nachname, $this->link), mysql_real_escape_string($this->vorname, $this->link), mysql_real_escape_string($this->email, $this->link), mysql_real_escape_string($pwd, $this->link), mysql_real_escape_string($where, $this->link));
 
 				
 			mysql_query($query,$this->link);
