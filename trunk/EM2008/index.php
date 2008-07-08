@@ -5,6 +5,7 @@ require_once('Home/Home.php');
 require_once('Login/Login.php');
 require_once('Login/LoggedIn.php');
 require_once('Rules/Rules.php');
+require_once('Register/Register.php');
 require_once('Ranking/Ranking.php');
 require_once('MyTipps/MyTipps.php');
 require_once('OtherTipps/OtherTipps.php');
@@ -20,6 +21,10 @@ switch($go) {
 	case 'login':
 		$login = new Login();
 		$login->getView();
+		break;
+	case 'register':
+		$register = new Register();
+		$register->getView();
 		break;
 	case 'ranking':
 		$ranking = new Ranking();
