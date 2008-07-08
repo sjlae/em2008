@@ -14,7 +14,7 @@ class Ranking extends HTMLPage implements Page {
 		$count = "SELECT COUNT(*) FROM user";
 		$countPlayers = mysql_query($count);
 		
-		$abfrage = "SELECT vorname, nachname, punkte, bezahlt FROM user ORDER BY punkte DESC, nachname";
+		$abfrage = "SELECT vorname, nachname, punkte, bezahlt, rank_last, rank_now FROM user ORDER BY punkte DESC, nachname";
 
 		$ergebnis = mysql_query($abfrage);
 
@@ -26,6 +26,8 @@ class Ranking extends HTMLPage implements Page {
 			$rankingArray[$counter]['nachname'] = $row['nachname'];
 			$rankingArray[$counter]['punkte'] = $row['punkte'];
 			$rankingArray[$counter]['bezahlt'] = $row['bezahlt'];
+			$rankingArray[$counter]['last'] = $row['rank_last'];
+			$rankingArray[$counter]['now'] = $row['rank_now'];
 				
 			$counter++;
 		}

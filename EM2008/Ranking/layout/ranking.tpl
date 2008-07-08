@@ -6,7 +6,10 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 		<td>
 			<b>Rang</b>
 		</td>
-		<td style="padding-left: 10px">
+		<td>
+			&nbsp;
+		</td>
+		<td style="padding-left: 20px">
 			<b>Nachname</b>
 		</td>
 		<td style="padding-left: 10px">
@@ -18,8 +21,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 	</tr>
 	<tr />
 	<? 
-		$rang = 1;
-		$previousPoints = null;
+		$previousRank = 0;
 		
 		if($rankingArray != null){
 			foreach($rankingArray as $ranking): 
@@ -27,18 +29,45 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 				<tr>
 					<td>
 						<?
-							if($previousPoints != $ranking['punkte']){
-								echo $rang
+							if($ranking['now'] != 0){
+								if($previousRank == 0 || $previousRank != $ranking['now']){
+									$previousRank = $ranking['now'];
+									echo $ranking['now'];
 						?>
-								.
+									.
 						<?
+								}
+							}
+						?>
+					</td>
+					<td>
+						<?
+							if($ranking['now'] > $ranking['last']){
+								$diff = $ranking['now'] - $ranking['last'];
+						?>
+								<img alt="" src="icons_down.png"/>
+								(-<?echo $diff;?>)
+						<?	
+							}
+							else if($ranking['now'] < $ranking['last']){
+								$diff = $ranking['last'] - $ranking['now'];
+						?>
+								<img alt="" src="icons_up.png"/>
+								(+<?echo $diff;?>)
+						<?	
+							}
+							else{
+						?>
+								<img alt="" src="icons_right.png"/>
+								(+0)
+						<?	
 							}
 						?>
 					</td>
 					<?
 						if($ranking['bezahlt'] == 0){
 					?>
-							<td style="padding-left: 10px; color:red">
+							<td style="padding-left: 20px; color:red">
 								<?echo $ranking['nachname'] ?>
 								(nnb)
 							</td>
@@ -49,7 +78,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 						}
 						else{
 					?>
-							<td style="padding-left: 10px;">
+							<td style="padding-left: 20px;">
 								<?echo $ranking['nachname'] ?>
 							</td>
 							<td style="padding-left: 10px;">
@@ -63,8 +92,6 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 					</td>
 				</tr>
 	<? 
-			$rang++;
-			$previousPoints = $ranking['punkte'];
 			endforeach; 
 		}
 	?>

@@ -44,6 +44,7 @@ class Admin extends HTMLPage implements Page{
 				$this->setHauptrundenTeams();
 				$this->updateUserPoints();
 			}
+			$this->updateRanking();
 		}
 		
 		if($action == 'news') {
@@ -412,6 +413,36 @@ class Admin extends HTMLPage implements Page{
 				
 			}
 		return $results;
+	}
+	
+	private function updateRanking(){
+		$userids = "SELECT * FROM user ORDER BY punkte DESC";
+		
+		$resultUsers = mysql_query($userids);
+		
+		$temp_points = '';
+		$rank_counter = 1;
+		$rank_logic= 1;
+		while($row = mysql_fetch_assoc($resultUsers))
+		{
+			$userid = $row['userid'];
+			$rank_now = $row['rank_now'];
+			
+			$rank_last = "Update user set rank_last=$rank_now where userid=$userid";
+		
+			mysql_query($rank_last); 
+			
+			if($temp_points == '' || $temp_points != $row['punkte']){
+				$temp_points = $row['punkte'];
+				$rank_logic = $rank_counter;
+			}
+			
+			$rank_now = "Update user set rank_now=$rank_logic where userid=$userid";
+	
+			mysql_query($rank_now);	
+
+			$rank_counter++;
+		}
 	}
 	
 	private function isViertelfinalTippCorrect($value){
