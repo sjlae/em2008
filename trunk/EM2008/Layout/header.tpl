@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 	<head>
-		<title>Das ultimative EM-Tippspiel</title>
+		<title>Das ultimative WM-Tippspiel</title>
 		
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="content-language" content="de" />
@@ -22,6 +22,7 @@
 	<h1><a href="#" title="Zur Startseite" accesskey="1">Das ultimative EM-Tippspiel</a></h1>
 	<?php
 		include ('Menu/Menu.php');
+		include ('CountDown.php');
 		$menu = new Menu();
 		include($menu->getMenu());
 	?>
