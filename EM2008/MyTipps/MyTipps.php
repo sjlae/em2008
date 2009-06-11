@@ -177,10 +177,16 @@ class MyTipps extends HTMLPage implements Page {
 	}
 
 	private function isDisabledHauptrunde() {
-		if(mktime() > mktime(18, 0, 0, 6, 7, 2008))
-		return "disabled";
+		$abfrage = "SELECT start FROM vorrundeteams where vorrundeteamsid=1";
 
-		return "enabled";
+		$ergebnis = mysql_query($abfrage);
+		$startTime = mysql_fetch_row($ergebnis);
+		if(mktime() > strtotime($startTime[0])){
+			return "disabled";
+		}
+		else{
+			return "enabled";
+		}
 	}
 
 	private function updateHauptrundeTipp($hauptrundetipps) {
