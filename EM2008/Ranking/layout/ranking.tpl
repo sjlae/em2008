@@ -45,20 +45,20 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 							if($ranking['now'] > $ranking['last']){
 								$diff = $ranking['now'] - $ranking['last'];
 						?>
-								<img alt="" src="icons_down.png"/>
+								<img alt="" src="icons_down.png" width="20px;"/>
 								(-<?echo $diff;?>)
 						<?	
 							}
 							else if($ranking['now'] < $ranking['last']){
 								$diff = $ranking['last'] - $ranking['now'];
 						?>
-								<img alt="" src="icons_up.png"/>
+								<img alt="" src="icons_up.png" width="20px;"/>
 								(+<?echo $diff;?>)
 						<?	
 							}
 							else{
 						?>
-								<img alt="" src="icons_right.png"/>
+								<img alt="" src="icons_right.png" width="20px;"/>
 								(+0)
 						<?	
 							}
