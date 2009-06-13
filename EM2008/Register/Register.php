@@ -46,16 +46,14 @@ class Register extends HTMLPage implements Page {
 		}
 
 		if(count($this->errors) == 0) {
+			
 			$pwd = md5($this->passwort1);
 
 			$query = sprintf("Insert into user(nachname, vorname, email, passwort, rank_now, rank_last, woherfsid) values('%s', '%s', '%s', '%s', '%s',' %s', '%s')", mysql_real_escape_string($this->nachname, $this->link), mysql_real_escape_string($this->vorname, $this->link), mysql_real_escape_string($this->email, $this->link), mysql_real_escape_string($pwd, $this->link), '1', '1', mysql_real_escape_string($where, $this->link));
-
 				
 			mysql_query($query,$this->link);
 
 		 if (mysql_affected_rows($this->link) > 0) {
-
-		 		
 		 	$_SESSION['infos'][] = "Sie wurden erfolgreich registriert";
 
 		 	header('location:	index.php?go=login');
