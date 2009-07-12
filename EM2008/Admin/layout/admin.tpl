@@ -1,7 +1,11 @@
 <?php require_once('Layout/errors.tpl'); ?>
+<?php include('Layout/Tabs.php'); ?>
 
 <h2>Admin</h2>
-<h3>Zahlungen erfassen</h3>
+
+<?php $tabs = new Tabs("Tabs"); ?>
+<?php $tabs->start("Zahlungen"); ?>
+
 	<form action="index.php?go=admin&action=nnb" method="POST">
 		<table>
 			<tr>
@@ -24,7 +28,11 @@
 		<input type="hidden" name="maxUser" value="<?php echo $i-1; ?>" />
 		<input type="submit" value="Erfassen" />
 	</form>
-<h3>Resultate erfassen</h3>
+	<?php if($_GET['action'] == 'nnb'){ $tabs->active = "Zahlungen"; } ?>
+	
+<?php $tabs->end(); ?>
+<?php $tabs->start("Resultate"); ?>
+
 	<? $viertel1 = $this->viertelfinal1; ?>
 	<? $viertel2 = $this->viertelfinal2; ?>
 	<? $viertel3 = $this->viertelfinal3; ?>
@@ -401,15 +409,19 @@
 		</table>
 		<div style="padding-top: 5px"><input type="submit" value="Aktualisieren" /></div>
 	</form>
-<h3>News erfassen</h3>
+	<?php if($_GET['action'] == 'results'){ $tabs->active = "Resultate"; } ?>
+	
+<?php $tabs->end(); ?>
+<?php $tabs->start("News"); ?>
+	
 	<form action="index.php?go=admin&action=news" method="POST">
-		<table>
+		<table width="100%">
 			<tr>
 				<td>Titel</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="text" name="newsTitle" size="60" />
+					<input type="text" name="newsTitle" style="width: 100%;"/>
 				</td>
 			</tr>
 			<tr>
@@ -417,10 +429,14 @@
 			</tr>
 			<tr>
 				<td>
-					<textarea name="newsText" cols="50" rows="10"></textarea>
+					<textarea name="newsText" cols="50" rows="10" style="width: 100%;"></textarea>
 				</td>
 			</tr>
 			
 		</table>
 		<input type="submit" value="Erfassen" />
-	</form>	
+	</form>
+	<?php if($_GET['action'] == 'news'){ $tabs->active = "News"; } ?>
+	
+<?php $tabs->end(); ?>
+<?php $tabs->run(); ?>

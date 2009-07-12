@@ -8,7 +8,7 @@
 		<meta http-equiv="content-language" content="de" />
 		<meta name="language" content="de" />
 		
-		<link rel="stylesheet" href="Layout/style.css" type="text/css" />
+		<link rel="stylesheet" href="Layout/style.css" type="text/css"/>
 		
        
 
