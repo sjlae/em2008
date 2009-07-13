@@ -7,4 +7,5 @@
 			<?endforeach ?>
 		</ul>
 	</div>
+	<br/>
 <?endif?>

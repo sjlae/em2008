@@ -27,8 +27,12 @@ class MyTipps extends HTMLPage implements Page {
 		$this->realhauptrunde = $this->getRealHauptrunde();
 		$this->getData();
 
-		if($action == "setTipps") {
-			$this->setTipps();
+		if($action == "setGroupTipps") {
+			$this->setGroupTipps();
+		}
+		
+		if($action == "setFinalTipps") {
+			$this->setFinalTipps();
 		}
 
 		$this->getData();
@@ -97,7 +101,7 @@ class MyTipps extends HTMLPage implements Page {
 		}
 	}
 
-	private function setTipps() {
+	private function setGroupTipps() {
 		//set user vorrunde tipps
 		for($i=1;$i<=24;$i++) {
 			$result1 = $_POST['result1'.$i];
@@ -120,14 +124,18 @@ class MyTipps extends HTMLPage implements Page {
 				}
 			}
 		}
-
+				
+		$_SESSION['infos'][] = "Ihre Tipps wurden erfolgreich erfasst.";
+	}
+	
+	private function setFinalTipps() {
+		//set hauptrunde tipps
+		//Existingcheck
+		
 		if($this->hasEqualTeams()){
 			return false;
 		}
-
-		//set hauptrunde tipps
-		//Existingcheck
-
+		
 		$hauptrundetipps = array();
 
 		$isStillEnabled = false;
@@ -169,7 +177,9 @@ class MyTipps extends HTMLPage implements Page {
 			} else {
 				$this->addHauptrundeTipp($hauptrundetipps);
 			}
-		} else if($isStillEnabled) {
+		} 
+		
+		else if($isStillEnabled) {
 			$this->errors[] = "Die Zeit ist abgelaufen, um Hauptrundentipps zu erfassen.";
 		}
 
