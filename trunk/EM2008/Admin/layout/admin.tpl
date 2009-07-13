@@ -1,5 +1,5 @@
 <?php require_once('Layout/errors.tpl'); ?>
-<?php include('Layout/Tabs.php'); ?>
+<?php require_once('Layout/Tabs.php'); ?>
 
 <h2>Admin</h2>
 

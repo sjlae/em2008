@@ -8,4 +8,5 @@
 			<?unset($_SESSION['infos']); ?>
 		</ul>
 	</div>
+	<br/>
 <?endif?>
