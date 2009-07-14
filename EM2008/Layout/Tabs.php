@@ -29,6 +29,12 @@ class tabs {
 				$contentid = "tabcontent_".$this->name."_$tabname";
 				$jsClear .= "\tdocument.getElementById('$tabid').className = 'tab_inactive';\n";
 				$jsClear .= "\tdocument.getElementById('$contentid').style.display = 'none';\n";
+				$jsClear .= "if(\tdocument.getElementById('infos') != null){\n";
+				$jsClear .= "\tdocument.getElementById('infos').style.display = 'none';\n";
+				$jsClear .= "}\n";
+				$jsClear .= "if(\tdocument.getElementById('errors') != null){\n";
+				$jsClear .= "\tdocument.getElementById('errors').style.display = 'none';\n";
+				$jsClear .= "}\n";
 			}
 			echo "<script type=\"text/javascript\">\n";
 			echo "function tab_".$this->name."(id){\n";
