@@ -6,7 +6,8 @@
 <?php $tabs = new Tabs("MyTipps"); ?>
 <?php $tabs->start("Gruppenspiele"); ?>
 
-	<form action="index.php?go=myTipps&action=setGroupTipps&page=groups" method="POST">
+	<form action="index.php?go=myTipps&action=setTipps" name="formular" method="POST">
+		<input type="hidden" name="page" value="groups" id="page"/>
 		<table border="0">
 			<tr>
 				<td align="center" style="white-space: nowrap; padding-bottom: 5px"><b>#</b></td>
@@ -41,14 +42,12 @@
 			</tr>
 			<?php endforeach; ?>
 		</table>
-		<div style="text-align: right;"><input type="submit" value="Speichern" /></div>
+		<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='groups'"/></div>
 		<?php if($_GET['page'] == 'groups'){ $tabs->active = "Gruppenspiele"; } ?>
-	</form>
 
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalspiele"); ?>
 
-	<form action="index.php?go=myTipps&action=setFinalTipps&page=finals" method="POST">
 		<h3>Viertelfinalteilnehmer</h3>
 		<table>
 			<tr>
@@ -287,8 +286,8 @@
 			<?php echo $this->realhauptrunde[14]; ?>
 			</div>
 		<?php } ?>
-		<div style="text-align: right;"><input type="submit" value="Speichern" /></div>
-		<?php if($_GET['page'] == 'finals'){ $tabs->active = "Finalspiele"; } ?>
+		<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='finals'"/></div>
+		<?php if($_POST['page'] == 'finals'){ $tabs->active = "Finalspiele"; } ?>
 	</form>
 	
 <?php $tabs->end(); ?>
