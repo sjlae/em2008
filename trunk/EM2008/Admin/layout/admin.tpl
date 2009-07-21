@@ -17,7 +17,7 @@
 			<?php $i=0; ?>
 			<?php foreach($this->nnb as $nnbUser): ?>
 			<tr>
-				<td><input type="checkbox" name="user<?php echo $i; ?>" value="<?php echo $nnbUser['userid']; ?>" /></td>
+				<td><input type="checkbox" name="users_nnb[]" value="<?php echo $nnbUser['userid']; ?>" /></td>
 				<td style="padding-left: 5px"><?php echo $nnbUser['nachname']; ?></td>
 				<td style="padding-left: 5px"><?php echo $nnbUser['vorname']; ?></td>
 				<td style="padding-left: 5px"><a href="mailto:<?php echo $nnbUser['email']; ?>"><?php echo $nnbUser['email']; ?></a></td>
@@ -25,7 +25,6 @@
 			<?php $i++; ?>
 			<?php endforeach; ?>
 		</table>
-		<input type="hidden" name="maxUser" value="<?php echo $i-1; ?>" />
 		<input type="submit" value="Erfassen" />
 	</form>
 	<?php if($_GET['action'] == 'nnb'){ $tabs->active = "Zahlungen"; } ?>
@@ -437,6 +436,32 @@
 		<input type="submit" value="Erfassen" />
 	</form>
 	<?php if($_GET['action'] == 'news'){ $tabs->active = "News"; } ?>
+	
+<?php $tabs->end(); ?>
+<?php $tabs->start("Loeschen"); ?>
+	
+	<form action="index.php?go=admin&action=delete" method="POST">
+		<table>
+			<tr>
+				<td></td>
+				<td style="padding-left: 5px"><b>Nachname</b></td>
+				<td style="padding-left: 5px"><b>Vorname</b></td>
+				<td style="padding-left: 5px"><b>Email</b></td>
+			</tr>
+			<?php $i=0; ?>
+			<?php foreach($this->all as $allUser): ?>
+			<tr>
+				<td><input type="checkbox" name="users_delete[]" value="<?php echo $allUser['userid']; ?>" /></td>
+				<td style="padding-left: 5px"><?php echo $allUser['nachname']; ?></td>
+				<td style="padding-left: 5px"><?php echo $allUser['vorname']; ?></td>
+				<td style="padding-left: 5px"><a href="mailto:<?php echo $allUser['email']; ?>"><?php echo $allUser['email']; ?></a></td>
+			</tr>
+			<?php $i++; ?>
+			<?php endforeach; ?>
+		</table>
+		<input type="submit" value="Löschen" />
+	</form>
+	<?php if($_GET['action'] == 'delete'){ $tabs->active = "Loeschen"; } ?>
 	
 <?php $tabs->end(); ?>
 <?php $tabs->run(); ?>
