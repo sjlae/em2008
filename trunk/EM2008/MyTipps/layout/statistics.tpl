@@ -77,6 +77,27 @@
 			</tr>
 			<?php endforeach; ?>
 		</table>
-		<?php if($_GET['page'] == 'groups'){ $tabs->active = "Gruppenspiele"; } ?>
+<?php $tabs->end(); ?>
+<?php $tabs->start("Finalspiele"); ?>		
+		<table border="0" width="100%">
+			<tr>
+				<td style="white-space: nowrap; padding-bottom: 5px; padding-right: 5px"><b>Land</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/8 Final</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/4 Final</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/2 Final</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>Final</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>Sieger</b></td>
+			</tr>
+			<?php foreach($this->hauptrunde as $land): ?>
+				<tr>
+					<td><?php echo $land['team']; ?></td>
+					<td align="right">0</td>
+					<td align="right"><?php echo $this->viertelfinal[$land['id']] != '' ? $this->viertelfinal[$land['id']] : 0; ?></td>
+					<td align="right"><?php echo $this->halbfinal[$land['id']] != '' ? $this->halbfinal[$land['id']] : 0; ?></td>
+					<td align="right"><?php echo $this->final[$land['id']] != '' ? $this->final[$land['id']] : 0; ?></td>
+					<td align="right"><?php echo $this->sieger[$land['id']] != '' ? $this->sieger[$land['id']] : 0; ?></td>
+				</tr>
+			<?php endforeach; ?>
+		</table>
 <?php $tabs->end(); ?>
 <?php $tabs->run(); ?>
