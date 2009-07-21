@@ -8,6 +8,7 @@ class Admin extends HTMLPage implements Page{
 	private $errors = array();
 	
 	private $nnb = array();
+	private $all = array();
 	private $countries = array();
 	private $vorrunde = array();
 	private $viertelfinal1 = '';
@@ -49,6 +50,10 @@ class Admin extends HTMLPage implements Page{
 		
 		if($action == 'news') {
 			$this->saveNews();
+		}
+		
+		if($action == 'delete') {
+			$this->deleteUsers();
 		}
 	}
 
@@ -99,11 +104,24 @@ class Admin extends HTMLPage implements Page{
 	}
 		
 	private function setPayFlag() {
-		for($i=0; $i<=$_POST['maxUser']; $i++) {
-			if($_POST["user$i"] != '') {
-				$userid = $_POST["user$i"];
-				$abfrage = "Update user set bezahlt=1 where userid=$userid";
+		if(isset($_POST['users_nnb'])){
+			foreach($_POST['users_nnb'] as $user_id){
+				$abfrage = "Update user set bezahlt=1 where userid=$user_id";
 				mysql_query($abfrage);
+			}
+		}
+	}
+	
+	private function deleteUsers() {
+		if(isset($_POST['users_delete'])){
+			foreach($_POST['users_delete'] as $user_id){
+				$vorrunde_ids = mysql_query("Select vorrundefsid FROM uservorrunde where userfsid = $user_id");
+				while($row = mysql_fetch_assoc($vorrunde_ids)){
+					mysql_query("Delete from vorrunde where vorrundeid = $row[vorrundefsid]");
+				}
+				mysql_query("Delete from uservorrunde where userfsid = $user_id");
+				mysql_query("Delete from user where userid = $user_id");
+				mysql_query("Delete from hauptrunde where userfsid = $user_id");
 			}
 		}
 	}
@@ -191,6 +209,24 @@ class Admin extends HTMLPage implements Page{
 				$this->nnb[$counter]['nachname'] = $row['nachname'];
 				$this->nnb[$counter]['vorname'] = $row['vorname'];
 				$this->nnb[$counter]['email'] = $row['email'];
+					
+				$counter++;
+			}
+		}
+	}
+	
+	private function getAll() {
+		$abfrage = "SELECT * FROM user order by nachname ASC";
+
+		$ergebnis = mysql_query($abfrage);
+		$counter = 0;
+		if(isset($ergebnis) && $ergebnis != null) {
+			while($row = mysql_fetch_assoc($ergebnis))
+			{
+				$this->all[$counter]['userid'] = $row['userid'];
+				$this->all[$counter]['nachname'] = $row['nachname'];
+				$this->all[$counter]['vorname'] = $row['vorname'];
+				$this->all[$counter]['email'] = $row['email'];
 					
 				$counter++;
 			}
@@ -594,6 +630,7 @@ class Admin extends HTMLPage implements Page{
 	
 	public function getHTML() {
 		$this->getNNB();
+		$this->getAll();
 		$this->getGames();
 		$this->getCountries();
 		$this->getRealHauptrundenTeams();

@@ -68,8 +68,20 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 						if($ranking['bezahlt'] == 0){
 					?>
 							<td style="padding-left: 20px; color:red">
-								<?echo $ranking['nachname'] ?>
-								(nnb)
+								<?
+									if($_SESSION['eingeloggt']){
+								?>
+										<a href="index.php?go=otherTipps&action=getTipps&id=<?php echo $ranking['userid']+5; ?>" style="color:red">
+											<?echo $ranking['nachname'] ?>(nnb)
+										</a>
+								<?
+									}
+									else{
+								?>
+										<?echo $ranking['nachname'] ?>(nnb)
+								<?
+									}
+								?>
 							</td>
 							<td style="padding-left: 10px; color: red">
 								<?echo $ranking['vorname']?>
@@ -79,7 +91,20 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 						else{
 					?>
 							<td style="padding-left: 20px;">
-								<?echo $ranking['nachname'] ?>
+								<?
+									if($_SESSION['eingeloggt']){
+								?>
+										<a href="index.php?go=otherTipps&action=getTipps&id=<?php echo $ranking['userid']+5; ?>">
+											<?echo $ranking['nachname'] ?>
+										</a>
+								<?
+									}
+									else{
+								?>
+										<?echo $ranking['nachname'] ?>
+								<?
+									}
+								?>
 							</td>
 							<td style="padding-left: 10px;">
 								<?echo $ranking['vorname']?>
