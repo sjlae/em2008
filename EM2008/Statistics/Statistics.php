@@ -6,6 +6,13 @@ class Statistics extends HTMLPage implements Page {
 
 	private $link = '';
 	private $vorrunde = array();
+	private $hauptrunde = array();
+	
+	private $achtelfinal = array();
+	private $viertelfinal = array();
+	private $halbfinal = array();
+	private $final = array();
+	private $sieger = array();
 	
 	public function __construct() {
 		$this->link = Db::getConnection();
@@ -13,13 +20,12 @@ class Statistics extends HTMLPage implements Page {
 	}
 
 	private function getData() {
-		$abfrage = "SELECT * FROM vorrundeteams";
-
-		$ergebnis = mysql_query($abfrage);
+		$abfrage_groups = "SELECT * FROM vorrundeteams";
+		$ergebnis_groups = mysql_query($abfrage_groups);
 
 		$i = 0;
 
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysql_fetch_assoc($ergebnis_groups))
 		{
 			$this->vorrunde[$i]['id'] = $row['vorrundeteamsid'];
 			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
@@ -29,6 +35,53 @@ class Statistics extends HTMLPage implements Page {
 			$this->vorrunde[$i]['total_X'] = $this->getTotal_X($row['vorrundeteamsid']);
 			$this->vorrunde[$i]['total_2'] = $this->getTotal_2($row['vorrundeteamsid']);
 			$i++;
+		}
+		
+		$abfrage_finals = "SELECT * FROM teams order by land ASC";
+		$ergebnis_finals = mysql_query($abfrage_finals);
+
+		$i = 0;
+
+		while($row = mysql_fetch_assoc($ergebnis_finals))
+		{
+			$this->hauptrunde[$i]['id'] = $row['teamid'];
+			$this->hauptrunde[$i]['team'] = $row['land'];
+			$i++;
+		}
+		
+		$abfrage_hauptrunde = "SELECT * FROM hauptrunde";
+		$ergebnis_hauptrunde = mysql_query($abfrage_hauptrunde);
+	
+		$test = 0;
+		
+		while($row = mysql_fetch_assoc($ergebnis_hauptrunde))
+		{
+			/*
+			$counter_achtel = 1;
+			while($counter_achtel != 16){
+				$this->$achtelfinal[$row['achtelfinal'.$counter_achtel]] = $this->$achtelfinal[$row['achtelfinal'.$counter_achtel]] != '' ? $this->$achtelfinal[$row['achtelfinal'.$counter_achtel]]++ : 1;
+			}
+			*/
+			
+			$counter_viertel = 1;
+			while($counter_viertel <= 8){
+				$this->viertelfinal[$row['viertelfinal'.$counter_viertel]] = $this->viertelfinal[$row['viertelfinal'.$counter_viertel]] != '' ? $this->viertelfinal[$row['viertelfinal'.$counter_viertel]] + 1 : 1;
+				$counter_viertel++;
+			}
+			
+			$counter_halb = 1;
+			while($counter_halb <= 4){
+				$this->halbfinal[$row['halbfinal'.$counter_halb]] = $this->halbfinal[$row['halbfinal'.$counter_halb]] != '' ? $this->halbfinal[$row['halbfinal'.$counter_halb]] + 1 : 1;
+				$counter_halb++;
+			}
+			
+			$counter_final = 1;
+			while($counter_final <= 2){
+				$this->final[$row['final'.$counter_final]] = $this->final[$row['final'.$counter_final]] != '' ? $this->final[$row['final'.$counter_final]] + 1 : 1;
+				$counter_final++;
+			}
+						
+			$this->sieger[$row['europameister']] = $this->sieger[$row['europameister']] != '' ? $this->sieger[$row['europameister']] + 1 : 1;
 		}
 	}
 	
