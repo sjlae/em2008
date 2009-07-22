@@ -8,17 +8,17 @@
 
 	<table border="0">
 		<tr>
-			<td style="background-color: #009900; width: 30px;">&nbsp;</td>
+			<td style="background-color: #3333FF; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 1</td>
 		</tr>
 		<tr>
-			<td style="background-color: #33CC33; width: 30px;">&nbsp;</td>
+			<td style="background-color: #00FF66; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Unentschieden</td>
 		</tr>
 		<tr>
-			<td style="background-color: #00FF66; width: 30px;">&nbsp;</td>
+			<td style="background-color: #3399FF; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 2</td>
 		</tr>
