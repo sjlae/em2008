@@ -72,6 +72,7 @@ h1 a {
 
 body#Startseite #mn_Standard{
 	font-style: italic;
+	white-space: nowrap;
 }
 
 #content {
