@@ -79,6 +79,7 @@
 		</table>
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalspiele"); ?>		
+		Die in den Spalten angegebenen Werte zeigen auf, wieviele Tipps f&uuml;r ein Land abgegeben wurden, das die entsprechende Runde erreicht.
 		<table border="0" width="100%">
 			<tr>
 				<td style="white-space: nowrap; padding-bottom: 5px; padding-right: 5px"><b>Land</b></td>
@@ -90,7 +91,7 @@
 			</tr>
 			<?php foreach($this->hauptrunde as $land): ?>
 				<tr>
-					<td><?php echo $land['team']; ?></td>
+					<td><img alt="" src="nationalFlags/<?php echo $land['id'] ?>.png"/>&nbsp;<?php echo $land['team']; ?></td>
 					<td align="right">0</td>
 					<td align="right"><?php echo $this->viertelfinal[$land['id']] != '' ? $this->viertelfinal[$land['id']] : 0; ?></td>
 					<td align="right"><?php echo $this->halbfinal[$land['id']] != '' ? $this->halbfinal[$land['id']] : 0; ?></td>
