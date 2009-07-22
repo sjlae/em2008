@@ -8,17 +8,17 @@
 
 	<table border="0">
 		<tr>
-			<td style="background-color: red; width: 30px;">&nbsp;</td>
+			<td style="background-color: #009900; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 1</td>
 		</tr>
 		<tr>
-			<td style="background-color: green; width: 30px;">&nbsp;</td>
+			<td style="background-color: #33CC33; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Unentschieden</td>
 		</tr>
 		<tr>
-			<td style="background-color: blue; width: 30px;">&nbsp;</td>
+			<td style="background-color: #00FF66; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 2</td>
 		</tr>
@@ -57,17 +57,17 @@
 							?>
 							
 							<?php if($wert1 != 0){ ?>
-								<td align="center" style="background-color: red; width: <?php echo $wert1 ?>% ">
+								<td align="center" style="background-color: #3333FF; width: <?php echo $wert1 ?>% ">
 									<?php echo $spiel['total_1']; ?>
 								</td>
 							<?php } ?>
 							<?php if($wertX != 0){ ?>
-								<td align="center" style="background-color: green; width: <?php echo $wertX ?>%">
+								<td align="center" style="background-color: #00FF66; width: <?php echo $wertX ?>%">
 									<?php echo $spiel['total_X']; ?>
 								</td>
 							<?php } ?>
 							<?php if($wert2 != 0){ ?>
-								<td align="center" style="background-color: blue; width: <?php echo $wert2 ?>%">
+								<td align="center" style="background-color: #3399FF; width: <?php echo $wert2 ?>%">
 									<?php echo $spiel['total_2']; ?>
 								</td>
 							<?php } ?>
