@@ -2,6 +2,7 @@
 <?php require_once('Layout/infos.tpl'); ?>
 <?php require_once('Layout/errors.tpl'); ?>
 <?php require_once('Layout/Tabs.php'); ?>
+<?php require_once('Constants.php'); ?>
 
 <?php $tabs = new Tabs("MyTipps"); ?>
 <?php $tabs->start("Gruppenspiele"); ?>
@@ -47,7 +48,243 @@
 
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalspiele"); ?>
-
+		
+		<?php 
+			if(Constants::$isWM){
+		?>
+				<h3>Achtelfinalteilnehmer</h3>
+				<table>
+					<tr>
+						<td>Team 1</td>
+						<td>Team 2</td>
+						<td>Team 3</td>
+						<td>Team 4</td>
+					</tr>
+					<tr>
+					
+						<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
+					
+						<td><select name="achtelfinal1" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[1] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal2" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[2] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal3" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[3] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal4" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[4] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Team 5</td>
+						<td>Team 6</td>
+						<td>Team 7</td>
+						<td>Team 8</td>
+					</tr>
+					<tr>
+						<td><select name="achtelfinal5" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[5] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal6" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[6] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal7" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[7] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal8" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[8] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Team 9</td>
+						<td>Team 10</td>
+						<td>Team 11</td>
+						<td>Team 12</td>
+					</tr>
+					<tr>
+					
+						<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
+					
+						<td><select name="achtelfinal9" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[9] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal10" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[10] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal11" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[11] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal12" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[12] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Team 13</td>
+						<td>Team 14</td>
+						<td>Team 15</td>
+						<td>Team 16</td>
+					</tr>
+					<tr>
+						<td><select name="achtelfinal13" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[13] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal14" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[14] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal15" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[15] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+						<td><select name="achtelfinal16" <?php echo $isDisabled; ?>>
+							<option value=''></option>
+							<?foreach($this->countries as $country): ?>
+							<?php if($this->userAchtelfinal[16] == $country['id']): ?>
+							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<?php else:?>
+							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+							<?php endforeach; ?>
+						</select></td>
+					</tr>
+					<?php if($this->realhauptrunde[0] != ''){ ?>
+						<tr>
+							<td colspan="4" style="padding-top: 5px"><b>Tats&auml;chlich qualifizierte L&auml;nder:</b></td>
+						</tr>
+						<tr>
+							<td style="color: red"><?php echo $this->realhauptrunde[0]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[1]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[2]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[3]; ?></td>
+						</tr>
+						<tr>
+							<td style="color: red"><?php echo $this->realhauptrunde[4]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[5]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[6]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[7]; ?></td>
+						</tr>
+						<tr>
+							<td style="color: red"><?php echo $this->realhauptrunde[8]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[9]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[10]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[11]; ?></td>
+						</tr>
+						<tr>
+							<td style="color: red"><?php echo $this->realhauptrunde[12]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[13]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[14]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[15]; ?></td>
+						</tr>
+					<?php } ?>
+				</table>
+		<?php
+			}
+		?>
 		<h3>Viertelfinalteilnehmer</h3>
 		<table>
 			<tr>
@@ -149,10 +386,28 @@
 					<?php endforeach; ?>
 				</select></td>
 			</tr>
-			<?php if($this->realhauptrunde[0] != ''){ ?>
+			<?php if(Constants::$isWM ? $this->realhauptrunde[16] : $this->realhauptrunde[0] != ''){ ?>
 				<tr>
 					<td colspan="4" style="padding-top: 5px"><b>Tats&auml;chlich qualifizierte L&auml;nder:</b></td>
 				</tr>
+				<?php 
+					if(Constants::$isWM){
+				?>
+						<tr>
+							<td style="color: red"><?php echo $this->realhauptrunde[16]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[17]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[18]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[19]; ?></td>
+						</tr>
+						<tr>
+							<td style="color: red"><?php echo $this->realhauptrunde[20]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[21]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[22]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[23]; ?></td>
+						</tr>
+				<?php
+					} else{
+				?>
 				<tr>
 					<td style="color: red"><?php echo $this->realhauptrunde[0]; ?></td>
 					<td style="color: red"><?php echo $this->realhauptrunde[1]; ?></td>
@@ -165,7 +420,10 @@
 					<td style="color: red"><?php echo $this->realhauptrunde[6]; ?></td>
 					<td style="color: red"><?php echo $this->realhauptrunde[7]; ?></td>
 				</tr>
-			<?php } ?>
+			<?php 
+					}
+				} 
+			?>
 		</table>
 		<h3>Halbfinalteilnehmer</h3>
 		<table>
@@ -217,17 +475,32 @@
 					<?php endforeach; ?>
 				</select></td>
 			</tr>
-			<?php if($this->realhauptrunde[8] != ''){ ?>
+			<?php if(Constants::$isWM ? $this->realhauptrunde[24] : $this->realhauptrunde[8] != ''){ ?>
 				<tr>
 					<td colspan="4" style="padding-top: 5px"><b>Tats&auml;chlich qualifizierte L&auml;nder:</b></td>
 				</tr>
+				<?php 
+					if(Constants::$isWM){
+				?>
+						<tr>
+							<td style="color: red"><?php echo $this->realhauptrunde[24]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[25]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[26]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[27]; ?></td>
+						</tr>
+				<?php
+					} else{
+				?>
 				<tr>
 					<td style="color: red"><?php echo $this->realhauptrunde[8]; ?></td>
 					<td style="color: red"><?php echo $this->realhauptrunde[9]; ?></td>
 					<td style="color: red"><?php echo $this->realhauptrunde[10]; ?></td>
 					<td style="color: red"><?php echo $this->realhauptrunde[11]; ?></td>
 				</tr>
-			<?php } ?>
+			<?php 
+					}
+				} 
+			?>
 		</table>
 		<h3>Finalteilnehmer</h3>
 		<table>
@@ -257,33 +530,46 @@
 					<?php endforeach; ?>
 				</select></td>
 			</tr>
-			<?php if($this->realhauptrunde[12] != ''){ ?>
+			<?php if(Constants::$isWM ? $this->realhauptrunde[28] : $this->realhauptrunde[12] != ''){ ?>
 				<tr>
 					<td colspan="4" style="padding-top: 5px"><b>Tats&auml;chlich qualifizierte L&auml;nder:</b></td>
 				</tr>
+				<?php 
+					if(Constants::$isWM){
+				?>
+						<tr>
+							<td style="color: red"><?php echo $this->realhauptrunde[28]; ?></td>
+							<td style="color: red"><?php echo $this->realhauptrunde[29]; ?></td>
+						</tr>
+				<?php
+					} else{
+				?>
 				<tr>
 					<td style="color: red"><?php echo $this->realhauptrunde[12]; ?></td>
 					<td style="color: red"><?php echo $this->realhauptrunde[13]; ?></td>
 				</tr>
-			<?php }?>
+			<?php 
+					}
+				}
+			?>
 		</table>
-		<h3>Europameister</h3>
-		<div><select name="europameister" <?php echo $isDisabled; ?>>
+		<h3><?php echo Constants::getWinnerLabel() ?></h3>
+		<div><select name="sieger" <?php echo $isDisabled; ?>>
 			<option value=''></option>
 			<?foreach($this->countries as $country): ?>
-			<?php if($this->userEuropameister == $country['id']): ?>
+			<?php if($this->userSieger == $country['id']): ?>
 			<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
 			<?php else:?>
 			<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
 			<?php endif; ?>
 			<?php endforeach; ?>
 		</select></div>
-		<?php if($this->realhauptrunde[14] != ''){ ?>
+		<?php if(Constants::$isWM ? $this->realhauptrunde[30] : $this->realhauptrunde[14] != ''){ ?>
 			<div style="padding-top: 5px">
-				<b>Tats&auml;chlicher Europameister:</b>
+				<b>Tats&auml;chlicher <?php echo Constants::getWinnerLabel() ?>:</b>
 			</div>
 			<div style="color: red">
-			<?php echo $this->realhauptrunde[14]; ?>
+			<?php echo Constants::$isWM ? $this->realhauptrunde[30] : $this->realhauptrunde[14]; ?>
 			</div>
 		<?php } ?>
 		<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='finals'"/></div>

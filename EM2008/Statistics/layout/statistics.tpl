@@ -2,6 +2,7 @@
 <?php require_once('Layout/infos.tpl'); ?>
 <?php require_once('Layout/errors.tpl'); ?>
 <?php require_once('Layout/Tabs.php'); ?>
+<?php require_once('Constants.php'); ?>
 
 <?php $tabs = new Tabs("Statistics"); ?>
 <?php $tabs->start("Gruppenspiele"); ?>
@@ -83,7 +84,13 @@
 		<table border="0" width="100%">
 			<tr>
 				<td style="white-space: nowrap; padding-bottom: 5px; padding-right: 5px"><b>Land</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/8 Final</b></td>
+				<?php
+					if(Constants::$isWM){
+				?>
+						<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/8 Final</b></td>
+				<?php
+					}
+				?>
 				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/4 Final</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/2 Final</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>Final</b></td>
@@ -92,7 +99,13 @@
 			<?php foreach($this->hauptrunde as $land): ?>
 				<tr>
 					<td><img alt="" src="nationalFlags/<?php echo $land['id'] ?>.png"/>&nbsp;<?php echo $land['team']; ?></td>
-					<td align="right">0</td>
+					<?php
+						if(Constants::$isWM){
+					?>
+							<td align="right"><?php echo $this->achtelfinal[$land['id']] != '' ? $this->achtelfinal[$land['id']] : 0; ?></td>
+					<?php
+						}
+					?>
 					<td align="right"><?php echo $this->viertelfinal[$land['id']] != '' ? $this->viertelfinal[$land['id']] : 0; ?></td>
 					<td align="right"><?php echo $this->halbfinal[$land['id']] != '' ? $this->halbfinal[$land['id']] : 0; ?></td>
 					<td align="right"><?php echo $this->final[$land['id']] != '' ? $this->final[$land['id']] : 0; ?></td>

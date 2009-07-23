@@ -35,7 +35,7 @@ CREATE TABLE `hauptrunde` (
   `halbfinal4` varchar(11) default NULL,
   `final1` varchar(11) default NULL,
   `final2` varchar(11) default NULL,
-  `europameister` varchar(11) default NULL,
+  `sieger` varchar(11) default NULL,
   PRIMARY KEY  (`userfsid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -85,7 +85,7 @@ CREATE TABLE `realhauptrunde` (
   `halbfinal4` varchar(11) default NULL,
   `final1` varchar(11) default NULL,
   `final2` varchar(11) default NULL,
-  `europameister` varchar(11) default NULL,
+  `sieger` varchar(11) default NULL,
   PRIMARY KEY  (`realhauptrundeid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -93,7 +93,7 @@ CREATE TABLE `realhauptrunde` (
 -- Daten für Tabelle `realhauptrunde`
 --
 
-INSERT INTO `realhauptrunde` (`realhauptrundeid`, `viertelfinal1`, `viertelfinal2`, `viertelfinal3`, `viertelfinal4`, `viertelfinal5`, `viertelfinal6`, `viertelfinal7`, `viertelfinal8`, `halbfinal1`, `halbfinal2`, `halbfinal3`, `halbfinal4`, `final1`, `final2`, `europameister`) VALUES
+INSERT INTO `realhauptrunde` (`realhauptrundeid`, `viertelfinal1`, `viertelfinal2`, `viertelfinal3`, `viertelfinal4`, `viertelfinal5`, `viertelfinal6`, `viertelfinal7`, `viertelfinal8`, `halbfinal1`, `halbfinal2`, `halbfinal3`, `halbfinal4`, `final1`, `final2`, `sieger`) VALUES
 (1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
