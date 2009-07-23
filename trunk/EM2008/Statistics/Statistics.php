@@ -1,6 +1,7 @@
 <?php
 require_once("Page.php");
 require_once('Datenbank/db.php');
+require_once('Constants.php');
 
 class Statistics extends HTMLPage implements Page {
 
@@ -56,12 +57,13 @@ class Statistics extends HTMLPage implements Page {
 		
 		while($row = mysql_fetch_assoc($ergebnis_hauptrunde))
 		{
-			/*
-			$counter_achtel = 1;
-			while($counter_achtel != 16){
-				$this->$achtelfinal[$row['achtelfinal'.$counter_achtel]] = $this->$achtelfinal[$row['achtelfinal'.$counter_achtel]] != '' ? $this->$achtelfinal[$row['achtelfinal'.$counter_achtel]]++ : 1;
+			if(Constants::$isWM){
+				$counter_achtel = 1;
+				while($counter_achtel <= 16){
+					$this->achtelfinal[$row['achtelfinal'.$counter_achtel]] = $this->achtelfinal[$row['achtelfinal'.$counter_achtel]] != '' ? $this->achtelfinal[$row['achtelfinal'.$counter_achtel]] + 1 : 1;
+					$counter_achtel++;
+				}
 			}
-			*/
 			
 			$counter_viertel = 1;
 			while($counter_viertel <= 8){
@@ -81,7 +83,7 @@ class Statistics extends HTMLPage implements Page {
 				$counter_final++;
 			}
 						
-			$this->sieger[$row['europameister']] = $this->sieger[$row['europameister']] != '' ? $this->sieger[$row['europameister']] + 1 : 1;
+			$this->sieger[$row['sieger']] = $this->sieger[$row['sieger']] != '' ? $this->sieger[$row['sieger']] + 1 : 1;
 		}
 	}
 	

@@ -9,10 +9,11 @@ class OtherTipps extends HTMLPage implements Page {
 
 	private $countries = array();
 	private $vorrunde = array();
+	private $userAchtelfinal = array();
 	private $userViertelfinal = array();
 	private $userHalbfinal = array();
 	private $userFinal = array();
-	private $userEuropameister= '';
+	private $userSieger = '';
 	private $realhauptrunde = array();
 
 	private $link = '';
@@ -139,22 +140,25 @@ class OtherTipps extends HTMLPage implements Page {
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
+			if(Constants::$isWM){
+				for($i=1;$i<=16;$i++) {
+					$this->userAchtelfinal[$i] = $row['achtelfinal'.$i];
+				}
+			}
+			
 			for($i=1;$i<=8;$i++) {
 				$this->userViertelfinal[$i] = $row['viertelfinal'.$i];
 			}
-			//halbfinal
+			
 			for($i=1;$i<=4;$i++) {
 				$this->userHalbfinal[$i] = $row['halbfinal'.$i];
 			}
 
-			//Final
 			for($i=1;$i<=2;$i++) {
 				$this->userFinal[$i] = $row['final'.$i];
 			}
 
-
-			//Europameister
-			$this->userEuropameister = $row['europameister'];
+			$this->userSieger = $row['sieger'];
 		}
 	}
 
@@ -165,6 +169,25 @@ class OtherTipps extends HTMLPage implements Page {
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
+			if(Constants::$isWM){
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal1']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal2']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal3']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal4']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal5']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal6']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal7']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal8']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal9']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal10']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal11']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal12']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal13']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal14']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal15']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal16']);
+			}
+			
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal1']);
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal2']);
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal3']);
@@ -182,7 +205,7 @@ class OtherTipps extends HTMLPage implements Page {
 			$realhauptrunde[] = $this->getTeam($row['final1']);
 			$realhauptrunde[] = $this->getTeam($row['final2']);
 				
-			$realhauptrunde[] = $this->getTeam($row['europameister']);
+			$realhauptrunde[] = $this->getTeam($row['sieger']);
 		}
 
 		return $realhauptrunde;

@@ -1,6 +1,7 @@
 <?php
 require_once("Page.php");
 require_once('Datenbank/db.php');
+require_once('Constants.php');
 
 class MyTipps extends HTMLPage implements Page {
 
@@ -11,10 +12,11 @@ class MyTipps extends HTMLPage implements Page {
 
 	private $errors = array();
 
+	private $userAchtelfinal = array();
 	private $userViertelfinal = array();
 	private $userHalbfinal = array();
 	private $userFinal = array();
-	private $userEuropameister= '';
+	private $userSieger= '';
 
 
 	private $link = '';
@@ -47,6 +49,24 @@ class MyTipps extends HTMLPage implements Page {
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
+			if(Constants::$isWM){
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal1']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal2']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal3']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal4']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal5']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal6']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal7']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal8']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal9']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal10']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal11']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal12']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal13']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal14']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal15']);
+				$realhauptrunde[] = $this->getTeam($row['achtelfinal16']);
+			}
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal1']);
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal2']);
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal3']);
@@ -64,7 +84,7 @@ class MyTipps extends HTMLPage implements Page {
 			$realhauptrunde[] = $this->getTeam($row['final1']);
 			$realhauptrunde[] = $this->getTeam($row['final2']);
 				
-			$realhauptrunde[] = $this->getTeam($row['europameister']);
+			$realhauptrunde[] = $this->getTeam($row['sieger']);
 		}
 
 		return $realhauptrunde;
@@ -78,28 +98,32 @@ class MyTipps extends HTMLPage implements Page {
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
+			if(Constants::$isWM){
+				for($i=1;$i<=16;$i++) {
+					$this->userAchtelfinal[$i] = $row['achtelfinal'.$i];
+				}
+			}
+			
 			for($i=1;$i<=8;$i++) {
 				$this->userViertelfinal[$i] = $row['viertelfinal'.$i];
 			}
-			//halbfinal
+			
 			for($i=1;$i<=4;$i++) {
 				$this->userHalbfinal[$i] = $row['halbfinal'.$i];
 			}
 
-			//Final
 			for($i=1;$i<=2;$i++) {
 				$this->userFinal[$i] = $row['final'.$i];
 			}
 
-
-			//Europameister
-			$this->userEuropameister = $row['europameister'];
+			$this->userSieger = $row['sieger'];
 		}
 	}
 
 	private function setTipps() {
-		//set user vorrunde tipps
-		for($i=1;$i<=24;$i++) {
+		$result = mysql_query("Select COUNT(start) as Number from vorrundeteams");
+		$countGames = mysql_fetch_assoc($result);
+		for($i=1;$i<=$countGames['Number'];$i++) {
 			$result1 = $_POST['result1'.$i];
 			$result2 = $_POST['result2'.$i];
 			if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled' || ($this->isDisabled($this->vorrunde[$i-1]['start']) == 'disabled' && ($result1 != '' || $result2 != ''))) {
@@ -132,6 +156,16 @@ class MyTipps extends HTMLPage implements Page {
 
 		$isStillEnabled = false;
 
+		if(Constants::$isWM){
+			for($i=1;$i<=16;$i++) {
+				$teamid = $_POST['achtelfinal'.$i];
+				$hauptrundetipps[] = $teamid;
+				if(!$isStillEnabled && $teamid != ''){
+					$isStillEnabled = true;
+				}
+			}
+		}
+		
 		for($i=1;$i<=8;$i++) {
 			$teamid = $_POST['viertelfinal'.$i];
 			$hauptrundetipps[] = $teamid;
@@ -139,7 +173,7 @@ class MyTipps extends HTMLPage implements Page {
 				$isStillEnabled = true;
 			}
 		}
-		//halbfinal
+		
 		for($i=1;$i<=4;$i++) {
 			$teamid = $_POST['halbfinal'.$i];
 			$hauptrundetipps[] = $teamid;
@@ -148,7 +182,6 @@ class MyTipps extends HTMLPage implements Page {
 			}
 		}
 
-		//Final
 		for($i=1;$i<=2;$i++) {
 			$teamid = $_POST['final'.$i];
 			$hauptrundetipps[] = $teamid;
@@ -157,8 +190,7 @@ class MyTipps extends HTMLPage implements Page {
 			}
 		}
 
-		//Europameister
-		$teamid = $_POST['europameister'];
+		$teamid = $_POST['sieger'];
 		$hauptrundetipps[] = $teamid;
 
 		//timecheck??
@@ -191,14 +223,24 @@ class MyTipps extends HTMLPage implements Page {
 
 	private function updateHauptrundeTipp($hauptrundetipps) {
 	
-		$abfrage = sprintf("Update hauptrunde set viertelfinal1 = '%s', viertelfinal2 = '%s', viertelfinal3 = '%s', viertelfinal4 = '%s', viertelfinal5 = '%s', viertelfinal6 = '%s', viertelfinal7 = '%s', viertelfinal8 = '%s', halbfinal1 = '%s', halbfinal2 = '%s', halbfinal3 = '%s', halbfinal4 = '%s', final1 = '%s', final2 = '%s', europameister = '%s' where userfsid=".$_SESSION['userid'], mysql_real_escape_string($hauptrundetipps[0], $this->link),mysql_real_escape_string($hauptrundetipps[1], $this->link), mysql_real_escape_string($hauptrundetipps[2], $this->link), mysql_real_escape_string($hauptrundetipps[3], $this->link), mysql_real_escape_string($hauptrundetipps[4], $this->link), mysql_real_escape_string($hauptrundetipps[5], $this->link), mysql_real_escape_string($hauptrundetipps[6], $this->link), mysql_real_escape_string($hauptrundetipps[7], $this->link), mysql_real_escape_string($hauptrundetipps[8], $this->link), mysql_real_escape_string($hauptrundetipps[9], $this->link), mysql_real_escape_string($hauptrundetipps[10], $this->link), mysql_real_escape_string($hauptrundetipps[11], $this->link), mysql_real_escape_string($hauptrundetipps[12], $this->link), mysql_real_escape_string($hauptrundetipps[13], $this->link), mysql_real_escape_string($hauptrundetipps[14], $this->link));
+		if(Constants::$isWM){
+			$abfrage = sprintf("Update hauptrunde set achtelfinal1 = '%s', achtelfinal2 = '%s', achtelfinal3 = '%s', achtelfinal4 = '%s', achtelfinal5 = '%s', achtelfinal6 = '%s', achtelfinal7 = '%s', achtelfinal8 = '%s', achtelfinal9 = '%s', achtelfinal10 = '%s', achtelfinal11 = '%s', achtelfinal12 = '%s', achtelfinal13 = '%s', achtelfinal14 = '%s', achtelfinal15 = '%s', achtelfinal16 = '%s', viertelfinal1 = '%s', viertelfinal2 = '%s', viertelfinal3 = '%s', viertelfinal4 = '%s', viertelfinal5 = '%s', viertelfinal6 = '%s', viertelfinal7 = '%s', viertelfinal8 = '%s', halbfinal1 = '%s', halbfinal2 = '%s', halbfinal3 = '%s', halbfinal4 = '%s', final1 = '%s', final2 = '%s', sieger = '%s' where userfsid=".$_SESSION['userid'], mysql_real_escape_string($hauptrundetipps[0], $this->link),mysql_real_escape_string($hauptrundetipps[1], $this->link), mysql_real_escape_string($hauptrundetipps[2], $this->link), mysql_real_escape_string($hauptrundetipps[3], $this->link), mysql_real_escape_string($hauptrundetipps[4], $this->link), mysql_real_escape_string($hauptrundetipps[5], $this->link), mysql_real_escape_string($hauptrundetipps[6], $this->link), mysql_real_escape_string($hauptrundetipps[7], $this->link), mysql_real_escape_string($hauptrundetipps[8], $this->link), mysql_real_escape_string($hauptrundetipps[9], $this->link), mysql_real_escape_string($hauptrundetipps[10], $this->link), mysql_real_escape_string($hauptrundetipps[11], $this->link), mysql_real_escape_string($hauptrundetipps[12], $this->link), mysql_real_escape_string($hauptrundetipps[13], $this->link), mysql_real_escape_string($hauptrundetipps[14], $this->link), mysql_real_escape_string($hauptrundetipps[15], $this->link), mysql_real_escape_string($hauptrundetipps[16], $this->link), mysql_real_escape_string($hauptrundetipps[17], $this->link), mysql_real_escape_string($hauptrundetipps[18], $this->link), mysql_real_escape_string($hauptrundetipps[19], $this->link), mysql_real_escape_string($hauptrundetipps[20], $this->link), mysql_real_escape_string($hauptrundetipps[21], $this->link), mysql_real_escape_string($hauptrundetipps[22], $this->link), mysql_real_escape_string($hauptrundetipps[23], $this->link), mysql_real_escape_string($hauptrundetipps[24], $this->link), mysql_real_escape_string($hauptrundetipps[25], $this->link), mysql_real_escape_string($hauptrundetipps[26], $this->link), mysql_real_escape_string($hauptrundetipps[27], $this->link), mysql_real_escape_string($hauptrundetipps[28], $this->link), mysql_real_escape_string($hauptrundetipps[29], $this->link), mysql_real_escape_string($hauptrundetipps[30], $this->link));
+		}
+		else{
+			$abfrage = sprintf("Update hauptrunde set viertelfinal1 = '%s', viertelfinal2 = '%s', viertelfinal3 = '%s', viertelfinal4 = '%s', viertelfinal5 = '%s', viertelfinal6 = '%s', viertelfinal7 = '%s', viertelfinal8 = '%s', halbfinal1 = '%s', halbfinal2 = '%s', halbfinal3 = '%s', halbfinal4 = '%s', final1 = '%s', final2 = '%s', sieger = '%s' where userfsid=".$_SESSION['userid'], mysql_real_escape_string($hauptrundetipps[0], $this->link),mysql_real_escape_string($hauptrundetipps[1], $this->link), mysql_real_escape_string($hauptrundetipps[2], $this->link), mysql_real_escape_string($hauptrundetipps[3], $this->link), mysql_real_escape_string($hauptrundetipps[4], $this->link), mysql_real_escape_string($hauptrundetipps[5], $this->link), mysql_real_escape_string($hauptrundetipps[6], $this->link), mysql_real_escape_string($hauptrundetipps[7], $this->link), mysql_real_escape_string($hauptrundetipps[8], $this->link), mysql_real_escape_string($hauptrundetipps[9], $this->link), mysql_real_escape_string($hauptrundetipps[10], $this->link), mysql_real_escape_string($hauptrundetipps[11], $this->link), mysql_real_escape_string($hauptrundetipps[12], $this->link), mysql_real_escape_string($hauptrundetipps[13], $this->link), mysql_real_escape_string($hauptrundetipps[14], $this->link));	
+		}
 
 		$ergebnis = mysql_query($abfrage, $this->link);
 	}
 
 	private function addHauptrundeTipp($hauptrundetipps) {
-		$abfrage = sprintf("Insert into hauptrunde values(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",$_SESSION['userid'], mysql_real_escape_string($hauptrundetipps[0], $this->link),mysql_real_escape_string($hauptrundetipps[1], $this->link), mysql_real_escape_string($hauptrundetipps[2], $this->link), mysql_real_escape_string($hauptrundetipps[3], $this->link), mysql_real_escape_string($hauptrundetipps[4], $this->link), mysql_real_escape_string($hauptrundetipps[5], $this->link), mysql_real_escape_string($hauptrundetipps[6], $this->link), mysql_real_escape_string($hauptrundetipps[7], $this->link), mysql_real_escape_string($hauptrundetipps[8], $this->link), mysql_real_escape_string($hauptrundetipps[9], $this->link), mysql_real_escape_string($hauptrundetipps[10], $this->link), mysql_real_escape_string($hauptrundetipps[11], $this->link), mysql_real_escape_string($hauptrundetipps[12], $this->link), mysql_real_escape_string($hauptrundetipps[13], $this->link), mysql_real_escape_string($hauptrundetipps[14], $this->link));
-		
+		if(Constants::$isWM){
+			$abfrage = sprintf("Insert into hauptrunde values(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",$_SESSION['userid'], mysql_real_escape_string($hauptrundetipps[0], $this->link),mysql_real_escape_string($hauptrundetipps[1], $this->link), mysql_real_escape_string($hauptrundetipps[2], $this->link), mysql_real_escape_string($hauptrundetipps[3], $this->link), mysql_real_escape_string($hauptrundetipps[4], $this->link), mysql_real_escape_string($hauptrundetipps[5], $this->link), mysql_real_escape_string($hauptrundetipps[6], $this->link), mysql_real_escape_string($hauptrundetipps[7], $this->link), mysql_real_escape_string($hauptrundetipps[8], $this->link), mysql_real_escape_string($hauptrundetipps[9], $this->link), mysql_real_escape_string($hauptrundetipps[10], $this->link), mysql_real_escape_string($hauptrundetipps[11], $this->link), mysql_real_escape_string($hauptrundetipps[12], $this->link), mysql_real_escape_string($hauptrundetipps[13], $this->link), mysql_real_escape_string($hauptrundetipps[14], $this->link), mysql_real_escape_string($hauptrundetipps[15], $this->link), mysql_real_escape_string($hauptrundetipps[16], $this->link), mysql_real_escape_string($hauptrundetipps[17], $this->link), mysql_real_escape_string($hauptrundetipps[18], $this->link), mysql_real_escape_string($hauptrundetipps[19], $this->link), mysql_real_escape_string($hauptrundetipps[20], $this->link), mysql_real_escape_string($hauptrundetipps[21], $this->link), mysql_real_escape_string($hauptrundetipps[22], $this->link), mysql_real_escape_string($hauptrundetipps[23], $this->link), mysql_real_escape_string($hauptrundetipps[24], $this->link), mysql_real_escape_string($hauptrundetipps[25], $this->link), mysql_real_escape_string($hauptrundetipps[26], $this->link), mysql_real_escape_string($hauptrundetipps[27], $this->link), mysql_real_escape_string($hauptrundetipps[28], $this->link), mysql_real_escape_string($hauptrundetipps[29], $this->link), mysql_real_escape_string($hauptrundetipps[30], $this->link));
+		}
+		else{
+			$abfrage = sprintf("Insert into hauptrunde values(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",$_SESSION['userid'], mysql_real_escape_string($hauptrundetipps[0], $this->link),mysql_real_escape_string($hauptrundetipps[1], $this->link), mysql_real_escape_string($hauptrundetipps[2], $this->link), mysql_real_escape_string($hauptrundetipps[3], $this->link), mysql_real_escape_string($hauptrundetipps[4], $this->link), mysql_real_escape_string($hauptrundetipps[5], $this->link), mysql_real_escape_string($hauptrundetipps[6], $this->link), mysql_real_escape_string($hauptrundetipps[7], $this->link), mysql_real_escape_string($hauptrundetipps[8], $this->link), mysql_real_escape_string($hauptrundetipps[9], $this->link), mysql_real_escape_string($hauptrundetipps[10], $this->link), mysql_real_escape_string($hauptrundetipps[11], $this->link), mysql_real_escape_string($hauptrundetipps[12], $this->link), mysql_real_escape_string($hauptrundetipps[13], $this->link), mysql_real_escape_string($hauptrundetipps[14], $this->link));
+		}
+			
 		$ergebnis = mysql_query($abfrage, $this->link);
 	}
 
@@ -356,6 +398,32 @@ class MyTipps extends HTMLPage implements Page {
 
 		$viertelfinalArray = array();
 
+		if(Constants::$isWM){
+			$achtelfinalArray[0] = $_POST["achtelfinal1"];
+			$achtelfinalArray[1] = $_POST["achtelfinal2"];
+			$achtelfinalArray[2] = $_POST["achtelfinal3"];
+			$achtelfinalArray[3] = $_POST["achtelfinal4"];
+			$achtelfinalArray[4] = $_POST["achtelfinal5"];
+			$achtelfinalArray[5] = $_POST["achtelfinal6"];
+			$achtelfinalArray[6] = $_POST["achtelfinal7"];
+			$achtelfinalArray[7] = $_POST["achtelfinal8"];
+			$achtelfinalArray[8] = $_POST["achtelfinal9"];
+			$achtelfinalArray[9] = $_POST["achtelfinal10"];
+			$achtelfinalArray[10] = $_POST["achtelfinal11"];
+			$achtelfinalArray[11] = $_POST["achtelfinal12"];
+			$achtelfinalArray[12] = $_POST["achtelfinal13"];
+			$achtelfinalArray[13] = $_POST["achtelfinal14"];
+			$achtelfinalArray[14] = $_POST["achtelfinal15"];
+			$achtelfinalArray[15] = $_POST["achtelfinal16"];
+			
+			$resultAchtelFinalArray = array_count_values($achtelfinalArray);
+				
+			if(count($resultAchtelFinalArray) <= (16 - ($resultAchtelFinalArray[''] == 0 ? 1 : $resultAchtelFinalArray['']))){
+				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
+				return true;
+			}
+		}
+		
 		$viertelfinalArray[0] = $_POST["viertelfinal1"];
 		$viertelfinalArray[1] = $_POST["viertelfinal2"];
 		$viertelfinalArray[2] = $_POST["viertelfinal3"];
