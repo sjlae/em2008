@@ -10,6 +10,7 @@ require_once('Ranking/Ranking.php');
 require_once('MyTipps/MyTipps.php');
 require_once('OtherTipps/OtherTipps.php');
 require_once('Statistics/Statistics.php');
+require_once('Guestbook/Guestbook.php');
 require_once('Admin/Admin.php');
 
 $go = isset($_GET['go']) ? $_GET['go'] : '';
@@ -42,6 +43,10 @@ switch($go) {
 	case 'statistics':
 		$statistics = new Statistics();
 		LoggedIn::isRegistered($statistics);
+		break;
+	case 'guestbook':
+		$guestbook = new Guestbook();
+		LoggedIn::isRegistered($guestbook);
 		break;
 	case 'admin':
 		$admin = new Admin();
