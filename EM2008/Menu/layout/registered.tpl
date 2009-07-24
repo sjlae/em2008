@@ -4,6 +4,7 @@
 	<li class="Startseite" id="mn_Standard"><a href="index.php?go=otherTipps"><span>Tipps Mitspieler</span></a></li>
 	<li class="Startseite" id="mn_Standard"><a href="index.php?go=ranking"><span>Rangliste</span></a></li>
 	<li class="Startseite" id="mn_Standard"><a href="index.php?go=statistics"><span>Statistiken</span></a></li>
+	<li class="Startseite" id="mn_Standard"><a href="index.php?go=guestbook"><span>G&auml;stebuch</span></a></li>
 	<li class="Startseite" id="mn_Standard"><a href="index.php?go=rules"><span>Spielregeln</span></a></li>
 	<?php
 		$abfrage = "SELECT * FROM user where userid='".$_SESSION['userid']."'";
