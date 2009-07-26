@@ -40,7 +40,7 @@ class Login extends HTMLPage implements Page{
 
 			$this->passwort = md5($this->passwort);
 				
-			$abfrage = sprintf("SELECT * FROM user where email='%s' and passwort='%s'",  mysql_real_escape_string($this->email, $this->link), mysql_real_escape_string($this->passwort, $this->link));
+			$abfrage = sprintf("SELECT * FROM user where email='%s' and passwort='%s'",  htmlentities(mysql_real_escape_string($this->email, $this->link)), htmlentities(mysql_real_escape_string($this->passwort, $this->link)));
 
 			$ergebnis = mysql_query($abfrage, $this->link);
 				

@@ -7,7 +7,7 @@
 				Vorname:
 			</td>
 			<td>
-				<input type="text" name="vorname" value="<?php echo $this->vorname; ?>" />
+				<input type="text" name="vorname" value="<?php echo htmlentities($this->vorname); ?>" />
 			</td>
 		</tr>
 		<tr>
@@ -15,7 +15,7 @@
 				Name:
 			</td>
 			<td>
-				<input type="text" name="nachname" value="<?php echo $this->nachname; ?>" />
+				<input type="text" name="nachname" value="<?php echo htmlentities($this->nachname); ?>" />
 			</td>
 		</tr>
 		<tr>
@@ -23,7 +23,7 @@
 				Email:
 			</td>
 			<td>
-				<input type="text" name="email" value="<?php echo $this->email; ?>" />
+				<input type="text" name="email" value="<?php echo htmlentities($this->email); ?>" />
 			</td>
 		</tr>
 		<tr>
@@ -50,7 +50,7 @@
 				<select name="where">
 					<?$i=0; ?>
 					<?foreach($wheres as $where): ?>
-						<option value="<?echo ++$i; ?>"><?echo $where ?></option>
+						<option value="<?echo ++$i; ?>"><?echo htmlentities($where) ?></option>
 					<?endforeach; ?>
 				</select>
 			</td>

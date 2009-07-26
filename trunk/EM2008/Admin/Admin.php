@@ -167,6 +167,7 @@ class Admin extends HTMLPage implements Page{
 				mysql_query("Delete from uservorrunde where userfsid = $user_id");
 				mysql_query("Delete from user where userid = $user_id");
 				mysql_query("Delete from hauptrunde where userfsid = $user_id");
+				mysql_query("Delete from guestbook where userfsid = $user_id");
 			}
 		}
 	}
