@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 24. Juli 2009 um 17:17
+-- Erstellungszeit: 28. Juli 2009 um 17:33
 -- Server Version: 5.1.33
 -- PHP-Version: 5.2.9
 
@@ -20,7 +20,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `guestbook` (
-  `user` varchar(255) NOT NULL,
+  `userfsid` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `text` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -79,8 +79,6 @@ CREATE TABLE IF NOT EXISTS `hauptrunde` (
 -- Daten für Tabelle `hauptrunde`
 --
 
-INSERT INTO `hauptrunde` (`userfsid`, `achtelfinal1`, `achtelfinal2`, `achtelfinal3`, `achtelfinal4`, `achtelfinal5`, `achtelfinal6`, `achtelfinal7`, `achtelfinal8`, `achtelfinal9`, `achtelfinal10`, `achtelfinal11`, `achtelfinal12`, `achtelfinal13`, `achtelfinal14`, `achtelfinal15`, `achtelfinal16`, `viertelfinal1`, `viertelfinal2`, `viertelfinal3`, `viertelfinal4`, `viertelfinal5`, `viertelfinal6`, `viertelfinal7`, `viertelfinal8`, `halbfinal1`, `halbfinal2`, `halbfinal3`, `halbfinal4`, `final1`, `final2`, `sieger`) VALUES
-(171, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -219,10 +217,27 @@ CREATE TABLE IF NOT EXISTS `user` (
   `woherfsid` int(11) NOT NULL,
   `admin` int(11) NOT NULL,
   PRIMARY KEY (`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=174 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=181 ;
 
 --
 -- Daten für Tabelle `user`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `useronline`
+--
+
+CREATE TABLE IF NOT EXISTS `useronline` (
+  `ip` varchar(15) NOT NULL,
+  `zeit` int(11) NOT NULL,
+  `userfsid` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `useronline`
 --
 
 
@@ -254,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `vorrunde` (
   `result2` varchar(11) DEFAULT NULL,
   `vorrundeteamsfsid` int(11) NOT NULL,
   PRIMARY KEY (`vorrundeid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Daten für Tabelle `vorrunde`

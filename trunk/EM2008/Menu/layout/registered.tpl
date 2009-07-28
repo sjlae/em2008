@@ -21,4 +21,20 @@
 		}		
 	?>
 	<li class="Startseite" id="mn_Standard"><a href="index.php?go=logout"><span>Logout</span></a></li>
-</ul>		
+	<?php
+		if(isset($_SESSION['users_names'])){
+	?>
+			<li class="Startseite" id="mn_Standard"><a class="tooltip" href="#"><?php echo $_SESSION['users'] ?><span><?php echo $_SESSION['users_names'] ?></span></a></li>
+	<?php
+		}
+		else{
+	?>
+			<li class="Startseite" id="mn_Standard"><a class="tooltip" href="#"><?php echo $_SESSION['users'] ?></a></li>
+	<?php
+		}
+	?>
+</ul>
+<?php 
+	unset($_SESSION['users']);
+	unset($_SESSION['users_names']);
+?>
