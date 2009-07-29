@@ -828,7 +828,7 @@
 			<?php $i++; ?>
 			<?php endforeach; ?>
 		</table>
-		<input type="submit" value="Löschen" />
+		<input type="submit" value="L&ouml;schen" />
 	</form>
 	<?php if($_GET['action'] == 'delete'){ $tabs->active = "Loeschen"; } ?>
 	
