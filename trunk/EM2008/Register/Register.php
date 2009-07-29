@@ -49,7 +49,7 @@ class Register extends HTMLPage implements Page {
 			
 			$pwd = md5($this->passwort1);
 
-			$query = sprintf("Insert into user(nachname, vorname, email, passwort, rank_now, rank_last, woherfsid) values('%s', '%s', '%s', '%s', '%s',' %s', '%s')", htmlentities(mysql_real_escape_string($this->nachname, $this->link)), htmlentities(mysql_real_escape_string($this->vorname, $this->link)), htmlentities(mysql_real_escape_string($this->email, $this->link)), htmlentities(mysql_real_escape_string($pwd, $this->link)), '1', '1', htmlentities(mysql_real_escape_string($where, $this->link)));
+			$query = sprintf("Insert into user(nachname, vorname, email, passwort, rank_now, rank_last, woherfsid) values('%s', '%s', '%s', '%s', '%s',' %s', '%s')", htmlentities(mysql_real_escape_string($this->nachname, $this->link), ENT_COMPAT, 'UTF-8'), htmlentities(mysql_real_escape_string($this->vorname, $this->link), ENT_COMPAT, 'UTF-8'), htmlentities(mysql_real_escape_string($this->email, $this->link), ENT_COMPAT, 'UTF-8'), htmlentities(mysql_real_escape_string($pwd, $this->link), ENT_COMPAT, 'UTF-8'), '1', '1', htmlentities(mysql_real_escape_string($where, $this->link), ENT_COMPAT, 'UTF-8'));
 				
 			mysql_query($query,$this->link);
 
@@ -65,7 +65,7 @@ class Register extends HTMLPage implements Page {
 	}
 
 	public function checkExistingEmail($email) {
-		$abfrage = sprintf("SELECT * FROM user where email='%s'", htmlentities(mysql_real_escape_string($email, $this->link)));
+		$abfrage = sprintf("SELECT * FROM user where email='%s'", htmlentities(mysql_real_escape_string($email, $this->link)), ENT_COMPAT, 'UTF-8');
 
 		$result = mysql_query($abfrage);
 
