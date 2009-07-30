@@ -60,14 +60,14 @@ class Menu {
 				$actual_name = "SELECT nachname, vorname from user WHERE userid = $userid";
 				$actual_name_result = mysql_query($actual_name);
 				
-				while($row_user_name = mysql_fetch_assoc($actual_name_result))
-				{
-					if($first){
-						$names = "<b>davon eingeloggt:</b><br>";
-						$first = false;
-					}
-					$names = $names . $row_user_name['vorname'] . " " . $row_user_name['nachname'] . "<br>";
+				$row_user_name = mysql_fetch_assoc($actual_name_result);
+				
+				if($first){
+					$names = "<b>davon eingeloggt:</b><br>";
+					$first = false;
 				}
+				
+				$names = $names . $row_user_name['vorname'] . " " . $row_user_name['nachname'] . "<br>";
 			}	
 		}
 		if($names != ''){
