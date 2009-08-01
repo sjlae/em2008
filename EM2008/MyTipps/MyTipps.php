@@ -205,7 +205,7 @@ class MyTipps extends HTMLPage implements Page {
 			$this->errors[] = "Die Zeit ist abgelaufen, um Hauptrundentipps zu erfassen.";
 		}
 
-		$_SESSION['infos'][] = "Ihre Tipps wurden erfolgreich erfasst.";
+		$_SESSION['infos'][] = "Deine Tipps wurden erfolgreich erfasst.";
 	}
 
 	private function isDisabledHauptrunde() {

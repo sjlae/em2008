@@ -54,7 +54,7 @@ class Register extends HTMLPage implements Page {
 			mysql_query($query,$this->link);
 
 		 if (mysql_affected_rows($this->link) > 0) {
-		 	$_SESSION['infos'][] = "Sie wurden erfolgreich registriert";
+		 	$_SESSION['infos'][] = "Du wurdest erfolgreich registriert";
 
 		 	header('location:	index.php?go=login');
 		 	return false;
