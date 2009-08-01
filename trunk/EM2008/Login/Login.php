@@ -50,7 +50,7 @@ class Login extends HTMLPage implements Page{
 				$ok = true;
 				$_SESSION['eingeloggt'] = true;
 				$_SESSION['userid'] = $row['userid'];
-				$_SESSION['infos'][] = "Sie haben erfolgreich eingeloggt";
+				$_SESSION['infos'][] = "Du hast erfolgreich eingeloggt";
 
 					
 				header('location:index.php');

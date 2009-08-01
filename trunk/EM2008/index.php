@@ -55,7 +55,7 @@ switch($go) {
 	case 'logout':
 		unset($_SESSION['eingeloggt']);
 		unset($_SESSION['userid']);
-		$_SESSION['infos'][] = "Sie haben erfolgreich ausgeloggt";
+		$_SESSION['infos'][] = "Du hast erfolgreich ausgeloggt";
 		$home = new Home();
 		$home->getView();
 		break;
