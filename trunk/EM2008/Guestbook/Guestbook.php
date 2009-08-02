@@ -40,13 +40,19 @@ class Guestbook extends HTMLPage implements Page {
 	}
 	
 	private function saveNewEntry() {
-		$this->text = htmlentities(mysql_real_escape_string(trim($_POST['text']), $this->link), ENT_COMPAT, 'UTF-8');
-				
+		$this->text = $_POST['text'];
 		if($this->text != null){
 			if(strlen($this->text) > 255){
 				$this->errors[] = "Dein G&auml;stebucheintrag darf nicht mehr als 255 Zeichen enthalten!";
 			}
+			else if(preg_match(Constants::$regexSpecialSigns_Guestbook, $this->text)){
+				$this->errors[] = "Dein G&auml;stebucheintrag darf keine Sonderzeichen enthalten!";
+				
+				$this->text = '';
+			}
 			else{
+				$this->text = htmlentities(mysql_real_escape_string(trim($_POST['text']), $this->link), ENT_COMPAT, 'UTF-8');
+				
 				$userid = $_SESSION['userid'];
 						
 				$abfrage = "Insert into guestbook (userfsid, text) values ('$userid', '".$this->text."')";
