@@ -28,10 +28,10 @@ class Register extends HTMLPage implements Page {
 		$this->passwort2 = $_POST['passwort2'];
 		$where = $_POST['where'];
 
-		if($this->vorname == '' || strlen($this->vorname) > 10)
-		$this->errors[] = "Bitte das Feld 'Vorname' ausf&uuml;llen und nicht mehr als 10 Zeichen verwenden";
-		if($this->nachname == '' || strlen($this->nachname) > 15)
-		$this->errors[] = "Bitte das Feld 'Name' ausf&uuml;llen und nicht mehr als 15 Zeichen verwenden";
+		if($this->vorname == '' || strlen($this->vorname) > 10 || preg_match(Constants::$regexSpecialSigns_Names, $this->vorname))
+		$this->errors[] = "Bitte das Feld 'Vorname' ausf&uuml;llen, keine Sonderzeichen und nicht mehr als 10 Zeichen verwenden";
+		if($this->nachname == '' || strlen($this->nachname) > 15 || preg_match(Constants::$regexSpecialSigns_Names, $this->nachname))
+		$this->errors[] = "Bitte das Feld 'Name' ausf&uuml;llen, keine Sonderzeichen und nicht mehr als 15 Zeichen verwenden";
 		if($this->email == '')
 		$this->errors[] = "Bitte das Feld 'Email' ausf&uuml;llen";
 		if($this->passwort1 == '') {
@@ -44,6 +44,19 @@ class Register extends HTMLPage implements Page {
 		if($this->checkExistingEmail($this->email)) {
 			$this->errors[] = "Diese Email ist schon vorhanden";
 		}
+		
+		if (!preg_match('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', $this->email)) {
+		  // $email ist ungültig, weil der lokale Teil nicht gültig ist
+		  $this->errors[] = "Deine eingegebene Email ist ung&uuml;ltig";
+		}
+		else {
+		  	// Alles ausser der Domain aus der Email löschen
+		  	$domain = preg_replace('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', '', $this->email);
+		  	// Prüfen, ob die Domain registriert ist (funktioniert NICHT unter windows)!
+			if (!checkdnsrr($domain)) {
+		  		$this->errors[] = "Deine eingegebene Email ist ung&uuml;ltig";
+		  	}
+		}	
 
 		if(count($this->errors) == 0) {
 			
