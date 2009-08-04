@@ -6,6 +6,7 @@ class Register extends HTMLPage implements Page {
 
 	private $errors = array();
 
+	private $wheres = array();
 	private $nachname = '';
 	private $vorname = '';
 	private $email = '';
@@ -28,16 +29,14 @@ class Register extends HTMLPage implements Page {
 		$this->passwort2 = $_POST['passwort2'];
 		$where = $_POST['where'];
 
-		if($this->vorname == '' || strlen($this->vorname) > 10 || preg_match(Constants::$regexSpecialSigns_Names, $this->vorname))
+		if($this->vorname == '' || strlen($this->vorname) > 10 || Constants::hasSpecialSigns($this->vorname))
 		$this->errors[] = "Bitte das Feld 'Vorname' ausf&uuml;llen, keine Sonderzeichen und nicht mehr als 10 Zeichen verwenden";
-		if($this->nachname == '' || strlen($this->nachname) > 15 || preg_match(Constants::$regexSpecialSigns_Names, $this->nachname))
+		if($this->nachname == '' || strlen($this->nachname) > 15 || Constants::hasSpecialSigns($this->nachname))
 		$this->errors[] = "Bitte das Feld 'Name' ausf&uuml;llen, keine Sonderzeichen und nicht mehr als 15 Zeichen verwenden";
-		if($this->email == '')
-		$this->errors[] = "Bitte das Feld 'Email' ausf&uuml;llen";
-		if($this->passwort1 == '') {
-			$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen";
-			if($this->passwort2 == '')
-			$this->errors[] = "Bitte das Feld 'Passwort wiederholen' ausf&uuml;llen";
+		if($this->passwort1 == '' || Constants::hasSpecialSigns($this->passwort1)) {
+			$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen und keine Sonderzeichen verwenden";
+			if($this->passwort2 == '' || Constants::hasSpecialSigns($this->passwort2))
+			$this->errors[] = "Bitte das Feld 'Passwort wiederholen' ausf&uuml;llen und keine Sonderzeichen verwenden";
 		}else if($this->passwort1 != $this->passwort2) {
 			$this->errors[] = "Bitte zwei Mal das gleiche Passwort w&auml;hlen";
 		}
@@ -53,11 +52,16 @@ class Register extends HTMLPage implements Page {
 		  	// Alles ausser der Domain aus der Email löschen
 		  	$domain = preg_replace('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', '', $this->email);
 		  	// Prüfen, ob die Domain registriert ist (funktioniert NICHT unter windows)!
-			if (!checkdnsrr($domain)) {
+			
+		  	if (!checkdnsrr($domain)) {
 		  		$this->errors[] = "Deine eingegebene Email ist ung&uuml;ltig";
 		  	}
 		}	
-
+		
+		if(!preg_match('/^\d$/', $where)){
+			$this->errors[] = "Wie auch immer du das angestellt hast, aber da lief nicht alles mit legalen Mitteln!";
+		}
+		
 		if(count($this->errors) == 0) {
 			
 			$pwd = md5($this->passwort1);
@@ -109,7 +113,7 @@ class Register extends HTMLPage implements Page {
 
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
-			$wheres[] = $row['bezeichnung'];
+			$this->wheres[] =$row['bezeichnung'];
 		}
 		include('layout/register.tpl');
 	}

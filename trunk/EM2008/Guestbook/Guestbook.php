@@ -45,7 +45,7 @@ class Guestbook extends HTMLPage implements Page {
 			if(strlen($this->text) > 255){
 				$this->errors[] = "Dein G&auml;stebucheintrag darf nicht mehr als 255 Zeichen enthalten!";
 			}
-			else if(preg_match(Constants::$regexSpecialSigns_Guestbook, $this->text)){
+			else if(Constants::hasSpecialSigns($this->text)){
 				$this->errors[] = "Dein G&auml;stebucheintrag darf keine Sonderzeichen enthalten!";
 				
 				$this->text = '';
