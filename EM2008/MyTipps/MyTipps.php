@@ -123,10 +123,19 @@ class MyTipps extends HTMLPage implements Page {
 	private function setTipps() {
 		$result = mysql_query("Select COUNT(start) as Number from vorrundeteams");
 		$countGames = mysql_fetch_assoc($result);
+		$showWarningMessage = true;
 		for($i=1;$i<=$countGames['Number'];$i++) {
 			$result1 = $_POST['result1'.$i];
 			$result2 = $_POST['result2'.$i];
-			if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled' || ($this->isDisabled($this->vorrunde[$i-1]['start']) == 'disabled' && ($result1 != '' || $result2 != ''))) {
+			
+			if(($result1 != '' && !preg_match('/^\d{1,2}$/', $result1)) || ($result2 != '' && !preg_match('/^\d{1,2}$/', $result2))){
+				if($showWarningMessage){
+					$this->errors[] = "Aufgrund komischen Werten, wurden nicht all deine Tipps gespeichert.";
+					$showWarningMessage = false;
+				}
+			}
+			
+			else if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled' || ($this->isDisabled($this->vorrunde[$i-1]['start']) == 'disabled' && ($result1 != '' || $result2 != ''))) {
 				if($this->isExisting($i)) {
 					if($this->isExisting($i)) {
 						$this->updateTipp($i, $result1, $result2);
@@ -192,20 +201,31 @@ class MyTipps extends HTMLPage implements Page {
 
 		$teamid = $_POST['sieger'];
 		$hauptrundetipps[] = $teamid;
-
-		//timecheck??
-		$this->hauptrundefsid = $this->isExistingHauptrunde();
-		if($this->isDisabledHauptrunde()=="enabled") {
-			if($this->hauptrundefsid) {
-				$this->updateHauptrundeTipp($hauptrundetipps);
-			} else {
-				$this->addHauptrundeTipp($hauptrundetipps);
+		$areTippsOk = true;
+		
+		foreach($hauptrundetipps as $tipp){
+			if($tipp != '' && !preg_match('/^\d{1,2}$/', $tipp)){
+				$this->errors[] = "Wie auch immer du das angestellt hast, aber da lief nicht alles mit legalen Mitteln!";
+				$areTippsOk = false;
+				break;
 			}
-		} else if($isStillEnabled) {
-			$this->errors[] = "Die Zeit ist abgelaufen, um Hauptrundentipps zu erfassen.";
 		}
-
-		$_SESSION['infos'][] = "Deine Tipps wurden erfolgreich erfasst.";
+		
+		if($areTippsOk){
+			//timecheck??
+			$this->hauptrundefsid = $this->isExistingHauptrunde();
+			if($this->isDisabledHauptrunde()=="enabled") {
+				if($this->hauptrundefsid) {
+					$this->updateHauptrundeTipp($hauptrundetipps);
+				} else {
+					$this->addHauptrundeTipp($hauptrundetipps);
+				}
+			} else if($isStillEnabled) {
+				$this->errors[] = "Die Zeit ist abgelaufen, um Hauptrundentipps zu erfassen.";
+			}
+	
+			$_SESSION['infos'][] = "Deine Tipps wurden erfolgreich erfasst.";
+		}
 	}
 
 	private function isDisabledHauptrunde() {

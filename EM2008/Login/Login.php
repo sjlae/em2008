@@ -3,8 +3,6 @@ require_once('Page.php');
 require_once('Home/Home.php');
 require_once('Datenbank/db.php');
 
-
-
 class Login extends HTMLPage implements Page{
 
 	private $errors = array();
@@ -30,13 +28,12 @@ class Login extends HTMLPage implements Page{
 	private function login() {
 		$this->email = $_POST['email'];
 		$this->passwort = $_POST['passwort'];
-		if($this->email == '')
-		$this->errors[] = "Bitte das Feld 'Email' ausf&uuml;llen";
-		if($this->passwort == '')
-		$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen";
+		if($this->email == '' || Constants::hasSpecialSigns($this->email))
+		$this->errors[] = "Bitte das Feld 'Email' ausf&uuml;llen und keine Sonderzeichen verwenden";
+		if($this->passwort == '' || Constants::hasSpecialSigns($this->passwort))
+		$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen und keine Sonderzeichen verwenden";
 			
 		if(count($this->errors) == 0) {
-
 
 			$this->passwort = md5($this->passwort);
 				
@@ -51,7 +48,6 @@ class Login extends HTMLPage implements Page{
 				$_SESSION['eingeloggt'] = true;
 				$_SESSION['userid'] = $row['userid'];
 				$_SESSION['infos'][] = "Du hast erfolgreich eingeloggt";
-
 					
 				header('location:index.php');
 				return false;

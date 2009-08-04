@@ -49,8 +49,8 @@
 			<td>
 				<select name="where">
 					<?$i=0; ?>
-					<?foreach($wheres as $where): ?>
-						<option value="<?echo ++$i; ?>"><?echo htmlentities($where, ENT_COMPAT, 'UTF-8') ?></option>
+					<?foreach($this->wheres as $where): ?>
+						<option value="<?echo ++$i; ?>"><?echo $where; ?></option>
 					<?endforeach; ?>
 				</select>
 			</td>
