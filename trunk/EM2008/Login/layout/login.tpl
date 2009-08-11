@@ -8,7 +8,7 @@
 			E-Mail:
 		</td>
 		<td>
-			<input type="text" name="email" value="<?php echo $this->email; ?>"/>
+			<input type="text" name="email" value="<?php echo $this->email; ?>" style="width: 150px"/>
 		</td>
 	</tr>
 	<tr>
@@ -16,7 +16,7 @@
 			Passwort:
 		</td>
 		<td>
-			<input type="password" name="passwort" />
+			<input type="password" name="passwort" style="width: 150px"/>
 		</td>
 	</tr>
 	<tr>
