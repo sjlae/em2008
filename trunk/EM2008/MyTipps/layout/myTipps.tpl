@@ -37,9 +37,14 @@
 					value="<?php echo $spiel['result2']; ?>"
 					<?php echo $spiel['disabled']; ?>
 					name="result2<?php echo $spiel['id']; ?>" maxLength="2" /></td>
-				<td align="center" valign="top"><?php echo $spiel['realresult1']; ?></td>
-				<td valign="top">:</td>
-				<td align="center" valign="top"><?php echo $spiel['realresult2']; ?></td>
+				
+				<?php
+					$color = Constants::getTippColor($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
+				?>
+				
+				<td align="center" valign="top" style="color: <?php echo $color ?>"><b><?php echo $spiel['realresult1']; ?></b></td>
+				<td valign="top" style="color: <?php echo $color ?>"><b>:</b></td>
+				<td align="center" valign="top" style="color: <?php echo $color ?>"><b><?php echo $spiel['realresult2']; ?></b></td>
 			</tr>
 			<?php endforeach; ?>
 		</table>
