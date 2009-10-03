@@ -9,17 +9,17 @@
 
 	<table border="0">
 		<tr>
-			<td style="background-color: #3333FF; width: 30px;">&nbsp;</td>
+			<td style="background-color: #0000FF; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 1</td>
 		</tr>
 		<tr>
-			<td style="background-color: #00FF66; width: 30px;">&nbsp;</td>
+			<td style="background-color: #FFCC33; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Unentschieden</td>
 		</tr>
 		<tr>
-			<td style="background-color: #3399FF; width: 30px;">&nbsp;</td>
+			<td style="background-color: #009966; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 2</td>
 		</tr>
@@ -32,7 +32,7 @@
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Datum</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 1</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 2</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px">&nbsp;</td>
+				<td style="white-space: nowrap; padding-bottom: 5px"><b>Tippverteilung</b></td>
 			</tr>
 			<?php foreach($this->vorrunde as $spiel): ?>
 			<tr>
@@ -58,23 +58,26 @@
 							?>
 							
 							<?php if($wert1 != 0){ ?>
-								<td align="center" style="background-color: #3333FF; width: <?php echo $wert1 ?>% ">
+								<td align="center" style="background-color: #0000FF; width: <?php echo $wert1 ?>% ">
 									<?php echo $spiel['total_1']; ?>
 								</td>
 							<?php } ?>
 							<?php if($wertX != 0){ ?>
-								<td align="center" style="background-color: #00FF66; width: <?php echo $wertX ?>%">
+								<td align="center" style="background-color: #FFCC33; width: <?php echo $wertX ?>%">
 									<?php echo $spiel['total_X']; ?>
 								</td>
 							<?php } ?>
 							<?php if($wert2 != 0){ ?>
-								<td align="center" style="background-color: #3399FF; width: <?php echo $wert2 ?>%">
+								<td align="center" style="background-color: #009966; width: <?php echo $wert2 ?>%">
 									<?php echo $spiel['total_2']; ?>
 								</td>
 							<?php } ?>
 						</tr>
 					</table>
 				</td>
+			</tr>
+			<tr>
+				<td colspan="5"><hr/></td>
 			</tr>
 			<?php endforeach; ?>
 		</table>
