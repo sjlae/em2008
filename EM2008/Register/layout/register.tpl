@@ -1,4 +1,4 @@
-<h2>Register</h2>
+<h2>Registrieren</h2>
 <?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=register&action=register" method="POST">
 	<table>
@@ -7,7 +7,7 @@
 				Vorname:
 			</td>
 			<td>
-				<input type="text" name="vorname" value="<?php echo htmlentities($this->vorname, ENT_COMPAT, 'UTF-8'); ?>" />
+				<input type="text" name="vorname" value="<?php echo htmlentities($this->vorname, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
 			</td>
 		</tr>
 		<tr>
@@ -15,7 +15,7 @@
 				Name:
 			</td>
 			<td>
-				<input type="text" name="nachname" value="<?php echo htmlentities($this->nachname, ENT_COMPAT, 'UTF-8'); ?>" />
+				<input type="text" name="nachname" value="<?php echo htmlentities($this->nachname, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
 			</td>
 		</tr>
 		<tr>
@@ -23,7 +23,7 @@
 				Email:
 			</td>
 			<td>
-				<input type="text" name="email" value="<?php echo htmlentities($this->email, ENT_COMPAT, 'UTF-8'); ?>" />
+				<input type="text" name="email" value="<?php echo htmlentities($this->email, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
 			</td>
 		</tr>
 		<tr>
@@ -31,7 +31,7 @@
 				Passwort:
 			</td>
 			<td>
-				<input type="password" name="passwort1" />
+				<input type="password" name="passwort1" style="width: 150px"/>
 			</td>
 		</tr>
 		<tr>
@@ -39,7 +39,7 @@
 				Passwort wiederholen:
 			</td>
 			<td>
-				<input type="password" name="passwort2" />
+				<input type="password" name="passwort2" style="width: 150px"/>
 			</td>
 		</tr>
 		<tr>
