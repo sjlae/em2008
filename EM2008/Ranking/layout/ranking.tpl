@@ -12,10 +12,10 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 		<td style="padding-left: 20px">
 			<b>Nachname</b>
 		</td>
-		<td style="padding-left: 10px">
+		<td style="padding-left: 20px">
 			<b>Vorname</b>
 		</td>
-		<td style="padding-left: 10px">
+		<td style="padding-left: 20px" align="right">
 			<b>Punkte</b>
 		</td>
 	</tr>
@@ -45,20 +45,20 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 							if($ranking['now'] > $ranking['last']){
 								$diff = $ranking['now'] - $ranking['last'];
 						?>
-								<img alt="" src="icons_down.png" width="20px;"/>
+								<img alt="" src="icons_down.png" width="15px;"/>
 								(-<?echo $diff;?>)
 						<?	
 							}
 							else if($ranking['now'] < $ranking['last']){
 								$diff = $ranking['last'] - $ranking['now'];
 						?>
-								<img alt="" src="icons_up.png" width="20px;"/>
+								<img alt="" src="icons_up.png" width="15px;"/>
 								(+<?echo $diff;?>)
 						<?	
 							}
 							else{
 						?>
-								<img alt="" src="icons_right.png" width="20px;"/>
+								<img alt="" src="icons_right.png" width="15px;"/>
 								(+0)
 						<?	
 							}
@@ -83,7 +83,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 									}
 								?>
 							</td>
-							<td style="padding-left: 10px; color: red">
+							<td style="padding-left: 20px; color: red">
 								<?echo $ranking['vorname']?>
 							</td>
 					<?
@@ -106,13 +106,13 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 									}
 								?>
 							</td>
-							<td style="padding-left: 10px;">
+							<td style="padding-left: 20px;">
 								<?echo $ranking['vorname']?>
 							</td>
 					<?
 						}
 					?>
-					<td style="padding-left: 10px">
+					<td style="padding-left: 20px" align="right">
 						<?echo $ranking['punkte'] ?>
 					</td>
 				</tr>
