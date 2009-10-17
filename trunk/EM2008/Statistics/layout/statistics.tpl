@@ -86,33 +86,33 @@
 		Die in den Spalten angegebenen Werte zeigen auf, wieviele Tipps f&uuml;r ein Land abgegeben wurden, das die entsprechende Runde erreicht.
 		<table border="0" width="100%">
 			<tr>
-				<td style="white-space: nowrap; padding-bottom: 5px; padding-right: 5px"><b>Land</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px; padding-right: 5px" width="*"><b>Land</b></td>
 				<?php
 					if(Constants::$isWM){
 				?>
-						<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/8 Final</b></td>
+						<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>1/8 Final</b></td>
 				<?php
 					}
 				?>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/4 Final</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>1/2 Final</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>Final</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="right"><b>Sieger</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>1/4 Final</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>1/2 Final</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>Final</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>Sieger</b></td>
 			</tr>
 			<?php foreach($this->hauptrunde as $land): ?>
 				<tr>
-					<td><img alt="" src="nationalFlags/<?php echo $land['id'] ?>.png"/>&nbsp;<?php echo $land['team']; ?></td>
+					<td><img alt="" src="nationalFlags/<?php echo $land['id'] ?>.gif"/>&nbsp;<?php echo $land['team']; ?></td>
 					<?php
 						if(Constants::$isWM){
 					?>
-							<td align="right"><?php echo $this->achtelfinal[$land['id']] != '' ? $this->achtelfinal[$land['id']] : 0; ?></td>
+							<td align="center"><?php echo $this->achtelfinal[$land['id']] != '' ? $this->achtelfinal[$land['id']] : 0; ?></td>
 					<?php
 						}
 					?>
-					<td align="right"><?php echo $this->viertelfinal[$land['id']] != '' ? $this->viertelfinal[$land['id']] : 0; ?></td>
-					<td align="right"><?php echo $this->halbfinal[$land['id']] != '' ? $this->halbfinal[$land['id']] : 0; ?></td>
-					<td align="right"><?php echo $this->final[$land['id']] != '' ? $this->final[$land['id']] : 0; ?></td>
-					<td align="right"><?php echo $this->sieger[$land['id']] != '' ? $this->sieger[$land['id']] : 0; ?></td>
+					<td align="center"><?php echo $this->viertelfinal[$land['id']] != '' ? $this->viertelfinal[$land['id']] : 0; ?></td>
+					<td align="center"><?php echo $this->halbfinal[$land['id']] != '' ? $this->halbfinal[$land['id']] : 0; ?></td>
+					<td align="center"><?php echo $this->final[$land['id']] != '' ? $this->final[$land['id']] : 0; ?></td>
+					<td align="center"><?php echo $this->sieger[$land['id']] != '' ? $this->sieger[$land['id']] : 0; ?></td>
 				</tr>
 			<?php endforeach; ?>
 		</table>

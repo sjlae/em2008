@@ -375,7 +375,7 @@ class MyTipps extends HTMLPage implements Page {
 		return "enabled";
 	}
 	private function getData() {
-		$abfrage = "SELECT * FROM vorrundeteams";
+		$abfrage = "SELECT * FROM vorrundeteams order by vorrundeteamsid asc";
 
 		$ergebnis = mysql_query($abfrage);
 

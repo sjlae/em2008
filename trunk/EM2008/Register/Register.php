@@ -52,10 +52,11 @@ class Register extends HTMLPage implements Page {
 		  	// Alles ausser der Domain aus der Email löschen
 		  	$domain = preg_replace('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', '', $this->email);
 		  	// Prüfen, ob die Domain registriert ist (funktioniert NICHT unter windows)!
-			
+			/*
 		  	if (!checkdnsrr($domain)) {
 		  		$this->errors[] = "Deine eingegebene Email ist ung&uuml;ltig";
 		  	}
+		  	*/
 		}	
 		
 		if(!preg_match('/^\d$/', $where)){
