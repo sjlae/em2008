@@ -21,7 +21,7 @@ class Statistics extends HTMLPage implements Page {
 	}
 
 	private function getData() {
-		$abfrage_groups = "SELECT * FROM vorrundeteams";
+		$abfrage_groups = "SELECT * FROM vorrundeteams order by vorrundeteamsid asc";
 		$ergebnis_groups = mysql_query($abfrage_groups);
 
 		$i = 0;
