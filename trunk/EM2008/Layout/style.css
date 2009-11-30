@@ -11,7 +11,7 @@ body {
 
 #container {
 	margin: 0 auto;
-	width: 730px;
+	width: 745px;
 	text-align: left;
 }
 
@@ -38,8 +38,7 @@ h1 a {
 
 #menu {
 	float: right;
-	margin: 0;
-	width: 175px;
+	width: 190px;
 	padding: 0;
 	margin: 60px 0;
 	padding-top: 10px;
@@ -76,8 +75,8 @@ body#Startseite #mn_Standard{
 }
 
 #content {
-	margin-left: 55px;
-	margin-right: 180px;
+	margin-left: 60px;
+	margin-right: 190px;
 	padding: 15px 15px;
 	font-size:  0.77em;
 	min-height: 100px;
