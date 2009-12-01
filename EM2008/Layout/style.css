@@ -11,7 +11,7 @@ body {
 
 #container {
 	margin: 0 auto;
-	width: 745px;
+	width: 780px;
 	text-align: left;
 }
 
@@ -38,7 +38,7 @@ h1 a {
 
 #menu {
 	float: right;
-	width: 190px;
+	width: 179px;
 	padding: 0;
 	margin: 60px 0;
 	padding-top: 10px;
@@ -75,12 +75,11 @@ body#Startseite #mn_Standard{
 }
 
 #content {
-	margin-left: 60px;
-	margin-right: 190px;
+	margin-left: 38px;
+	margin-right: 183px;
 	padding: 15px 15px;
 	font-size:  0.77em;
 	min-height: 100px;
-	background-color: white;
 	background-image: url(content.jpg);
 }
 
@@ -96,8 +95,8 @@ body#Startseite #mn_Standard{
 
 #footer {
 	margin-top: 2em;
-	margin-left: 60px;
-	margin-right: 190px;
+	margin-left: 38px;
+	margin-right: 183px;
 	padding: 10px 25px;
 	background-color: white;
 }
@@ -192,15 +191,14 @@ h2#register a {
 }
 
 body#Startseite #mn_Standard a.tooltip:hover {
-	background:#ffffff; /*BG color is a must for IE6*/
 	text-decoration:none;
 	cursor: default;} 
 
 body#Startseite #mn_Standard a.tooltip span {
 	display:none; 
 	padding:2px 3px; 
-	margin-left:8px; 
-	width:130px;}
+	margin-left:6px; 
+	width:150px;}
 
 body#Startseite #mn_Standard a.tooltip:hover span{
 	display:inline; 
