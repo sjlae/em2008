@@ -12,7 +12,7 @@
 		
        
 
-		<!--[if IE]><link rel="stylesheet" type="text/css" href="ie.css" /><![endif]-->
+		<!--[if IE]><link rel="stylesheet" type="text/css" href="Layout/ie.css" /><![endif]-->
 	</head>
 <body id="Startseite">
 
@@ -22,7 +22,6 @@
 	<h1><a href="#" title="Zur Startseite" accesskey="1">Das ultimative EM-Tippspiel</a></h1>
 	<?php
 		include ('Menu/Menu.php');
-		include ('CountDown.php');
 		$menu = new Menu();
 		include($menu->getMenu());
 	?>
