@@ -44,11 +44,8 @@
 		<table border="1" cellspacing="0" cellpadding="0" width="100%">
 			<tr align="right">
 				<td><b>Rang</b></td>
-				<td><b>0-50</b></td>
-				<td><b>51-75</b></td>
-				<td><b>76-100</b></td>
-				<td><b>101-125</b></td>
-				<td><b>126-150</b></td>
+				<td><b>0-100</b></td>
+				<td><b>101-150</b></td>
 				<td><b>151-mehr</b></td>
 			</tr>
 			<tr align="right">
@@ -56,162 +53,48 @@
 				<td>50 %</td>
 				<td>38 %</td>
 				<td>34 %</td>
-				<td>32.0 %</td>
-				<td>24.50 %</td>
-				<td>23.50 %</td>
 			</tr>
 			<tr align="right">
 				<td>2.</td>
 				<td>30 %</td>
 				<td>26 %</td>
 				<td>23 %</td>
-				<td>21.0 %</td>
-				<td>19.00 %</td>
-				<td>16.50 %</td>
 			</tr>
 			<tr align="right">
 				<td>3.</td>
 				<td>20 %</td>
 				<td>18 %</td>
 				<td>16 %</td>
-				<td>14.0 %</td>
-				<td>13.00 %</td>
-				<td>12.50 %</td>
 			</tr>
 			<tr align="right">
 				<td>4.</td>
 				<td></td>
 				<td>11 %</td>
 				<td>9 %</td>
-				<td>8.0 %</td>
-				<td>10.00 %</td>
-				<td>8.00 %</td>
 			</tr>
 			<tr align="right">
 				<td>5.</td>
 				<td></td>
 				<td>7 %</td>
 				<td>6 %</td>
-				<td>6.0 %</td>
-				<td>8.50 %</td>
-				<td>6.50 %</td>
 			</tr>
 			<tr align="right">
 				<td>6.</td>
 				<td></td>
 				<td></td>
 				<td>5 %</td>
-				<td>5.0 %</td>
-				<td>6.50 %</td>
-				<td>5.00 %</td>
 			</tr>
 			<tr align="right">
 				<td>7.</td>
 				<td></td>
 				<td></td>
 				<td>4 %</td>
-				<td>4.0 %</td>
-				<td>5.00 %</td>
-				<td>4.50 %</td>
 			</tr>
 			<tr align="right">
 				<td>8.</td>
 				<td></td>
 				<td></td>
 				<td>3 %</td>
-				<td>3.0 %</td>
-				<td>3.50 %</td>
-				<td>4.00 %</td>
-			</tr>
-			<tr align="right">
-				<td>9.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>2.5 %</td>
-				<td>2.50 %</td>
-				<td>3.50 %</td>
-			</tr>
-			<tr align="right">
-				<td>10.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>2.0 %</td>
-				<td>2.00 %</td>
-				<td>3.00 %</td>
-			</tr>
-			<tr align="right">
-				<td>11.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>1.5 %</td>
-				<td>1.75 %</td>
-				<td>2.50 %</td>
-			</tr>
-			<tr align="right">
-				<td>12.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>1.0 %</td>
-				<td>1.50 %</td>
-				<td>2.25 %</td>
-			</tr>
-			<tr align="right">
-				<td>13.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>1.25 %</td>
-				<td>2.00 %</td>
-			</tr>
-			<tr align="right">
-				<td>14.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>1.00 %</td>
-				<td>1.75 %</td>
-			</tr>
-			<tr align="right">
-				<td>15.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>1.50 %</td>
-			</tr>
-			<tr align="right">
-				<td>16.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>1.25 %</td>
-			</tr>
-			<tr align="right">
-				<td>17.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>1.00 %</td>
-			</tr>
-			<tr align="right">
-				<td>18.</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>0.75 %</td>
 			</tr>
 		</table>
 		<p>
