@@ -1,8 +1,6 @@
 <?php require_once('Layout/infos.tpl'); ?>
 
-<div style="padding-top: 20px">
-	<h2>NEWS</h2>
-</div>
+<h2>NEWS</h2>
 
 <?php
 	foreach($this->news as $article): 
