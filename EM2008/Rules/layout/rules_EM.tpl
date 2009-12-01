@@ -29,12 +29,12 @@
 		<p>Damit du allf&auml;llig ben&ouml;tigte Gedankenanst&ouml;sse zur Hilfe beiziehen kannst oder mit anderen Teilnehmer &uuml;ber die abgegebenen Tipps fachsimpeln 
 		kannst, werden s&auml;mtliche Tipps von den Teilnehmern f&uuml;r alle angemeldeten Mitspieler ersichtlich sein. Der andere Grund f&uuml;r dieses Vorhaben 
 		ist der, dass es so auch uns Organisatoren m&ouml;glich ist an diesem Spiel teilzunehmen.</p>
-		<p>Ebenfalls kannst du jederzeit uf den Link der Spielnummer oder der Finalrunde klicken und sehen, wie die aktuelle Tippverteilung aussieht. Sofern
-		ein Spiel bereits beendet ist, siehst du ebenfalls welcher Spieler wieviele Punkte erzielt hat. Damit aber noch nicht genug Statistik. Beim Men&uuml;punkt
-		Statistik siehst du &uuml;ber alle Gruppenspiele hinweg und ab den Viertelfinal-Teilnehmer diverse Statistiken.</p>
+		<p>Neu ist der Men&uuml;punkt 'Statistiken'. Dort findest du ebenfalls die beiden Tabs Gruppenspiele und Finalspiele. Beim Tab Gruppenspiele
+		kannst du jederzeit sehen, wie die aktuelle Tippverteilung aller Mitspieler pro Gruppenspiel aussieht. Beim Tab Finalspiele siehst du, wieviele
+		Mitspieler die jeweiligen Teams in die Viertel-, Halb-, Finalspiele und nat&uuml;rlich als Europameister getippt haben.</p>
 		<p>Falls du deine Tipps allen kundtum m&ouml;chtest oder die Tippgemeinde &uuml;ber sonst was informieren m&ouml;chtest, kannst du dies jederzeit
 		in unserem kleinen G&auml;stebuch unter dem gleichnamigen Men&uuml;punkt. Anst&ouml;ssige, politisch inkorrekte oder ethisch unzumutbare Beitr&auml;ge
-		werden von uns relativ rasch entfernt werden. Aber nat&uuml;rlich k&ouml;nnen heissgef&uuml;hrte Diskussionen ausgetragen werden.</p>
+		werden von uns relativ rasch entfernt. Aber nat&uuml;rlich k&ouml;nnen heissgef&uuml;hrte Diskussionen ausgetragen werden.</p>
 		<p>Wir werden uns bem&uuml;hen, so rasch als m&ouml;glich nach Spielende einer Partie die aktualisierte Tabelle aufzuschalten, damit auch engagiert
 		mitgefiebert werden kann. Sobald du auf unserer Startseite den Newseintrag von einem Update siehst, ist auch der neueste Zwischenstand
 		unter dem Men&uuml;punkt 'Rangliste' ersichtlich. Die Viertelfinal-Teilnehmer werden erst nach Beendigung s&auml;mtlicher Gruppenspiele 
@@ -68,32 +68,32 @@
 			</tr>
 			<tr align="right">
 				<td>4.</td>
-				<td></td>
+				<td>&nbsp;</td>
 				<td>11 %</td>
 				<td>9 %</td>
 			</tr>
 			<tr align="right">
 				<td>5.</td>
-				<td></td>
+				<td>&nbsp;</td>
 				<td>7 %</td>
 				<td>6 %</td>
 			</tr>
 			<tr align="right">
 				<td>6.</td>
-				<td></td>
-				<td></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 				<td>5 %</td>
 			</tr>
 			<tr align="right">
 				<td>7.</td>
-				<td></td>
-				<td></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 				<td>4 %</td>
 			</tr>
 			<tr align="right">
 				<td>8.</td>
-				<td></td>
-				<td></td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 				<td>3 %</td>
 			</tr>
 		</table>
