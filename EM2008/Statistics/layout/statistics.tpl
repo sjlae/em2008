@@ -38,8 +38,8 @@
 			<tr>
 				<td align="center" valign="top"><?php echo $spiel['id']; ?></td>
 				<td valign="top"><?php echo $spiel['start']; ?></td>
-				<td valign="top"><?php echo $spiel['team1']; ?></td>
-				<td valign="top"><?php echo $spiel['team2']; ?></td>
+				<td valign="top" style="white-space: nowrap;"><?php echo $spiel['team1']; ?></td>
+				<td valign="top" style="white-space: nowrap;"><?php echo $spiel['team2']; ?></td>
 				<td width="100%" valign="top">
 					<table border="0" width="100%">
 						<tr>

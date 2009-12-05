@@ -9,8 +9,8 @@
 	<table border="0">
 		<tr>
 			<td align="center" style="white-space: nowrap; padding-bottom: 5px"><b>#</b></td>
-			<td style="white-space: nowrap; padding-bottom: 5px"><b>Datum</b></td>
-			<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 1</b></td>
+			<td style="white-space: nowrap; padding-bottom: 5px" width="10px"><b>Datum</b></td>
+			<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px"><b>Team 1</b></td>
 			<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 2</b></td>
 			<td style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 1</b></td>
 			<td padding-bottom: 5px/>
@@ -23,7 +23,7 @@
 		<tr>
 			<td align="center" valign="top"><?php echo $spiel['id']; ?></td>
 			<td valign="top"><?php echo $spiel['start']; ?></td>
-			<td valign="top"><?php echo $spiel['team1']; ?></td>
+			<td valign="top" style="padding-left: 5px"><?php echo $spiel['team1']; ?></td>
 			<td valign="top"><?php echo $spiel['team2']; ?></td>
 			<td align="center" valign="top"><input type="text" style="width: 15px"
 				value="<?php echo $spiel['result1']; ?>"
