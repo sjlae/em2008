@@ -18,7 +18,7 @@
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 1</b></td>
 				<td padding-bottom: 5px/>
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 2</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px"><b>Res. 1</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 10px"><b>Res. 1</b></td>
 				<td padding-bottom: 5px/>
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Res. 2</b></td>
 			</tr>
@@ -39,12 +39,20 @@
 					name="result2<?php echo $spiel['id']; ?>" maxLength="2" /></td>
 				
 				<?php
-					$color = Constants::getTippColor($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
+					$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
 				?>
 				
-				<td align="center" valign="top" style="color: <?php echo $color ?>"><b><?php echo $spiel['realresult1']; ?></b></td>
-				<td valign="top" style="color: <?php echo $color ?>"><b>:</b></td>
-				<td align="center" valign="top" style="color: <?php echo $color ?>"><b><?php echo $spiel['realresult2']; ?></b></td>
+				<td align="right" valign="top" style="padding-left: 10px"><b><?php echo $spiel['realresult1']; ?>&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+				<td align="center" valign="top"><b>:</b></td>
+				<td align="left" valign="top"><b>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $spiel['realresult2']; ?></b>
+					<?php
+						if($points != ""){
+					?>
+							&nbsp;&nbsp;<img alt="" src="Layout/<?php echo $points ?>" width="12px"/>
+					<?php
+						}
+					?>
+				</td>
 			</tr>
 			<?php endforeach; ?>
 		</table>
