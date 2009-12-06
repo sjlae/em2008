@@ -53,7 +53,10 @@
 
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalspiele"); ?>
-		
+		Dieser Link --> <a href="http://de.fifa.com/worldcup/standings/index.html" target="_blank">Gruppen</a>
+		soll dir bei der Benennung der 16 Achtelfinalisten weiter helfen.<br/><br/>
+		Unter diesem Link --> <a href="http://de.fifa.com/worldcup/matches/kostage.html" target="_blank">Finalrunden</a>
+		siehst du, welche Teams ab den Achtelfinalspielen aufeinander treffen k&ouml;nnten.
 		<?php 
 			if(Constants::$isWM){
 		?>
