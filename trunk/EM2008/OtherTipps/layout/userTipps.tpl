@@ -15,9 +15,10 @@
 			<td style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 1</b></td>
 			<td padding-bottom: 5px/>
 			<td style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 2</b></td>
-			<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 10px"><b>Res. 1</b></td>
+			<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px"><b>Res. 1</b></td>
 			<td padding-bottom: 5px/>
 			<td style="white-space: nowrap; padding-bottom: 5px"><b>Res. 2</b></td>
+			<td>&nbsp;</td>
 		</tr>
 		<?php foreach($this->vorrunde as $spiel): ?>
 		<tr>
@@ -33,19 +34,16 @@
 			<td align="center" valign="top"><input type="text" style="width: 15px"
 				value="<?php echo $spiel['result2']; ?>"
 				<?php echo $spiel['disabled']; ?>
-				name="result2<?php echo $spiel['id']; ?>" maxLength="2" /></td>
-			
-			<?php
-				$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
-			?>
-			
-			<td align="right" valign="top" style="padding-left: 10px"><b><?php echo $spiel['realresult1']; ?>&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+			<td align="center" valign="top" style="padding-left: 5px"><b><?php echo $spiel['realresult1']; ?></b></td>
 			<td align="center" valign="top"><b>:</b></td>
-			<td align="left" valign="top"><b>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $spiel['realresult2']; ?></b>
+			<td align="center" valign="top"><b><?php echo $spiel['realresult2']; ?></b></td>
+			<td valign="top" style="white-space: nowrap;">
 				<?php
+					$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
+				
 					if($points != ""){
 				?>
-						&nbsp;&nbsp;<img alt="" src="Layout/<?php echo $points ?>" width="12px"/>
+						<img alt="" src="Layout/<?php echo $points ?>" width="15px"/>
 				<?php
 					}
 				?>
