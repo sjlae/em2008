@@ -45,13 +45,8 @@ class Guestbook extends HTMLPage implements Page {
 			if(strlen($this->text) > 255){
 				$this->errors[] = "Dein G&auml;stebucheintrag darf nicht mehr als 255 Zeichen enthalten!";
 			}
-			else if(Constants::hasSpecialSigns($this->text)){
-				$this->errors[] = "Dein G&auml;stebucheintrag darf keine Sonderzeichen enthalten!";
-				
-				$this->text = '';
-			}
 			else{
-				$this->text = htmlentities(mysql_real_escape_string(trim($_POST['text']), $this->link), ENT_COMPAT, 'UTF-8');
+				$this->text = htmlentities(trim($_POST['text']), ENT_QUOTES, 'UTF-8');
 				
 				$userid = $_SESSION['userid'];
 						

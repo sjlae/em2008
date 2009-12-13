@@ -29,14 +29,14 @@ class Register extends HTMLPage implements Page {
 		$this->passwort2 = $_POST['passwort2'];
 		$where = $_POST['where'];
 
-		if($this->vorname == '' || strlen($this->vorname) > 10 || Constants::hasSpecialSigns($this->vorname))
-		$this->errors[] = "Bitte das Feld 'Vorname' ausf&uuml;llen, keine Sonderzeichen und nicht mehr als 10 Zeichen verwenden";
-		if($this->nachname == '' || strlen($this->nachname) > 15 || Constants::hasSpecialSigns($this->nachname))
-		$this->errors[] = "Bitte das Feld 'Name' ausf&uuml;llen, keine Sonderzeichen und nicht mehr als 15 Zeichen verwenden";
-		if($this->passwort1 == '' || Constants::hasSpecialSigns($this->passwort1)) {
-			$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen und keine Sonderzeichen verwenden";
-			if($this->passwort2 == '' || Constants::hasSpecialSigns($this->passwort2))
-			$this->errors[] = "Bitte das Feld 'Passwort wiederholen' ausf&uuml;llen und keine Sonderzeichen verwenden";
+		if($this->vorname == '' || strlen($this->vorname) > 10)
+		$this->errors[] = "Bitte das Feld 'Vorname' ausf&uuml;llen und nicht mehr als 10 Zeichen verwenden";
+		if($this->nachname == '' || strlen($this->nachname) > 15)
+		$this->errors[] = "Bitte das Feld 'Name' ausf&uuml;llen und nicht mehr als 15 Zeichen verwenden";
+		if($this->passwort1 == '') {
+			$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen";
+			if($this->passwort2 == '')
+			$this->errors[] = "Bitte das Feld 'Passwort wiederholen' ausf&uuml;llen";
 		}else if($this->passwort1 != $this->passwort2) {
 			$this->errors[] = "Bitte zwei Mal das gleiche Passwort w&auml;hlen";
 		}
@@ -67,7 +67,7 @@ class Register extends HTMLPage implements Page {
 			
 			$pwd = md5($this->passwort1);
 
-			$query = sprintf("Insert into user(nachname, vorname, email, passwort, rank_now, rank_last, woherfsid) values('%s', '%s', '%s', '%s', '%s',' %s', '%s')", htmlentities(mysql_real_escape_string($this->nachname, $this->link), ENT_COMPAT, 'UTF-8'), htmlentities(mysql_real_escape_string($this->vorname, $this->link), ENT_COMPAT, 'UTF-8'), htmlentities(mysql_real_escape_string($this->email, $this->link), ENT_COMPAT, 'UTF-8'), htmlentities(mysql_real_escape_string($pwd, $this->link), ENT_COMPAT, 'UTF-8'), '1', '1', htmlentities(mysql_real_escape_string($where, $this->link), ENT_COMPAT, 'UTF-8'));
+			$query = sprintf("Insert into user(nachname, vorname, email, passwort, rank_now, rank_last, woherfsid) values('%s', '%s', '%s', '%s', '%s',' %s', '%s')", htmlentities($this->nachname, ENT_QUOTES, 'UTF-8'), htmlentities($this->vorname, ENT_QUOTES, 'UTF-8'), htmlentities($this->email, ENT_QUOTES, 'UTF-8'), htmlentities($pwd, ENT_QUOTES, 'UTF-8'), '1', '1', htmlentities($where, ENT_QUOTES, 'UTF-8'));
 				
 			mysql_query($query,$this->link);
 
@@ -83,7 +83,7 @@ class Register extends HTMLPage implements Page {
 	}
 
 	public function checkExistingEmail($email) {
-		$abfrage = sprintf("SELECT * FROM user where email='%s'", htmlentities(mysql_real_escape_string($email, $this->link)), ENT_COMPAT, 'UTF-8');
+		$abfrage = sprintf("SELECT * FROM user where email='%s'", htmlentities($email, ENT_QUOTES, 'UTF-8'));
 
 		$result = mysql_query($abfrage);
 
