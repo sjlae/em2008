@@ -28,16 +28,14 @@ class Login extends HTMLPage implements Page{
 	private function login() {
 		$this->email = $_POST['email'];
 		$this->passwort = $_POST['passwort'];
-		if($this->email == '' || Constants::hasSpecialSigns($this->email))
-		$this->errors[] = "Bitte das Feld 'Email' ausf&uuml;llen und keine Sonderzeichen verwenden";
-		if($this->passwort == '' || Constants::hasSpecialSigns($this->passwort))
-		$this->errors[] = "Bitte das Feld 'Passwort' ausf&uuml;llen und keine Sonderzeichen verwenden";
+		if($this->email == '' || $this->passwort == '')
+		$this->errors[] = "Bitte beide Felder ausf&uuml;llen und keine Sonderzeichen verwenden";
 			
 		if(count($this->errors) == 0) {
 
 			$this->passwort = md5($this->passwort);
 				
-			$abfrage = sprintf("SELECT * FROM user where email='%s' and passwort='%s'",  htmlentities(mysql_real_escape_string($this->email, $this->link), ENT_COMPAT, 'UTF-8'), htmlentities(mysql_real_escape_string($this->passwort, $this->link), ENT_COMPAT, 'UTF-8'));
+			$abfrage = sprintf("SELECT * FROM user where email='%s' and passwort='%s'",  htmlentities($this->email, ENT_QUOTES, 'UTF-8'), htmlentities($this->passwort, ENT_QUOTES, 'UTF-8'));
 
 			$ergebnis = mysql_query($abfrage, $this->link);
 				

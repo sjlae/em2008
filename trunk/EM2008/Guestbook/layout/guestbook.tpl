@@ -5,9 +5,7 @@
 	<table border="0">
 		<tr>
 			<td>
-				Dein G&auml;stebucheintrag darf <b>NICHT</b> mehr als <b>255 Zeichen</b> und keine der
-				nachfolgenden Symbolen: <, >, &, \, ' oder " enthalten!
-				<textarea name="text" rows="5" style="width: 100%;"><?php echo $this->text ?></textarea>
+				<textarea name="text" rows="5" style="width: 520px;"><?php echo $this->text ?></textarea>
 			</td>
 		</tr>
 		<tr>
