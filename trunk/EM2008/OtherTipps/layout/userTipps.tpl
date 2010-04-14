@@ -34,6 +34,8 @@
 			<td align="center" valign="top"><input type="text" style="width: 15px"
 				value="<?php echo $spiel['result2']; ?>"
 				<?php echo $spiel['disabled']; ?>
+				name="result2<?php echo $spiel['id']; ?>" maxLength="2" />
+			</td>				
 			<td align="center" valign="top" style="padding-left: 5px"><b><?php echo $spiel['realresult1']; ?></b></td>
 			<td align="center" valign="top"><b>:</b></td>
 			<td align="center" valign="top"><b><?php echo $spiel['realresult2']; ?></b></td>
