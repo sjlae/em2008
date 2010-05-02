@@ -5,7 +5,8 @@ require_once('Page.php');
 class LoggedIn extends Login{
 	public static function isRegistered(Page $page) {
 	$registered = $_SESSION['eingeloggt'];
-		if($registered) {
+	$userid = $_SESSION['userid'];
+		if($registered || $userid) {
 			$page->getView();
 		} else {
 			$login = new Login();
