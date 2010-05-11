@@ -1,3 +1,6 @@
+<!--[if IE 6]>
+<div style="height:100%">
+<![endif]-->
 <h2>Rangliste</h2>
 Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 <br><br>
@@ -123,3 +126,6 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 </table>
 <br><br>
 <span style="color: red">nnb --> noch nicht bezahlt</span>
+<!--[if IE 6]>
+</div>
+<![endif]-->

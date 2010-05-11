@@ -156,7 +156,7 @@ h2#register a {
 	background-color: #fff;
 	color: #000;
 	float: left;
-	width: 90px;
+	width: 110px;
 	cursor: default;
 	font-weight: bold;
 	padding: 2px;
@@ -172,7 +172,7 @@ h2#register a {
 	background-color: #ddd;
 	color: #777;
 	float: left;
-	width: 90px;
+	width: 110px;
 	cursor: pointer;
 	padding: 2px;
 	font-size: 10pt;
@@ -181,7 +181,7 @@ h2#register a {
 
 .tab_content {
 	-moz-border-radius: 0px 10px 10px 10px;
-	width: 90%;
+	width: 95%;
 	border-color: #aaa;
 	border-style: solid;
 	border-width: 1px;
@@ -207,3 +207,7 @@ body#Startseite #mn_Standard a.tooltip:hover span{
 	background:#ffffff; 
 	border:1px solid #cccccc; 
 	color:#6c6c6c;}
+	
+#test {
+	float: left;
+}
