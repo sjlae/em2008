@@ -27,7 +27,9 @@ class Menu {
 		$zeitspanne = 300; //Sekunden
 		$ip = $_SERVER['REMOTE_ADDR'];
 		$userid = isset($_SESSION['userid']) ? $_SESSION['userid'] : '0';
-		
+		if(isset($_SESSION['userid'])){
+			$ip = $ip.'_'.$userid;
+		}
 		//veraltete Einträge löschen
 		mysql_query("DELETE FROM useronline WHERE zeit < ".time()."");
 		

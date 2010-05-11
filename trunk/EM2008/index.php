@@ -12,6 +12,7 @@ require_once('OtherTipps/OtherTipps.php');
 require_once('Statistics/Statistics.php');
 require_once('Guestbook/Guestbook.php');
 require_once('Admin/Admin.php');
+require_once('Datenbank/db.php');
 
 $go = isset($_GET['go']) ? $_GET['go'] : '';
 
@@ -53,8 +54,16 @@ switch($go) {
 		LoggedIn::isAdmin($admin);
 		break;
 	case 'logout':
+		$zeitspanne = 300; //Sekunden
+		$ip = $_SERVER['REMOTE_ADDR'].'_'.$_SESSION['userid'];
+		
+		$link = Db::getConnection();	
+		//veraltete Einträge löschen
+		mysql_query("DELETE FROM useronline WHERE ip='".$ip."'");
+		
 		unset($_SESSION['eingeloggt']);
 		unset($_SESSION['userid']);
+		
 		$_SESSION['infos'][] = "Du hast erfolgreich ausgeloggt";
 		$home = new Home();
 		$home->getView();

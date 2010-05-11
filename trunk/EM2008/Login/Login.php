@@ -46,7 +46,15 @@ class Login extends HTMLPage implements Page{
 				$_SESSION['eingeloggt'] = true;
 				$_SESSION['userid'] = $row['userid'];
 				$_SESSION['infos'][] = "Du hast erfolgreich eingeloggt";
-					
+
+				$zeitspanne = 300; //Sekunden
+				$ip = $_SERVER['REMOTE_ADDR'];
+				$userid = isset($_SESSION['userid']) ? $_SESSION['userid'] : '0';
+				$ip_full = $ip.'_'.$userid;
+				
+				//Zeitpunkt erneuern
+				mysql_query("UPDATE useronline SET ip = '".$ip_full."', zeit = '".(time()+$zeitspanne)."', userfsid = $userid WHERE ip='".$ip."'");
+								
 				header('location:index.php');
 				return false;
 			}
