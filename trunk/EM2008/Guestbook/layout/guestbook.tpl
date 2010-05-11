@@ -1,4 +1,6 @@
-<div style="float: left">
+<!--[if IE 6]>
+<div style="float:left">
+<![endif]-->
 <h2>G&auml;stebuch</h2>
 <?php require_once('Layout/infos.tpl'); ?>
 <?php require_once('Layout/errors.tpl'); ?>
@@ -29,4 +31,6 @@
 	<?php endforeach; ?>
 	<hr noshade="noshade" width="520px"/>
 </form>
+<!--[if IE 6]>
 </div>
+<![endif]-->
