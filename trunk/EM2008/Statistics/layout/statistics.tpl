@@ -59,17 +59,17 @@
 							
 							<?php if($wert1 != 0){ ?>
 								<td align="center" style="background-color: #0066FF; width: <?php echo $wert1 ?>% ">
-									<?php echo $spiel['total_1']; ?>
+									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=1"><b><?php echo $spiel['total_1']; ?></b></a>
 								</td>
 							<?php } ?>
 							<?php if($wertX != 0){ ?>
 								<td align="center" style="background-color: #FFCC33; width: <?php echo $wertX ?>%">
-									<?php echo $spiel['total_X']; ?>
+									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=X"><b><?php echo $spiel['total_X']; ?></b></a>
 								</td>
 							<?php } ?>
 							<?php if($wert2 != 0){ ?>
 								<td align="center" style="background-color: #009966; width: <?php echo $wert2 ?>%">
-									<?php echo $spiel['total_2']; ?>
+									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=2"><b><?php echo $spiel['total_2']; ?></b></a>
 								</td>
 							<?php } ?>
 						</tr>
