@@ -9,15 +9,17 @@ class Guestbook extends HTMLPage implements Page {
 	private $link = '';
 	
 	public function __construct() {
-		$this->link = Db::getConnection();
-		
-		$action = isset($_GET['action']) ? $_GET['action'] : '';
-		
-		if($action == "newEntry"){
-			$this->saveNewEntry();	
+		if($_SESSION['eingeloggt'] || $_SESSION['userid']){
+			$this->link = Db::getConnection();
+			
+			$action = isset($_GET['action']) ? $_GET['action'] : '';
+			
+			if($action == "newEntry"){
+				$this->saveNewEntry();	
+			}
+			
+			$this->getData();
 		}
-		
-		$this->getData();
 	}
 
 	private function getData() {

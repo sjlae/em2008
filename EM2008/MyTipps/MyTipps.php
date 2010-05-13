@@ -22,23 +22,25 @@ class MyTipps extends HTMLPage implements Page {
 	private $link = '';
 
 	public function __construct() {
-		$this->link = Db::getConnection();
-
-		$action = isset($_GET['action']) ? $_GET['action'] : '';
-
-		$this->realhauptrunde = $this->getRealHauptrunde();
-		$this->getData();
-
-		if($action == "setTipps") {
-			$this->setTipps();
-		}
-
-		$this->getData();
-
-		$this->hauptrundefsid = $this->isExistingHauptrunde();
-
-		if($this->hauptrundefsid) {
-			$this->getUserHauptrundeTipps();
+		if($_SESSION['eingeloggt'] || $_SESSION['userid']){
+			$this->link = Db::getConnection();
+	
+			$action = isset($_GET['action']) ? $_GET['action'] : '';
+	
+			$this->realhauptrunde = $this->getRealHauptrunde();
+			$this->getData();
+	
+			if($action == "setTipps") {
+				$this->setTipps();
+			}
+	
+			$this->getData();
+	
+			$this->hauptrundefsid = $this->isExistingHauptrunde();
+	
+			if($this->hauptrundefsid) {
+				$this->getUserHauptrundeTipps();
+			}
 		}
 	}
 
