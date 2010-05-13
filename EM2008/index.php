@@ -13,6 +13,7 @@ require_once('Statistics/Statistics.php');
 require_once('Guestbook/Guestbook.php');
 require_once('Admin/Admin.php');
 require_once('Datenbank/db.php');
+require_once('StatisticsDetail/StatisticsDetail.php');
 
 $go = isset($_GET['go']) ? $_GET['go'] : '';
 
@@ -44,6 +45,10 @@ switch($go) {
 	case 'statistics':
 		$statistics = new Statistics();
 		LoggedIn::isRegistered($statistics);
+		break;
+	case 'statisticsDetail':
+		$statisticsDetail = new StatisticsDetail();
+		LoggedIn::isRegistered($statisticsDetail);
 		break;
 	case 'guestbook':
 		$guestbook = new Guestbook();
