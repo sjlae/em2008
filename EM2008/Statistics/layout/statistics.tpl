@@ -9,7 +9,7 @@
 
 	<table border="0">
 		<tr>
-			<td style="background-color: #0066FF; width: 30px;">&nbsp;</td>
+			<td style="background-color: #7F99FF; width: 30px;">&nbsp;</td>
 			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 1</td>
 		</tr>
@@ -58,7 +58,7 @@
 							?>
 							
 							<?php if($wert1 != 0){ ?>
-								<td align="center" style="background-color: #0066FF; width: <?php echo $wert1 ?>% ">
+								<td align="center" style="background-color: #7F99FF; width: <?php echo $wert1 ?>% ">
 									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=1"><b><?php echo $spiel['total_1']; ?></b></a>
 								</td>
 							<?php } ?>
