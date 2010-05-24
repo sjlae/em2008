@@ -10,6 +10,7 @@ class Admin extends HTMLPage implements Page{
 	
 	private $nnb = array();
 	private $all = array();
+	private $notTipped = array();
 	private $countries = array();
 	private $vorrunde = array();
 	private $achtelfinal1 = '';
@@ -51,6 +52,8 @@ class Admin extends HTMLPage implements Page{
 	
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
 
+		echo $action;
+		
 		if($action == 'nnb') {
 			$this->setPayFlag();
 		}
@@ -967,12 +970,93 @@ class Admin extends HTMLPage implements Page{
 		mysql_query($query);
 	}
 	
+	private function getNotTipped(){
+		$userQuery = "SELECT * FROM user";
+		$resultUser = mysql_query($userQuery);
+		
+		$i = 0;
+		
+		while($rowUser = mysql_fetch_assoc($resultUser))
+		{
+			$user = $rowUser['userid'];
+			
+			$hauptrundeQuery = "SELECT * FROM hauptrunde WHERE userfsid = $user";
+			$resultHauptrunde = mysql_query($hauptrundeQuery);
+			
+			$rowHauptrunde = mysql_fetch_assoc($resultHauptrunde);
+			
+			if($rowHauptrunde != false){
+				if(Constants::$isWM){
+					if($rowHauptrunde['achtelfinal1'] == ''
+						|| $rowHauptrunde['achtelfinal2'] == ''
+						|| $rowHauptrunde['achtelfinal3'] == ''
+						|| $rowHauptrunde['achtelfinal4'] == ''
+						|| $rowHauptrunde['achtelfinal5'] == ''
+						|| $rowHauptrunde['achtelfinal6'] == ''
+						|| $rowHauptrunde['achtelfinal7'] == ''
+						|| $rowHauptrunde['achtelfinal8'] == ''
+						|| $rowHauptrunde['achtelfinal9'] == ''
+						|| $rowHauptrunde['achtelfinal10'] == ''
+						|| $rowHauptrunde['achtelfinal11'] == ''
+						|| $rowHauptrunde['achtelfinal12'] == ''
+						|| $rowHauptrunde['achtelfinal13'] == ''
+						|| $rowHauptrunde['achtelfinal14'] == ''
+						|| $rowHauptrunde['achtelfinal15'] == ''
+						|| $rowHauptrunde['achtelfinal16'] == ''
+						|| $rowHauptrunde['viertelfinal1'] == ''
+						|| $rowHauptrunde['viertelfinal2'] == ''
+						|| $rowHauptrunde['viertelfinal3'] == ''
+						|| $rowHauptrunde['viertelfinal4'] == ''
+						|| $rowHauptrunde['viertelfinal5'] == ''
+						|| $rowHauptrunde['viertelfinal6'] == ''
+						|| $rowHauptrunde['viertelfinal7'] == ''
+						|| $rowHauptrunde['viertelfinal8'] == ''
+						|| $rowHauptrunde['halbfinal1'] == ''
+						|| $rowHauptrunde['halbfinal2'] == ''
+						|| $rowHauptrunde['halbfinal3'] == ''
+						|| $rowHauptrunde['halbfinal4'] == ''
+						|| $rowHauptrunde['final1'] == ''
+						|| $rowHauptrunde['final2'] == ''
+						|| $rowHauptrunde['sieger'] == ''){
+							$this->notTipped[$i]['email'] = $rowUser['email'];
+							$i++;
+					}
+				}
+				else{
+					if($rowHauptrunde['viertelfinal1'] == ''
+						|| $rowHauptrunde['viertelfinal2'] == ''
+						|| $rowHauptrunde['viertelfinal3'] == ''
+						|| $rowHauptrunde['viertelfinal4'] == ''
+						|| $rowHauptrunde['viertelfinal5'] == ''
+						|| $rowHauptrunde['viertelfinal6'] == ''
+						|| $rowHauptrunde['viertelfinal7'] == ''
+						|| $rowHauptrunde['viertelfinal8'] == ''
+						|| $rowHauptrunde['halbfinal1'] == ''
+						|| $rowHauptrunde['halbfinal2'] == ''
+						|| $rowHauptrunde['halbfinal3'] == ''
+						|| $rowHauptrunde['halbfinal4'] == ''
+						|| $rowHauptrunde['final1'] == ''
+						|| $rowHauptrunde['final2'] == ''
+						|| $rowHauptrunde['sieger'] == ''){
+							$this->notTipped[$i]['email'] = $rowUser['email'];
+							$i++;
+					}
+				}
+			}
+			else{
+				$this->notTipped[$i]['email'] = $rowUser['email'];
+				$i++;
+			}
+		}
+	}
+	
 	public function getHTML() {
 		$this->getNNB();
 		$this->getAll();
 		$this->getGames();
 		$this->getCountries();
 		$this->getRealHauptrundenTeams();
+		$this->getNotTipped();
 		require_once('layout/admin.tpl');
 	}
 }

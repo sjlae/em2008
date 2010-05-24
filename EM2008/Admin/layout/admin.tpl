@@ -833,4 +833,22 @@
 	<?php if($_GET['action'] == 'delete'){ $tabs->active = "Loeschen"; } ?>
 	
 <?php $tabs->end(); ?>
+<?php $tabs->start("Not Tipped"); ?>
+	
+	<form action="index.php?go=admin&action=notTipped" method="POST">
+		<table>
+			<tr>
+				<td><b>Email</b></td>
+			</tr>
+			<?php $i=0; ?>
+			<?php foreach($this->notTipped as $user): ?>
+				<tr>
+					<td><?php echo $user['email']; ?></td>
+				</tr>
+				<?php $i++; ?>
+			<?php endforeach; ?>
+		</table>
+	</form>
+	
+<?php $tabs->end(); ?>
 <?php $tabs->run(); ?>
