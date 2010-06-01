@@ -14,6 +14,9 @@ class Ranking extends HTMLPage implements Page {
 		$count = "SELECT COUNT(*) FROM user";
 		$countPlayers = mysql_query($count);
 		
+		$countNotPayed = "SELECT COUNT(*) FROM user WHERE bezahlt = 0";
+		$countPlayersNotPayed = mysql_query($countNotPayed);
+		
 		$abfrage = "SELECT userid, vorname, nachname, punkte, bezahlt, rank_last, rank_now FROM user ORDER BY punkte DESC, nachname";
 
 		$ergebnis = mysql_query($abfrage);
