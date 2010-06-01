@@ -3,7 +3,9 @@
 <![endif]-->
 <h2>Rangliste</h2>
 Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
-<br><br>
+<br><br> 
+<div style="color: red">Davon noch nicht bezahlt:&nbsp;&nbsp;<b><? echo mysql_result($countPlayersNotPayed,0); ?></b></div>
+<br>
 <table>
 	<tr>
 		<td>
