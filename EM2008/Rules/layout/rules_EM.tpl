@@ -10,7 +10,7 @@
 		Europameister ausw&auml;hlen. </p>
 		<p>Deine Resultattipps f&uuml;r die <b>Gruppenspiele</b> musst du jeweils bis sp&auml;testens <b>1 Minute vor Spielbeginn</b> erfasst 
 		und gespeichert haben. Ansonsten gibt es 0 Punkte f&uuml;r dieses Spiel. Die <b>Teilnehmernationen ab den Gruppenspielen (s&auml;mtliche
-		Teams in den Viertelfinals, Halbfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 11. Juni</b> erfasst haben. 
+		Teams in den Viertelfinals, Halbfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 08. Juni 2012</b> erfasst haben. 
 		Diese kannst du ab dann nicht mehr ver&auml;ndern.</p>
 		<h3>Punktevergabe - Gruppenspieltipps</h3>
 		<ul>
@@ -29,7 +29,7 @@
 		<p>Damit du allf&auml;llig ben&ouml;tigte Gedankenanst&ouml;sse zur Hilfe beiziehen kannst oder mit anderen Teilnehmer &uuml;ber die abgegebenen Tipps fachsimpeln 
 		kannst, werden s&auml;mtliche Tipps von den Teilnehmern f&uuml;r alle angemeldeten Mitspieler ersichtlich sein. Der andere Grund f&uuml;r dieses Vorhaben 
 		ist der, dass es so auch uns Organisatoren m&ouml;glich ist an diesem Spiel teilzunehmen.</p>
-		<p>Neu ist der Men&uuml;punkt 'Statistiken'. Dort findest du ebenfalls die beiden Tabs Gruppenspiele und Finalspiele. Beim Tab Gruppenspiele
+		<p>Im Men&uuml;punkt 'Statistiken' findest du ebenfalls die beiden Tabs Gruppenspiele und Finalspiele. Beim Tab Gruppenspiele
 		kannst du jederzeit sehen, wie die aktuelle Tippverteilung aller Mitspieler pro Gruppenspiel aussieht. Beim Tab Finalspiele siehst du, wieviele
 		Mitspieler die jeweiligen Teams in die Viertel-, Halb-, Finalspiele und nat&uuml;rlich als Europameister getippt haben.</p>
 		<p>Falls du deine Tipps allen kundtum m&ouml;chtest oder die Tippgemeinde &uuml;ber sonst was informieren m&ouml;chtest, kannst du dies jederzeit
@@ -111,7 +111,7 @@
 		<p>Nur bei Gleichstand beim ersten Kriterium wird das zweite &uuml;berhaupt noch &uuml;berpr&uuml;ft usw.</p>
 		
 		<p>Damit ein Pot zustande kommt, muss jeder Teilnehmer Fr. 20.-- bezahlen. Solange ein Teilnehmer nicht bezahlt hat, wird dieser
-		speziell markiert auf der Ranglisten-Seite. Wer bis am <b>11. Juni 2010</b> noch nicht bezahlt hat, wird vom EM-Tippspiel ausgeschlossen.</p>
+		speziell markiert auf der Ranglisten-Seite. Wer bis am <b>08. Juni 2012</b> noch nicht bezahlt hat, wird vom EM-Tippspiel ausgeschlossen.</p>
 		<p>Nun weisst du alles, was es &uuml;ber das EM-Tippspiel zu wissen gibt. Folgende drei Dinge solltest du nun unternehmen:</p>
 		<ol>
 			<li>Dich registrieren.</li>
