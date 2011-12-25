@@ -101,7 +101,7 @@
 			</tr>
 			<?php foreach($this->hauptrunde as $land): ?>
 				<tr>
-					<td><img alt="" src="nationalFlags/<?php echo $land['id'] ?>.gif"/>&nbsp;<?php echo $land['team']; ?></td>
+					<td><img alt="" src="nationalFlags/<?php echo $land['id'] ?>.gif" width="20"/>&nbsp;<?php echo $land['team']; ?></td>
 					<?php
 						if(Constants::$isWM){
 					?>

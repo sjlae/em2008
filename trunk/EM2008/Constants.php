@@ -1,7 +1,7 @@
 <?php
 
 class Constants{
-	public static $isWM = true;
+	public static $isWM = false;
 	public static $winnerLabel = 'Weltmeister';
 	
 	public static $regexSpecialSigns = '/[<>&\'"\\\]+/';
