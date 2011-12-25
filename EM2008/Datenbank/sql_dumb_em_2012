@@ -278,3 +278,13 @@ INSERT INTO `woher` (`woherid`, `bezeichnung`) VALUES
 (1, 'Kenne Organisatoren'),
 (2, 'Ein/e Kollege/Kollegin kennt Organisatoren'),
 (3, 'Zuf&auml;llig im Internet darauf gestossen');
+
+--
+-- Tabellenstruktur für Tabelle `guestbook`
+--
+
+CREATE TABLE IF NOT EXISTS `guestbook` (
+  `userfsid` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `text` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
