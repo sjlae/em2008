@@ -25,4 +25,9 @@
 		</td
 	</tr>
 </table>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('input[name="email"]').focus();
+	});
+</script>
 </form>
