@@ -22,7 +22,10 @@
 	<tr>
 		<td style="padding-top: 10px">
 			<input type="submit" value="Einloggen" />
-		</td
+		</td>
+		<td style="padding-top: 10px; padding-left: 10px;">
+			<input type="submit" value="Passwort vergessen" onclick="document.forms['forgot'].submit(); return(false);"/>
+		</td>
 	</tr>
 </table>
 <script type="text/javascript">
@@ -31,3 +34,4 @@
 	});
 </script>
 </form>
+<form action="index.php?go=password" method="POST" name="forgot"/>
