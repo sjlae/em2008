@@ -14,6 +14,7 @@ require_once('Guestbook/Guestbook.php');
 require_once('Admin/Admin.php');
 require_once('Datenbank/db.php');
 require_once('StatisticsDetail/StatisticsDetail.php');
+require_once('Password/Password.php');
 
 $go = isset($_GET['go']) ? $_GET['go'] : '';
 
@@ -33,6 +34,10 @@ switch($go) {
 	case 'ranking':
 		$ranking = new Ranking();
 		$ranking->getView();
+		break;
+	case 'password':
+		$password = new Password();
+		$password->getView();
 		break;
 	case 'myTipps':
 		$myTipps = new MyTipps();
