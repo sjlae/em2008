@@ -17,6 +17,13 @@ class Constants{
 		return Constants::$winnerLabel;
 	}
 	
+	public static function isLocal(){
+		if($_SERVER[HTTP_HOST] == "localhost"){
+			return true;
+		}
+		return false;
+	}
+	
 	public static function getPointsPng($tipp1, $tipp2, $real1, $real2){
 		if($real1 != '' && $real2 != '' && $tipp1 != '' && $tipp2 != '' && $tipp1>=0 && $tipp2>=0 && is_numeric($tipp1) && is_numeric($tipp2)){
         	if ($tipp1==$real1 && $tipp2==$real2) { 
