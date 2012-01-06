@@ -6,7 +6,6 @@ class Password extends HTMLPage implements Page {
 
 	private $link = '';
 
-	private $errors = array();
 	private $email = '';
 	
 	public function __construct() {

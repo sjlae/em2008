@@ -20,6 +20,7 @@
 			}
 		}		
 	?>
+	<li class="Startseite" id="mn_Standard"><a href="index.php?go=changePassword"><span>Passwort &auml;ndern</span></a></li>
 	<li class="Startseite" id="mn_Standard"><a href="index.php?go=logout"><span>Logout</span></a></li>
 	<?php
 		if(isset($_SESSION['users_names'])){
