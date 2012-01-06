@@ -11,7 +11,7 @@
 				<input type="password" name="oldPassword" value="<?php echo htmlentities($this->oldPassword, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
 			</td>
 		</tr>
-		<tr>
+		<tr> 
 			<td style="padding-top: 5px">	
 				Neues Passwort:
 			</td>
