@@ -9,8 +9,8 @@
 		<meta name="language" content="de" />
 		
 		<link rel="stylesheet" href="Layout/style.css" type="text/css"/>
-		<script type="text/javascript" src="script/js_functions.js"></script>
-		<script type="text/javascript" src="script/jquery-1.6.3.min.js"></script>
+		<script type="text/javascript" src="scripts/js_functions.js"></script>
+		<script type="text/javascript" src="scripts/jquery-1.6.3.min.js"></script>
 
 		<!--[if IE]><link rel="stylesheet" type="text/css" href="Layout/ie.css" /><![endif]-->
 	</head>
