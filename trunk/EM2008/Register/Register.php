@@ -39,7 +39,7 @@ class Register extends HTMLPage implements Page {
 			$this->errors[] = "Bitte das Feld 'Passwort wiederholen' ausf&uuml;llen";
 		}else if($this->passwort1 != $this->passwort2) {
 			$this->errors[] = "Bitte zwei Mal das gleiche Passwort w&auml;hlen";
-		}
+		} 
 		if($this->checkExistingEmail($this->email)) {
 			$this->errors[] = "Diese Email ist schon vorhanden";
 		}
