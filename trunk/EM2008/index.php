@@ -15,6 +15,7 @@ require_once('Admin/Admin.php');
 require_once('Datenbank/db.php');
 require_once('StatisticsDetail/StatisticsDetail.php');
 require_once('Password/Password.php');
+require_once('ChangePassword/ChangePassword.php');
 
 $go = isset($_GET['go']) ? $_GET['go'] : '';
 
@@ -46,6 +47,10 @@ switch($go) {
 	case 'otherTipps':
 		$otherTipps = new OtherTipps();
 		LoggedIn::isRegistered($otherTipps);
+		break;
+	case 'changePassword':
+		$changePassword = new ChangePassword();
+		LoggedIn::isRegistered($changePassword);
 		break;
 	case 'statistics':
 		$statistics = new Statistics();
