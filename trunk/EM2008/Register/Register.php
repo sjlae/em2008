@@ -91,7 +91,7 @@ class Register extends HTMLPage implements Page {
 				mail($empfaenger, $betreff, $mailtext, "From: $sender\n" . "Content-Type: text/html; charset=iso-8859-1\n"); 
 		 	}
 		 	
-		 	$_SESSION['infos'][] = "Du wurdest erfolgreich registriert";
+		 	$_SESSION['infos'][] = "Du wurdest erfolgreich registriert und hast soeben eine E-Mail erhalten";
 
 		 	header('location:	index.php?go=login');
 		 	return false;

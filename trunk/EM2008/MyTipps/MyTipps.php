@@ -251,7 +251,6 @@ class MyTipps extends HTMLPage implements Page {
 		else{
 			$abfrage = sprintf("Update hauptrunde set viertelfinal1 = '%s', viertelfinal2 = '%s', viertelfinal3 = '%s', viertelfinal4 = '%s', viertelfinal5 = '%s', viertelfinal6 = '%s', viertelfinal7 = '%s', viertelfinal8 = '%s', halbfinal1 = '%s', halbfinal2 = '%s', halbfinal3 = '%s', halbfinal4 = '%s', final1 = '%s', final2 = '%s', sieger = '%s' where userfsid=".$_SESSION['userid'], htmlentities($hauptrundetipps[0], ENT_QUOTES, 'UTF-8'),htmlentities($hauptrundetipps[1], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[2], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[3], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[4], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[5], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[6], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[7], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[8], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[9], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[10], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[11], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[12], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[13], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[14], ENT_QUOTES, 'UTF-8'));	
 		}
-
 		$ergebnis = mysql_query($abfrage, $this->link);
 	}
 
@@ -409,8 +408,23 @@ class MyTipps extends HTMLPage implements Page {
 		{
 			$this->countries[$i]['id'] = $row['teamid'];
 			$this->countries[$i]['land'] = $row['land'];
+			$this->countries[$i]['gruppe'] = $row['gruppe'];
 			$i++;
 		}
+	}
+	
+	public function getGroupTeams($group){
+		$groupArray = array();
+		$i=0;
+		foreach($this->countries as $country):
+			if($country['gruppe'] == $group){
+				$groupArray[$i]['id'] = $country['id'];
+				$groupArray[$i]['land'] = $country['land'];
+				$groupArray[$i]['gruppe'] = $country['gruppe'];
+				$i++;
+			}
+		endforeach;
+		return $groupArray;
 	}
 
 	private function hasEqualTeams(){
