@@ -3,9 +3,11 @@
 <![endif]-->
 <h2>Rangliste</h2>
 Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
-<br><br> 
-<div style="color: red">Davon noch nicht bezahlt:&nbsp;&nbsp;<b><? echo mysql_result($countPlayersNotPayed,0); ?></b></div>
-<br>
+<? if(mysql_result($countPlayersNotPayed,0) != 0){ ?>
+	<br><br> 
+	<div style="color: red">Davon noch nicht bezahlt:&nbsp;&nbsp;<b><? echo mysql_result($countPlayersNotPayed,0); ?></b></div>
+	<br>
+<? } ?>
 <table>
 	<tr>
 		<td>
@@ -126,8 +128,10 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 		}
 	?>
 </table>
-<br><br>
-<span style="color: red">nnb --> noch nicht bezahlt</span>
+<? if(mysql_result($countPlayersNotPayed,0) != 0){ ?>
+	<br><br>
+	<span style="color: red">nnb --> noch nicht bezahlt</span>
+<? } ?>
 <!--[if IE 6]>
 </div>
 <![endif]-->
