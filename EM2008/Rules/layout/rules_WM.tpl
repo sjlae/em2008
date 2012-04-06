@@ -118,6 +118,6 @@
 		<ol>
 			<li>Dich registrieren.</li>
 			<li><b>Das Tippspiel bei Bekannten, Freunden, Nachbarn etc. bekannt machen.</b></li>
-			<li>Deinen Einsatz von Fr. 20.-- einem von uns, einem der uns kennt oder wie auch immer das Geld zu uns gelangt, bezahlen.</li>
+			<li>Deinen Einsatz von Fr. 20.-- bezahlen (entweder bar einem von uns Organisatoren &uuml;bergeben oder &uuml;berweisen).</li>
 		</ol>
 		<p>PS: Die m&auml;nnliche Form wurde der Einfachheit halber verwendet und soll in keinster Art und Weise diskriminierend wirken.</p>

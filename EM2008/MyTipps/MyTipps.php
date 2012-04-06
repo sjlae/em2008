@@ -396,7 +396,7 @@ class MyTipps extends HTMLPage implements Page {
 
 			$i++;
 		}
-	}
+	} 
 	private function getCountries() {
 		$abfrage = "SELECT * FROM teams order by land asc";
 
