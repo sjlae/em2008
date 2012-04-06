@@ -80,11 +80,12 @@ class Register extends HTMLPage implements Page {
 				Super, hast du dich bei tippy.ch angemeldet. Ab sofort kannst du deine Tipps erfassen, im G&auml;stebuch Kommentare schreiben, 
 				die Statistiken betrachten oder Tipps der Konkurrenten ansehen. Ich rate dir jedoch (falls noch nicht geschehen), zuerst die 
 				Spielregeln zu lesen.<br><br>
-				Damit du auch tats&auml;chlich am Tippspiel teilnehmen kannst, ben&ouml;tige ich von dir noch Fr. 20.00 ! Falls du mich pers&ouml;nlich 
+				Damit du auch tats&auml;chlich am Tippspiel teilnehmen kannst, ben&ouml;tige ich von dir noch <b>Fr. 20.00 </b> ! Falls du mich pers&ouml;nlich 
 				kennen solltest und mich auch in absehbarer Zeit sehen wirst, kannst du mir das Geld nat&uuml;rlich bar geben. Ansonsten rate ich dir, 
 				mir das Geld auf folgende Bankverbindung zu &uuml;berweisen:<br><br>
 				IBAN: CH75 0021 4214 4048 4640 T<br>
 				ADRESSE: Silvan St&auml;heli, Tannenrauchstrasse 102, 8038 Z&uuml;rich<br><br>
+				<b>WICHTIG:</b> Schreib bei der &Uuml;berweisung deinen Namen hin, damit ich erkenne, vo wem die Fr. 20.00 stammen !<br><br>
 				Dann bleibt mir nichts mehr anderes &uuml;brig als dir viel Gl&uuml;ck und Spass bei tippy zu w&uuml;nschen.<br><br>
 				Sportliche Gr&uuml;sse<br>
 				Silvan St&auml;heli";
