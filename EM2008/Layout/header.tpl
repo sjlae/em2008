@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
 	<head>
-		<title>Das ultimative WM-Tippspiel</title>
+		<title>Das ultimative EM-Tippspiel</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="content-language" content="de" />
