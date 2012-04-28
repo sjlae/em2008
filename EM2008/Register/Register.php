@@ -85,7 +85,7 @@ class Register extends HTMLPage implements Page {
 				mir das Geld auf folgende Bankverbindung zu &uuml;berweisen:<br><br>
 				IBAN: CH75 0021 4214 4048 4640 T<br>
 				ADRESSE: Silvan St&auml;heli, Tannenrauchstrasse 102, 8038 Z&uuml;rich<br><br>
-				<b>WICHTIG:</b> Schreib bei der &Uuml;berweisung deinen Namen hin, damit ich erkenne, vo wem die Fr. 20.00 stammen !<br><br>
+				<b>WICHTIG:</b> Schreib bei der &Uuml;berweisung deinen Namen hin, damit ich erkenne, von wem die Fr. 20.00 stammen !<br><br>
 				Dann bleibt mir nichts mehr anderes &uuml;brig als dir viel Gl&uuml;ck und Spass bei tippy zu w&uuml;nschen.<br><br>
 				Sportliche Gr&uuml;sse<br>
 				Silvan St&auml;heli";
