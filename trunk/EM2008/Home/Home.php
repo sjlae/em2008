@@ -16,7 +16,7 @@ class Home extends HTMLPage implements Page{
 	}
 
 	private function getNews(){
-		$abfrage = "SELECT * FROM news order by datum desc";
+		$abfrage = "SELECT * FROM news order by datum desc LIMIT 5";
 
 		$ergebnis = mysql_query($abfrage);
 		$counter = 0;
