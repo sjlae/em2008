@@ -268,10 +268,10 @@
 	<h3>Viertelfinalteilnehmer</h3>
 	<table>
 		<tr>
-			<td>Team 1</td>
-			<td>Team 2</td>
-			<td>Team 3</td>
-			<td>Team 4</td>
+			<td>Sieger Gruppe A</td>
+			<td>Zweiter Gruppe A</td>
+			<td>Sieger Gruppe B</td>
+			<td>Zweiter Gruppe B</td>
 		</tr>
 		<tr>
 			<td><select name="viertelfinal1" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
@@ -316,10 +316,10 @@
 			</select></td>
 		</tr>
 		<tr>
-			<td>Team 5</td>
-			<td>Team 6</td>
-			<td>Team 7</td>
-			<td>Team 8</td>
+			<td>Sieger Gruppe C</td>
+			<td>Zweiter Gruppe C</td>
+			<td>Sieger Gruppe D</td>
+			<td>Zweiter Gruppe D</td>
 		</tr>
 		<tr>
 			<td><select name="viertelfinal5" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[5], 2); ?>">
@@ -367,10 +367,10 @@
 	<h3>Halbfinalteilnehmer</h3>
 	<table>
 		<tr>
-			<td>Team 1</td>
-			<td>Team 2</td>
-			<td>Team 3</td>
-			<td>Team 4</td>
+			<td>1A - 2B</td>
+			<td>1B - 2A</td>
+			<td>1C - 2D</td>
+			<td>1D - 2C</td>
 		</tr>
 		<tr>
 			<td><select name="halbfinal1" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px;<?php echo $this->getStyle($this->userHalbfinal[1], 3); ?>">
