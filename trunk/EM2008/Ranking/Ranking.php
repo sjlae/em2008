@@ -5,7 +5,7 @@ require_once('Datenbank/db.php');
 class Ranking extends HTMLPage implements Page {
 	
 	private $link = '';
-
+	
 	public function __construct() {
 		$this->link = Db::getConnection();
 	}
@@ -32,7 +32,13 @@ class Ranking extends HTMLPage implements Page {
 				$rankingArray[$counter]['bezahlt'] = $row['bezahlt'];
 				$rankingArray[$counter]['last'] = $row['rank_last'];
 				$rankingArray[$counter]['now'] = $row['rank_now'];
-					
+
+				if($_SESSION['eingeloggt']){
+					if($_SESSION['userid'] == $rankingArray[$counter]['userid']){
+						$currentPlace = $rankingArray[$counter]['now'];
+					}
+				}
+				
 				$counter++;
 			}
 		}
