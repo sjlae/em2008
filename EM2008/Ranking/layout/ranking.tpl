@@ -3,6 +3,10 @@
 <![endif]-->
 <h2>Rangliste</h2>
 Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
+<? if($_SESSION['eingeloggt']){?>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dein aktueller Rang:&nbsp;
+		<b><? echo $currentPlace;?></b>
+<?	} ?>
 <? if(mysql_result($countPlayersNotPayed,0) != 0){ ?>
 	<br><br> 
 	<div style="color: red">Davon noch nicht bezahlt:&nbsp;&nbsp;<b><? echo mysql_result($countPlayersNotPayed,0); ?></b></div>
@@ -33,7 +37,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 		if($rankingArray != null){
 			foreach($rankingArray as $ranking): 
 	?>
-				<tr>
+				<tr style="background-color: <? if($_SESSION['userid'] == $ranking['userid']){ echo 'yellow'; } ?>;">
 					<td>
 						<?
 							if($ranking['now'] != 0){
