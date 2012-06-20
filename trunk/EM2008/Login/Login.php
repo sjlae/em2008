@@ -55,6 +55,14 @@ class Login extends HTMLPage implements Page{
 				//Zeitpunkt erneuern
 				mysql_query("UPDATE useronline SET ip = '".$ip_full."', zeit = '".(time()+$zeitspanne)."', userfsid = $userid WHERE ip='".$ip."'");
 								
+				// open file
+				$fd = fopen("log.txt", "a");
+				// write string
+				$str = "[" . date("Y/m/d h:i:s", mktime()) . ' '. $row['vorname'] . ' '. $row['nachname'] . ' hat eingeloggt'; 
+				fwrite($fd, $str. "\n");
+				// close file
+				fclose($fd);
+				
 				header('location:index.php');
 				return false;
 			}
