@@ -280,7 +280,7 @@
 			
 				<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
 			
-				<td><select name="viertelfinal1" id="viertelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
+				<td><select name="viertelfinal1" id="viertelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?php if($this->realhauptrunde[0] != ''){echo $this->getStyle($this->userViertelfinal[1], 2);} ?>">
 					<option value=''></option>
 					<?foreach($this->getGroupTeams('A') as $country): ?>
 						<?php if($this->userViertelfinal[1] == $country['id']): ?>
@@ -290,7 +290,7 @@
 						<?php endif; ?>
 					<?endforeach; ?>
 				</select></td>
-				<td><select name="viertelfinal2" id="viertelfinal2" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[2], 2); ?>">
+				<td><select name="viertelfinal2" id="viertelfinal2" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[1] != ''){echo $this->getStyle($this->userViertelfinal[2], 2);} ?>">
 					<option value=''></option>
 					<?foreach($this->getGroupTeams('A') as $country): ?>
 					<?php if($this->userViertelfinal[2] == $country['id']): ?>
@@ -300,7 +300,7 @@
 					<?php endif; ?>
 					<?endforeach; ?>
 				</select></td>
-				<td><select name="viertelfinal3" id="viertelfinal3" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[3], 2); ?>">
+				<td><select name="viertelfinal3" id="viertelfinal3" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[2] != ''){echo $this->getStyle($this->userViertelfinal[3], 2);} ?>">
 					<option value=''></option>
 					<?foreach($this->getGroupTeams('B') as $country): ?>
 					<?php if($this->userViertelfinal[3] == $country['id']): ?>
@@ -310,7 +310,7 @@
 					<?php endif; ?>
 					<?endforeach; ?>
 				</select></td>
-				<td><select name="viertelfinal4" id="viertelfinal4" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[4], 2); ?>">
+				<td><select name="viertelfinal4" id="viertelfinal4" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[3] != ''){echo $this->getStyle($this->userViertelfinal[4], 2);} ?>">
 					<option value=''></option>
 					<?foreach($this->getGroupTeams('B') as $country): ?>
 					<?php if($this->userViertelfinal[4] == $country['id']): ?>
@@ -328,7 +328,7 @@
 				<td>Zweiter Gruppe D</td>
 			</tr>
 			<tr>
-				<td><select name="viertelfinal5" id="viertelfinal5" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[5], 2); ?>">
+				<td><select name="viertelfinal5" id="viertelfinal5" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[4] != ''){echo $this->getStyle($this->userViertelfinal[5], 2);} ?>">
 					<option value=''></option>
 					<?foreach($this->getGroupTeams('C') as $country): ?>
 					<?php if($this->userViertelfinal[5] == $country['id']): ?>
@@ -338,7 +338,7 @@
 					<?php endif; ?>
 					<?php endforeach; ?>
 				</select></td>
-				<td><select name="viertelfinal6" id="viertelfinal6" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[6], 2); ?>">
+				<td><select name="viertelfinal6" id="viertelfinal6" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[5] != ''){echo $this->getStyle($this->userViertelfinal[6], 2);} ?>">
 					<option value=''></option>
 					<?foreach($this->getGroupTeams('C') as $country): ?>
 					<?php if($this->userViertelfinal[6] == $country['id']): ?>
@@ -348,7 +348,7 @@
 					<?php endif; ?>
 					<?php endforeach; ?>
 				</select></td>
-				<td><select name="viertelfinal7" id="viertelfinal7" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[7], 2); ?>">
+				<td><select name="viertelfinal7" id="viertelfinal7" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[6] != ''){echo $this->getStyle($this->userViertelfinal[7], 2);} ?>">
 					<option value=''></option>
 					<?foreach($this->getGroupTeams('D') as $country): ?>
 					<?php if($this->userViertelfinal[7] == $country['id']): ?>
@@ -358,7 +358,7 @@
 					<?php endif; ?>
 					<?php endforeach; ?>
 				</select></td>
-				<td><select name="viertelfinal8" id="viertelfinal8" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[8], 2); ?>">
+				<td><select name="viertelfinal8" id="viertelfinal8" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[7] != ''){echo $this->getStyle($this->userViertelfinal[8], 2);} ?>">
 					<option value=''></option>
 					<?foreach($this->getGroupTeams('D') as $country): ?>
 					<?php if($this->userViertelfinal[8] == $country['id']): ?>
@@ -379,16 +379,16 @@
 				<td>1D - 2C</td>
 			</tr>
 			<tr>
-				<td><select name="halbfinal1" id="halbfinal1" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userHalbfinal[1], 3); ?>">
+				<td><select name="halbfinal1" id="halbfinal1" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[9] != ''){echo $this->getStyle($this->userHalbfinal[1], 3);} ?>">
 					<option value=''></option>
 				</select></td>
-				<td><select name="halbfinal2" id="halbfinal2" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userHalbfinal[2], 3); ?>">
+				<td><select name="halbfinal2" id="halbfinal2" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[9] != ''){echo $this->getStyle($this->userHalbfinal[2], 3);} ?>">
 					<option value=''></option>
 				</select></td>
-				<td><select name="halbfinal3" id="halbfinal3" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userHalbfinal[3], 3); ?>">
+				<td><select name="halbfinal3" id="halbfinal3" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[11] != ''){echo $this->getStyle($this->userHalbfinal[3], 3);} ?>">
 					<option value=''></option>
 				</select></td>
-				<td><select name="halbfinal4" id="halbfinal4" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userHalbfinal[4], 3); ?>">
+				<td><select name="halbfinal4" id="halbfinal4" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[11] != ''){echo $this->getStyle($this->userHalbfinal[4], 3);} ?>">
 					<option value=''></option>
 				</select></td>
 			</tr>
@@ -400,10 +400,10 @@
 				<td>Team 2</td>
 			</tr>
 			<tr>
-				<td><select name="final1" id="final1" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userFinal[1], 4); ?>">
+				<td><select name="final1" id="final1" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[13] != ''){echo $this->getStyle($this->userFinal[1], 4);} ?>">
 					<option value=''></option>
 				</select></td>
-				<td><select name="final2" id="final2" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userFinal[2], 4); ?>">
+				<td><select name="final2" id="final2" <?php echo $isDisabled; ?> style="width: 110px;<?php if($this->realhauptrunde[13] != ''){echo $this->getStyle($this->userFinal[2], 4);} ?>">
 				<option value=''></option>
 				</select></td>
 			</tr>
