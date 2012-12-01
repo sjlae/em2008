@@ -23,54 +23,118 @@
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Res. 2</b></td>
 				<td>&nbsp;</td>
 			</tr>
-			<?php foreach($this->vorrunde as $spiel): ?>
-			<tr>
-				<td align="center" valign="top"><?php echo $spiel['id']; ?></td>
-				<td valign="top"><?php echo $spiel['start']; ?></td>
-				<td valign="top" style="padding-left: 5px"><?php echo $spiel['team1']; ?></td>
-				<td valign="top"><?php echo $spiel['team2']; ?></td>
-				<td align="center" valign="top"><input type="text" style="width: 15px"
-					value="<?php echo $spiel['result1']; ?>"
-					<?php echo $spiel['disabled']; ?>
-					name="result1<?php echo $spiel['id']; ?>" maxLength="2" /></td>
-				<td valign="top">:</td>
-				<td align="center" valign="top"><input type="text" style="width: 15px"
-					value="<?php echo $spiel['result2']; ?>"
-					<?php echo $spiel['disabled']; ?>
-					name="result2<?php echo $spiel['id']; ?>" maxLength="2" />
-				</td>				
-				<td align="center" valign="top" style="padding-left: 5px"><b><?php echo $spiel['realresult1']; ?></b></td>
-				<td align="center" valign="top"><b>:</b></td>
-				<td align="center" valign="top"><b><?php echo $spiel['realresult2']; ?></b></td>
-				<td valign="top" style="white-space: nowrap;">
-					<?php
-						$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
-					
-						if($points != ""){
-					?>
-							<img alt="" src="Layout/<?php echo $points ?>" width="15px"/>
-					<?php
-						}
-					?>
-				</td>
-			</tr>
-			<?php endforeach; ?>
+			<?php 
+				$counter = 0;
+				foreach($this->vorrunde as $spiel): 
+					$counter++;
+					if($counter <= (Constants::$isWM ? 48 : 24)){
+			?>
+						<tr>
+							<td align="center" valign="top"><?php echo $spiel['id']; ?></td>
+							<td valign="top"><?php echo $spiel['start']; ?></td>
+							<td valign="top" style="padding-left: 5px"><?php echo $spiel['team1']; ?></td>
+							<td valign="top"><?php echo $spiel['team2']; ?></td>
+							<td align="center" valign="top"><input type="text" style="width: 15px"
+								value="<?php echo $spiel['result1']; ?>"
+								<?php echo $spiel['disabled']; ?>
+								name="result1<?php echo $spiel['id']; ?>" maxLength="2" /></td>
+							<td valign="top">:</td>
+							<td align="center" valign="top"><input type="text" style="width: 15px"
+								value="<?php echo $spiel['result2']; ?>"
+								<?php echo $spiel['disabled']; ?>
+								name="result2<?php echo $spiel['id']; ?>" maxLength="2" />
+							</td>				
+							<td align="center" valign="top" style="padding-left: 5px"><b><?php echo $spiel['realresult1']; ?></b></td>
+							<td align="center" valign="top"><b>:</b></td>
+							<td align="center" valign="top"><b><?php echo $spiel['realresult2']; ?></b></td>
+							<td valign="top" style="white-space: nowrap;">
+								<?php
+									$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
+								
+									if($points != ""){
+								?>
+										<img alt="" src="Layout/<?php echo $points ?>" width="15px"/>
+								<?php
+									}
+								?>
+							</td>
+						</tr>
+			<?php 	}
+				endforeach; 
+			?>
 		</table>
 		<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='groups'"/></div>
-		<?php if($_GET['page'] == 'groups'){ $tabs->active = "Gruppenspiele"; } ?>
+		<?php if($_POST['page'] == 'groups'){ $tabs->active = "Gruppenspiele"; } ?>
 
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalspiele"); ?>
+	<table border="0">
+		<tr>
+			<td align="center" style="white-space: nowrap; padding-bottom: 5px"><b>#</b></td>
+			<td style="white-space: nowrap; padding-bottom: 5px" width="10px"><b>Datum</b></td>
+			<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px"><b>Team 1</b></td>
+			<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 2</b></td>
+			<td style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 1</b></td>
+			<td padding-bottom: 5px/>
+			<td style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 2</b></td>
+			<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px"><b>Res. 1</b></td>
+			<td padding-bottom: 5px/>
+			<td style="white-space: nowrap; padding-bottom: 5px"><b>Res. 2</b></td>
+			<td>&nbsp;</td>
+		</tr>
+		<?php 
+			foreach($this->vorrunde as $spiel): 
+				if($spiel['id'] > (Constants::$isWM ? 48 : 24)){
+		?>
+					<tr>
+						<td align="center" valign="top"><?php echo $spiel['id']; ?></td>
+						<td valign="top"><?php echo $spiel['start']; ?></td>
+						<td valign="top" style="padding-left: 5px"><?php echo $spiel['team1']; ?></td>
+						<td valign="top"><?php echo $spiel['team2']; ?></td>
+						<td align="center" valign="top"><input type="text" style="width: 15px"
+							value="<?php echo $spiel['result1']; ?>"
+							<?php echo $spiel['disabled']; ?>
+							name="result1<?php echo $spiel['id']; ?>" maxLength="2" /></td>
+						<td valign="top">:</td>
+						<td align="center" valign="top"><input type="text" style="width: 15px"
+							value="<?php echo $spiel['result2']; ?>"
+							<?php echo $spiel['disabled']; ?>
+							name="result2<?php echo $spiel['id']; ?>" maxLength="2" />
+						</td>				
+						<td align="center" valign="top" style="padding-left: 5px"><b><?php echo $spiel['realresult1']; ?></b></td>
+						<td align="center" valign="top"><b>:</b></td>
+						<td align="center" valign="top"><b><?php echo $spiel['realresult2']; ?></b></td>
+						<td valign="top" style="white-space: nowrap;">
+							<?php
+								$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
+							
+								if($points != ""){
+							?>
+									<img alt="" src="Layout/<?php echo $points ?>" width="15px"/>
+							<?php
+								}
+							?>
+						</td>
+					</tr>
+		<?php 	}
+			endforeach; 
+		?>
+	</table>
+	<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='finals'"/></div>
+	<?php if($_POST['page'] == 'finals'){ $tabs->active = "Finalspiele"; } ?>
+
+<?php $tabs->end(); ?>
+<?php $tabs->start("Finalteilnehmer"); ?>
 		<?php 
 			if(Constants::$isWM){
 		?>
 				<h3>Achtelfinalteilnehmer</h3>
 				<table>
 					<tr>
-						<td>Team 1</td>
-						<td>Team 2</td>
-						<td>Team 3</td>
-						<td>Team 4</td>
+						<td>Sieger Gruppe A</td>
+						<td>Zweiter Gruppe A</td>
+						<td>Sieger Gruppe B</td>
+						<td>Zweiter Gruppe B</td>
 					</tr>
 					<tr>
 					
@@ -118,10 +182,10 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td>Team 5</td>
-						<td>Team 6</td>
-						<td>Team 7</td>
-						<td>Team 8</td>
+						<td>Sieger Gruppe C</td>
+						<td>Zweiter Gruppe C</td>
+						<td>Sieger Gruppe D</td>
+						<td>Zweiter Gruppe D</td>
 					</tr>
 					<tr>
 						<td><select name="achtelfinal5" id="achtelfinal5" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[5], 1); ?>">
@@ -166,10 +230,10 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td>Team 9</td>
-						<td>Team 10</td>
-						<td>Team 11</td>
-						<td>Team 12</td>
+						<td>Sieger Gruppe E</td>
+						<td>Zweiter Gruppe E</td>
+						<td>Sieger Gruppe F</td>
+						<td>Zweiter Gruppe F</td>
 					</tr>
 					<tr>
 					
@@ -217,10 +281,10 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td>Team 13</td>
-						<td>Team 14</td>
-						<td>Team 15</td>
-						<td>Team 16</td>
+						<td>Sieger Gruppe G</td>
+						<td>Zweiter Gruppe G</td>
+						<td>Sieger Gruppe H</td>
+						<td>Zweiter Gruppe H</td>
 					</tr>
 					<tr>
 						<td><select name="achtelfinal13" id="achtelfinal13" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">
@@ -271,10 +335,23 @@
 		<h3>Viertelfinalteilnehmer</h3>
 		<table>
 			<tr>
-				<td>Sieger Gruppe A</td>
-				<td>Zweiter Gruppe A</td>
-				<td>Sieger Gruppe B</td>
-				<td>Zweiter Gruppe B</td>
+				<?php 
+					if(Constants::$isWM){
+				?>
+					<td>1A - 2B = VF1</td>
+					<td>1C - 2D = VF2</td>
+					<td>1B - 2A = VF3</td>
+					<td>1D - 2C = VF4</td>
+				<?php 
+					} else{ 
+				?>
+					<td>Sieger Gruppe A</td>
+					<td>Zweiter Gruppe A</td>
+					<td>Sieger Gruppe B</td>
+					<td>Zweiter Gruppe B</td>
+				<?php 
+					}
+				?>
 			</tr>
 			<tr>
 			
@@ -322,10 +399,23 @@
 				</select></td>
 			</tr>
 			<tr>
-				<td>Sieger Gruppe C</td>
-				<td>Zweiter Gruppe C</td>
-				<td>Sieger Gruppe D</td>
-				<td>Zweiter Gruppe D</td>
+				<?php 
+					if(Constants::$isWM){
+				?>
+					<td>1E - 2F = VF5</td>
+					<td>1G - 2H = VF6</td>
+					<td>1F - 2E = VF7</td>
+					<td>1H - 2G = VF8</td>
+				<?php 
+					} else{ 
+				?>
+					<td>Sieger Gruppe C</td>
+					<td>Zweiter Gruppe C</td>
+					<td>Sieger Gruppe D</td>
+					<td>Zweiter Gruppe D</td>
+				<?php 
+					}
+				?>
 			</tr>
 			<tr>
 				<td><select name="viertelfinal5" id="viertelfinal5" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[5], 2); ?>">
@@ -373,10 +463,23 @@
 		<h3>Halbfinalteilnehmer</h3>
 		<table>
 			<tr>
-				<td>1A - 2B</td>
-				<td>1B - 2A</td>
-				<td>1C - 2D</td>
-				<td>1D - 2C</td>
+				<?php 
+					if(Constants::$isWM){
+				?>
+					<td>VF5 - VF6 = HF1</td>
+					<td>VF1 - VF2 = HF2</td>
+					<td>VF7 - VF8 = HF3</td>
+					<td>VF3 - VF4 = HF4</td>
+				<?php 
+					} else{ 
+				?>
+					<td>1A - 2B</td>
+					<td>1B - 2A</td>
+					<td>1C - 2D</td>
+					<td>1D - 2C</td>
+				<?php 
+					}
+				?>
 			</tr>
 			<tr>
 				<td><select name="halbfinal1" id="halbfinal1" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userHalbfinal[1], 3); ?>">
@@ -396,8 +499,19 @@
 		<h3>Finalteilnehmer</h3>
 		<table>
 			<tr>
-				<td>Team 1</td>
-				<td>Team 2</td>
+				<?php 
+					if(Constants::$isWM){
+				?>
+					<td>HF1 - HF2 = F1</td>
+					<td>HF3 - HF4 = F2</td>
+				<?php 
+					} else{ 
+				?>
+					<td>Team 1</td>
+					<td>Team 2</td>
+				<?php 
+					}
+				?>
 			</tr>
 			<tr>
 				<td><select name="final1" id="final1" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userFinal[1], 4); ?>">
@@ -412,8 +526,8 @@
 		<div><select name="sieger" id="sieger" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userSieger, 5); ?>">
 			<option value=''></option>
 		</select></div>
-		<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='finals'"/></div>
-		<?php if($_POST['page'] == 'finals'){ $tabs->active = "Finalspiele"; } ?>
+		<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='countries'"/></div>
+		<?php if($_POST['page'] == 'countries'){ $tabs->active = "Finalteilnehmer"; } ?>
 	</form>
 	<script type="text/javascript">
 		$(document).ready(function() {
