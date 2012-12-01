@@ -224,8 +224,12 @@ class MyTipps extends HTMLPage implements Page {
 			} else if($isStillEnabled) {
 				$this->errors[] = "Die Zeit ist abgelaufen, um Hauptrundentipps zu erfassen.";
 			}
-	
+			
 			$_SESSION['infos'][] = "Deine Tipps wurden erfolgreich erfasst.";
+			
+			if(is_numeric(array_search('', $hauptrundetipps, false))){
+				$_SESSION['infos'][] = "Du hast noch nicht s&auml;mtliche Finalspielteilnehmer erfasst!";
+			}
 		}
 	}
 
@@ -440,7 +444,7 @@ class MyTipps extends HTMLPage implements Page {
 				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $achtel_min, $achtel_max)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$achtel_max-1] != ''){
 					return "background-color: #FF6633";
 				}
 			}
@@ -448,7 +452,7 @@ class MyTipps extends HTMLPage implements Page {
 				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $viertel_min, 8)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$viertel_min+7] != ''){
 					return "background-color: #FF6633";
 				}
 			}
@@ -456,7 +460,7 @@ class MyTipps extends HTMLPage implements Page {
 				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $halb_min, 4)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$halb_min+3] != ''){
 					return "background-color: #FF6633";
 				}
 			}
@@ -464,7 +468,7 @@ class MyTipps extends HTMLPage implements Page {
 				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $final_min, 2)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$final_min+1] != ''){
 					return "background-color: #FF6633";
 				}
 			}
@@ -472,7 +476,7 @@ class MyTipps extends HTMLPage implements Page {
 				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $sieger, 1)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$sieger] != ''){
 					return "background-color: #FF6633";
 				}
 			}

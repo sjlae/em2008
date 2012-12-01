@@ -163,7 +163,7 @@ class OtherTipps extends HTMLPage implements Page {
 	}
 	
 	// $round --> 1 = Achtelfinal, 2 = Viertelfinal, 3 = Halbfinal, 4 = Final, 5 = Sieger
-	public function getStyle($id, $round){
+public function getStyle($id, $round){
 		if($id != ''){
 			$achtel_min = 0;
 			$achtel_max = 16;
@@ -171,44 +171,44 @@ class OtherTipps extends HTMLPage implements Page {
 			$halb_min = Constants::$isWM ? 24 : 8;
 			$final_min = Constants::$isWM ? 28 : 12;
 			$sieger = Constants::$isWM ? 30 : 14;
-	
+			
 			if($round == 1 && $this->realhauptrunde[$achtel_min] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $achtel_min, $achtel_max)) !== false){
+				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $achtel_min, $achtel_max)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$achtel_max-1] != ''){
 					return "background-color: #FF6633";
 				}
 			}
 			if($round == 2 && $this->realhauptrunde[$viertel_min] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $viertel_min, 8)) !== false){
+				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $viertel_min, 8)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$viertel_min+7] != ''){
 					return "background-color: #FF6633";
 				}
 			}
 			if($round == 3 && $this->realhauptrunde[$halb_min] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $halb_min, 4)) !== false){
+				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $halb_min, 4)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$halb_min+3] != ''){
 					return "background-color: #FF6633";
 				}
 			}
 			if($round == 4 && $this->realhauptrunde[$final_min] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $final_min, 2)) !== false){
+				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $final_min, 2)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$final_min+1] != ''){
 					return "background-color: #FF6633";
 				}
 			}
 			if($round == 5 && $this->realhauptrunde[$sieger] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $sieger, 1)) !== false){
+				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $sieger, 1)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else{
+				else if($this->realhauptrunde[$sieger] != ''){
 					return "background-color: #FF6633";
 				}
 			}
