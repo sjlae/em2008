@@ -228,7 +228,7 @@ class MyTipps extends HTMLPage implements Page {
 			$_SESSION['infos'][] = "Deine Tipps wurden erfolgreich erfasst.";
 			
 			if(is_numeric(array_search('', $hauptrundetipps, false))){
-				$_SESSION['infos'][] = "Du hast noch nicht s&auml;mtliche Finalspielteilnehmer erfasst!";
+				$_SESSION['infos'][] = "Du hast noch nicht s&auml;mtliche Finalteilnehmer erfasst!";
 			}
 		}
 	}
@@ -390,8 +390,8 @@ class MyTipps extends HTMLPage implements Page {
 			$this->vorrunde[$i]['id'] = $row['vorrundeteamsid'];
 			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
 			$this->vorrunde[$i]['disabled'] = $this->isDisabled($row['start']);
-			$this->vorrunde[$i]['team1'] = $this->getTeam($row['team1fsid']);
-			$this->vorrunde[$i]['team2'] = $this->getTeam($row['team2fsid']);
+			$this->vorrunde[$i]['team1'] = is_numeric($row['team1fsid']) ? $this->getTeam($row['team1fsid']) : $row['team1fsid'];
+			$this->vorrunde[$i]['team2'] = is_numeric($row['team2fsid']) ? $this->getTeam($row['team2fsid']) : $row['team2fsid'];
 			$results = $this->getUserResult($row['vorrundeteamsid']);
 			$this->vorrunde[$i]['result1'] = $results[0];
 			$this->vorrunde[$i]['result2'] = $results[1];
