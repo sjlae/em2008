@@ -226,8 +226,8 @@ class MyTipps extends HTMLPage implements Page {
 			}
 			
 			$_SESSION['infos'][] = "Deine Tipps wurden erfolgreich erfasst.";
-			
-			if(is_numeric(array_search('', $hauptrundetipps, false))){
+
+			if(is_numeric(array_search('', $hauptrundetipps, false)) && $isStillEnabled){
 				$_SESSION['infos'][] = "Du hast noch nicht s&auml;mtliche Finalteilnehmer erfasst!";
 			}
 		}
