@@ -52,8 +52,6 @@ class Admin extends HTMLPage implements Page{
 	
 		$action = isset($_GET['action']) ? $_GET['action'] : '';
 
-		echo $action;
-		
 		if($action == 'nnb') {
 			$this->setPayFlag();
 		}
@@ -181,8 +179,19 @@ class Admin extends HTMLPage implements Page{
 		for($counter=1; $counter<=$countGames['Number']; $counter++) {
 			$result1 = $_POST["result1_$counter"];
 			$result2 = $_POST["result2_$counter"];
-			$abfrage = "Update vorrundeteams set realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
-			mysql_query($abfrage);
+			$var1 = $counter."_1";
+			$var2 = $counter."_2";
+			if(isset($_POST[$var1])){
+				$team1 = $_POST[$var1];
+				$team2 = $_POST[$var2];
+				
+				$abfrage = "Update vorrundeteams set team1fsid='".$team1."', team2fsid='".$team2."', realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
+				mysql_query($abfrage);
+			}
+			else{
+				$abfrage = "Update vorrundeteams set realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
+				mysql_query($abfrage);
+			}
 		}
 	}
 	
@@ -363,6 +372,8 @@ class Admin extends HTMLPage implements Page{
 			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
 			$this->vorrunde[$i]['team1'] = is_numeric($row['team1fsid']) ? $this->getTeam($row['team1fsid']) : $row['team1fsid'];
 			$this->vorrunde[$i]['team2'] = is_numeric($row['team2fsid']) ? $this->getTeam($row['team2fsid']) : $row['team2fsid'];
+			$this->vorrunde[$i]['team1id'] = $row['team1fsid'];
+			$this->vorrunde[$i]['team2id'] = $row['team2fsid'];
 			$this->vorrunde[$i]['realresult1'] = $row['realresult1'];
 			$this->vorrunde[$i]['realresult2'] = $row['realresult2'];
 				

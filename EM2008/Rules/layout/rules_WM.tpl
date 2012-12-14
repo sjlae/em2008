@@ -4,22 +4,25 @@
 		dich umgehend &uuml;ber den Link 'Registrieren' auf der rechten Seite f&uuml;r das WM-Tippspiel registieren. Wir brauchen
 		deinen kompletten Namen, deine E-Mail Adresse und wie du auf dieses Tippspiel gekommen bist. Sobald dieser Vorgang 
 		erfolgreich abgeschlossen ist, kannst du dich einloggen und deine Tipps erfassen.</p>
-		<p>Auf der 'Tipps erfassen' Seite siehst du zwei sogenannte Tabs. Beschriftet mit Gruppen- und Finalspiele. Beim Klick auf
-		den Tab Gruppenspiele, kannst du s&auml;mtliche Gruppenspiele tippen. Wenn du auf den Tab Finalspiele klickst, siehst du
-		Auswahlboxen f&uuml;r die Achtelfinal-, Viertelfinal-, Halbfinal- und Finalteilnehmer. Zum Schluss musst du nat&uuml;rlich auch noch deinen 
-		Weltmeister ausw&auml;hlen. </p>
-		<p>Deine Resultattipps f&uuml;r die <b>Gruppenspiele</b> musst du jeweils bis sp&auml;testens <b>1 Minute vor Spielbeginn</b> erfasst 
-		und gespeichert haben. Ansonsten gibt es 0 Punkte f&uuml;r dieses Spiel. Die <b>Teilnehmernationen ab den Gruppenspielen (s&auml;mtliche
-		Teams in den Achtelfinals, Viertelfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 11. Juni</b> erfasst haben. 
-		Diese kannst du ab dann nicht mehr ver&auml;ndern.</p>
-		<h3>Punktevergabe - Gruppenspieltipps</h3>
+		<p>Auf der 'Tipps erfassen' Seite siehst du drei sogenannte Tabs. Beschriftet mit Gruppenspiele, Finalspiele und Finalteilnehmer. Beim Klick auf
+		den Tab Gruppenspiele, kannst du s&auml;mtliche Gruppenspiele tippen. Wenn du auf den Tab Finalspiele klickst, siehst du die Paarungen ab
+		dem 1/8 Finale. Solange diese Teilnehmerl&auml;nder noch nicht feststehen, sind lediglich Platzhalter an deren Stelle. Theoretisch kannst du
+		auch schon vorher s&auml;mtliche Partien tippen, weisst einfach noch nicht, wer dann tats&auml;chlich gegen wen spielen wird. Auf dem letzten
+		Tab (Finalteilnehmer) siehst du	Auswahlboxen f&uuml;r die Achtelfinal-, Viertelfinal-, Halbfinal- und Finalteilnehmer und den Weltmeister.</p>
+		
+		<p>Deine Resultattipps f&uuml;r die <b>Gruppenspiele und Finalspiele</b> musst du jeweils bis sp&auml;testens <b>1 Minute vor Spielbeginn</b> erfasst 
+		und gespeichert haben. Ansonsten gibt es 0 Punkte f&uuml;r dieses Spiel. Die <b>Teilnehmernationen im Tab Finalteilnehmer (s&auml;mtliche
+		Teams in den Achtelfinals, Viertelfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 12. Juni 2014</b> getippt haben. 
+		Diese kannst du ab dann nicht mehr ver&auml;ndern. Mit anderen Worten, du musst vor dem Turnierstart tippen, welche Nationen du in den 
+		Achtelfinals, Viertelfinals, etc. tippst.</p>
+		<h3>Punktevergabe - Gruppen- und Finalspieltipps</h3>
 		<ul>
 			<li><b>5 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; korrekter Resultattipp und der richtige Sieger bzw. untentschieden (du tippst 2:1 und das Spiel endet 2:1)</li>
 			<li><b>4 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; richtiger Sieger bzw. unentschieden mit der korrekten Tordifferenz (du tippst 2:1, aber das Spiel endet 1:0)</li>
 			<li><b>3 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; richtiger Sieger mit falscher Tordifferenz (du tippst 2:1, aber das Spiel endet 2:0)</li>
 			<li><b>0 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; falscher Sieger (du tippst 2:1, aber das Spiel endet 1:2)</li>
 		</ul>
-		<h3>Punktevergabe - Teilnehmer ab Achtelfinal</h3>
+		<h3>Punktevergabe - Finalteilnehmertipps</h3>
 		<ul>
 			<li><b>&nbsp;4 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Achtelfinal Teilnehmer</li>
 			<li><b>&nbsp;6 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Viertelfinal Teilnehmer</li>
@@ -30,15 +33,15 @@
 		<p>Damit du allf&auml;llig ben&ouml;tigte Gedankenanst&ouml;sse zur Hilfe beiziehen kannst oder mit anderen Teilnehmer &uuml;ber die abgegebenen Tipps fachsimpeln 
 		kannst, werden s&auml;mtliche Tipps von den Teilnehmern f&uuml;r alle angemeldeten Mitspieler ersichtlich sein. Der andere Grund f&uuml;r dieses Vorhaben 
 		ist der, dass es so auch uns Organisatoren m&ouml;glich ist an diesem Spiel teilzunehmen.</p>
-		<p>Neu ist der Men&uuml;punkt 'Statistiken'. Dort findest du ebenfalls die beiden Tabs Gruppenspiele und Finalspiele. Beim Tab Gruppenspiele
-		kannst du jederzeit sehen, wie die aktuelle Tippverteilung aller Mitspieler pro Gruppenspiel aussieht. Beim Tab Finalspiele siehst du, wieviele
+		<p>Im Men&uuml;punkt 'Statistiken' findest du die beiden Tabs Resultattipps und Finalteilnehmer. Beim Tab Resultattipps
+		kannst du jederzeit sehen, wie die aktuelle Tippverteilung aller Mitspieler pro Gruppen- und Finalspiel aussieht. Beim Tab Finalteilnehmer siehst du, wieviele
 		Mitspieler die jeweiligen Teams in die Achtel-, Viertel-, Halb-, Finalspiele und nat&uuml;rlich als Weltmeister getippt haben.</p>
 		<p>Falls du deine Tipps allen kundtum m&ouml;chtest oder die Tippgemeinde &uuml;ber sonst was informieren m&ouml;chtest, kannst du dies jederzeit
 		in unserem kleinen G&auml;stebuch unter dem gleichnamigen Men&uuml;punkt. Anst&ouml;ssige, politisch inkorrekte oder ethisch unzumutbare Beitr&auml;ge
 		werden von uns relativ rasch entfernt. Aber nat&uuml;rlich k&ouml;nnen heissgef&uuml;hrte Diskussionen ausgetragen werden.</p>
 		<p>Wir werden uns bem&uuml;hen, so rasch als m&ouml;glich nach Spielende einer Partie die aktualisierte Tabelle aufzuschalten, damit auch engagiert
 		mitgefiebert werden kann. Sobald du auf unserer Startseite den Newseintrag von einem Update siehst, ist auch der neueste Zwischenstand
-		unter dem Men&uuml;punkt 'Rangliste' ersichtlich. Die Achtelfinal-Teilnehmer werden erst nach Beendigung s&auml;mtlicher Gruppenspiele 
+		unter dem Men&uuml;punkt 'Rangliste' ersichtlich. Die Achtelfinal-Teilnehmer werden - sobald bekannt - nachgef&uuml;hrt und  
 		aktualisiert und in der Rangliste ber&uuml;cksichtigt.</p>
 		<h3>Auszahlungsstruktur</h3>
 		Die Anzahl ausbezahlter R&auml;nge richtet sich nach der Gr&ouml;sse der Teilnehmerzahl.
@@ -113,7 +116,7 @@
 		<p>Nur bei Gleichstand beim ersten Kriterium wird das zweite &uuml;berhaupt noch &uuml;berpr&uuml;ft usw.</p>
 		
 		<p>Damit ein Pot zustande kommt, muss jeder Teilnehmer Fr. 20.-- bezahlen. Solange ein Teilnehmer nicht bezahlt hat, wird dieser
-		speziell markiert auf der Ranglisten-Seite. Wer bis am <b>11. Juni 2010</b> noch nicht bezahlt hat, wird vom WM-Tippspiel ausgeschlossen.</p>
+		speziell markiert auf der Ranglisten-Seite. Wer bis am <b>12. Juni 2014</b> noch nicht bezahlt hat, wird vom WM-Tippspiel ausgeschlossen.</p>
 		<p>Nun weisst du alles, was es &uuml;ber das WM-Tippspiel zu wissen gibt. Folgende drei Dinge solltest du nun unternehmen:</p>
 		<ol>
 			<li>Dich registrieren.</li>
