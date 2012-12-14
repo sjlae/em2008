@@ -85,8 +85,50 @@
 			<tr>
 				<td align="center"><?php echo $spiel['id']; ?></td>
 				<td style="white-space: nowrap; padding-left: 5px"><?php echo $spiel['start']; ?></td>
-				<td style="white-space: nowrap; padding-left: 5px"><?php echo $spiel['team1']; ?></td>
-				<td style="white-space: nowrap; padding-left: 5px"><?php echo $spiel['team2']; ?></td>
+				<td style="white-space: nowrap; padding-left: 5px">
+					<?php if(!is_numeric($spiel['team1id'])){ ?>
+						<select name="<?php echo $spiel['id'] .'_1'; ?>">
+							<option value="<?php echo $spiel['team1']; ?>"><?php echo $spiel['team1']; ?></option>
+							<?foreach($this->countries as $country): ?>
+								<? 
+									if($spiel['team1id'] == $country['id']){
+								?>
+										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
+								<?
+									}
+									else{
+								?>
+										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
+								<?
+									}
+								?>
+							<?endforeach; ?>
+						</select>
+					<?php }
+						else{ echo $spiel['team1']; } ?>
+				</td>
+				<td style="white-space: nowrap; padding-left: 5px">
+					<?php if(!is_numeric($spiel['team2id'])){ ?>
+						<select name="<?php echo $spiel['id'] .'_2'; ?>">
+							<option value="<?php echo $spiel['team2']; ?>"><?php echo $spiel['team2']; ?></option>
+							<?foreach($this->countries as $country): ?>
+								<? 
+									if($spiel['team2id'] == $country['id']){
+								?>
+										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
+								<?
+									}
+									else{
+								?>
+										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
+								<?
+									}
+								?>
+							<?endforeach; ?>
+						</select>
+					<?php }
+						else{ echo $spiel['team2']; } ?>
+				</td>
 				<td align="center" style="white-space: nowrap; padding-left: 5px"><input type="text" style="width: 15px" value="<?php echo $spiel['realresult1']; ?>" name="result1_<?php echo $spiel['id']; ?>" /></td>
 				<td>:</td>
 				<td align="center" style="white-space: nowrap; padding-left: 5px"><input type="text" style="width: 15px" value="<?php echo $spiel['realresult2']; ?>" name="result2_<?php echo $spiel['id']; ?>" /></td>

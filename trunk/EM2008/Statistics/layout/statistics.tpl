@@ -5,7 +5,7 @@
 <?php require_once('Constants.php'); ?>
 
 <?php $tabs = new Tabs("Statistics"); ?>
-<?php $tabs->start("Gruppenspiele"); ?>
+<?php $tabs->start("Resultattipps"); ?>
 
 	<table border="0">
 		<tr>
@@ -82,7 +82,7 @@
 			<?php endforeach; ?>
 		</table>
 <?php $tabs->end(); ?>
-<?php $tabs->start("Finalspiele"); ?>		
+<?php $tabs->start("Finalteilnehmer"); ?>		
 		Die in den Spalten angegebenen Werte zeigen auf, wieviele Tipps f&uuml;r ein Land abgegeben wurden, das die entsprechende Runde erreicht.
 		<table border="0" width="100%">
 			<tr>
