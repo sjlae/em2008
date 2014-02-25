@@ -28,7 +28,6 @@
 	<form action="index.php?go=statistics&page=groups" name="formular" method="POST">
 		<table border="0">
 			<tr>
-				<td align="center" style="white-space: nowrap; padding-bottom: 5px"><b>#</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Datum</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 1</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 2</b></td>
@@ -36,7 +35,6 @@
 			</tr>
 			<?php foreach($this->vorrunde as $spiel): ?>
 			<tr>
-				<td align="center" valign="top"><?php echo $spiel['id']; ?></td>
 				<td valign="top"><?php echo $spiel['start']; ?></td>
 				<td valign="top" style="white-space: nowrap;"><?php echo $spiel['team1']; ?></td>
 				<td valign="top" style="white-space: nowrap;"><?php echo $spiel['team2']; ?></td>

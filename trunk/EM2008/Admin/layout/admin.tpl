@@ -73,7 +73,6 @@
 	<form action="index.php?go=admin&action=results" method="POST">
 		<table border="0">
 			<tr>
-				<td align="center" style="white-space: nowrap"><b>#</b></td>
 				<td style="white-space: nowrap; padding-left: 5px"><b>Datum</b></td>
 				<td style="white-space: nowrap; padding-left: 5px"><b>Team 1</b></td>
 				<td style="white-space: nowrap; padding-left: 5px"><b>Team 2</b></td>
@@ -83,7 +82,6 @@
 			</tr>
 			<?php foreach($this->vorrunde as $spiel): ?>
 			<tr>
-				<td align="center"><?php echo $spiel['id']; ?></td>
 				<td style="white-space: nowrap; padding-left: 5px"><?php echo $spiel['start']; ?></td>
 				<td style="white-space: nowrap; padding-left: 5px">
 					<?php if(!is_numeric($spiel['team1id'])){ ?>

@@ -74,7 +74,7 @@ class OtherTipps extends HTMLPage implements Page {
 	}
 
 	private function getData() {
-		$abfrage = "SELECT * FROM vorrundeteams order by vorrundeteamsid asc";
+		$abfrage = "SELECT * FROM vorrundeteams order by start asc";
 
 		$ergebnis = mysql_query($abfrage);
 

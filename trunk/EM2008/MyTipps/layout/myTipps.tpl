@@ -11,7 +11,6 @@
 		<input type="hidden" name="page" value="groups" id="page"/>
 		<table border="0">
 			<tr>
-				<td align="center" style="white-space: nowrap; padding-bottom: 5px"><b>#</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px" width="10px"><b>Datum</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px"><b>Team 1</b></td>
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 2</b></td>
@@ -30,7 +29,6 @@
 					if($counter <= (Constants::$isWM ? 48 : 24)){
 			?>
 						<tr>
-							<td align="center" valign="top"><?php echo $spiel['id']; ?></td>
 							<td valign="top"><?php echo $spiel['start']; ?></td>
 							<td valign="top" style="padding-left: 5px"><?php echo $spiel['team1']; ?></td>
 							<td valign="top"><?php echo $spiel['team2']; ?></td>
@@ -70,7 +68,6 @@
 <?php $tabs->start("Finalspiele"); ?>
 	<table border="0">
 		<tr>
-			<td align="center" style="white-space: nowrap; padding-bottom: 5px"><b>#</b></td>
 			<td style="white-space: nowrap; padding-bottom: 5px" width="10px"><b>Datum</b></td>
 			<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px"><b>Team 1</b></td>
 			<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 2</b></td>
@@ -87,7 +84,6 @@
 				if($spiel['id'] > (Constants::$isWM ? 48 : 24)){
 		?>
 					<tr>
-						<td align="center" valign="top"><?php echo $spiel['id']; ?></td>
 						<td valign="top"><?php echo $spiel['start']; ?></td>
 						<td valign="top" style="padding-left: 5px"><?php echo $spiel['team1']; ?></td>
 						<td valign="top"><?php echo $spiel['team2']; ?></td>
@@ -466,10 +462,10 @@
 				<?php 
 					if(Constants::$isWM){
 				?>
-					<td>VF5 - VF6 = HF1</td>
-					<td>VF1 - VF2 = HF2</td>
-					<td>VF7 - VF8 = HF3</td>
-					<td>VF3 - VF4 = HF4</td>
+					<td>VF1 - VF2 = HF1</td>
+					<td>VF5 - VF6 = HF2</td>
+					<td>VF3 - VF4 = HF3</td>
+					<td>VF7 - VF8 = HF4</td>
 				<?php 
 					} else{ 
 				?>
