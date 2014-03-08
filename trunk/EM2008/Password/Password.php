@@ -35,7 +35,7 @@ class Password extends HTMLPage implements Page {
 			mysql_query($abfrage);
 			
 			if(!Constants::isLocal()){
-		 		$sender = "silvan.staeheli@gmx.ch";
+		 		$sender = "silvan.staeheli@bluewin.ch";
 				$empfaenger = $this->email;
 				$betreff = "Neues Passwort auf tippy.ch";
 				$mailtext = "Hallo<br><br>
