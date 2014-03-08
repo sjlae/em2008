@@ -73,7 +73,7 @@ class Register extends HTMLPage implements Page {
 
 		 if (mysql_affected_rows($this->link) > 0) {
 		 	if(!Constants::isLocal()){
-		 		$sender = "silvan.staeheli@gmx.ch";
+		 		$sender = "silvan.staeheli@bluewin.ch";
 				$empfaenger = $this->email;
 				$betreff = "Erfolgreiche Registrierung bei tippy.ch";
 				$mailtext = "Hallo $this->vorname<br><br>

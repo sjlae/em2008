@@ -1,7 +1,7 @@
 </div>
 	
 	<div id="footer">
-		<a href="#container">Top</a> | <a href="mailto:silvan.staeheli@gmx.ch">Kontakt</a>
+		<a href="#container">Top</a> | <a href="mailto:silvan.staeheli@bluewin.ch">Kontakt</a>
 	</div>
 </div>
 
