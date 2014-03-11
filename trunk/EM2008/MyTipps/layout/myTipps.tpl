@@ -22,9 +22,9 @@
 				<td style="white-space: nowrap; padding-bottom: 5px"><b>Res. 2</b></td>
 				<td>&nbsp;</td>
 			</tr>
-			<?php 
+			<?php
 				$counter = 0;
-				foreach($this->vorrunde as $spiel): 
+				foreach($this->vorrunde as $spiel):
 					$counter++;
 					if($counter <= (Constants::$isWM ? 48 : 24)){
 			?>
@@ -41,14 +41,14 @@
 								value="<?php echo $spiel['result2']; ?>"
 								<?php echo $spiel['disabled']; ?>
 								name="result2<?php echo $spiel['id']; ?>" maxLength="2" />
-							</td>				
+							</td>
 							<td align="center" valign="top" style="padding-left: 5px"><b><?php echo $spiel['realresult1']; ?></b></td>
 							<td align="center" valign="top"><b>:</b></td>
 							<td align="center" valign="top"><b><?php echo $spiel['realresult2']; ?></b></td>
 							<td valign="top" style="white-space: nowrap;">
 								<?php
 									$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
-								
+
 									if($points != ""){
 								?>
 										<img alt="" src="Layout/<?php echo $points ?>" width="15px"/>
@@ -58,7 +58,7 @@
 							</td>
 						</tr>
 			<?php 	}
-				endforeach; 
+				endforeach;
 			?>
 		</table>
 		<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='groups'"/></div>
@@ -79,8 +79,8 @@
 			<td style="white-space: nowrap; padding-bottom: 5px"><b>Res. 2</b></td>
 			<td>&nbsp;</td>
 		</tr>
-		<?php 
-			foreach($this->vorrunde as $spiel): 
+		<?php
+			foreach($this->vorrunde as $spiel):
 				if($spiel['id'] > (Constants::$isWM ? 48 : 24)){
 		?>
 					<tr>
@@ -96,14 +96,14 @@
 							value="<?php echo $spiel['result2']; ?>"
 							<?php echo $spiel['disabled']; ?>
 							name="result2<?php echo $spiel['id']; ?>" maxLength="2" />
-						</td>				
+						</td>
 						<td align="center" valign="top" style="padding-left: 5px"><b><?php echo $spiel['realresult1']; ?></b></td>
 						<td align="center" valign="top"><b>:</b></td>
 						<td align="center" valign="top"><b><?php echo $spiel['realresult2']; ?></b></td>
 						<td valign="top" style="white-space: nowrap;">
 							<?php
 								$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
-							
+
 								if($points != ""){
 							?>
 									<img alt="" src="Layout/<?php echo $points ?>" width="15px"/>
@@ -113,7 +113,7 @@
 						</td>
 					</tr>
 		<?php 	}
-			endforeach; 
+			endforeach;
 		?>
 	</table>
 	<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='finals'"/></div>
@@ -121,7 +121,7 @@
 
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalteilnehmer"); ?>
-		<?php 
+		<?php
 			if(Constants::$isWM){
 		?>
 				<h3>Achtelfinalteilnehmer</h3>
@@ -133,9 +133,9 @@
 						<td>Zweiter Gruppe B</td>
 					</tr>
 					<tr>
-					
+
 						<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
-					
+
 						<td><select name="achtelfinal1" id="achtelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[1], 1); ?>">
 							<option value=''></option>
 							<?foreach($this->getGroupTeams('A') as $country): ?>
@@ -232,9 +232,9 @@
 						<td>Zweiter Gruppe F</td>
 					</tr>
 					<tr>
-					
+
 						<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
-					
+
 						<td><select name="achtelfinal9" id="achtelfinal9" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[9], 1); ?>">
 							<option value=''></option>
 							<?foreach($this->getGroupTeams('E') as $country): ?>
@@ -331,149 +331,198 @@
 		<h3>Viertelfinalteilnehmer</h3>
 		<table>
 			<tr>
-				<?php 
+				<?php
 					if(Constants::$isWM){
 				?>
 					<td>1A - 2B = VF1</td>
 					<td>1C - 2D = VF2</td>
 					<td>1B - 2A = VF3</td>
 					<td>1D - 2C = VF4</td>
-				<?php 
-					} else{ 
+				<?php
+					} else{
 				?>
 					<td>Sieger Gruppe A</td>
 					<td>Zweiter Gruppe A</td>
 					<td>Sieger Gruppe B</td>
 					<td>Zweiter Gruppe B</td>
-				<?php 
+				<?php
 					}
 				?>
 			</tr>
-			<tr>
-			
-				<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
-			
-				<td><select name="viertelfinal1" id="viertelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
-					<option value=''></option>
-					<?foreach($this->getGroupTeams('A') as $country): ?>
-						<?php if($this->userViertelfinal[1] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected="selected"><?echo $country['land']; ?></option>
+			<?php
+				if(Constants::$isWM){
+			?>
+				<tr>
+
+					<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
+
+					<td><select name="viertelfinal1" id="viertelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
+						<option value=''></option>
+					</select></td>
+					<td><select name="viertelfinal2" id="viertelfinal2" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[2], 2); ?>">
+						<option value=''></option>
+					</select></td>
+					<td><select name="viertelfinal3" id="viertelfinal3" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[3], 2); ?>">
+						<option value=''></option>
+					</select></td>
+					<td><select name="viertelfinal4" id="viertelfinal4" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[4], 2); ?>">
+						<option value=''></option>
+					</select></td>
+				</tr>
+			<?php
+				} else{
+			?>
+				<tr>
+
+					<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
+
+					<td><select name="viertelfinal1" id="viertelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
+						<option value=''></option>
+						<?foreach($this->getGroupTeams('A') as $country): ?>
+							<?php if($this->userViertelfinal[1] == $country['id']): ?>
+								<option value="<?echo $country['id']; ?>" selected="selected"><?echo $country['land']; ?></option>
+							<?php else:?>
+								<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<?php endif; ?>
+						<?endforeach; ?>
+					</select></td>
+					<td><select name="viertelfinal2" id="viertelfinal2" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[2], 2); ?>">
+						<option value=''></option>
+						<?foreach($this->getGroupTeams('A') as $country): ?>
+						<?php if($this->userViertelfinal[2] == $country['id']): ?>
+						<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
 						<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+						<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
 						<?php endif; ?>
-					<?endforeach; ?>
-				</select></td>
-				<td><select name="viertelfinal2" id="viertelfinal2" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[2], 2); ?>">
-					<option value=''></option>
-					<?foreach($this->getGroupTeams('A') as $country): ?>
-					<?php if($this->userViertelfinal[2] == $country['id']): ?>
-					<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
-					<?php else:?>
-					<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
-					<?php endif; ?>
-					<?endforeach; ?>
-				</select></td>
-				<td><select name="viertelfinal3" id="viertelfinal3" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[3], 2); ?>">
-					<option value=''></option>
-					<?foreach($this->getGroupTeams('B') as $country): ?>
-					<?php if($this->userViertelfinal[3] == $country['id']): ?>
-					<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
-					<?php else:?>
-					<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
-					<?php endif; ?>
-					<?endforeach; ?>
-				</select></td>
-				<td><select name="viertelfinal4" id="viertelfinal4" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[4], 2); ?>">
-					<option value=''></option>
-					<?foreach($this->getGroupTeams('B') as $country): ?>
-					<?php if($this->userViertelfinal[4] == $country['id']): ?>
-					<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
-					<?php else:?>
-					<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
-					<?php endif; ?>
-					<?php endforeach; ?>
-				</select></td>
-			</tr>
+						<?endforeach; ?>
+					</select></td>
+					<td><select name="viertelfinal3" id="viertelfinal3" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[3], 2); ?>">
+						<option value=''></option>
+						<?foreach($this->getGroupTeams('B') as $country): ?>
+						<?php if($this->userViertelfinal[3] == $country['id']): ?>
+						<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+						<?php else:?>
+						<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+						<?php endif; ?>
+						<?endforeach; ?>
+					</select></td>
+					<td><select name="viertelfinal4" id="viertelfinal4" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[4], 2); ?>">
+						<option value=''></option>
+						<?foreach($this->getGroupTeams('B') as $country): ?>
+						<?php if($this->userViertelfinal[4] == $country['id']): ?>
+						<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+						<?php else:?>
+						<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+						<?php endif; ?>
+						<?php endforeach; ?>
+					</select></td>
+				</tr>
+			<?php
+				}
+			?>
 			<tr>
-				<?php 
+				<?php
 					if(Constants::$isWM){
 				?>
 					<td>1E - 2F = VF5</td>
 					<td>1G - 2H = VF6</td>
 					<td>1F - 2E = VF7</td>
 					<td>1H - 2G = VF8</td>
-				<?php 
-					} else{ 
+				<?php
+					} else{
 				?>
 					<td>Sieger Gruppe C</td>
 					<td>Zweiter Gruppe C</td>
 					<td>Sieger Gruppe D</td>
 					<td>Zweiter Gruppe D</td>
-				<?php 
+				<?php
 					}
 				?>
 			</tr>
-			<tr>
-				<td><select name="viertelfinal5" id="viertelfinal5" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[5], 2); ?>">
-					<option value=''></option>
-					<?foreach($this->getGroupTeams('C') as $country): ?>
-					<?php if($this->userViertelfinal[5] == $country['id']): ?>
-					<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
-					<?php else:?>
-					<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
-					<?php endif; ?>
-					<?php endforeach; ?>
-				</select></td>
-				<td><select name="viertelfinal6" id="viertelfinal6" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[6], 2); ?>">
-					<option value=''></option>
-					<?foreach($this->getGroupTeams('C') as $country): ?>
-					<?php if($this->userViertelfinal[6] == $country['id']): ?>
-					<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
-					<?php else:?>
-					<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
-					<?php endif; ?>
-					<?php endforeach; ?>
-				</select></td>
-				<td><select name="viertelfinal7" id="viertelfinal7" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[7], 2); ?>">
-					<option value=''></option>
-					<?foreach($this->getGroupTeams('D') as $country): ?>
-					<?php if($this->userViertelfinal[7] == $country['id']): ?>
-					<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
-					<?php else:?>
-					<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
-					<?php endif; ?>
-					<?php endforeach; ?>
-				</select></td>
-				<td><select name="viertelfinal8" id="viertelfinal8" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[8], 2); ?>">
-					<option value=''></option>
-					<?foreach($this->getGroupTeams('D') as $country): ?>
-					<?php if($this->userViertelfinal[8] == $country['id']): ?>
-					<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
-					<?php else:?>
-					<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
-					<?php endif; ?>
-					<?php endforeach; ?>
-				</select></td>
-			</tr>
+			<?php
+				if(Constants::$isWM){
+			?>
+				<tr>
+					<td><select name="viertelfinal5" id="viertelfinal5" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[5], 2); ?>">
+						<option value=''></option>
+					</select></td>
+					<td><select name="viertelfinal6" id="viertelfinal6" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[6], 2); ?>">
+						<option value=''></option>
+					</select></td>
+					<td><select name="viertelfinal7" id="viertelfinal7" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[7], 2); ?>">
+						<option value=''></option>
+					</select></td>
+					<td><select name="viertelfinal8" id="viertelfinal8" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[8], 2); ?>">
+						<option value=''></option>
+					</select></td>
+				</tr>
+			<?php
+				} else{
+			?>
+				<tr>
+					<td><select name="viertelfinal5" id="viertelfinal5" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[5], 2); ?>">
+						<option value=''></option>
+						<?foreach($this->getGroupTeams('C') as $country): ?>
+						<?php if($this->userViertelfinal[5] == $country['id']): ?>
+						<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+						<?php else:?>
+						<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+						<?php endif; ?>
+						<?php endforeach; ?>
+					</select></td>
+					<td><select name="viertelfinal6" id="viertelfinal6" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[6], 2); ?>">
+						<option value=''></option>
+						<?foreach($this->getGroupTeams('C') as $country): ?>
+						<?php if($this->userViertelfinal[6] == $country['id']): ?>
+						<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+						<?php else:?>
+						<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+						<?php endif; ?>
+						<?php endforeach; ?>
+					</select></td>
+					<td><select name="viertelfinal7" id="viertelfinal7" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[7], 2); ?>">
+						<option value=''></option>
+						<?foreach($this->getGroupTeams('D') as $country): ?>
+						<?php if($this->userViertelfinal[7] == $country['id']): ?>
+						<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+						<?php else:?>
+						<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+						<?php endif; ?>
+						<?php endforeach; ?>
+					</select></td>
+					<td><select name="viertelfinal8" id="viertelfinal8" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[8], 2); ?>">
+						<option value=''></option>
+						<?foreach($this->getGroupTeams('D') as $country): ?>
+						<?php if($this->userViertelfinal[8] == $country['id']): ?>
+						<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+						<?php else:?>
+						<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+						<?php endif; ?>
+						<?php endforeach; ?>
+					</select></td>
+				</tr>
+			<?php
+				}
+			?>
 		</table>
 		<h3>Halbfinalteilnehmer</h3>
 		<table>
 			<tr>
-				<?php 
+				<?php
 					if(Constants::$isWM){
 				?>
 					<td>VF1 - VF2 = HF1</td>
 					<td>VF5 - VF6 = HF2</td>
 					<td>VF3 - VF4 = HF3</td>
 					<td>VF7 - VF8 = HF4</td>
-				<?php 
-					} else{ 
+				<?php
+					} else{
 				?>
 					<td>1A - 2B</td>
 					<td>1B - 2A</td>
 					<td>1C - 2D</td>
 					<td>1D - 2C</td>
-				<?php 
+				<?php
 					}
 				?>
 			</tr>
@@ -495,17 +544,17 @@
 		<h3>Finalteilnehmer</h3>
 		<table>
 			<tr>
-				<?php 
+				<?php
 					if(Constants::$isWM){
 				?>
 					<td>HF1 - HF2 = F1</td>
 					<td>HF3 - HF4 = F2</td>
-				<?php 
-					} else{ 
+				<?php
+					} else{
 				?>
 					<td>Team 1</td>
 					<td>Team 2</td>
-				<?php 
+				<?php
 					}
 				?>
 			</tr>
@@ -527,285 +576,198 @@
 	</form>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			//VIERTELFINAL
-			if($('#viertelfinal1').val() != '') {
-				var selectedoption = $('option[value="' + $('#viertelfinal1').val() + '"]', $('#viertelfinal1'));
-				selectedoption.clone().appendTo($('#halbfinal1'));
-			}
-			if($('#viertelfinal4').val() != '') {
-				var selectedoption = $('option[value="' + $('#viertelfinal4').val() + '"]', $('#viertelfinal4'));
-				selectedoption.clone().appendTo($('#halbfinal1'));
-			}
-			
-			// start check which halbfinal1 to select
-			var halbfinal1 = '';
-			
-			<?php if($this->userHalbfinal[1] != '') { ?>
-				halbfinal1 = <? echo $this->userHalbfinal[1]; ?>;
-			<? } ?>
-			
-			var halbfinal1Select = $('#halbfinal1');
-			
-			$('option', halbfinal1Select).each(function(){
-				$(this).removeAttr('selected');
-			});
-			
-			$('option[value="' + halbfinal1 + '"]', halbfinal1Select).attr("selected", "selected");
-			//end
-			
-			if($('#viertelfinal2').val() != '') {
-				var selectedoption = $('option[value="' + $('#viertelfinal2').val() + '"]', $('#viertelfinal2'));
-				selectedoption.clone().appendTo($('#halbfinal2'));
-			}
-			if($('#viertelfinal3').val() != '') {
-				var selectedoption = $('option[value="' + $('#viertelfinal3').val() + '"]', $('#viertelfinal3'));
-				selectedoption.clone().appendTo($('#halbfinal2'));
-			}
-			
-			// start check which halbfinal2 to select
-			var halbfinal2 = '';
-			
-			<?php if($this->userHalbfinal[2] != '') { ?>
-				halbfinal2 = <? echo $this->userHalbfinal[2]; ?>;
-			<? } ?>
-			
-			var halbfinal2Select = $('#halbfinal2');
-			
-			$('option', halbfinal2Select).each(function(){
-				$(this).removeAttr('selected');
-			});
-			
-			$('option[value="' + halbfinal2 + '"]', halbfinal2Select).attr("selected", "selected");
-			//end
-			
-			if($('#viertelfinal5').val() != '') {
-				var selectedoption = $('option[value="' + $('#viertelfinal5').val() + '"]', $('#viertelfinal5'));
-				selectedoption.clone().appendTo($('#halbfinal3'));
-			}
-			if($('#viertelfinal8').val() != '') {
-				var selectedoption = $('option[value="' + $('#viertelfinal8').val() + '"]', $('#viertelfinal8'));
-				selectedoption.clone().appendTo($('#halbfinal3'));
-			}
-			
-			// start check which halbfinal3 to select
-			var halbfinal3 = '';
-			
-			<?php if($this->userHalbfinal[3] != '') { ?>
-				halbfinal3 = <? echo $this->userHalbfinal[3]; ?>;
-			<? } ?>
-			
-			var halbfinal3Select = $('#halbfinal3');
-			
-			$('option', halbfinal3Select).each(function(){
-				$(this).removeAttr('selected');
-			});
-			
-			$('option[value="' + halbfinal3 + '"]', halbfinal3Select).attr("selected", "selected");
-			//end
-			
-			if($('#viertelfinal6').val() != '') {
-				var selectedoption = $('option[value="' + $('#viertelfinal6').val() + '"]', $('#viertelfinal6'));
-				selectedoption.clone().appendTo($('#halbfinal4'));
-			}
-			if($('#viertelfinal7').val() != '') {
-				var selectedoption = $('option[value="' + $('#viertelfinal7').val() + '"]', $('#viertelfinal7'));
-				selectedoption.clone().appendTo($('#halbfinal4'));
-			}
-			
-			// start check which halbfinal4 to select
-			var halbfinal4 = '';
-			
-			<?php if($this->userHalbfinal[4] != '') { ?>
-				halbfinal4 = <? echo $this->userHalbfinal[4]; ?>;
-			<? } ?>
-			
-			var halbfinal4Select = $('#halbfinal4');
-			
-			$('option', halbfinal4Select).each(function(){
-				$(this).removeAttr('selected');
-			});
-			
-			$('option[value="' + halbfinal4 + '"]', halbfinal4Select).attr("selected", "selected");
-			//end
-			
-			//HALBFINALE
-			if($('#halbfinal1').val() != '') {
-				var selectedoption = $('option[value="' + $('#halbfinal1').val() + '"]', $('#halbfinal1'));
-				selectedoption.clone().appendTo($('#final1'));
-			}
-			if($('#halbfinal3').val() != '') {
-				var selectedoption = $('option[value="' + $('#halbfinal3').val() + '"]', $('#halbfinal3'));
-				selectedoption.clone().appendTo($('#final1'));
-			}
-			
-			// start check which final1 to select
-			var final1 = '';
-			
-			<?php if($this->userFinal[1] != '') { ?>
-				final1 = <? echo $this->userFinal[1]; ?>;
-			<? } ?>
-			
-			var final1Select = $('#final1');
-			
-			$('option', final1Select).each(function(){
-				$(this).removeAttr('selected');
-			});
-			
-			$('option[value="' + final1 + '"]', final1Select).attr("selected", "selected");
-			//end
-			
-			if($('#halbfinal2').val() != '') {
-				var selectedoption = $('option[value="' + $('#halbfinal2').val() + '"]', $('#halbfinal2'));
-				selectedoption.clone().appendTo($('#final2'));
-			}
-			if($('#halbfinal4').val() != '') {
-				var selectedoption = $('option[value="' + $('#halbfinal4').val() + '"]', $('#halbfinal4'));
-				selectedoption.clone().appendTo($('#final2'));
-			}
-			
-			// start check which final2 to select
-			var final2 = '';
-			
-			<?php if($this->userFinal[2] != '') { ?>
-				final2 = <? echo $this->userFinal[2]; ?>;
-			<? } ?>
-			
-			var final2Select = $('#final2');
-			
-			$('option', final2Select).each(function(){
-				$(this).removeAttr('selected');
-			});
-			
-			$('option[value="' + final2 + '"]', final2Select).attr("selected", "selected");
-			//end
-			
-			//Sieger
-			if($('#final1').val() != '') {
-				var selectedoption = $('option[value="' + $('#final1').val() + '"]', $('#final1'));
-				selectedoption.clone().appendTo($('#sieger'));
-			}
-			if($('#final2').val() != '') {
-				var selectedoption = $('option[value="' + $('#final2').val() + '"]', $('#final2'));
-				selectedoption.clone().appendTo($('#sieger'));
-			}
-			
-			// start check which sieger to select
-			var sieger = '';
-			
-			<?php if($this->userSieger != '') { ?>
-				sieger = <? echo $this->userSieger; ?>;
-			<? } ?>
-			
-			var siegerSelect = $('#sieger');
-			
-			$('option', siegerSelect).each(function(){
-				$(this).removeAttr('selected');
-			});
-			
-			$('option[value="' + sieger + '"]', siegerSelect).attr("selected", "selected");
-			//end
-		});
-		
-		$('#viertelfinal1,#viertelfinal4').change(function () {
-			var select = $(this);
-			$('option', select).each(function(){
-				var option = ($('option[value="' + $(this).val() + '"]'));
-				if(option.val() != ''){
-					$('option[value="' + $(this).val() + '"]', $('#halbfinal1')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#final1')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#sieger')).remove();
-				}
-			});
-			if(select.val() != '') {
-				var selectedoption = $('option[value="' + select.val() + '"]', select);
-				selectedoption.clone().appendTo($('#halbfinal1'));
-			}
-		});
-		$('#viertelfinal2,#viertelfinal3').change(function () {
-			var select = $(this);
-			$('option', select).each(function(){
-				var option = ($('option[value="' + $(this).val() + '"]'));
-				if(option.val() != ''){
-					$('option[value="' + $(this).val() + '"]', $('#halbfinal2')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#final2')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#sieger')).remove();
-				}
-			});
-			if(select.val() != '') {
-				var selectedoption = $('option[value="' + select.val() + '"]', select);
-				selectedoption.clone().appendTo($('#halbfinal2'));
-			}
-		});
-		$('#viertelfinal5,#viertelfinal8').change(function () {
-			var select = $(this);
-			$('option', select).each(function(){
-				var option = ($('option[value="' + $(this).val() + '"]'));
-				if(option.val() != ''){
-					$('option[value="' + $(this).val() + '"]', $('#halbfinal3')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#final1')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#sieger')).remove();
-				}
-			});
-			if(select.val() != '') {
-				var selectedoption = $('option[value="' + select.val() + '"]', select);
-				selectedoption.clone().appendTo($('#halbfinal3'));
-			}
-		});
-		$('#viertelfinal6,#viertelfinal7').change(function () {
-			var select = $(this);
-			$('option', select).each(function(){
-				var option = ($('option[value="' + $(this).val() + '"]'));
-				if(option.val() != ''){
-					$('option[value="' + $(this).val() + '"]', $('#halbfinal4')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#final2')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#sieger')).remove();
-				}
-			});
-			if(select.val() != '') {
-				var selectedoption = $('option[value="' + select.val() + '"]', select);
-				selectedoption.clone().appendTo($('#halbfinal4'));
-			}
-		});
-		$('#halbfinal1,#halbfinal3').change(function () {
-			var select = $(this);
-			$('option', select).each(function(){
-				var option = ($('option[value="' + $(this).val() + '"]'));
-				if(option.val() != ''){
-					$('option[value="' + $(this).val() + '"]', $('#final1')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#sieger')).remove();
-				}
-			});
-			if(select.val() != '') {
-				var selectedoption = $('option[value="' + select.val() + '"]', select);
-				selectedoption.clone().appendTo($('#final1'));
-			}
-		});
-		$('#halbfinal2,#halbfinal4').change(function () {
-			var select = $(this);
-			$('option', select).each(function(){
-				var option = ($('option[value="' + $(this).val() + '"]'));
-				if(option.val() != ''){
-					$('option[value="' + $(this).val() + '"]', $('#final2')).remove();
-					$('option[value="' + $(this).val() + '"]', $('#sieger')).remove();
-				}
-			});
-			if(select.val() != '') {
-				var selectedoption = $('option[value="' + select.val() + '"]', select);
-				selectedoption.clone().appendTo($('#final2'));
-			}
-		});
-		$('#final1,#final2').change(function () {
-			var select = $(this);
-			$('option', select).each(function(){
-				var option = ($('option[value="' + $(this).val() + '"]'));
-				if(option.val() != ''){
-					$('option[value="' + $(this).val() + '"]', $('#sieger')).remove();
-				}
-			});
-			if(select.val() != '') {
-				var selectedoption = $('option[value="' + select.val() + '"]', select);
-				selectedoption.clone().appendTo($('#sieger'));
-			}
+            var gameplan = [
+                {
+                    'games': {
+                        '#viertelfinal1': ['#achtelfinal1', '#achtelfinal4']
+                    },
+                    'phpData': {
+                        'round': 'viertelfinal',
+                        'index': 1
+                    }
+                },
+                {
+                    'games': {
+                        '#viertelfinal2': ['#achtelfinal5', '#achtelfinal8']
+                    },
+                    'phpData': {
+                        'round': 'viertelfinal',
+                        'index': 2
+                    }
+                },
+                {
+                    'games': {
+                        '#viertelfinal3': ['#achtelfinal3', '#achtelfinal2']
+                    },
+                    'phpData': {
+                        'round': 'viertelfinal',
+                        'index': 3
+                    }
+                },
+                {
+                    'games': {
+                        '#viertelfinal4': ['#achtelfinal7', '#achtelfinal6']
+                    },
+                    'phpData': {
+                        'round': 'viertelfinal',
+                        'index': 4
+                    }
+                },
+                {
+                    'games': {
+                        '#viertelfinal5': ['#achtelfinal9', '#achtelfinal12']
+                    },
+                    'phpData': {
+                        'round': 'viertelfinal',
+                        'index': 5
+                    }
+                },
+                {
+                    'games': {
+                        '#viertelfinal6': ['#achtelfinal13', '#achtelfinal16']
+                    },
+                    'phpData': {
+                        'round': 'viertelfinal',
+                        'index': 6
+                    }
+                },
+                {
+                    'games': {
+                        '#viertelfinal7': ['#achtelfinal11', '#achtelfinal10']
+                    },
+                    'phpData': {
+                        'round': 'viertelfinal',
+                        'index': 7
+                    }
+                },
+                {
+                    'games': {
+                        '#viertelfinal8': ['#achtelfinal15', '#achtelfinal14']
+                    },
+                    'phpData': {
+                        'round': 'viertelfinal',
+                        'index': 8
+                    }
+                },
+                {
+                    'games': {
+                        '#halbfinal1': ['#viertelfinal1', '#viertelfinal2']
+                    },
+                    'phpData': {
+                        'round': 'halbfinal',
+                        'index': 1
+                    }
+                },
+
+                {
+                    'games': {
+                        '#halbfinal2': ['#viertelfinal5', '#viertelfinal6']
+                    },
+                    'phpData': {
+                        'round': 'halbfinal',
+                        'index': 2
+                    }
+                },
+
+                {
+                    'games': {
+                        '#halbfinal3': ['#viertelfinal3', '#viertelfinal4']
+                    },
+                    'phpData': {
+                        'round': 'halbfinal',
+                        'index': 3
+                    }
+                },
+
+                {
+                    'games': {
+                        '#halbfinal4': ['#viertelfinal7', '#viertelfinal8']
+                    },
+                    'phpData': {
+                        'round': 'halbfinal',
+                        'index': 4
+                    }
+                },
+                {
+                    'games': {
+                        '#final1': ['#halbfinal1', '#halbfinal2']
+                    },
+                    'phpData': {
+                        'round': 'final',
+                        'index': 1
+                    }
+                },
+
+                {
+                    'games': {
+                        '#final2': ['#halbfinal3', '#halbfinal4']
+                    },
+                    'phpData': {
+                        'round': 'final',
+                        'index': 2
+                    }
+                },
+                {
+                    'games': {
+                        '#sieger': ['#final1', '#final2']
+                    },
+                    'phpData': {
+                        'round': 'sieger',
+                        'index': 1
+                    }
+                }                
+            ];
+            
+            var userEntriesArray = <? echo json_encode($this->userEntries); ?>;
+            
+            for(var index in gameplan) {
+                var i = 1;
+                for(var nextLevel in gameplan[index].games) {
+    				for(var actualLevel in gameplan[index].games[nextLevel]) {
+                        var actualLevel = gameplan[index].games[nextLevel][actualLevel];
+                        var $actualLevel = $(actualLevel);
+                        
+                        //copy selection, if available, to next level
+                        if($actualLevel.val() != '') {
+                            var $selectedOptionActualLevel = $(':selected', $actualLevel);
+        					var $newOption = $selectedOptionActualLevel.clone();
+                            
+                            //user selection
+                            var userSelection = userEntriesArray[gameplan[index].phpData.round][gameplan[index].phpData.index];
+                            
+                            if(userSelection != '' && userSelection == $newOption.val()) {
+                                $newOption.appendTo($(nextLevel));
+                            } else {
+                                $newOption.removeAttr('selected').appendTo($(nextLevel));
+                            }
+                            
+                            $selectedOptionActualLevel.parent().data('prev', $selectedOptionActualLevel.text());
+                        }
+                        
+                        $actualLevel.on("change", {nextLevel:nextLevel}, function(event) {
+                            var $selectedOption = $(':selected', $(this));
+                            var $nextLevelSelect = $(event.data.nextLevel);
+                            var selectedText = $selectedOption.text();
+                            var prevText = $selectedOption.parent().data('prev');
+
+                            //if its a new selection, remove selection from all upper level
+                            var $optionNextLevel = $('option:contains(' + prevText + ')', $nextLevelSelect);
+                            if($optionNextLevel.length > 0) {
+                                $optionNextLevel.remove();
+                                $nextLevelSelect.trigger('change');
+                            }
+                                
+                            //add selection to next level
+                            if($selectedOption.text() != '') {
+                                $selectedOption.clone().appendTo($nextLevelSelect);
+                                $selectedOption.parent().data('prev', selectedText);
+                            }
+                            
+                        });
+                        i++;
+                    }
+                }
+            }
 		});
 	</script>
 <?php $tabs->end(); ?>

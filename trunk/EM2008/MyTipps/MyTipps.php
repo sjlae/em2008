@@ -17,6 +17,7 @@ class MyTipps extends HTMLPage implements Page {
 	private $userHalbfinal = array();
 	private $userFinal = array();
 	private $userSieger= '';
+    private $userEntries = array();
 
 	private $link = '';
 
@@ -118,6 +119,11 @@ class MyTipps extends HTMLPage implements Page {
 			}
 
 			$this->userSieger = $row['sieger'];
+            
+            $this->userEntries['viertelfinal'] = $this->userViertelfinal;
+            $this->userEntries['halbfinal'] = $this->userHalbfinal;
+            $this->userEntries['final'] = $this->userFinal;
+            $this->userEntries['sieger'][1] = $this->userSieger;
 		}
 	}
 
