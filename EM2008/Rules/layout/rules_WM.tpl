@@ -11,8 +11,8 @@
 		Tab (Finalteilnehmer) siehst du	Auswahlboxen f&uuml;r die Achtelfinal-, Viertelfinal-, Halbfinal- und Finalteilnehmer und den Weltmeister.</p>
 		
 		<p>Deine Resultattipps f&uuml;r die <b>Gruppenspiele und Finalspiele</b> musst du jeweils bis sp&auml;testens <b>1 Minute vor Spielbeginn</b> erfasst 
-		und gespeichert haben. Ansonsten gibt es 0 Punkte f&uuml;r dieses Spiel. Die <b>Teilnehmernationen im Tab Finalteilnehmer (s&auml;mtliche
-		Teams in den Achtelfinals, Viertelfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 12. Juni 2014</b> getippt haben. 
+		und gespeichert haben. Ansonsten gibt es 0 Punkte f&uuml;r dieses Spiel. Bei den Resultattipps der Finalspiele (ab den Achtelfinals) ist das Resultat
+		nach 90 Minuten relevant. Die <b>Teilnehmernationen im Tab Finalteilnehmer (s&auml;mtliche Teams in den Achtelfinals, Viertelfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 12. Juni 2014</b> getippt haben. 
 		Diese kannst du ab dann nicht mehr ver&auml;ndern. Mit anderen Worten, du musst vor dem Turnierstart tippen, welche Nationen du in den 
 		Achtelfinals, Viertelfinals, etc. tippst.</p>
 		<h3>Punktevergabe - Gruppen- und Finalspieltipps</h3>
