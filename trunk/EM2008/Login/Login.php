@@ -58,7 +58,7 @@ class Login extends HTMLPage implements Page{
 				// open file
 				$fd = fopen("log.txt", "a");
 				// write string
-				$str = "[" . date("Y/m/d h:i:s", mktime()) . ' '. $row['vorname'] . ' '. $row['nachname'] . ' hat eingeloggt'; 
+				$str = "[" . date("Y/m/d H:i:s", mktime()) . ' '. $row['vorname'] . ' '. $row['nachname'] . ' hat eingeloggt'; 
 				fwrite($fd, $str. "\n");
 				// close file
 				fclose($fd);
