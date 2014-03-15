@@ -12,8 +12,8 @@
 		
 		<p>Deine Resultattipps f&uuml;r die <b>Gruppenspiele und Finalspiele</b> musst du jeweils bis sp&auml;testens <b>1 Minute vor Spielbeginn</b> erfasst 
 		und gespeichert haben. Ansonsten gibt es 0 Punkte f&uuml;r dieses Spiel. Bei den Resultattipps der Finalspiele (ab den Achtelfinals) ist das Resultat
-		nach 90 Minuten relevant. Die <b>Teilnehmernationen im Tab Finalteilnehmer (s&auml;mtliche Teams in den Achtelfinals, Viertelfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 12. Juni 2014</b> getippt haben. 
-		Diese kannst du ab dann nicht mehr ver&auml;ndern. Mit anderen Worten, du musst vor dem Turnierstart tippen, welche Nationen du in den 
+		nach der regul&auml;ren Spielzeit (ohne Verl&auml;ngerung oder Elfmeterschiessen) relevant. Die <b>Teilnehmernationen im Tab Finalteilnehmer (s&auml;mtliche Teams in den Achtelfinals, Viertelfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 12. Juni 2014</b> getippt haben. 
+		Diese kannst du ab dann nicht mehr ver&auml;ndern. Mit anderen Worten, du musst vor dem Turnierstart tippen, welche Nationen du in die 
 		Achtelfinals, Viertelfinals, etc. tippst.</p>
 		<h3>Punktevergabe - Gruppen- und Finalspieltipps</h3>
 		<ul>
@@ -31,7 +31,7 @@
 			<li><b>12 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; f&uuml;r den richtigen Weltmeister</li>
 		</ul>
 		<p>Damit du allf&auml;llig ben&ouml;tigte Gedankenanst&ouml;sse zur Hilfe beiziehen kannst oder mit anderen Teilnehmer &uuml;ber die abgegebenen Tipps fachsimpeln 
-		kannst, werden s&auml;mtliche Tipps von den Teilnehmern f&uuml;r alle angemeldeten Mitspieler ersichtlich sein. Der andere Grund f&uuml;r dieses Vorhaben 
+		kannst, werden s&auml;mtliche Tipps von den Teilnehmern f&uuml;r alle angemeldeten Mitspieler ersichtlich sein. Der andere Grund f&uuml;r dieses Vorgehen 
 		ist der, dass es so auch uns Organisatoren m&ouml;glich ist an diesem Spiel teilzunehmen.</p>
 		<p>Im Men&uuml;punkt 'Statistiken' findest du die beiden Tabs Resultattipps und Finalteilnehmer. Beim Tab Resultattipps
 		kannst du jederzeit sehen, wie die aktuelle Tippverteilung aller Mitspieler pro Gruppen- und Finalspiel aussieht. Beim Tab Finalteilnehmer siehst du, wieviele
