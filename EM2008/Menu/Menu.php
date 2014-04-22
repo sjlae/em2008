@@ -39,9 +39,8 @@ class Menu {
 		// ist der Besucher noch nicht eigetragen, so wird ein neuer Eintrag erzeugt.
 		$query = "SELECT ip from useronline WHERE ip='".$ip."'";
 		$daten = mysql_query($query);
-		
-		if(mysql_num_rows($daten) == 0) {
-			mysql_query("INSERT INTO useronline (ip,zeit,userfsid) VALUES ('$ip ','".(time()+$zeitspanne)."','$userid')");
+		if(mysql_num_rows($daten) === 0) {
+			mysql_query("INSERT INTO useronline (ip,zeit,userfsid) VALUES ('$ip','".(time()+$zeitspanne)."','$userid')");
 		}
 		
 		// die Zahl der Online-User ermitteln.
