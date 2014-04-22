@@ -31,6 +31,8 @@ class StatisticsDetail extends HTMLPage implements Page {
 			{
 				$this->team1 =  $this->getTeam($row_game['team1fsid']);
 				$this->team2 =  $this->getTeam($row_game['team2fsid']);
+				$this->team1 =  $this->team1 != null ? $this->team1 : $row_game['team1fsid'];
+				$this->team2 =  $this->team2 != null ? $this->team2 : $row_game['team2fsid'];
 			}
 			
 			$sql_query = "result1 > result2";
@@ -76,10 +78,13 @@ class StatisticsDetail extends HTMLPage implements Page {
 			$abfrage = "SELECT * FROM teams where teamid=".$id;
 
 			$ergebnis = mysql_query($abfrage);
-			while($row = mysql_fetch_assoc($ergebnis))
-			{
-				return $row['land'];
+			if($ergebnis != null){
+				while($row = mysql_fetch_assoc($ergebnis))
+				{
+					return $row['land'];
+				}
 			}
+			return null;
 		}
 	}
 	

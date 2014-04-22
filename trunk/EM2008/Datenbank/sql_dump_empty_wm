@@ -219,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 CREATE TABLE IF NOT EXISTS `useronline` (
-  `ip` varchar(15) NOT NULL,
+  `ip` varchar(25) NOT NULL,
   `zeit` int(11) NOT NULL,
   `userfsid` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
