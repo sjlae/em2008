@@ -752,14 +752,14 @@
 
                             //if its a new selection, remove selection from all upper level
                             var $optionNextLevel = $('option:contains(' + prevText + ')', $nextLevelSelect);
-                            if($optionNextLevel.length > 0) {
+                            if($optionNextLevel.length > 0 && selectedText != $optionNextLevel.text()) {
                                 $optionNextLevel.remove();
                                 $nextLevelSelect.trigger('change');
                             }
                                 
                             //add selection to next level
                             if($selectedOption.text() != '') {
-                                $selectedOption.clone().appendTo($nextLevelSelect);
+                            $selectedOption.clone().removeAttr('selected').appendTo($nextLevelSelect);
                                 $selectedOption.parent().data('prev', selectedText);
                             }
                             
