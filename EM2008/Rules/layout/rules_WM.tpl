@@ -18,7 +18,7 @@
 		<h3>Punktevergabe - Gruppen- und Finalspieltipps</h3>
 		<ul>
 			<li><b>5 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; korrekter Resultattipp und der richtige Sieger bzw. untentschieden (du tippst 2:1 und das Spiel endet 2:1)</li>
-			<li><b>4 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; richtiger Sieger bzw. unentschieden mit der korrekten Tordifferenz (du tippst 2:1, aber das Spiel endet 1:0)</li>
+			<li><b>4 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; richtiger Sieger mit der korrekten Tordifferenz bzw. unentschieden (du tippst 2:1, aber das Spiel endet 1:0)</li>
 			<li><b>3 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; richtiger Sieger mit falscher Tordifferenz (du tippst 2:1, aber das Spiel endet 2:0)</li>
 			<li><b>0 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; falscher Sieger (du tippst 2:1, aber das Spiel endet 1:2)</li>
 		</ul>
