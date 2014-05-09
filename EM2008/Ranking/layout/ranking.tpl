@@ -9,7 +9,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 <?	} ?>
 <? if(mysql_result($countPlayersNotPayed,0) != 0){ ?>
 	<br><br> 
-	<div style="color: red">Davon noch nicht bezahlt:&nbsp;&nbsp;<b><? echo mysql_result($countPlayersNotPayed,0); ?></b></div>
+	<div style="color: red">Noch nicht bezahlt (rot eingef&auml;rbt) haben:&nbsp;&nbsp;<b><? echo mysql_result($countPlayersNotPayed,0); ?></b></div>
 	<br>
 <? } ?>
 <table>
@@ -83,13 +83,13 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 									if($_SESSION['eingeloggt']){
 								?>
 										<a href="index.php?go=otherTipps&action=getTipps&id=<?php echo $ranking['userid']+5; ?>" style="color:red">
-											<?echo $ranking['nachname'] ?>(nnb)
+											<?echo $ranking['nachname'] ?>
 										</a>
 								<?
 									}
 									else{
 								?>
-										<?echo $ranking['nachname'] ?>(nnb)
+										<?echo $ranking['nachname'] ?>
 								<?
 									}
 								?>
@@ -132,10 +132,6 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 		}
 	?>
 </table>
-<? if(mysql_result($countPlayersNotPayed,0) != 0){ ?>
-	<br><br>
-	<span style="color: red">nnb --> noch nicht bezahlt</span>
-<? } ?>
 <!--[if IE 6]>
 </div>
 <![endif]-->

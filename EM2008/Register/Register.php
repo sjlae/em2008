@@ -73,7 +73,7 @@ class Register extends HTMLPage implements Page {
 		 	if(!Constants::isLocal()){
 		 		$sender = "silvan.staeheli@bluewin.ch";
 				$empfaenger = $this->email;
-				$betreff = "Erfolgreiche Registrierung bei tippy.ch";
+				$betreff = "Erfolgreiche Registrierung bei tippy";
 				$mailtext = "Hallo $this->vorname<br><br>
 				Super, hast du dich bei tippy.ch angemeldet. Ab sofort kannst du deine Tipps erfassen, im G&auml;stebuch Kommentare schreiben, 
 				die Statistiken betrachten oder Tipps der Konkurrenten ansehen. Ich rate dir jedoch (falls noch nicht geschehen), zuerst die 
