@@ -57,17 +57,17 @@
 							
 							<?php if($wert1 != 0){ ?>
 								<td align="center" style="background-color: #7F99FF; width: <?php echo $wert1 ?>% ">
-									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=1"><b><?php echo $spiel['total_1']; ?></b></a>
+									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=1" <?php echo $spiel['userResult'] == '1' ? 'style="color: red;"' : 'style="color: black;"'; ?>><b><?php echo $spiel['total_1']; ?></b></a>
 								</td>
 							<?php } ?>
 							<?php if($wertX != 0){ ?>
 								<td align="center" style="background-color: #FFCC33; width: <?php echo $wertX ?>%">
-									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=X"><b><?php echo $spiel['total_X']; ?></b></a>
+									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=X" <?php echo $spiel['userResult'] == 'X' ? 'style="color: red;"' : 'style="color: black;"'; ?>><b><?php echo $spiel['total_X']; ?></b></a>
 								</td>
 							<?php } ?>
 							<?php if($wert2 != 0){ ?>
 								<td align="center" style="background-color: #009966; width: <?php echo $wert2 ?>%">
-									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=2"><b><?php echo $spiel['total_2']; ?></b></a>
+									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=2" <?php echo $spiel['userResult'] == '2' ? 'style="color: red;"' : 'style="color: black;"'; ?>><b><?php echo $spiel['total_2']; ?></b></a>
 								</td>
 							<?php } ?>
 						</tr>

@@ -35,9 +35,10 @@ class Statistics extends HTMLPage implements Page {
 			$this->vorrunde[$i]['total_1'] = $this->getTotal_1($row['vorrundeteamsid']);
 			$this->vorrunde[$i]['total_X'] = $this->getTotal_X($row['vorrundeteamsid']);
 			$this->vorrunde[$i]['total_2'] = $this->getTotal_2($row['vorrundeteamsid']);
+			$this->vorrunde[$i]['userResult'] = $this->getUserResult($row['vorrundeteamsid']);
 			$i++;
 		}
-		
+						
 		$abfrage_finals = "SELECT * FROM teams order by land ASC";
 		$ergebnis_finals = mysql_query($abfrage_finals);
 
@@ -151,6 +152,31 @@ class Statistics extends HTMLPage implements Page {
 		}
 		
 		return $counter;
+	}
+	
+	private function getUserResult($id){
+		$userid = $_SESSION['userid'];
+		$ergebnis = mysql_query("SELECT vorrunde.result1, vorrunde.result2 from vorrunde, uservorrunde where (vorrunde.vorrundeteamsfsid = '$id' and uservorrunde.userfsid = '$userid' and uservorrunde.vorrundefsid = vorrunde.vorrundeid);");
+		
+		$result = mysql_fetch_assoc($ergebnis);
+		
+		if(!is_numeric($result['result1']) || !is_numeric($result['result2'])){
+			return '0';
+		}
+		
+		else if($result['result1'] > $result['result2']){
+			return '1';
+		}
+		else if ($result['result1'] == $result['result2']){
+			return 'X';	
+		}
+		else if ($result['result1'] < $result['result2']){
+			return '2';	
+		}
+		
+		else{
+			return '0';
+		}
 	}
 	
 	private function isValid($result1, $result2){
