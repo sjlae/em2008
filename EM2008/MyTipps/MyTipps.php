@@ -134,8 +134,9 @@ class MyTipps extends HTMLPage implements Page {
 		for($i=1;$i<=$countGames['Number'];$i++) {
 			$result1 = $_POST['result1'.$i];
 			$result2 = $_POST['result2'.$i];
-			
-			if(($result1 != '' && !preg_match('/^\d{1,2}$/', $result1)) || ($result2 != '' && !preg_match('/^\d{1,2}$/', $result2))){
+            
+            
+			if($_SERVER['REQUEST_METHOD'] !== 'POST' || (($result1 != '' && !preg_match('/^\d{1,2}$/', $result1)) || ($result2 != '' && !preg_match('/^\d{1,2}$/', $result2)))){
 				if($showWarningMessage){
 					$this->errors[] = "Aufgrund komischen Werten, wurden nicht all deine Tipps gespeichert.";
 					$showWarningMessage = false;
