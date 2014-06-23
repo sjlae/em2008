@@ -181,11 +181,23 @@ class Admin extends HTMLPage implements Page{
 			$result2 = $_POST["result2_$counter"];
 			$var1 = $counter."_1";
 			$var2 = $counter."_2";
-			if(isset($_POST[$var1])){
+			if(is_numeric($_POST[$var1]) || is_numeric($_POST[$var2])){
 				$team1 = $_POST[$var1];
 				$team2 = $_POST[$var2];
+				$abfrage = "";
 				
-				$abfrage = "Update vorrundeteams set team1fsid='".$team1."', team2fsid='".$team2."', realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
+				if(is_numeric($_POST[$var1]) && is_numeric($_POST[$var2])){
+					$abfrage = "Update vorrundeteams set team1fsid='".$team1."', team2fsid='".$team2."', realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
+				}
+				
+				else if(is_numeric($_POST[$var1])){
+					$abfrage = "Update vorrundeteams set team1fsid='".$team1."', realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
+				}
+				
+				else{
+					$abfrage = "Update vorrundeteams set team2fsid='".$team2."', realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
+				}
+				
 				mysql_query($abfrage);
 			}
 			else{
