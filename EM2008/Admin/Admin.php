@@ -529,174 +529,174 @@ class Admin extends HTMLPage implements Page{
 					if(Constants::$isWM){
 						if($rowUser['achtelfinal1'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal1'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal2'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal2'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal3'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal3'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal4'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal4'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal5'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal5'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal6'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal6'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal7'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal7'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal8'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal8'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal9'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal9'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal10'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal10'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal11'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal11'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal12'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal12'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal13'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal13'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal14'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal14'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal15'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal15'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 						
 						if($rowUser['achtelfinal16'] != ''){
 							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal16'])){
-								$points = $points+4; 
+								$points = $points+3; 
 							}
 						}
 					}
 					
 					if($rowUser['viertelfinal1'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal1'])){
-							$points = $points+6; 
+							$points = $points+4; 
 						}
 					}
 					if($rowUser['viertelfinal2'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal2'])){
-							$points = $points+6; 
+							$points = $points+4; 
 						}
 					}
 					if($rowUser['viertelfinal3'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal3'])){
-							$points = $points+6; 
+							$points = $points+4; 
 						}
 					}
 					if($rowUser['viertelfinal4'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal4'])){
-							$points = $points+6; 
+							$points = $points+4; 
 						}
 					}
 					if($rowUser['viertelfinal5'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal5'])){
-							$points = $points+6; 
+							$points = $points+4; 
 						}
 					}
 					if($rowUser['viertelfinal6'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal6'])){
-							$points = $points+6; 
+							$points = $points+4; 
 						}
 					}
 					if($rowUser['viertelfinal7'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal7'])){
-							$points = $points+6; 
+							$points = $points+4; 
 						}
 					}
 					if($rowUser['viertelfinal8'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal8'])){
-							$points = $points+6; 
+							$points = $points+4; 
 						}
 					}
 					if($rowUser['halbfinal1'] != ''){
 						if($this->isHalbfinalTippCorrect($rowUser['halbfinal1'])){
-							$points = $points+8; 
+							$points = $points+5; 
 						}
 					}
 					if($rowUser['halbfinal2'] != ''){
 						if($this->isHalbfinalTippCorrect($rowUser['halbfinal2'])){
-							$points = $points+8; 
+							$points = $points+5; 
 						}
 					}
 					if($rowUser['halbfinal3'] != ''){
 						if($this->isHalbfinalTippCorrect($rowUser['halbfinal3'])){
-							$points = $points+8; 
+							$points = $points+5; 
 						}
 					}
 					if($rowUser['halbfinal4'] != ''){
 						if($this->isHalbfinalTippCorrect($rowUser['halbfinal4'])){
-							$points = $points+8; 
+							$points = $points+5; 
 						}
 					}
 					if($rowUser['final1'] != ''){
 						if($this->isFinalTippCorrect($rowUser['final1'])){
-							$points = $points+10; 
+							$points = $points+6; 
 						}
 					}
 					if($rowUser['final2'] != ''){
 						if($this->isFinalTippCorrect($rowUser['final2'])){
-							$points = $points+10; 
+							$points = $points+6; 
 						}
 					}
 					if($rowUser['sieger'] != ''){
 						if($this->isSiegerTippCorrect($rowUser['sieger'])){
-							$points = $points+12; 
+							$points = $points+10; 
 						}
 					}
 				}
