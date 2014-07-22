@@ -1,18 +1,18 @@
 <h2>Spielregeln</h2>
 	
 		<p>Auf dieser Seite werden die Spielregeln erl&auml;utert. Wenn du dich mit den Regeln vertraut gemacht hast, kannst du
-		dich umgehend &uuml;ber den Link 'Registrieren' auf der rechten Seite f&uuml;r das WM-Tippspiel registieren. Wir brauchen
+		dich umgehend &uuml;ber den Link 'Registrieren' auf der rechten Seite f&uuml;r das Tippspiel registieren. Wir brauchen
 		deinen kompletten Namen, deine E-Mail Adresse und wie du auf dieses Tippspiel gekommen bist. Sobald dieser Vorgang 
 		erfolgreich abgeschlossen ist, kannst du dich einloggen und deine Tipps erfassen.</p>
 		<p>Auf der 'Tipps erfassen' Seite siehst du drei sogenannte Tabs. Beschriftet mit Gruppenspiele, Finalspiele und Finalteilnehmer. Beim Klick auf
 		den Tab Gruppenspiele, kannst du s&auml;mtliche Gruppenspiele tippen. Wenn du auf den Tab Finalspiele klickst, siehst du die Paarungen ab
 		dem 1/8 Finale. Solange diese Teilnehmerl&auml;nder noch nicht feststehen, sind lediglich Platzhalter an deren Stelle. Theoretisch kannst du
 		auch schon vorher s&auml;mtliche Partien tippen, weisst einfach noch nicht, wer dann tats&auml;chlich gegen wen spielen wird. Auf dem letzten
-		Tab (Finalteilnehmer) siehst du	Auswahlboxen f&uuml;r die Achtelfinal-, Viertelfinal-, Halbfinal- und Finalteilnehmer und den Weltmeister.</p>
+		Tab (Finalteilnehmer) siehst du	Auswahlboxen f&uuml;r die Achtelfinal-, Viertelfinal-, Halbfinal- und Finalteilnehmer und den Sieger.</p>
 		
 		<p>Deine Resultattipps f&uuml;r die <b>Gruppenspiele und Finalspiele</b> musst du jeweils bis sp&auml;testens <b>1 Minute vor Spielbeginn</b> erfasst 
 		und gespeichert haben. Ansonsten gibt es 0 Punkte f&uuml;r dieses Spiel. Bei den Resultattipps der Finalspiele (ab den Achtelfinals) ist das Resultat
-		nach der regul&auml;ren Spielzeit (ohne Verl&auml;ngerung oder Elfmeterschiessen) relevant. Die <b>Teilnehmernationen im Tab Finalteilnehmer (s&auml;mtliche Teams in den Achtelfinals, Viertelfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 12. Juni 2014</b> getippt haben. 
+		nach der regul&auml;ren Spielzeit (<b>inkl. Verl&auml;ngerung aber ohne Elfmeterschiessen</b>) relevant. Die <b>Teilnehmernationen im Tab Finalteilnehmer (s&auml;mtliche Teams in den Achtelfinals, Viertelfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 12. Juni 2014</b> getippt haben. 
 		Diese kannst du ab dann nicht mehr ver&auml;ndern. Mit anderen Worten, du musst vor dem Turnierstart tippen, welche Nationen du in die 
 		Achtelfinals, Viertelfinals, etc. tippst.</p>
 		<h3>Punktevergabe - Gruppen- und Finalspieltipps</h3>
@@ -24,18 +24,18 @@
 		</ul>
 		<h3>Punktevergabe - Finalteilnehmertipps</h3>
 		<ul>
-			<li><b>&nbsp;4 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Achtelfinal Teilnehmer</li>
-			<li><b>&nbsp;6 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Viertelfinal Teilnehmer</li>
-			<li><b>&nbsp;8 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Halbfinal Teilnehmer</li>
-			<li><b>10 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Final Teilnehmer</li>
-			<li><b>12 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; f&uuml;r den richtigen Weltmeister</li>
+			<li><b>2 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Achtelfinal Teilnehmer</li>
+			<li><b>3 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Viertelfinal Teilnehmer</li>
+			<li><b>4 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Halbfinal Teilnehmer</li>
+			<li><b>5 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Final Teilnehmer</li>
+			<li><b>8 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; f&uuml;r den richtigen Sieger</li>
 		</ul>
 		<p>Damit du allf&auml;llig ben&ouml;tigte Gedankenanst&ouml;sse zur Hilfe beiziehen kannst oder mit anderen Teilnehmer &uuml;ber die abgegebenen Tipps fachsimpeln 
 		kannst, werden s&auml;mtliche Tipps von den Teilnehmern f&uuml;r alle angemeldeten Mitspieler ersichtlich sein. Der andere Grund f&uuml;r dieses Vorgehen 
 		ist der, dass es so auch uns Organisatoren m&ouml;glich ist an diesem Spiel teilzunehmen.</p>
 		<p>Im Men&uuml;punkt 'Statistiken' findest du die beiden Tabs Resultattipps und Finalteilnehmer. Beim Tab Resultattipps
 		kannst du jederzeit sehen, wie die aktuelle Tippverteilung aller Mitspieler pro Gruppen- und Finalspiel aussieht. Beim Tab Finalteilnehmer siehst du, wieviele
-		Mitspieler die jeweiligen Teams in die Achtel-, Viertel-, Halb-, Finalspiele und nat&uuml;rlich als Weltmeister getippt haben.</p>
+		Mitspieler die jeweiligen Teams in die Achtel-, Viertel-, Halb-, Finalspiele und nat&uuml;rlich als Sieger getippt haben.</p>
 		<p>Falls du deine Tipps allen kundtum m&ouml;chtest oder die Tippgemeinde &uuml;ber sonst was informieren m&ouml;chtest, kannst du dies jederzeit
 		in unserem kleinen G&auml;stebuch unter dem gleichnamigen Men&uuml;punkt. Anst&ouml;ssige, politisch inkorrekte oder ethisch unzumutbare Beitr&auml;ge
 		werden von uns relativ rasch entfernt. Aber nat&uuml;rlich k&ouml;nnen heissgef&uuml;hrte Diskussionen ausgetragen werden.</p>
@@ -48,64 +48,75 @@
 		<table border="1" cellspacing="0" cellpadding="0" width="100%">
 			<tr align="right">
 				<td><b>Rang</b></td>
-				<td><b>0-100</b></td>
-				<td><b>101-150</b></td>
-				<td><b>151-mehr</b></td>
+				<td><b>1-200</b></td>
+				<td><b>201-mehr</b></td>
 			</tr>
 			<tr align="right">
 				<td>1.</td>
-				<td>50 %</td>
-				<td>38 %</td>
 				<td>34 %</td>
+				<td>27 %</td>
 			</tr>
 			<tr align="right">
 				<td>2.</td>
-				<td>30 %</td>
-				<td>26 %</td>
 				<td>23 %</td>
+				<td>17 %</td>
 			</tr>
 			<tr align="right">
 				<td>3.</td>
-				<td>20 %</td>
-				<td>18 %</td>
 				<td>16 %</td>
+				<td>12.75 %</td>
 			</tr>
 			<tr align="right">
 				<td>4.</td>
-				<td>&nbsp;</td>
-				<td>11 %</td>
 				<td>9 %</td>
+				<td>10 %</td>
 			</tr>
 			<tr align="right">
 				<td>5.</td>
-				<td>&nbsp;</td>
-				<td>7 %</td>
 				<td>6 %</td>
+				<td>7.5 %</td>
 			</tr>
 			<tr align="right">
 				<td>6.</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
 				<td>5 %</td>
+				<td>5.5 %</td>
 			</tr>
 			<tr align="right">
 				<td>7.</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
 				<td>4 %</td>
+				<td>3.75 %</td>
 			</tr>
 			<tr align="right">
 				<td>8.</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
 				<td>3 %</td>
+				<td>3 %</td>
+			</tr>
+			<tr align="right">
+				<td>9.</td>
+				<td>&nbsp;</td>
+				<td>2.25 %</td>
+			</tr>
+			<tr align="right">
+				<td>10. - 12.</td>
+				<td>&nbsp;</td>
+				<td>1.5 %</td>
+			</tr>
+			<tr align="right">
+				<td>13. - 15.</td>
+				<td>&nbsp;</td>
+				<td>1.25 %</td>
+			</tr>
+			<tr align="right">
+				<td>16. - 18.</td>
+				<td>&nbsp;</td>
+				<td>1 %</td>
 			</tr>
 		</table>
 		<p>
 		Bei Punktegleichstand am Schluss innerhalb der Gewinnr&auml;nge gelten nachstehende Kriterien f&uuml;r die Ermittlung der R&auml;nge. 
 		Besser rangiert ist derjenige, welcher</p>
 		<ol>
-			<li>der richtige Weltmeister hat</li>
+			<li>der richtige Sieger hat</li>
 			<li>mehr richtige Finalteilnehmer hat</li>
 			<li>mehr richtige Halbfinalteilnehmer hat</li>
 			<li>mehr richtige Viertelfinalteilnehmer hat</li>
@@ -116,11 +127,14 @@
 		<p>Nur bei Gleichstand beim ersten Kriterium wird das zweite &uuml;berhaupt noch &uuml;berpr&uuml;ft usw.</p>
 		
 		<p>Damit ein Pot zustande kommt, muss jeder Teilnehmer Fr. 20.-- bezahlen. Solange ein Teilnehmer nicht bezahlt hat, wird dieser
-		speziell markiert auf der Ranglisten-Seite. Wer bis am <b>12. Juni 2014</b> noch nicht bezahlt hat, wird vom WM-Tippspiel ausgeschlossen.</p>
-		<p>Nun weisst du alles, was es &uuml;ber das WM-Tippspiel zu wissen gibt. Folgende drei Dinge solltest du nun unternehmen:</p>
+		speziell markiert auf der Ranglisten-Seite. Wer bis am <b>12. Juni 2014</b> noch nicht bezahlt hat, wird vom Tippspiel ausgeschlossen.</p>
+		<p>Nun weisst du alles, was es &uuml;ber unser Tippspiel zu wissen gibt. Folgende drei Dinge solltest du nun unternehmen:</p>
 		<ol>
 			<li>Dich registrieren.</li>
 			<li><b>Das Tippspiel bei Bekannten, Freunden, Nachbarn etc. bekannt machen.</b></li>
 			<li>Deinen Einsatz von Fr. 20.-- bezahlen (entweder bar einem von uns Organisatoren &uuml;bergeben oder &uuml;berweisen).</li>
 		</ol>
+		<p>Wir m&ouml;chten dich noch darauf hinweisen, dass wir Organisatoren f&uuml;r allf&auml;llig verloren gegangene Tipps oder zwischenzeitlichen
+		Problemen beim Zugriff auf unser Tippspiel, keine Haftung &uuml;bernehmen. Wir setzen alles daran, dass unser Tippspiel rund um die Uhr online
+		ist und deine Interaktionen stets korrekt abgewickelt werden.</p>
 		<p>PS: Die m&auml;nnliche Form wurde der Einfachheit halber verwendet und soll in keinster Art und Weise diskriminierend wirken.</p>

@@ -76,32 +76,30 @@ class Admin extends HTMLPage implements Page{
 	}
 
 	private function hasEqualTeams(){
-		if(Constants::$isWM){
-			$achtelfinalArray = array();
+		$achtelfinalArray = array();
+		
+		$achtelfinalArray[0] = $_POST["achtelfinal1"];
+		$achtelfinalArray[1] = $_POST["achtelfinal2"];
+		$achtelfinalArray[2] = $_POST["achtelfinal3"];
+		$achtelfinalArray[3] = $_POST["achtelfinal4"];
+		$achtelfinalArray[4] = $_POST["achtelfinal5"];
+		$achtelfinalArray[5] = $_POST["achtelfinal6"];
+		$achtelfinalArray[6] = $_POST["achtelfinal7"];
+		$achtelfinalArray[7] = $_POST["achtelfinal8"];
+		$achtelfinalArray[8] = $_POST["achtelfinal9"];
+		$achtelfinalArray[9] = $_POST["achtelfinal10"];
+		$achtelfinalArray[10] = $_POST["achtelfinal11"];
+		$achtelfinalArray[11] = $_POST["achtelfinal12"];
+		$achtelfinalArray[12] = $_POST["achtelfinal13"];
+		$achtelfinalArray[13] = $_POST["achtelfinal14"];
+		$achtelfinalArray[14] = $_POST["achtelfinal15"];
+		$achtelfinalArray[15] = $_POST["achtelfinal16"];
+		
+		$resultAchtelFinalArray = array_count_values($achtelfinalArray);
 			
-			$achtelfinalArray[0] = $_POST["achtelfinal1"];
-			$achtelfinalArray[1] = $_POST["achtelfinal2"];
-			$achtelfinalArray[2] = $_POST["achtelfinal3"];
-			$achtelfinalArray[3] = $_POST["achtelfinal4"];
-			$achtelfinalArray[4] = $_POST["achtelfinal5"];
-			$achtelfinalArray[5] = $_POST["achtelfinal6"];
-			$achtelfinalArray[6] = $_POST["achtelfinal7"];
-			$achtelfinalArray[7] = $_POST["achtelfinal8"];
-			$achtelfinalArray[8] = $_POST["achtelfinal9"];
-			$achtelfinalArray[9] = $_POST["achtelfinal10"];
-			$achtelfinalArray[10] = $_POST["achtelfinal11"];
-			$achtelfinalArray[11] = $_POST["achtelfinal12"];
-			$achtelfinalArray[12] = $_POST["achtelfinal13"];
-			$achtelfinalArray[13] = $_POST["achtelfinal14"];
-			$achtelfinalArray[14] = $_POST["achtelfinal15"];
-			$achtelfinalArray[15] = $_POST["achtelfinal16"];
-			
-			$resultAchtelFinalArray = array_count_values($achtelfinalArray);
-				
-			if(count($resultAchtelFinalArray) <= (16 - ($resultAchtelFinalArray[''] == 0 ? 1 : $resultAchtelFinalArray['']))){
-					$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
-					return;
-			}
+		if(count($resultAchtelFinalArray) <= (16 - ($resultAchtelFinalArray[''] == 0 ? 1 : $resultAchtelFinalArray['']))){
+				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
+				return;
 		}
 		
 		$viertelfinalArray = array();
@@ -208,71 +206,69 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function setHauptrundenTeams() {
-		if(Constants::$isWM){
-			$achtelfinal1 = $_POST["achtelfinal1"];
-			$abfrage = "Update realhauptrunde set achtelfinal1='".$achtelfinal1."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal2 = $_POST["achtelfinal2"];
-			$abfrage = "Update realhauptrunde set achtelfinal2='".$achtelfinal2."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal3 = $_POST["achtelfinal3"];
-			$abfrage = "Update realhauptrunde set achtelfinal3='".$achtelfinal3."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal4 = $_POST["achtelfinal4"];
-			$abfrage = "Update realhauptrunde set achtelfinal4='".$achtelfinal4."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal5 = $_POST["achtelfinal5"];
-			$abfrage = "Update realhauptrunde set achtelfinal5='".$achtelfinal5."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal6 = $_POST["achtelfinal6"];
-			$abfrage = "Update realhauptrunde set achtelfinal6='".$achtelfinal6."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal7 = $_POST["achtelfinal7"];
-			$abfrage = "Update realhauptrunde set achtelfinal7='".$achtelfinal7."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal8 = $_POST["achtelfinal8"];
-			$abfrage = "Update realhauptrunde set achtelfinal8='".$achtelfinal8."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal9 = $_POST["achtelfinal9"];
-			$abfrage = "Update realhauptrunde set achtelfinal9='".$achtelfinal9."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal10 = $_POST["achtelfinal10"];
-			$abfrage = "Update realhauptrunde set achtelfinal10='".$achtelfinal10."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal11 = $_POST["achtelfinal11"];
-			$abfrage = "Update realhauptrunde set achtelfinal11='".$achtelfinal11."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal12 = $_POST["achtelfinal12"];
-			$abfrage = "Update realhauptrunde set achtelfinal12='".$achtelfinal12."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal13 = $_POST["achtelfinal13"];
-			$abfrage = "Update realhauptrunde set achtelfinal13='".$achtelfinal13."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal14 = $_POST["achtelfinal14"];
-			$abfrage = "Update realhauptrunde set achtelfinal14='".$achtelfinal14."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal15 = $_POST["achtelfinal15"];
-			$abfrage = "Update realhauptrunde set achtelfinal15='".$achtelfinal15."'";
-			mysql_query($abfrage);
-			
-			$achtelfinal16 = $_POST["achtelfinal16"];
-			$abfrage = "Update realhauptrunde set achtelfinal16='".$achtelfinal16."'";
-			mysql_query($abfrage);
-		}
+		$achtelfinal1 = $_POST["achtelfinal1"];
+		$abfrage = "Update realhauptrunde set achtelfinal1='".$achtelfinal1."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal2 = $_POST["achtelfinal2"];
+		$abfrage = "Update realhauptrunde set achtelfinal2='".$achtelfinal2."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal3 = $_POST["achtelfinal3"];
+		$abfrage = "Update realhauptrunde set achtelfinal3='".$achtelfinal3."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal4 = $_POST["achtelfinal4"];
+		$abfrage = "Update realhauptrunde set achtelfinal4='".$achtelfinal4."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal5 = $_POST["achtelfinal5"];
+		$abfrage = "Update realhauptrunde set achtelfinal5='".$achtelfinal5."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal6 = $_POST["achtelfinal6"];
+		$abfrage = "Update realhauptrunde set achtelfinal6='".$achtelfinal6."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal7 = $_POST["achtelfinal7"];
+		$abfrage = "Update realhauptrunde set achtelfinal7='".$achtelfinal7."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal8 = $_POST["achtelfinal8"];
+		$abfrage = "Update realhauptrunde set achtelfinal8='".$achtelfinal8."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal9 = $_POST["achtelfinal9"];
+		$abfrage = "Update realhauptrunde set achtelfinal9='".$achtelfinal9."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal10 = $_POST["achtelfinal10"];
+		$abfrage = "Update realhauptrunde set achtelfinal10='".$achtelfinal10."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal11 = $_POST["achtelfinal11"];
+		$abfrage = "Update realhauptrunde set achtelfinal11='".$achtelfinal11."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal12 = $_POST["achtelfinal12"];
+		$abfrage = "Update realhauptrunde set achtelfinal12='".$achtelfinal12."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal13 = $_POST["achtelfinal13"];
+		$abfrage = "Update realhauptrunde set achtelfinal13='".$achtelfinal13."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal14 = $_POST["achtelfinal14"];
+		$abfrage = "Update realhauptrunde set achtelfinal14='".$achtelfinal14."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal15 = $_POST["achtelfinal15"];
+		$abfrage = "Update realhauptrunde set achtelfinal15='".$achtelfinal15."'";
+		mysql_query($abfrage);
+		
+		$achtelfinal16 = $_POST["achtelfinal16"];
+		$abfrage = "Update realhauptrunde set achtelfinal16='".$achtelfinal16."'";
+		mysql_query($abfrage);
 		
 		$viertelfinal1 = $_POST["viertelfinal1"];
 		$abfrage = "Update realhauptrunde set viertelfinal1='".$viertelfinal1."'";
@@ -421,24 +417,22 @@ class Admin extends HTMLPage implements Page{
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
-			if(Constants::$isWM){
-				$this->achtelfinal1 = $row['achtelfinal1'];
-				$this->achtelfinal2 = $row['achtelfinal2'];
-				$this->achtelfinal3 = $row['achtelfinal3'];
-				$this->achtelfinal4 = $row['achtelfinal4'];
-				$this->achtelfinal5 = $row['achtelfinal5'];
-				$this->achtelfinal6 = $row['achtelfinal6'];
-				$this->achtelfinal7 = $row['achtelfinal7'];
-				$this->achtelfinal8 = $row['achtelfinal8'];
-				$this->achtelfinal9 = $row['achtelfinal9'];
-				$this->achtelfinal10 = $row['achtelfinal10'];
-				$this->achtelfinal11 = $row['achtelfinal11'];
-				$this->achtelfinal12 = $row['achtelfinal12'];
-				$this->achtelfinal13 = $row['achtelfinal13'];
-				$this->achtelfinal14 = $row['achtelfinal14'];
-				$this->achtelfinal15 = $row['achtelfinal15'];
-				$this->achtelfinal16 = $row['achtelfinal16'];
-			}
+			$this->achtelfinal1 = $row['achtelfinal1'];
+			$this->achtelfinal2 = $row['achtelfinal2'];
+			$this->achtelfinal3 = $row['achtelfinal3'];
+			$this->achtelfinal4 = $row['achtelfinal4'];
+			$this->achtelfinal5 = $row['achtelfinal5'];
+			$this->achtelfinal6 = $row['achtelfinal6'];
+			$this->achtelfinal7 = $row['achtelfinal7'];
+			$this->achtelfinal8 = $row['achtelfinal8'];
+			$this->achtelfinal9 = $row['achtelfinal9'];
+			$this->achtelfinal10 = $row['achtelfinal10'];
+			$this->achtelfinal11 = $row['achtelfinal11'];
+			$this->achtelfinal12 = $row['achtelfinal12'];
+			$this->achtelfinal13 = $row['achtelfinal13'];
+			$this->achtelfinal14 = $row['achtelfinal14'];
+			$this->achtelfinal15 = $row['achtelfinal15'];
+			$this->achtelfinal16 = $row['achtelfinal16'];
 			
 			$this->viertelfinal1 = $row['viertelfinal1'];
 			$this->viertelfinal2 = $row['viertelfinal2'];
@@ -526,177 +520,188 @@ class Admin extends HTMLPage implements Page{
 				
 				while($rowUser = mysql_fetch_assoc($resultHauptrundeTippsFromUser))
 				{
+					$achtelfinal_points = '2';
+					$viertelfinal_points = '3';
+					$halbfinal_points = '4';
+					$final_points = '5';
+					$sieger_points = '8';
+					
 					if(Constants::$isWM){
-						if($rowUser['achtelfinal1'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal1'])){
-								$points = $points+3; 
-							}
+						//$achtelfinal_points = '3';
+						//$viertelfinal_points = '4';
+						//$halbfinal_points = '5';
+						//$final_points = '6';
+					}
+					
+					if($rowUser['achtelfinal1'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal1'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal2'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal2'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal2'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal2'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal3'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal3'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal3'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal3'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal4'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal4'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal4'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal4'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal5'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal5'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal5'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal5'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal6'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal6'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal6'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal6'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal7'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal7'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal7'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal7'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal8'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal8'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal8'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal8'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal9'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal9'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal9'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal9'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal10'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal10'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal10'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal10'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal11'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal11'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal11'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal11'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal12'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal12'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal12'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal12'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal13'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal13'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal13'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal13'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal14'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal14'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal14'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal14'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal15'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal15'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal15'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal15'])){
+							$points = $points+$achtelfinal_points; 
 						}
-						
-						if($rowUser['achtelfinal16'] != ''){
-							if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal16'])){
-								$points = $points+3; 
-							}
+					}
+					
+					if($rowUser['achtelfinal16'] != ''){
+						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal16'])){
+							$points = $points+$achtelfinal_points; 
 						}
 					}
 					
 					if($rowUser['viertelfinal1'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal1'])){
-							$points = $points+4; 
+							$points = $points+$viertelfinal_points; 
 						}
 					}
 					if($rowUser['viertelfinal2'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal2'])){
-							$points = $points+4; 
+							$points = $points+$viertelfinal_points; 
 						}
 					}
 					if($rowUser['viertelfinal3'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal3'])){
-							$points = $points+4; 
+							$points = $points+$viertelfinal_points; 
 						}
 					}
 					if($rowUser['viertelfinal4'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal4'])){
-							$points = $points+4; 
+							$points = $points+$viertelfinal_points; 
 						}
 					}
 					if($rowUser['viertelfinal5'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal5'])){
-							$points = $points+4; 
+							$points = $points+$viertelfinal_points; 
 						}
 					}
 					if($rowUser['viertelfinal6'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal6'])){
-							$points = $points+4; 
+							$points = $points+$viertelfinal_points; 
 						}
 					}
 					if($rowUser['viertelfinal7'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal7'])){
-							$points = $points+4; 
+							$points = $points+$viertelfinal_points; 
 						}
 					}
 					if($rowUser['viertelfinal8'] != ''){
 						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal8'])){
-							$points = $points+4; 
+							$points = $points+$viertelfinal_points; 
 						}
 					}
 					if($rowUser['halbfinal1'] != ''){
 						if($this->isHalbfinalTippCorrect($rowUser['halbfinal1'])){
-							$points = $points+5; 
+							$points = $points+$halbfinal_points; 
 						}
 					}
 					if($rowUser['halbfinal2'] != ''){
 						if($this->isHalbfinalTippCorrect($rowUser['halbfinal2'])){
-							$points = $points+5; 
+							$points = $points+$halbfinal_points; 
 						}
 					}
 					if($rowUser['halbfinal3'] != ''){
 						if($this->isHalbfinalTippCorrect($rowUser['halbfinal3'])){
-							$points = $points+5; 
+							$points = $points+$halbfinal_points; 
 						}
 					}
 					if($rowUser['halbfinal4'] != ''){
 						if($this->isHalbfinalTippCorrect($rowUser['halbfinal4'])){
-							$points = $points+5; 
+							$points = $points+$halbfinal_points; 
 						}
 					}
 					if($rowUser['final1'] != ''){
 						if($this->isFinalTippCorrect($rowUser['final1'])){
-							$points = $points+6; 
+							$points = $points+$final_points; 
 						}
 					}
 					if($rowUser['final2'] != ''){
 						if($this->isFinalTippCorrect($rowUser['final2'])){
-							$points = $points+6; 
+							$points = $points+$final_points; 
 						}
 					}
 					if($rowUser['sieger'] != ''){
 						if($this->isSiegerTippCorrect($rowUser['sieger'])){
-							$points = $points+10; 
+							$points = $points+$sieger_points; 
 						}
 					}
 				}
@@ -1009,61 +1014,39 @@ class Admin extends HTMLPage implements Page{
 			$rowHauptrunde = mysql_fetch_assoc($resultHauptrunde);
 			
 			if($rowHauptrunde != false){
-				if(Constants::$isWM){
-					if($rowHauptrunde['achtelfinal1'] == ''
-						|| $rowHauptrunde['achtelfinal2'] == ''
-						|| $rowHauptrunde['achtelfinal3'] == ''
-						|| $rowHauptrunde['achtelfinal4'] == ''
-						|| $rowHauptrunde['achtelfinal5'] == ''
-						|| $rowHauptrunde['achtelfinal6'] == ''
-						|| $rowHauptrunde['achtelfinal7'] == ''
-						|| $rowHauptrunde['achtelfinal8'] == ''
-						|| $rowHauptrunde['achtelfinal9'] == ''
-						|| $rowHauptrunde['achtelfinal10'] == ''
-						|| $rowHauptrunde['achtelfinal11'] == ''
-						|| $rowHauptrunde['achtelfinal12'] == ''
-						|| $rowHauptrunde['achtelfinal13'] == ''
-						|| $rowHauptrunde['achtelfinal14'] == ''
-						|| $rowHauptrunde['achtelfinal15'] == ''
-						|| $rowHauptrunde['achtelfinal16'] == ''
-						|| $rowHauptrunde['viertelfinal1'] == ''
-						|| $rowHauptrunde['viertelfinal2'] == ''
-						|| $rowHauptrunde['viertelfinal3'] == ''
-						|| $rowHauptrunde['viertelfinal4'] == ''
-						|| $rowHauptrunde['viertelfinal5'] == ''
-						|| $rowHauptrunde['viertelfinal6'] == ''
-						|| $rowHauptrunde['viertelfinal7'] == ''
-						|| $rowHauptrunde['viertelfinal8'] == ''
-						|| $rowHauptrunde['halbfinal1'] == ''
-						|| $rowHauptrunde['halbfinal2'] == ''
-						|| $rowHauptrunde['halbfinal3'] == ''
-						|| $rowHauptrunde['halbfinal4'] == ''
-						|| $rowHauptrunde['final1'] == ''
-						|| $rowHauptrunde['final2'] == ''
-						|| $rowHauptrunde['sieger'] == ''){
-							$this->notTipped[$i]['email'] = $rowUser['email'];
-							$i++;
-					}
-				}
-				else{
-					if($rowHauptrunde['viertelfinal1'] == ''
-						|| $rowHauptrunde['viertelfinal2'] == ''
-						|| $rowHauptrunde['viertelfinal3'] == ''
-						|| $rowHauptrunde['viertelfinal4'] == ''
-						|| $rowHauptrunde['viertelfinal5'] == ''
-						|| $rowHauptrunde['viertelfinal6'] == ''
-						|| $rowHauptrunde['viertelfinal7'] == ''
-						|| $rowHauptrunde['viertelfinal8'] == ''
-						|| $rowHauptrunde['halbfinal1'] == ''
-						|| $rowHauptrunde['halbfinal2'] == ''
-						|| $rowHauptrunde['halbfinal3'] == ''
-						|| $rowHauptrunde['halbfinal4'] == ''
-						|| $rowHauptrunde['final1'] == ''
-						|| $rowHauptrunde['final2'] == ''
-						|| $rowHauptrunde['sieger'] == ''){
-							$this->notTipped[$i]['email'] = $rowUser['email'];
-							$i++;
-					}
+				if($rowHauptrunde['achtelfinal1'] == ''
+					|| $rowHauptrunde['achtelfinal2'] == ''
+					|| $rowHauptrunde['achtelfinal3'] == ''
+					|| $rowHauptrunde['achtelfinal4'] == ''
+					|| $rowHauptrunde['achtelfinal5'] == ''
+					|| $rowHauptrunde['achtelfinal6'] == ''
+					|| $rowHauptrunde['achtelfinal7'] == ''
+					|| $rowHauptrunde['achtelfinal8'] == ''
+					|| $rowHauptrunde['achtelfinal9'] == ''
+					|| $rowHauptrunde['achtelfinal10'] == ''
+					|| $rowHauptrunde['achtelfinal11'] == ''
+					|| $rowHauptrunde['achtelfinal12'] == ''
+					|| $rowHauptrunde['achtelfinal13'] == ''
+					|| $rowHauptrunde['achtelfinal14'] == ''
+					|| $rowHauptrunde['achtelfinal15'] == ''
+					|| $rowHauptrunde['achtelfinal16'] == ''
+					|| $rowHauptrunde['viertelfinal1'] == ''
+					|| $rowHauptrunde['viertelfinal2'] == ''
+					|| $rowHauptrunde['viertelfinal3'] == ''
+					|| $rowHauptrunde['viertelfinal4'] == ''
+					|| $rowHauptrunde['viertelfinal5'] == ''
+					|| $rowHauptrunde['viertelfinal6'] == ''
+					|| $rowHauptrunde['viertelfinal7'] == ''
+					|| $rowHauptrunde['viertelfinal8'] == ''
+					|| $rowHauptrunde['halbfinal1'] == ''
+					|| $rowHauptrunde['halbfinal2'] == ''
+					|| $rowHauptrunde['halbfinal3'] == ''
+					|| $rowHauptrunde['halbfinal4'] == ''
+					|| $rowHauptrunde['final1'] == ''
+					|| $rowHauptrunde['final2'] == ''
+					|| $rowHauptrunde['sieger'] == ''){
+						$this->notTipped[$i]['email'] = $rowUser['email'];
+						$i++;
 				}
 			}
 			else{
