@@ -58,12 +58,10 @@ class Statistics extends HTMLPage implements Page {
 		
 		while($row = mysql_fetch_assoc($ergebnis_hauptrunde))
 		{
-			if(Constants::$isWM){
-				$counter_achtel = 1;
-				while($counter_achtel <= 16){
-					$this->achtelfinal[$row['achtelfinal'.$counter_achtel]] = $this->achtelfinal[$row['achtelfinal'.$counter_achtel]] != '' ? $this->achtelfinal[$row['achtelfinal'.$counter_achtel]] + 1 : 1;
-					$counter_achtel++;
-				}
+			$counter_achtel = 1;
+			while($counter_achtel <= 16){
+				$this->achtelfinal[$row['achtelfinal'.$counter_achtel]] = $this->achtelfinal[$row['achtelfinal'.$counter_achtel]] != '' ? $this->achtelfinal[$row['achtelfinal'.$counter_achtel]] + 1 : 1;
+				$counter_achtel++;
 			}
 			
 			$counter_viertel = 1;
