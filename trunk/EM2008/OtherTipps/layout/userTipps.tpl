@@ -23,7 +23,7 @@
 			$counter = 0;
 			foreach($this->vorrunde as $spiel): 
 				$counter++;
-				if($counter <= (Constants::$isWM ? 48 : 24)){
+				if($counter <= (Constants::$isWM ? 48 : 36)){
 		?>
 		<tr>
 			<td valign="top"><?php echo $spiel['start']; ?></td>
@@ -76,7 +76,7 @@
 		</tr>
 		<?php 
 			foreach($this->vorrunde as $spiel): 
-				if($spiel['id'] > (Constants::$isWM ? 48 : 24)){
+				if($spiel['id'] > (Constants::$isWM ? 48 : 36)){
 		?>
 					<tr>
 						<td valign="top"><?php echo $spiel['start']; ?></td>
@@ -114,9 +114,6 @@
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalteilnehmer"); ?>
 
-	<?php 
-		if(Constants::$isWM){
-	?>
 			<h3>Achtelfinalteilnehmer</h3>
 			<table>
 				<tr>
@@ -318,30 +315,16 @@
 					</select></td>
 				</tr>
 			</table>
-	<?php
-		}
-	?>
 
 	<h3>Viertelfinalteilnehmer</h3>
 	<table>
 		<tr>
-			<?php 
-				if(Constants::$isWM){
-			?>
+			
 				<td>1A - 2B = VF1</td>
 				<td>1C - 2D = VF2</td>
 				<td>1B - 2A = VF3</td>
 				<td>1D - 2C = VF4</td>
-			<?php 
-				} else{ 
-			?>
-				<td>Sieger Gruppe A</td>
-				<td>Zweiter Gruppe A</td>
-				<td>Sieger Gruppe B</td>
-				<td>Zweiter Gruppe B</td>
-			<?php 
-				}
-			?>
+			
 		</tr>
 		<tr>
 			<td><select name="viertelfinal1" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
@@ -386,23 +369,12 @@
 			</select></td>
 		</tr>
 		<tr>
-			<?php 
-				if(Constants::$isWM){
-			?>
+			
 				<td>1E - 2F = VF5</td>
 				<td>1G - 2H = VF6</td>
 				<td>1F - 2E = VF7</td>
 				<td>1H - 2G = VF8</td>
-			<?php 
-				} else{ 
-			?>
-				<td>Sieger Gruppe C</td>
-				<td>Zweiter Gruppe C</td>
-				<td>Sieger Gruppe D</td>
-				<td>Zweiter Gruppe D</td>
-			<?php 
-				}
-			?>
+			
 		</tr>
 		<tr>
 			<td><select name="viertelfinal5" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[5], 2); ?>">
@@ -450,23 +422,12 @@
 	<h3>Halbfinalteilnehmer</h3>
 	<table>
 		<tr>
-			<?php 
-				if(Constants::$isWM){
-			?>
+			
 				<td>VF1 - VF2 = HF1</td>
 				<td>VF5 - VF6 = HF2</td>
 				<td>VF3 - VF4 = HF3</td>
 				<td>VF7 - VF8 = HF4</td>
-			<?php 
-				} else{ 
-			?>
-				<td>1A - 2B</td>
-				<td>1B - 2A</td>
-				<td>1C - 2D</td>
-				<td>1D - 2C</td>
-			<?php 
-				}
-			?>
+			
 		</tr>
 		<tr>
 			<td><select name="halbfinal1" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px;<?php echo $this->getStyle($this->userHalbfinal[1], 3); ?>">
@@ -514,19 +475,10 @@
 	<h3>Finalteilnehmer</h3>
 	<table>
 		<tr>
-			<?php 
-				if(Constants::$isWM){
-			?>
+			
 				<td>HF1 - HF2 = F1</td>
 				<td>HF3 - HF4 = F2</td>
-			<?php 
-				} else{ 
-			?>
-				<td>Team 1</td>
-				<td>Team 2</td>
-			<?php 
-				}
-			?>
+			
 		</tr>
 		<tr>
 			<td><select name="final1" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px;<?php echo $this->getStyle($this->userFinal[1], 4); ?>">

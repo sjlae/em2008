@@ -140,10 +140,8 @@ class OtherTipps extends HTMLPage implements Page {
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
-			if(Constants::$isWM){
-				for($i=1;$i<=16;$i++) {
-					$this->userAchtelfinal[$i] = $row['achtelfinal'.$i];
-				}
+			for($i=1;$i<=16;$i++) {
+				$this->userAchtelfinal[$i] = $row['achtelfinal'.$i];
 			}
 			
 			for($i=1;$i<=8;$i++) {
@@ -167,10 +165,10 @@ public function getStyle($id, $round){
 		if($id != ''){
 			$achtel_min = 0;
 			$achtel_max = 16;
-			$viertel_min = Constants::$isWM ? 16 : 0;
-			$halb_min = Constants::$isWM ? 24 : 8;
-			$final_min = Constants::$isWM ? 28 : 12;
-			$sieger = Constants::$isWM ? 30 : 14;
+			$viertel_min = 16;
+			$halb_min = 24;
+			$final_min = 28;
+			$sieger = 30;
 			
 			if($round == 1 && $this->realhauptrunde[$achtel_min] != ''){
 				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $achtel_min, $achtel_max)) !== false){ 
@@ -222,24 +220,22 @@ public function getStyle($id, $round){
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
-			if(Constants::$isWM){
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal1']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal2']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal3']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal4']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal5']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal6']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal7']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal8']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal9']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal10']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal11']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal12']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal13']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal14']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal15']);
-				$realhauptrunde[] = $this->getTeam($row['achtelfinal16']);
-			}
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal1']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal2']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal3']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal4']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal5']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal6']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal7']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal8']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal9']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal10']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal11']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal12']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal13']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal14']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal15']);
+			$realhauptrunde[] = $this->getTeam($row['achtelfinal16']);
 			
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal1']);
 			$realhauptrunde[] = $this->getTeam($row['viertelfinal2']);
