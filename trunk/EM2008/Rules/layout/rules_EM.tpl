@@ -13,7 +13,7 @@
 		Teams in den Viertelfinals, Halbfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 08. Juni 2012</b> erfasst haben. 
 		Diese kannst du ab dann nicht mehr ver&auml;ndern.</p>
 		<h3>Punktevergabe - Gruppenspieltipps</h3>
-		<ul>
+		<ul>test
 			<li><b>5 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; korrekter Resultattipp und der richtige Sieger bzw. untentschieden (du tippst 2:1 und das Spiel endet 2:1)</li>
 			<li><b>4 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; richtiger Sieger mit der korrekten Tordifferenz bzw. unentschieden  (du tippst 2:1, aber das Spiel endet 1:0)</li>
 			<li><b>3 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; richtiger Sieger mit falscher Tordifferenz (du tippst 2:1, aber das Spiel endet 2:0)</li>
