@@ -8,10 +8,11 @@
 		den Tab Gruppenspiele, kannst du s&auml;mtliche Gruppenspiele tippen. Wenn du auf den Tab Finalspiele klickst, siehst du
 		Auswahlboxen f&uuml;r die Viertelfinal-, Halbfinal- und Finalteilnehmer. Zum Schluss musst du nat&uuml;rlich auch noch deinen 
 		Europameister ausw&auml;hlen. </p>
-		<p>Deine Resultattipps f&uuml;r die <b>Gruppenspiele</b> musst du jeweils bis sp&auml;testens <b>1 Minute vor Spielbeginn</b> erfasst 
-		und gespeichert haben. Ansonsten gibt es 0 Punkte f&uuml;r dieses Spiel. Die <b>Teilnehmernationen ab den Gruppenspielen (s&auml;mtliche
-		Teams in den Viertelfinals, Halbfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 08. Juni 2012</b> erfasst haben. 
-		Diese kannst du ab dann nicht mehr ver&auml;ndern.</p>
+		<p>Deine Resultattipps f&uuml;r die <b>Gruppenspiele und Finalspiele</b> musst du jeweils bis sp&auml;testens <b>1 Minute vor Spielbeginn</b> erfasst 
+		und gespeichert haben. Ansonsten gibt es 0 Punkte f&uuml;r dieses Spiel. Bei den Resultattipps der Finalspiele (ab den Achtelfinals) ist das Resultat
+		nach der regul&auml;ren Spielzeit (<b>inkl. Verl&auml;ngerung aber ohne Elfmeterschiessen</b>) relevant. Die <b>Teilnehmernationen im Tab Finalteilnehmer (s&auml;mtliche Teams in den Achtelfinals, Viertelfinals, etc.)</b>	musst du allesamt bis <b>1 Minute vor dem Er&ouml;ffnungsspiel vom 12. Juni 2014</b> getippt haben. 
+		Diese kannst du ab dann nicht mehr ver&auml;ndern. Mit anderen Worten, du musst vor dem Turnierstart tippen, welche Nationen du in die 
+		Achtelfinals, Viertelfinals, etc. tippst.</p>
 		<h3>Punktevergabe - Gruppenspieltipps</h3>
 		<ul>test
 			<li><b>5 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; korrekter Resultattipp und der richtige Sieger bzw. untentschieden (du tippst 2:1 und das Spiel endet 2:1)</li>
@@ -19,12 +20,13 @@
 			<li><b>3 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; richtiger Sieger mit falscher Tordifferenz (du tippst 2:1, aber das Spiel endet 2:0)</li>
 			<li><b>0 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; falscher Sieger (du tippst 2:1, aber das Spiel endet 1:2)</li>
 		</ul>
-		<h3>Punktevergabe - Teilnehmer ab Viertelfinal</h3>
+		<h3>Punktevergabe - Teilnehmer ab Achtefinal</h3>
 		<ul>
-			<li><b>&nbsp;6 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Viertelfinal Teilnehmer</li>
-			<li><b>&nbsp;8 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Halbfinal Teilnehmer</li>
-			<li><b>10 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Final Teilnehmer</li>
-			<li><b>12 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; f&uuml;r den richtigen Europameister</li>
+			<li><b>&nbsp;2 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Achtelfinal Teilnehmer</li>
+			<li><b>&nbsp;3 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Viertelfinal Teilnehmer</li>
+			<li><b>&nbsp;4 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Halbfinal Teilnehmer</li>
+			<li><b>&nbsp;5 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; pro korrekt getippten Final Teilnehmer</li>
+			<li><b>8 Punkte</b> &nbsp;<img alt="" src="pfeil_rechts.png" style="width: 35px; height: 15px"/>&nbsp; f&uuml;r den richtigen Europameister</li>
 		</ul>
 		<p>Damit du allf&auml;llig ben&ouml;tigte Gedankenanst&ouml;sse zur Hilfe beiziehen kannst oder mit anderen Teilnehmer &uuml;ber die abgegebenen Tipps fachsimpeln 
 		kannst, werden s&auml;mtliche Tipps von den Teilnehmern f&uuml;r alle angemeldeten Mitspieler ersichtlich sein. Der andere Grund f&uuml;r dieses Vorhaben 
