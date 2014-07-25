@@ -15,6 +15,7 @@ class OtherTipps extends HTMLPage implements Page {
 	private $userFinal = array();
 	private $userSieger = '';
 	private $realhauptrunde = array();
+	private $sort;
 
 	private $link = '';
 
@@ -102,13 +103,21 @@ class OtherTipps extends HTMLPage implements Page {
 	}
 
 	private function getPlayers() {
-		$abfrage = "Select * from user order by nachname asc";
-
+		$abfrage;
+		$this->sort = $_POST['sort'];
+		if($this->action == 'sort' && $this->sort == 'Rang') {
+			$abfrage = "Select * from user order by rank_now asc, nachname asc";
+		}
+		else{
+			$abfrage = "Select * from user order by nachname asc";
+		}
+		
 		$ergebnis = mysql_query($abfrage);
 
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
 			$this->players[$row['userid']]['id'] = $row['userid'] + 5;
+			$this->players[$row['userid']]['rank_now'] = $row['rank_now'];
 			$this->players[$row['userid']]['vorname'] = $row['vorname'];
 			$this->players[$row['userid']]['nachname'] = $row['nachname'];
 		}
