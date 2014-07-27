@@ -7,6 +7,7 @@ class StatisticsDetail extends HTMLPage implements Page {
 
 	private $link = '';
 	private $result;
+	private $action;
 	private $id;
 	private $tipps = array();
 	private $team1;
@@ -17,6 +18,8 @@ class StatisticsDetail extends HTMLPage implements Page {
 			$this->link = Db::getConnection();
 			$this->result = isset($_GET['result']) ? $_GET['result'] : '';
 			$this->id = isset($_GET['id']) ? $_GET['id'] : '';
+			$this->action = isset($_GET['action']) ? $_GET['action'] : '';
+			$this->sort = isset($_POST['sort']) ? $_POST['sort'] : '';
 			$this->getData();
 		}
 	}
@@ -61,6 +64,7 @@ class StatisticsDetail extends HTMLPage implements Page {
 					{
 						$this->tipps[$i]['nachname'] = $row_user['nachname'];
 						$this->tipps[$i]['vorname'] = $row_user['vorname'];
+						$this->tipps[$i]['rank_now'] = $row_user['rank_now'];
 					}
 					$this->tipps[$i]['result1'] = $row_result['result1'];
 					$this->tipps[$i]['result2'] = $row_result['result2'];
@@ -69,7 +73,17 @@ class StatisticsDetail extends HTMLPage implements Page {
 					$i++;
 				}
 			}
-			asort($this->tipps);
+			if($this->action == 'sort' && $this->sort == 'Rang') {
+				$sortArray = array();
+				foreach($this->tipps as $key => $array) {
+					$sortArray[$key] = $array['rank_now'];
+				}
+				
+				array_multisort($sortArray, SORT_ASC, SORT_NUMERIC, $this->tipps);
+			}
+			else{
+				asort($this->tipps);
+			}
 		}
 	}
 	
