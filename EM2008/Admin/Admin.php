@@ -518,6 +518,8 @@ class Admin extends HTMLPage implements Page{
 				$hauptrundeTippsFromUser = "SELECT * FROM hauptrunde where userfsid=$userid";
 				$resultHauptrundeTippsFromUser = mysql_query($hauptrundeTippsFromUser);
 				
+				$this->getRealHauptrundenTeams();
+				
 				while($rowUser = mysql_fetch_assoc($resultHauptrundeTippsFromUser))
 				{
 					$achtelfinal_points = '2';
@@ -525,13 +527,6 @@ class Admin extends HTMLPage implements Page{
 					$halbfinal_points = '4';
 					$final_points = '5';
 					$sieger_points = '8';
-					
-					if(Constants::$isWM){
-						//$achtelfinal_points = '3';
-						//$viertelfinal_points = '4';
-						//$halbfinal_points = '5';
-						//$final_points = '6';
-					}
 					
 					if($rowUser['achtelfinal1'] != ''){
 						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal1'])){
@@ -744,249 +739,219 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function isAchtelfinalTippCorrect($value){
-		$realhauptrunde = "SELECT * FROM realhauptrunde";
-		$resultRealhauptrunde = mysql_query($realhauptrunde);
-		
 		$tippCorrect = false;
-		
-		while($rowReal = mysql_fetch_assoc($resultRealhauptrunde))
-		{
-			if($rowReal['achtelfinal1'] != ''){
-				if($rowReal['achtelfinal1'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
+			
+		if($this->achtelfinal1 != ''){
+			if($this->achtelfinal1 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
 			}
-			if($rowReal['achtelfinal2'] != ''){
-				if($rowReal['achtelfinal2'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal3'] != ''){
-				if($rowReal['achtelfinal3'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal4'] != ''){
-				if($rowReal['achtelfinal4'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal5'] != ''){
-				if($rowReal['achtelfinal5'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal6'] != ''){
-				if($rowReal['achtelfinal6'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal7'] != ''){
-				if($rowReal['achtelfinal7'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal8'] != ''){
-				if($rowReal['achtelfinal8'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal9'] != ''){
-				if($rowReal['achtelfinal9'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal10'] != ''){
-				if($rowReal['achtelfinal10'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal11'] != ''){
-				if($rowReal['achtelfinal11'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal12'] != ''){
-				if($rowReal['achtelfinal12'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal13'] != ''){
-				if($rowReal['achtelfinal13'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal14'] != ''){
-				if($rowReal['achtelfinal14'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal15'] != ''){
-				if($rowReal['achtelfinal15'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['achtelfinal16'] != ''){
-				if($rowReal['achtelfinal16'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			return $tippCorrect;			
 		}
+		if($this->achtelfinal2 != ''){
+			if($this->achtelfinal2 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal3 != ''){
+			if($this->achtelfinal3 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal4 != ''){
+			if($this->achtelfinal4 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal5 != ''){
+			if($this->achtelfinal5 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal6 != ''){
+			if($this->achtelfinal6 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal7 != ''){
+			if($this->achtelfinal7 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal8 != ''){
+			if($this->achtelfinal8 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal9 != ''){
+			if($this->achtelfinal9 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal10 != ''){
+			if($this->achtelfinal10 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal11 != ''){
+			if($this->achtelfinal11 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal12 != ''){
+			if($this->achtelfinal12 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal13 != ''){
+			if($this->achtelfinal13 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal14 != ''){
+			if($this->achtelfinal14 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal15 != ''){
+			if($this->achtelfinal15 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->achtelfinal16 != ''){
+			if($this->achtelfinal16 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		return $tippCorrect;			
 	}
 	
 	private function isViertelfinalTippCorrect($value){
-		$realhauptrunde = "SELECT * FROM realhauptrunde";
-		$resultRealhauptrunde = mysql_query($realhauptrunde);
-		
 		$tippCorrect = false;
 		
-		while($rowReal = mysql_fetch_assoc($resultRealhauptrunde))
-		{
-			if($rowReal['viertelfinal1'] != ''){
-				if($rowReal['viertelfinal1'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
+		if($this->viertelfinal1 != ''){
+			if($this->viertelfinal1 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
 			}
-			if($rowReal['viertelfinal2'] != ''){
-				if($rowReal['viertelfinal2'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['viertelfinal3'] != ''){
-				if($rowReal['viertelfinal3'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['viertelfinal4'] != ''){
-				if($rowReal['viertelfinal4'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['viertelfinal5'] != ''){
-				if($rowReal['viertelfinal5'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['viertelfinal6'] != ''){
-				if($rowReal['viertelfinal6'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['viertelfinal7'] != ''){
-				if($rowReal['viertelfinal7'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['viertelfinal8'] != ''){
-				if($rowReal['viertelfinal8'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			return $tippCorrect;			
 		}
+		if($this->viertelfinal2 != ''){
+			if($this->viertelfinal2 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->viertelfinal3 != ''){
+			if($this->viertelfinal3 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->viertelfinal4 != ''){
+			if($this->viertelfinal4 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->viertelfinal5 != ''){
+			if($this->viertelfinal5 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->viertelfinal6 != ''){
+			if($this->viertelfinal6 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->viertelfinal7 != ''){
+			if($this->viertelfinal7 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->viertelfinal8 != ''){
+			if($this->viertelfinal8 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		return $tippCorrect;			
 	}
 	
 	private function isHalbfinalTippCorrect($value){
-		$realhauptrunde = "SELECT * FROM realhauptrunde";
-		$resultRealhauptrunde = mysql_query($realhauptrunde);
-		
 		$tippCorrect = false;
 		
-		while($rowReal = mysql_fetch_assoc($resultRealhauptrunde))
-		{
-			if($rowReal['halbfinal1'] != ''){
-				if($rowReal['halbfinal1'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
+		if($this->halbfinal1 != ''){
+			if($this->halbfinal1 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
 			}
-			if($rowReal['halbfinal2'] != ''){
-				if($rowReal['halbfinal2'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['halbfinal3'] != ''){
-				if($rowReal['halbfinal3'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			if($rowReal['halbfinal4'] != ''){
-				if($rowReal['halbfinal4'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			return $tippCorrect;			
 		}
+		if($this->halbfinal2 != ''){
+			if($this->halbfinal2 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->halbfinal3 != ''){
+			if($this->halbfinal3 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		if($this->halbfinal4 != ''){
+			if($this->halbfinal4 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		return $tippCorrect;			
 	}
 
 	private function isFinalTippCorrect($value){
-		$realhauptrunde = "SELECT * FROM realhauptrunde";
-		$resultRealhauptrunde = mysql_query($realhauptrunde);
-		
 		$tippCorrect = false;
 		
-		while($rowReal = mysql_fetch_assoc($resultRealhauptrunde))
-		{
-			if($rowReal['final1'] != ''){
-				if($rowReal['final1'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
+		if($this->final1 != ''){
+			if($this->final1 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
 			}
-			if($rowReal['final2'] != ''){
-				if($rowReal['final2'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
-			}
-			return $tippCorrect;			
 		}
+		if($this->final2 != ''){
+			if($this->final2 == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
+			}
+		}
+		return $tippCorrect;			
 	}
 
 	private function isSiegerTippCorrect($value){
-		$realhauptrunde = "SELECT sieger FROM realhauptrunde";
-		$resultRealhauptrunde = mysql_query($realhauptrunde);
-		
 		$tippCorrect = false;
 		
-		while($rowReal = mysql_fetch_assoc($resultRealhauptrunde))
-		{
-			if($rowReal['sieger'] != ''){
-				if($rowReal['sieger'] == $value){
-					$tippCorrect = true;
-					return $tippCorrect;
-				}
+		if($this->sieger != ''){
+			if($this->sieger == $value){
+				$tippCorrect = true;
+				return $tippCorrect;
 			}
-			return $tippCorrect;			
 		}
+		return $tippCorrect;			
 	}
 	
 	private function saveNews(){
