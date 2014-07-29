@@ -13,6 +13,17 @@
 			<option value="Rang">Rang</option>
 		<?php } ?>
 	</select>
+	&nbsp;&nbsp;&nbsp;Filter:&nbsp;
+	<select name="filterResult" value="" onChange="this.form.submit()">
+		<option value="Alle">Alle</option>
+		<?foreach($this->filter as $filter): ?>
+			<?php if($this->filterResult == $filter): ?>
+				<option value="<?echo $filter; ?>" selected><?echo $filter; ?></option>
+			<?php else:?>
+				<option value="<?echo $filter; ?>"><?echo $filter; ?></option>
+			<?php endif; ?>
+		<?endforeach; ?>
+	</select>
 </form>
 <table border="0">
 	<tr>

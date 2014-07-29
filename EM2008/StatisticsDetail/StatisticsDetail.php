@@ -10,6 +10,8 @@ class StatisticsDetail extends HTMLPage implements Page {
 	private $action;
 	private $id;
 	private $tipps = array();
+	private $filter = array();
+	private $filterResult;
 	private $team1;
 	private $team2;
 	
@@ -20,6 +22,7 @@ class StatisticsDetail extends HTMLPage implements Page {
 			$this->id = isset($_GET['id']) ? $_GET['id'] : '';
 			$this->action = isset($_GET['action']) ? $_GET['action'] : '';
 			$this->sort = isset($_POST['sort']) ? $_POST['sort'] : '';
+			$this->filterResult = isset($_POST['filterResult']) ? $_POST['filterResult'] : '';
 			$this->getData();
 		}
 	}
@@ -56,23 +59,32 @@ class StatisticsDetail extends HTMLPage implements Page {
 			while($row_result = mysql_fetch_assoc($ergebnis_result))
 			{
 				if($row_result['result1'] != '' || $row_result['result2'] != ''){
-					$userid = $this->getUserId($row_result['vorrundeid']);
-					
-					$abfrage_user = "SELECT * FROM user WHERE userid = ".$userid;
-					$ergebnis_user = mysql_query($abfrage_user);
-					while($row_user = mysql_fetch_assoc($ergebnis_user))
-					{
-						$this->tipps[$i]['nachname'] = $row_user['nachname'];
-						$this->tipps[$i]['vorname'] = $row_user['vorname'];
-						$this->tipps[$i]['rank_now'] = $row_user['rank_now'];
+					$search = $row_result['result1'].':'.$row_result['result2'];
+						
+					if(!in_array($search, $this->filter)){
+						$this->filter[] = $search;
 					}
-					$this->tipps[$i]['result1'] = $row_result['result1'];
-					$this->tipps[$i]['result2'] = $row_result['result2'];
-					$this->tipps[$i]['userid']  = $userid;
+					
+					if($this->filterResult == 'Alle' || $this->filterResult == '' || $this->filterResult == $search){
+						$userid = $this->getUserId($row_result['vorrundeid']);
+							
+						$abfrage_user = "SELECT * FROM user WHERE userid = ".$userid;
+						$ergebnis_user = mysql_query($abfrage_user);
+						while($row_user = mysql_fetch_assoc($ergebnis_user))
+						{
+							$this->tipps[$i]['nachname'] = $row_user['nachname'];
+							$this->tipps[$i]['vorname'] = $row_user['vorname'];
+							$this->tipps[$i]['rank_now'] = $row_user['rank_now'];
+						}
+						$this->tipps[$i]['result1'] = $row_result['result1'];
+						$this->tipps[$i]['result2'] = $row_result['result2'];
+						$this->tipps[$i]['userid']  = $userid;
+					}
 					
 					$i++;
 				}
 			}
+			asort($this->filter);
 			if($this->action == 'sort' && $this->sort == 'Rang') {
 				$sortArray = array();
 				foreach($this->tipps as $key => $array) {
