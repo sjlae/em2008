@@ -205,6 +205,45 @@ class Admin extends HTMLPage implements Page{
 		}
 	}
 	
+	private function getRealHauptrundenTeams() {
+		$abfrage = "SELECT * FROM realhauptrunde";
+		$ergebnis = mysql_query($abfrage);
+		while($row = mysql_fetch_assoc($ergebnis))
+		{
+			$this->achtelfinal1 = $row['achtelfinal1'];
+			$this->achtelfinal2 = $row['achtelfinal2'];
+			$this->achtelfinal3 = $row['achtelfinal3'];
+			$this->achtelfinal4 = $row['achtelfinal4'];
+			$this->achtelfinal5 = $row['achtelfinal5'];
+			$this->achtelfinal6 = $row['achtelfinal6'];
+			$this->achtelfinal7 = $row['achtelfinal7'];
+			$this->achtelfinal8 = $row['achtelfinal8'];
+			$this->achtelfinal9 = $row['achtelfinal9'];
+			$this->achtelfinal10 = $row['achtelfinal10'];
+			$this->achtelfinal11 = $row['achtelfinal11'];
+			$this->achtelfinal12 = $row['achtelfinal12'];
+			$this->achtelfinal13 = $row['achtelfinal13'];
+			$this->achtelfinal14 = $row['achtelfinal14'];
+			$this->achtelfinal15 = $row['achtelfinal15'];
+			$this->achtelfinal16 = $row['achtelfinal16'];
+			$this->viertelfinal1 = $row['viertelfinal1'];
+			$this->viertelfinal2 = $row['viertelfinal2'];
+			$this->viertelfinal3 = $row['viertelfinal3'];
+			$this->viertelfinal4 = $row['viertelfinal4'];
+			$this->viertelfinal5 = $row['viertelfinal5'];
+			$this->viertelfinal6 = $row['viertelfinal6'];
+			$this->viertelfinal7 = $row['viertelfinal7'];
+			$this->viertelfinal8 = $row['viertelfinal8'];
+			$this->halbfinal1 = $row['halbfinal1'];
+			$this->halbfinal2 = $row['halbfinal2'];
+			$this->halbfinal3 = $row['halbfinal3'];
+			$this->halbfinal4 = $row['halbfinal4'];
+			$this->final1 = $row['final1'];
+			$this->final2 = $row['final2'];
+			$this->sieger = $row['sieger'];
+		}
+	}
+	
 	private function setHauptrundenTeams() {
 		$this->achtelfinal1 = $_POST["achtelfinal1"];
 		$this->achtelfinal2 = $_POST["achtelfinal2"];
@@ -329,7 +368,6 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function updateUserPoints() {
-		$start = microtime(true);
 		$userids = "SELECT userid FROM user";
 		
 		$resultUsers = mysql_query($userids);
@@ -578,10 +616,6 @@ class Admin extends HTMLPage implements Page{
 				$abfrage = "Update user set punkte=$points where userid=$userid";
 				mysql_query($abfrage);
 			}
-		$end = microtime(true);
-		$laufzeit = $end - $start;
-		echo "Laufzeit: ".$laufzeit." Sekunden!";
-		
 	}
 	
 	private function updateRanking(){
@@ -899,6 +933,7 @@ class Admin extends HTMLPage implements Page{
 		$this->getGames();
 		$this->getCountries();
 		$this->getNotTipped();
+		$this->getRealHauptrundenTeams();
 		require_once('layout/admin.tpl');
 	}
 }
