@@ -206,133 +206,49 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function setHauptrundenTeams() {
-		$achtelfinal1 = $_POST["achtelfinal1"];
-		$abfrage = "Update realhauptrunde set achtelfinal1='".$achtelfinal1."'";
-		mysql_query($abfrage);
+		$this->achtelfinal1 = $_POST["achtelfinal1"];
+		$this->achtelfinal2 = $_POST["achtelfinal2"];
+		$this->achtelfinal3 = $_POST["achtelfinal3"];
+		$this->achtelfinal4 = $_POST["achtelfinal4"];
+		$this->achtelfinal5 = $_POST["achtelfinal5"];
+		$this->achtelfinal6 = $_POST["achtelfinal6"];
+		$this->achtelfinal7 = $_POST["achtelfinal7"];
+		$this->achtelfinal8 = $_POST["achtelfinal8"];
+		$this->achtelfinal9 = $_POST["achtelfinal9"];
+		$this->achtelfinal10 = $_POST["achtelfinal10"];
+		$this->achtelfinal11 = $_POST["achtelfinal11"];
+		$this->achtelfinal12 = $_POST["achtelfinal12"];
+		$this->achtelfinal13 = $_POST["achtelfinal13"];
+		$this->achtelfinal14 = $_POST["achtelfinal14"];
+		$this->achtelfinal15 = $_POST["achtelfinal15"];
+		$this->achtelfinal16 = $_POST["achtelfinal16"];
+		$this->viertelfinal1 = $_POST["viertelfinal1"];
+		$this->viertelfinal2 = $_POST["viertelfinal2"];
+		$this->viertelfinal3 = $_POST["viertelfinal3"];
+		$this->viertelfinal4 = $_POST["viertelfinal4"];
+		$this->viertelfinal5 = $_POST["viertelfinal5"];
+		$this->viertelfinal6 = $_POST["viertelfinal6"];
+		$this->viertelfinal7 = $_POST["viertelfinal7"];
+		$this->viertelfinal8 = $_POST["viertelfinal8"];
+		$this->halbfinal1 = $_POST["halbfinal1"];
+		$this->halbfinal2 = $_POST["halbfinal2"];
+		$this->halbfinal3 = $_POST["halbfinal3"];
+		$this->halbfinal4 = $_POST["halbfinal4"];
+		$this->final1 = $_POST["final1"];
+		$this->final2 = $_POST["final2"];
+		$this->sieger = $_POST["sieger"];
 		
-		$achtelfinal2 = $_POST["achtelfinal2"];
-		$abfrage = "Update realhauptrunde set achtelfinal2='".$achtelfinal2."'";
-		mysql_query($abfrage);
+		$abfrage = "Update realhauptrunde set achtelfinal1 ='".$this->achtelfinal1."', achtelfinal2 ='".$this->achtelfinal2."', achtelfinal3 ='".$this->achtelfinal3."', achtelfinal4 ='".$this->achtelfinal4."', achtelfinal5 ='".$this->achtelfinal5."', achtelfinal6 ='".$this->achtelfinal6."',
+						achtelfinal7 ='".$this->achtelfinal7."', achtelfinal8 ='".$this->achtelfinal8."', achtelfinal9 ='".$this->achtelfinal9."', achtelfinal10 ='".$this->achtelfinal10."', achtelfinal11 ='".$this->achtelfinal11."', achtelfinal12 ='".$this->achtelfinal12."', achtelfinal13 ='".$this->achtelfinal13."',
+						achtelfinal14 ='".$this->achtelfinal14."', achtelfinal15 ='".$this->achtelfinal15."', achtelfinal16 ='".$this->achtelfinal16."', viertelfinal1 ='".$this->viertelfinal1."', viertelfinal2 ='".$this->viertelfinal2."', viertelfinal3 ='".$this->viertelfinal3."', viertelfinal4 ='".$this->viertelfinal4."',
+						viertelfinal5 ='".$this->viertelfinal5."', viertelfinal6 ='".$this->viertelfinal6."', viertelfinal7 ='".$this->viertelfinal7."', viertelfinal8 ='".$this->viertelfinal8."', halbfinal1 ='".$this->halbfinal1."', halbfinal2 ='".$this->halbfinal2."', halbfinal3 ='".$this->halbfinal3."', halbfinal4 ='".$this->halbfinal4."',
+						final1 ='".$this->final1."', final2 ='".$this->final2."', sieger ='".$this->sieger."'";
 		
-		$achtelfinal3 = $_POST["achtelfinal3"];
-		$abfrage = "Update realhauptrunde set achtelfinal3='".$achtelfinal3."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal4 = $_POST["achtelfinal4"];
-		$abfrage = "Update realhauptrunde set achtelfinal4='".$achtelfinal4."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal5 = $_POST["achtelfinal5"];
-		$abfrage = "Update realhauptrunde set achtelfinal5='".$achtelfinal5."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal6 = $_POST["achtelfinal6"];
-		$abfrage = "Update realhauptrunde set achtelfinal6='".$achtelfinal6."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal7 = $_POST["achtelfinal7"];
-		$abfrage = "Update realhauptrunde set achtelfinal7='".$achtelfinal7."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal8 = $_POST["achtelfinal8"];
-		$abfrage = "Update realhauptrunde set achtelfinal8='".$achtelfinal8."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal9 = $_POST["achtelfinal9"];
-		$abfrage = "Update realhauptrunde set achtelfinal9='".$achtelfinal9."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal10 = $_POST["achtelfinal10"];
-		$abfrage = "Update realhauptrunde set achtelfinal10='".$achtelfinal10."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal11 = $_POST["achtelfinal11"];
-		$abfrage = "Update realhauptrunde set achtelfinal11='".$achtelfinal11."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal12 = $_POST["achtelfinal12"];
-		$abfrage = "Update realhauptrunde set achtelfinal12='".$achtelfinal12."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal13 = $_POST["achtelfinal13"];
-		$abfrage = "Update realhauptrunde set achtelfinal13='".$achtelfinal13."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal14 = $_POST["achtelfinal14"];
-		$abfrage = "Update realhauptrunde set achtelfinal14='".$achtelfinal14."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal15 = $_POST["achtelfinal15"];
-		$abfrage = "Update realhauptrunde set achtelfinal15='".$achtelfinal15."'";
-		mysql_query($abfrage);
-		
-		$achtelfinal16 = $_POST["achtelfinal16"];
-		$abfrage = "Update realhauptrunde set achtelfinal16='".$achtelfinal16."'";
-		mysql_query($abfrage);
-		
-		$viertelfinal1 = $_POST["viertelfinal1"];
-		$abfrage = "Update realhauptrunde set viertelfinal1='".$viertelfinal1."'";
-		mysql_query($abfrage);
-		
-		$viertelfinal2 = $_POST["viertelfinal2"];
-		$abfrage = "Update realhauptrunde set viertelfinal2='".$viertelfinal2."'";
-		mysql_query($abfrage);
-		
-		$viertelfinal3 = $_POST["viertelfinal3"];
-		$abfrage = "Update realhauptrunde set viertelfinal3='".$viertelfinal3."'";
-		mysql_query($abfrage);
-		
-		$viertelfinal4 = $_POST["viertelfinal4"];
-		$abfrage = "Update realhauptrunde set viertelfinal4='".$viertelfinal4."'";
-		mysql_query($abfrage);
-		
-		$viertelfinal5 = $_POST["viertelfinal5"];
-		$abfrage = "Update realhauptrunde set viertelfinal5='".$viertelfinal5."'";
-		mysql_query($abfrage);
-		
-		$viertelfinal6 = $_POST["viertelfinal6"];
-		$abfrage = "Update realhauptrunde set viertelfinal6='".$viertelfinal6."'";
-		mysql_query($abfrage);
-		
-		$viertelfinal7 = $_POST["viertelfinal7"];
-		$abfrage = "Update realhauptrunde set viertelfinal7='".$viertelfinal7."'";
-		mysql_query($abfrage);
-		
-		$viertelfinal8 = $_POST["viertelfinal8"];
-		$abfrage = "Update realhauptrunde set viertelfinal8='".$viertelfinal8."'";
-		mysql_query($abfrage);
-		
-		$halbfinal1 = $_POST["halbfinal1"];
-		$abfrage = "Update realhauptrunde set halbfinal1='".$halbfinal1."'";
-		mysql_query($abfrage);
-		
-		$halbfinal2 = $_POST["halbfinal2"];
-		$abfrage = "Update realhauptrunde set halbfinal2='".$halbfinal2."'";
-		mysql_query($abfrage);
-		
-		$halbfinal3 = $_POST["halbfinal3"];
-		$abfrage = "Update realhauptrunde set halbfinal3='".$halbfinal3."'";
-		mysql_query($abfrage);
-		
-		$halbfinal4 = $_POST["halbfinal4"];
-		$abfrage = "Update realhauptrunde set halbfinal4='".$halbfinal4."'";
-		mysql_query($abfrage);
-		
-		$final1 = $_POST["final1"];
-		$abfrage = "Update realhauptrunde set final1='".$final1."'";
-		mysql_query($abfrage);
-		
-		$final2 = $_POST["final2"];
-		$abfrage = "Update realhauptrunde set final2='".$final2."'";
-		mysql_query($abfrage);
-		
-		$sieger = $_POST["sieger"];
-		$abfrage = "Update realhauptrunde set sieger='".$sieger."'";
 		mysql_query($abfrage);
 	}
 
 	private function getNNB() {
-		$abfrage = "SELECT * FROM user where bezahlt=0 order by nachname ASC";
+		$abfrage = "SELECT userid, nachname, vorname, email FROM user where bezahlt=0 order by nachname ASC";
 
 		$ergebnis = mysql_query($abfrage);
 		$counter = 0;
@@ -350,7 +266,7 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function getAll() {
-		$abfrage = "SELECT * FROM user order by nachname ASC";
+		$abfrage = "SELECT userid, nachname, vorname, email FROM user order by nachname ASC";
 
 		$ergebnis = mysql_query($abfrage);
 		$counter = 0;
@@ -368,7 +284,7 @@ class Admin extends HTMLPage implements Page{
 	}
 
 	private function getGames() {
-		$abfrage = "SELECT * FROM vorrundeteams order by start asc";
+		$abfrage = "SELECT vorrundeteamsid, start, team1fsid, team2fsid, realresult1, realresult2 FROM vorrundeteams order by start asc";
 
 		$ergebnis = mysql_query($abfrage);
 
@@ -390,7 +306,7 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function getTeam($id) {
-		$abfrage = "SELECT * FROM teams where teamid=".$id;
+		$abfrage = "SELECT land FROM teams where teamid=".$id;
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
@@ -400,7 +316,7 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function getCountries() {
-		$abfrage = "SELECT * FROM teams order by land asc";
+		$abfrage = "SELECT land, teamid FROM teams order by land asc";
 
 		$ergebnis = mysql_query($abfrage);
 		$counter = 0;
@@ -412,48 +328,9 @@ class Admin extends HTMLPage implements Page{
 		}
 	}
 	
-	private function getRealHauptrundenTeams() {
-		$abfrage = "SELECT * FROM realhauptrunde";
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
-		{
-			$this->achtelfinal1 = $row['achtelfinal1'];
-			$this->achtelfinal2 = $row['achtelfinal2'];
-			$this->achtelfinal3 = $row['achtelfinal3'];
-			$this->achtelfinal4 = $row['achtelfinal4'];
-			$this->achtelfinal5 = $row['achtelfinal5'];
-			$this->achtelfinal6 = $row['achtelfinal6'];
-			$this->achtelfinal7 = $row['achtelfinal7'];
-			$this->achtelfinal8 = $row['achtelfinal8'];
-			$this->achtelfinal9 = $row['achtelfinal9'];
-			$this->achtelfinal10 = $row['achtelfinal10'];
-			$this->achtelfinal11 = $row['achtelfinal11'];
-			$this->achtelfinal12 = $row['achtelfinal12'];
-			$this->achtelfinal13 = $row['achtelfinal13'];
-			$this->achtelfinal14 = $row['achtelfinal14'];
-			$this->achtelfinal15 = $row['achtelfinal15'];
-			$this->achtelfinal16 = $row['achtelfinal16'];
-			
-			$this->viertelfinal1 = $row['viertelfinal1'];
-			$this->viertelfinal2 = $row['viertelfinal2'];
-			$this->viertelfinal3 = $row['viertelfinal3'];
-			$this->viertelfinal4 = $row['viertelfinal4'];
-			$this->viertelfinal5 = $row['viertelfinal5'];
-			$this->viertelfinal6 = $row['viertelfinal6'];
-			$this->viertelfinal7 = $row['viertelfinal7'];
-			$this->viertelfinal8 = $row['viertelfinal8'];
-			$this->halbfinal1 = $row['halbfinal1'];
-			$this->halbfinal2 = $row['halbfinal2'];
-			$this->halbfinal3 = $row['halbfinal3'];
-			$this->halbfinal4 = $row['halbfinal4'];
-			$this->final1 = $row['final1'];
-			$this->final2 = $row['final2'];
-			$this->sieger = $row['sieger'];
-		}
-	}
-	
 	private function updateUserPoints() {
-		$userids = "SELECT * FROM user";
+		$start = microtime(true);
+		$userids = "SELECT userid FROM user";
 		
 		$resultUsers = mysql_query($userids);
 		
@@ -469,7 +346,7 @@ class Admin extends HTMLPage implements Page{
 				{
 					$vorrundeid = $row['vorrundefsid'];
 					
-					$tippedMatch = "SELECT * FROM vorrunde where vorrundeid=$vorrundeid";
+					$tippedMatch = "SELECT result1, result2, vorrundeteamsfsid FROM vorrunde where vorrundeid=$vorrundeid";
 					$resultTippedMatch = mysql_query($tippedMatch);
 					
 					while($row = mysql_fetch_assoc($resultTippedMatch))
@@ -518,8 +395,6 @@ class Admin extends HTMLPage implements Page{
 				$hauptrundeTippsFromUser = "SELECT * FROM hauptrunde where userfsid=$userid";
 				$resultHauptrundeTippsFromUser = mysql_query($hauptrundeTippsFromUser);
 				
-				$this->getRealHauptrundenTeams();
-				
 				while($rowUser = mysql_fetch_assoc($resultHauptrundeTippsFromUser))
 				{
 					$achtelfinal_points = '2';
@@ -528,7 +403,7 @@ class Admin extends HTMLPage implements Page{
 					$final_points = '5';
 					$sieger_points = '8';
 					
-					if($rowUser['achtelfinal1'] != ''){
+				if($rowUser['achtelfinal1'] != ''){
 						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal1'])){
 							$points = $points+$achtelfinal_points; 
 						}
@@ -700,16 +575,17 @@ class Admin extends HTMLPage implements Page{
 						}
 					}
 				}
-				
 				$abfrage = "Update user set punkte=$points where userid=$userid";
 				mysql_query($abfrage);
-				
 			}
-		return $results;
+		$end = microtime(true);
+		$laufzeit = $end - $start;
+		echo "Laufzeit: ".$laufzeit." Sekunden!";
+		
 	}
 	
 	private function updateRanking(){
-		$userids = "SELECT * FROM user ORDER BY punkte DESC";
+		$userids = "SELECT userid, rank_now, punkte FROM user ORDER BY punkte DESC";
 		
 		$resultUsers = mysql_query($userids);
 		
@@ -721,18 +597,14 @@ class Admin extends HTMLPage implements Page{
 			$userid = $row['userid'];
 			$rank_now = $row['rank_now'];
 			
-			$rank_last = "Update user set rank_last=$rank_now where userid=$userid";
-		
-			mysql_query($rank_last); 
-			
 			if($temp_points == '' || $temp_points != $row['punkte']){
 				$temp_points = $row['punkte'];
 				$rank_logic = $rank_counter;
 			}
 			
-			$rank_now = "Update user set rank_now=$rank_logic where userid=$userid";
+			$ranks = "Update user set rank_now=$rank_logic, rank_last=$rank_now where userid=$userid";
 	
-			mysql_query($rank_now);	
+			mysql_query($ranks);	
 
 			$rank_counter++;
 		}
@@ -964,7 +836,7 @@ class Admin extends HTMLPage implements Page{
 	}
 	
 	private function getNotTipped(){
-		$userQuery = "SELECT * FROM user";
+		$userQuery = "SELECT userid, email FROM user";
 		$resultUser = mysql_query($userQuery);
 		
 		$i = 0;
@@ -1026,7 +898,6 @@ class Admin extends HTMLPage implements Page{
 		$this->getAll();
 		$this->getGames();
 		$this->getCountries();
-		$this->getRealHauptrundenTeams();
 		$this->getNotTipped();
 		require_once('layout/admin.tpl');
 	}
