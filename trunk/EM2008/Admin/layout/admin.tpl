@@ -50,23 +50,21 @@
 		$achtel14 = $this->achtelfinal14; 
 		$achtel15 = $this->achtelfinal15; 
 		$achtel16 = $this->achtelfinal16; 
-		
-		 $viertel1 = $this->viertelfinal1; 
-		 $viertel2 = $this->viertelfinal2; 
-		 $viertel3 = $this->viertelfinal3; 
-		 $viertel4 = $this->viertelfinal4; 
-		 $viertel5 = $this->viertelfinal5; 
-		 $viertel6 = $this->viertelfinal6; 
-		 $viertel7 = $this->viertelfinal7; 
-		 $viertel8 = $this->viertelfinal8; 
-		 $halb1 = $this->halbfinal1; 
-		 $halb2 = $this->halbfinal2; 
-		 $halb3 = $this->halbfinal3; 
-		 $halb4 = $this->halbfinal4; 
-		 $final1 = $this->final1; 
-		 $final2 = $this->final2; 
-		 $sieger = $this->sieger; 
-	
+	 	$viertel1 = $this->viertelfinal1; 
+	 	$viertel2 = $this->viertelfinal2; 
+	 	$viertel3 = $this->viertelfinal3; 
+	 	$viertel4 = $this->viertelfinal4; 
+	 	$viertel5 = $this->viertelfinal5; 
+	 	$viertel6 = $this->viertelfinal6; 
+	 	$viertel7 = $this->viertelfinal7; 
+	 	$viertel8 = $this->viertelfinal8; 
+	 	$halb1 = $this->halbfinal1; 
+	 	$halb2 = $this->halbfinal2; 
+	 	$halb3 = $this->halbfinal3; 
+	 	$halb4 = $this->halbfinal4; 
+	 	$final1 = $this->final1; 
+	 	$final2 = $this->final2; 
+	 	$sieger = $this->sieger; 
 	?>
 	<form action="index.php?go=admin&action=results" method="POST">
 		<table border="0">
