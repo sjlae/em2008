@@ -1,7 +1,15 @@
 <h2>Rangliste</h2>
 <?php require_once('Layout/infos.tpl'); ?>
-Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
-<? if($_SESSION['eingeloggt']){?>
+<?
+   $countPlayers = mysql_result($countPlayers,0);
+?>
+Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo $countPlayers; ?></b>
+<? 
+	$userDependentWinLine = '8';
+	if($countPlayers >= '201'){
+		$userDependentWinLine = '18';		
+	}
+	if($_SESSION['eingeloggt']){?>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dein aktueller Rang:&nbsp;
 		<b><? echo $this->currentPlace;?></b>
 <?	} ?>
@@ -63,8 +71,22 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 		$previousRank = 0;
 		
 		if($this->rankingArray != null){
+			$hasWinLinePainted = false;
 			foreach($this->rankingArray as $ranking): 
 	?>
+			
+	<? 		
+				if(!$hasWinLinePainted && $userDependentWinLine < $ranking['now']){
+	?>
+					<tr>
+						<td colspan="5">
+							<hr/>
+						</td>
+					</tr>	
+	<?
+					$hasWinLinePainted = true;
+				}
+	?>		
 				<tr style="background-color: <? if($_SESSION['userid'] == $ranking['userid']){ echo 'yellow'; } ?>;">
 					<td>
 						<?
@@ -155,7 +177,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><? echo mysql_result($countPlayers,0); ?></b>
 						<?echo $ranking['punkte'] ?>
 					</td>
 				</tr>
-	<? 
+	<?
 			endforeach; 
 		}
 	?>
