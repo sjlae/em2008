@@ -1,4 +1,4 @@
-<?
+<?php
 class tabs {
 	var $name;
 	var $tabs;

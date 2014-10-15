@@ -12,7 +12,7 @@ class Menu {
 	public function getMenu() {
 		$this->userOnline();
 		
-		$registered = $_SESSION['eingeloggt'];
+		$registered = isset($_SESSION['eingeloggt']) ? $_SESSION['eingeloggt'] : '';
 		if($registered) {
 			return 'Menu/layout/registered.tpl';
 		}

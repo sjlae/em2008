@@ -2,15 +2,15 @@
 <?php require_once('Layout/infos.tpl'); ?>
 <?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=ranking&action=savegroup" name="formular" method="POST">
-<? if(isset($this->gruppeid) && $this->gruppeid != ''){ ?>
-	 <input type="hidden" name="gruppeid" value="<? echo $this->gruppeid ?>" />
-<? } ?>
+<?php if(isset($this->gruppeid) && $this->gruppeid != ''){ ?>
+	 <input type="hidden" name="gruppeid" value="<?php echo $this->gruppeid ?>" />
+<?php } ?>
 
 	Gruppenname:
 	<input type="text" style="width: 150px;" value="<?php echo $this->gruppenname; ?>" name="gruppenname" maxLength="30" />
-	<? if(isset($this->gruppeid)){ ?>
+	<?php if(isset($this->gruppeid)){ ?>
 		 <input type="button" value="Gruppe l&ouml;schen" onclick="document.forms['deletegroup'].submit()"/>
-	<? } ?>
+	<?php } ?>
 <table>
 	<tr>
 		<td>
@@ -24,26 +24,26 @@
 		</td>
 	</tr>
 	<tr />
-	<? 
+	<?php 
 		if($this->rankingArray != null){
 			foreach($this->rankingArray as $ranking): 
 	?>
-				<tr style="background-color: <? if($_SESSION['userid'] == $ranking['userid']){ echo 'yellow'; } ?>;">
+				<tr style="background-color: <?php if($_SESSION['userid'] == $ranking['userid']){ echo 'yellow'; } ?>;">
 					<td>
-						<? if(array_search($ranking['userid'], $this->currentUsers)){ ?>
+						<?php if(array_search($ranking['userid'], $this->currentUsers)){ ?>
 							 <input type="checkbox" name="users_group[]" value="<?php echo $ranking['userid']; ?>" checked />
-						<? } else{ ?>
+						<?php } else{ ?>
 							 <input type="checkbox" name="users_group[]" value="<?php echo $ranking['userid']; ?>" />
-					 	<? } ?>
+					 	<?php } ?>
 					</td>
 					<td style="padding-left: 20px;">
-						<?echo $ranking['vorname']?>
+						<?php echo $ranking['vorname']?>
 					</td>
 					<td style="padding-left: 20px;">
-						<?echo $ranking['nachname']?>
+						<?php echo $ranking['nachname']?>
 					</td>
 				</tr>
-	<? 
+	<?php 
 			endforeach; 
 		}
 	?>
@@ -57,4 +57,4 @@
 	});
 </script>
 </form>
-<form action="index.php?go=ranking&action=deletegroup&gruppeid=<? echo $this->gruppeid; ?>" name="deletegroup" method="POST" />
+<form action="index.php?go=ranking&action=deletegroup&gruppeid=<?php echo $this->gruppeid; ?>" name="deletegroup" method="POST" />

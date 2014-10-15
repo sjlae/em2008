@@ -134,43 +134,43 @@
 
 						<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
 
-						<td><select name="achtelfinal1" id="achtelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[1], 1); ?>">
+						<td><select name="achtelfinal1" id="achtelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[1], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('A') as $country): ?>
+							<?php foreach($this->getGroupTeams('A') as $country): ?>
 							<?php if($this->userAchtelfinal[1] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal2" id="achtelfinal2" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[2], 1); ?>">
+						<td><select name="achtelfinal2" id="achtelfinal2" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[2], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('A') as $country): ?>
+							<?php foreach($this->getGroupTeams('A') as $country): ?>
 							<?php if($this->userAchtelfinal[2] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal3" id="achtelfinal3" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[3], 1); ?>">
+						<td><select name="achtelfinal3" id="achtelfinal3" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[3], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('B') as $country): ?>
+							<?php foreach($this->getGroupTeams('B') as $country): ?>
 							<?php if($this->userAchtelfinal[3] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal4" id="achtelfinal4" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[4], 1); ?>">
+						<td><select name="achtelfinal4" id="achtelfinal4" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[4], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('B') as $country): ?>
+							<?php foreach($this->getGroupTeams('B') as $country): ?>
 							<?php if($this->userAchtelfinal[4] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
@@ -182,43 +182,43 @@
 						<td>Zweiter Gruppe D</td>
 					</tr>
 					<tr>
-						<td><select name="achtelfinal5" id="achtelfinal5" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[5], 1); ?>">
+						<td><select name="achtelfinal5" id="achtelfinal5" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[5], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('C') as $country): ?>
+							<?php foreach($this->getGroupTeams('C') as $country): ?>
 							<?php if($this->userAchtelfinal[5] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal6" id="achtelfinal6" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[6], 1); ?>">
+						<td><select name="achtelfinal6" id="achtelfinal6" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[6], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('C') as $country): ?>
+							<?php foreach($this->getGroupTeams('C') as $country): ?>
 							<?php if($this->userAchtelfinal[6] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal7" id="achtelfinal7" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[7], 1); ?>">
+						<td><select name="achtelfinal7" id="achtelfinal7" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[7], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('D') as $country): ?>
+							<?php foreach($this->getGroupTeams('D') as $country): ?>
 							<?php if($this->userAchtelfinal[7] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal8" id="achtelfinal8" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[8], 1); ?>">
+						<td><select name="achtelfinal8" id="achtelfinal8" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[8], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('D') as $country): ?>
+							<?php foreach($this->getGroupTeams('D') as $country): ?>
 							<?php if($this->userAchtelfinal[8] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
@@ -233,43 +233,43 @@
 
 						<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
 
-						<td><select name="achtelfinal9" id="achtelfinal9" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[9], 1); ?>">
+						<td><select name="achtelfinal9" id="achtelfinal9" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[9], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('E') as $country): ?>
+							<?php foreach($this->getGroupTeams('E') as $country): ?>
 							<?php if($this->userAchtelfinal[9] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal10" id="achtelfinal10" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[10], 1); ?>">
+						<td><select name="achtelfinal10" id="achtelfinal10" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[10], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('E') as $country): ?>
+							<?php foreach($this->getGroupTeams('E') as $country): ?>
 							<?php if($this->userAchtelfinal[10] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal11" id="achtelfinal11" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[11], 1); ?>">
+						<td><select name="achtelfinal11" id="achtelfinal11" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[11], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('F') as $country): ?>
+							<?php foreach($this->getGroupTeams('F') as $country): ?>
 							<?php if($this->userAchtelfinal[11] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal12" id="achtelfinal12" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[12], 1); ?>">
+						<td><select name="achtelfinal12" id="achtelfinal12" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[12], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('F') as $country): ?>
+							<?php foreach($this->getGroupTeams('F') as $country): ?>
 							<?php if($this->userAchtelfinal[12] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
@@ -281,43 +281,43 @@
 						<td>Zweiter Gruppe H</td>
 					</tr>
 					<tr>
-						<td><select name="achtelfinal13" id="achtelfinal13" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">
+						<td><select name="achtelfinal13" id="achtelfinal13" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('G') as $country): ?>
+							<?php foreach($this->getGroupTeams('G') as $country): ?>
 							<?php if($this->userAchtelfinal[13] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal14" id="achtelfinal14" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[14], 1); ?>">
+						<td><select name="achtelfinal14" id="achtelfinal14" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[14], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('G') as $country): ?>
+							<?php foreach($this->getGroupTeams('G') as $country): ?>
 							<?php if($this->userAchtelfinal[14] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal15" id="achtelfinal15" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[15], 1); ?>">
+						<td><select name="achtelfinal15" id="achtelfinal15" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[15], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('H') as $country): ?>
+							<?php foreach($this->getGroupTeams('H') as $country): ?>
 							<?php if($this->userAchtelfinal[15] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal16" id="achtelfinal16" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userAchtelfinal[16], 1); ?>">
+						<td><select name="achtelfinal16" id="achtelfinal16" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[16], 1); ?>">
 							<option value=''></option>
-							<?foreach($this->getGroupTeams('H') as $country): ?>
+							<?php foreach($this->getGroupTeams('H') as $country): ?>
 							<?php if($this->userAchtelfinal[16] == $country['id']): ?>
-							<option value="<?echo $country['id']; ?>" selected><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
 							<?php else:?>
-							<option value="<?echo $country['id']; ?>"><?echo $country['land']; ?></option>
+							<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
@@ -336,7 +336,7 @@
 
 					<?php $isDisabled = $this->isDisabledHauptrunde(); ?>
 
-					<td><select name="viertelfinal1" id="viertelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
+					<td><select name="viertelfinal1" id="viertelfinal1" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
 						<option value=''></option>
 					</select></td>
 					<td><select name="viertelfinal2" id="viertelfinal2" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userViertelfinal[2], 2); ?>">
@@ -559,7 +559,7 @@
                 }                
             ];
             
-            var userEntriesArray = <? echo json_encode($this->userEntries); ?>;
+            var userEntriesArray = <?php  echo json_encode($this->userEntries); ?>;
             
             for(var index in gameplan) {
                 var i = 1;

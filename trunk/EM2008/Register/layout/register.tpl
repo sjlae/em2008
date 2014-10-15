@@ -48,10 +48,10 @@
 			</td>
 			<td>
 				<select name="where">
-					<?$i=0; ?>
-					<?foreach($this->wheres as $where): ?>
-						<option value="<?echo ++$i; ?>"><?echo $where; ?></option>
-					<?endforeach; ?>
+					<?php $i=0; ?>
+					<?php foreach($this->wheres as $where): ?>
+						<option value="<?php echo ++$i; ?>"><?php echo $where; ?></option>
+					<?php endforeach; ?>
 				</select>
 			</td>
 		</tr>

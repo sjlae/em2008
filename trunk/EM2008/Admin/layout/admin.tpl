@@ -83,20 +83,20 @@
 					<?php if(!is_numeric($spiel['team1id'])){ ?>
 						<select name="<?php echo $spiel['id'] .'_1'; ?>">
 							<option value="<?php echo $spiel['team1']; ?>"><?php echo $spiel['team1']; ?></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($spiel['team1id'] == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					<?php }
 						else{ echo $spiel['team1']; } ?>
@@ -105,20 +105,20 @@
 					<?php if(!is_numeric($spiel['team2id'])){ ?>
 						<select name="<?php echo $spiel['id'] .'_2'; ?>">
 							<option value="<?php echo $spiel['team2']; ?>"><?php echo $spiel['team2']; ?></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($spiel['team2id'] == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					<?php }
 						else{ echo $spiel['team2']; } ?>
@@ -142,77 +142,77 @@
 					<td>
 						<select name="achtelfinal1">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel1 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal2">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel2 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal3">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel3 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal4">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel4 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 				</tr>
@@ -226,77 +226,77 @@
 					<td>
 						<select name="achtelfinal5">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel5 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal6">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel6 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal7">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel7 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal8">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel8 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 				</tr>
@@ -310,77 +310,77 @@
 					<td>
 						<select name="achtelfinal9">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel9 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal10">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel10 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal11">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel11 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal12">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel12 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 				</tr>
@@ -394,77 +394,77 @@
 					<td>
 						<select name="achtelfinal13">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel13 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal14">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel14 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal15">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel15 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 					<td>
 						<select name="achtelfinal16">
 							<option value=""></option>
-							<?foreach($this->countries as $country): ?>
-								<? 
+							<?php foreach($this->countries as $country): ?>
+								<?php  
 									if($achtel16 == $country['id']){
 								?>
-										<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+								<?php 
 									}
 									else{
 								?>
-										<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-								<?
+										<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+								<?php 
 									}
 								?>
-							<?endforeach; ?>
+							<?php endforeach; ?>
 						</select>
 					</td>
 				</tr>
@@ -483,77 +483,77 @@
 				<td>
 					<select name="viertelfinal1">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($viertel1 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="viertelfinal2">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($viertel2 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="viertelfinal3">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($viertel3 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="viertelfinal4">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($viertel4 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 			</tr>
@@ -567,77 +567,77 @@
 				<td>
 					<select name="viertelfinal5">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($viertel5 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="viertelfinal6">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($viertel6 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="viertelfinal7">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($viertel7 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="viertelfinal8">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($viertel8 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 			</tr>
@@ -655,77 +655,77 @@
 				<td>
 					<select name="halbfinal1">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($halb1 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="halbfinal2">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($halb2 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="halbfinal3">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($halb3 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="halbfinal4">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($halb4 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 			</tr>
@@ -741,39 +741,39 @@
 				<td>
 					<select name="final1">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($final1 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 				<td>
 					<select name="final2">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($final2 == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 			</tr>
@@ -788,20 +788,20 @@
 				<td>
 					<select name="sieger">
 						<option value=""></option>
-						<?foreach($this->countries as $country): ?>
-							<? 
+						<?php foreach($this->countries as $country): ?>
+							<?php  
 								if($sieger == $country['id']){
 							?>
-									<option value="<?echo $country['id'] ?>" selected><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
+							<?php 
 								}
 								else{
 							?>
-									<option value="<?echo $country['id'] ?>"><?echo $country['land'] ?></option>
-							<?
+									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
+							<?php 
 								}
 							?>
-						<?endforeach; ?>
+						<?php endforeach; ?>
 					</select>
 				</td>
 			</tr>
