@@ -223,8 +223,10 @@ class Ranking extends HTMLPage implements Page {
 				$this->rankingArray[$counter]['bezahlt'] = $row['bezahlt'];
 				$this->rankingArray[$counter]['last'] = $row['rank_last'];
 				$this->rankingArray[$counter]['now'] = $row['rank_now'];
-
-				if($_SESSION['eingeloggt']){
+				
+				$loged_in = isset($_SESSION['eingeloggt']) ? true : false;
+				
+				if($loged_in){
 					if($_SESSION['userid'] == $this->rankingArray[$counter]['userid']){
 						$this->currentPlace = $this->rankingArray[$counter]['now'];
 					}
@@ -247,7 +249,7 @@ class Ranking extends HTMLPage implements Page {
 			$countNotPayed = "SELECT COUNT(*) FROM user WHERE bezahlt = 0";
 			$countPlayersNotPayed = mysql_query($countNotPayed);
 			
-			$userid = $_SESSION['userid'];
+			$userid = isset($_SESSION['userid']) ? $_SESSION['userid'] : '';
 			$abfrage = "SELECT
 						a.gruppeid, a.name
 						FROM
