@@ -16,7 +16,7 @@ require_once('Datenbank/db.php');
 require_once('StatisticsDetail/StatisticsDetail.php');
 require_once('Password/Password.php');
 require_once('ChangePassword/ChangePassword.php');
-
+ 
 $go = isset($_GET['go']) ? $_GET['go'] : '';
 
 switch($go) {
