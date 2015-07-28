@@ -3,7 +3,7 @@
 class Constants{
 	public static $isWM = false;
 	public static $winnerLabel = 'Europameister';
-	
+	 
 	public static $regexSpecialSigns = '/[<>&\'"\\\]+/';
 	
 	public static function hasSpecialSigns($value){
