@@ -34,12 +34,12 @@ class Ranking extends HTMLPage implements Page {
 		}
 		
 		if($this->action == "savegroup") {
-			$this->savegroup();
+			return $this->savegroup();
 			return true;
 		}
 		
 		if($this->action == "deletegroup") {
-			$this->deletegroup();
+			return $this->deletegroup();
 			return true;
 		}
 
@@ -94,7 +94,7 @@ class Ranking extends HTMLPage implements Page {
 			mysql_query("Delete from gruppe where gruppeid = '$gruppeid'");
 		}
 		
-		$_SESSION['infos'][] = "Die Gruppe wurde erfolgreich gelöscht.";
+		$_SESSION['infos'][] = "Die Gruppe wurde erfolgreich gel&ouml;scht.";
 		
 		header('location:	index.php?go=ranking');
 		return false;
@@ -142,7 +142,6 @@ class Ranking extends HTMLPage implements Page {
 		}
 		
 		$_SESSION['infos'][] = "Die Gruppe wurde erfolgreich gespeichert";
-		
 		header('location:	index.php?go=ranking');
 		return false;
 	}
