@@ -9,17 +9,26 @@ class ChangePassword extends HTMLPage implements Page {
 	private $oldPassword = '';
 	private $newPassword1 = '';
 	private $newPassword2 = '';
+	private $reminder = '';
+	private $userid = '';
+	private $action = '';
 	
 	public function __construct() {
 		$this->link = Db::getConnection();
 	}
 
 	public function init() {
-		$action = isset($_GET['action']) ? $_GET['action'] : '';
-
-		if($action == "change") {
+		$this->action = isset($_GET['action']) ? $_GET['action'] : '';
+		$this->userid = $_SESSION['userid'];
+		
+		if($this->action == "change") {
 			return $this->savePassword();
 		}
+		
+		else if($this->action == "reminder") {
+			return $this->saveReminder();
+		}
+		
 		return true;
 	}
 	
@@ -27,7 +36,6 @@ class ChangePassword extends HTMLPage implements Page {
 		$this->oldPassword = $_POST['oldPassword'];
 		$this->newPassword1 = $_POST['newPassword1'];
 		$this->newPassword2 = $_POST['newPassword2'];
-		$userid = $_SESSION['userid'];
 		$numberOfErrors = 0;
 		
 		if($this->oldPassword == '' || $this->newPassword1 == '' || $this->newPassword2 == ''){
@@ -35,7 +43,7 @@ class ChangePassword extends HTMLPage implements Page {
 			$numberOfErrors++;	
 		}
 		
-		$query = mysql_query("SELECT passwort FROM user where userid='$userid'");
+		$query = mysql_query("SELECT passwort FROM user where userid='$this->userid'");
 		$result = mysql_fetch_assoc($query);
 		
 		if(md5($this->oldPassword) != $result['passwort']){
@@ -50,7 +58,7 @@ class ChangePassword extends HTMLPage implements Page {
 		
 		if($numberOfErrors == 0){
 			$newpwd = md5($this->newPassword1);
-			$abfrage = "Update user set passwort='$newpwd' where userid='$userid'";
+			$abfrage = "Update user set passwort='$newpwd' where userid='$this->userid'";
 			mysql_query($abfrage);
 			$_SESSION['infos'][] = "Das Passwort wurde erfolgreich ge&auml;ndert.";
 			$this->oldPassword = '';
@@ -61,7 +69,21 @@ class ChangePassword extends HTMLPage implements Page {
 		return true;
 	}
 	
+	private function saveReminder(){
+		$this->reminder = $_POST['reminder'] == 'on' ? '1' : '0';
+		$abfrage = "Update user set reminder='$this->reminder' where userid='$this->userid'";
+		mysql_query($abfrage);
+		$_SESSION['infos'][] = "Die Reminder-Einstellungen wurden erfolgreich gespeichert.";
+		
+		return true;
+	}
+	
 	public function getHTML() {
+		$abfrage = "Select reminder FROM user where userid = $this->userid";
+		$ergebnis = mysql_query($abfrage);
+		$result = mysql_fetch_row($ergebnis);
+		$this->reminder = $result[0];
+
 		include('layout/changepassword.tpl');
 	}
 }

@@ -1,9 +1,9 @@
 <?php
 
 class Constants{
-	public static $isWM = true;
-	public static $winnerLabel = 'Weltmeister';
-	
+	public static $isWM = false;
+	public static $winnerLabel = 'Europameister';
+	 
 	public static $regexSpecialSigns = '/[<>&\'"\\\]+/';
 	
 	public static function hasSpecialSigns($value){
