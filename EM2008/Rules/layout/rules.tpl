@@ -36,6 +36,10 @@
 		<p>Im Men&uuml;punkt 'Statistiken' findest du die beiden Tabs Resultattipps und Finalteilnehmer. Beim Tab Resultattipps
 		kannst du jederzeit sehen, wie die aktuelle Tippverteilung aller Mitspieler pro Gruppen- und Finalspiel aussieht. Beim Tab Finalteilnehmer siehst du, wieviele
 		Mitspieler die jeweiligen Teams in die Achtel-, Viertel-, Halb-, Finalspiele und nat&uuml;rlich als Sieger getippt haben.</p>
+		<p>Neu kannst du auf der Ranglistenseite deine eigenen Gruppen erstellen. So kannst du beispielsweise eine Gruppe mit allen Freunden oder
+		Arbeitskollegen erstellen und damit auf einen Blick erkennen, ob du der beste Familien-, Freunde- oder Arbeitskollege-Tipper bist. Sobald dich
+		jemand einer Gruppe hinzuf&uuml;gt, siehst du die Gruppe auch bei dir und kannst die Rangliste entsprechend einschr&auml;nken. Du kannst beliebig
+		viele Gruppen erstellen und auch bei unbeschr&auml;nkt vielen Gruppen Mitglied sein.</p>
 		<p>Falls du deine Tipps allen kundtum m&ouml;chtest oder die Tippgemeinde &uuml;ber sonst was informieren m&ouml;chtest, kannst du dies jederzeit
 		in unserem kleinen G&auml;stebuch unter dem gleichnamigen Men&uuml;punkt. Anst&ouml;ssige, politisch inkorrekte oder ethisch unzumutbare Beitr&auml;ge
 		werden von uns relativ rasch entfernt. Aber nat&uuml;rlich k&ouml;nnen heissgef&uuml;hrte Diskussionen ausgetragen werden.</p>
