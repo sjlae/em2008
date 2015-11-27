@@ -117,18 +117,11 @@
 			</tr>
 		</table>
 		<p>
-		Bei Punktegleichstand am Schluss innerhalb der Gewinnr&auml;nge gelten nachstehende Kriterien f&uuml;r die Ermittlung der R&auml;nge. 
-		Besser rangiert ist derjenige, welcher</p>
-		<ol>
-			<li>der richtige Sieger hat</li>
-			<li>mehr richtige Finalteilnehmer hat</li>
-			<li>mehr richtige Halbfinalteilnehmer hat</li>
-			<li>mehr richtige Viertelfinalteilnehmer hat</li>
-			<li>mehr richtige Achtelfinalteilnehmer hat</li>
-			<li>mehr komplett richtige Gruppenspieltipps hat</li>
-			<li>die Losentscheidung gewonnen hat</li>
-		</ol>
-		<p>Nur bei Gleichstand beim ersten Kriterium wird das zweite &uuml;berhaupt noch &uuml;berpr&uuml;ft usw.</p>
+		Bei Punktgleichstand am Ende des Tippspiels werden die Gewinnberechtigten die Gewinnsumme mit den
+		Gleichrangierten teilen. Beispiel:<br><i>Bei 250 Teilnehmern gibt es am Ende drei 6. Platzierte. Diese Teilen sich
+		dann die Gewinnsumme f&uuml;r den 6. - 8. Rang --> insgesamt 12.25% geteilt durch drei. Somit erh&auml;lt jeder
+		Einzelne noch 4.0833% vom Gesamtpot, also Fr. 204.15.</i>
+		</p>
 		
 		<p>Damit ein Pot zustande kommt, muss jeder Teilnehmer Fr. 20.-- bezahlen. Solange ein Teilnehmer nicht bezahlt hat, wird dieser
 		speziell markiert auf der Ranglisten-Seite. Wer bis am <b>12. Juni 2014</b> noch nicht bezahlt hat, wird vom Tippspiel ausgeschlossen.</p>
