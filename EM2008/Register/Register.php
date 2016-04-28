@@ -77,7 +77,7 @@ class Register extends HTMLPage implements Page {
 				$mailtext = "Hallo $this->vorname<br><br>
 				Super, hast du dich bei tippy.ch angemeldet. Ab sofort kannst du deine Tipps erfassen, im G&auml;stebuch Kommentare schreiben, 
 				die Statistiken betrachten oder Tipps der Konkurrenten ansehen. Ich rate dir jedoch (falls noch nicht geschehen), zuerst die 
-				Spielregeln zu lesen.<br><br>
+				Spielregeln zu lesen, denn es gibt noch viel mehr Funktionen bei tippy.ch!<br><br>
 				Damit du auch tats&auml;chlich am Tippspiel teilnehmen kannst, ben&ouml;tige ich von dir noch <b>Fr. 20.00 </b> ! Falls du mich pers&ouml;nlich 
 				kennen solltest und mich auch in absehbarer Zeit sehen wirst, kannst du mir das Geld nat&uuml;rlich bar geben. Ansonsten rate ich dir, 
 				mir das Geld auf folgende Bankverbindung zu &uuml;berweisen oder zu schicken:<br><br>
