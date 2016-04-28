@@ -124,7 +124,7 @@
 		</p>
 		
 		<p>Damit ein Pot zustande kommt, muss jeder Teilnehmer Fr. 20.-- bezahlen. Solange ein Teilnehmer nicht bezahlt hat, wird dieser
-		speziell markiert auf der Ranglisten-Seite. Wer bis am <b>12. Juni 2014</b> noch nicht bezahlt hat, wird vom Tippspiel ausgeschlossen.</p>
+		speziell markiert auf der Ranglisten-Seite. Wer bis am <b>10. Juni 2016</b> noch nicht bezahlt hat, wird vom Tippspiel ausgeschlossen.</p>
 		<p>Nun weisst du alles, was es &uuml;ber unser Tippspiel zu wissen gibt. Folgende drei Dinge solltest du nun unternehmen:</p>
 		<ol>
 			<li>Dich registrieren.</li>
