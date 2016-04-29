@@ -1,17 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.4.11.1deb2+deb7u2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Erstellungszeit: 14. Jul 2014 um 20:06
--- Server Version: 5.1.66-0+squeeze1-log
--- PHP-Version: 5.2.17
+-- Host: wp327.webpack.hosteurope.de
+-- Erstellungszeit: 29. Apr 2016 um 21:45
+-- Server Version: 5.5.47
+-- PHP-Version: 5.4.45-0+deb7u2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
--- Datenbank: `usr_web483_7`
+-- Datenbank: `db12224342-7`
 --
 
 -- --------------------------------------------------------
@@ -73,7 +79,8 @@ INSERT INTO `guestbook` (`userfsid`, `timestamp`, `text`) VALUES
 (186, '2014-07-08 20:50:36', 'Bin gespannt, ob Brasilien das Ding in der zweiten Halbzeit noch drehen kann.... hahahaha'),
 (465, '2014-07-12 15:12:53', 'Am Sonntag wartet der 4te Stern. Falls nicht habe\r\nich wenigstens 3 Wochen Ferien die ich dann mit weinen\r\nverbringen werde. 4 x Semifinale! Wir sind jetzt einfach mal\r\nwieder dran, fertig...'),
 (465, '2014-07-13 22:29:35', 'ENDLICH'),
-(200, '2014-07-14 12:57:51', '&quot;Hallo Silvan\r\nComplimenti f&uuml;r tippy.ch!\r\nW&auml;re es bei der n&auml;chsten Ausgabe m&ouml;glich, einen Email Reminder (Finalspiele) abzusetzen, damit wir alle super ger&uuml;stet sind f&uuml;r die Finalrunde der EM 2016?\r\nGruss Arne&quot;');
+(200, '2014-07-14 12:57:51', '&quot;Hallo Silvan\r\nComplimenti f&uuml;r tippy.ch!\r\nW&auml;re es bei der n&auml;chsten Ausgabe m&ouml;glich, einen Email Reminder (Finalspiele) abzusetzen, damit wir alle super ger&uuml;stet sind f&uuml;r die Finalrunde der EM 2016?\r\nGruss Arne&quot;'),
+(216, '2014-07-15 16:45:14', 'Hallo Silvan, herzlich Dank f&uuml;r dieses wunderbare \r\nTippspiel. Super gemacht! Mir hat es sehr grossen Spass gemacht, und ich freue mich schon auf die EM \r\n2016. Kudi');
 
 -- --------------------------------------------------------
 
@@ -715,7 +722,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`userid`, `nachname`, `vorname`, `email`, `passwort`, `bezahlt`, `punkte`, `rank_now`, `rank_last`, `woherfsid`, `admin`) VALUES
-(186, 'St&auml;heli', 'Silvan', 'sjlae@bluewin.ch', '8977ecbb8cb82d77fb091c7a7f186163', 1, 232, 23, 14, 1, 1),
+(186, 'St&auml;heli', 'Silvan', 'sjlae@bluewin.ch', '84c51b387a5a478cbaf7dc28cd2fb4e1', 1, 232, 23, 14, 1, 1),
 (188, 'Gabathuler', 'Cyril', 'cyril.gabathuler@me.com', '2a3878d50b8f98535ceb157b79eb5e11', 1, 178, 265, 262, 1, 1),
 (189, 'Weisser', 'Mirko', 'Mirko.weisser@gmail.com', 'e4f8b6dc7a26f0ced7e51fb725153c94', 1, 194, 173, 238, 1, 0),
 (190, 'Koertner', 'Florian', 'Flokoertner@gmail.com', '482cec052f91dcaef11158b8bfd8295f', 1, 214, 77, 64, 1, 0),
@@ -731,7 +738,7 @@ INSERT INTO `user` (`userid`, `nachname`, `vorname`, `email`, `passwort`, `bezah
 (200, 'Stiel', 'Arne', 'arne.stiel@hotmail.com', '51bce8254633f651771bf3eb95d1dd91', 1, 183, 239, 232, 1, 0),
 (201, 'de Moraes', 'Claudio', 'claudio@de-moraes.de', '018e4225142d9602219c8968479e1e30', 1, 202, 127, 116, 2, 0),
 (202, 'Hohl', 'Corsin', 'Corsin.h@hotmail.com', '270562da726aff8b232c9fb9cae89561', 1, 208, 101, 92, 1, 0),
-(203, 'Labruy&egrave;re', 'Rob', 'rob.labruyere@gmx.net', '1175927ffd92eba36df27b17aefd1dd2', 1, 230, 27, 17, 1, 0),
+(203, 'Labruy&egrave;re', 'Rob', 'rob.labruyere@gmx.net', 'c1ff775d10bd78fcab2dd3fb326b3ea6', 1, 230, 27, 17, 1, 0),
 (204, 'Janett', 'Simon', 'simonjanett@msn.com', 'b9938fff55f6e650ab6e9772718d3296', 1, 179, 257, 253, 1, 0),
 (205, 'Rey', 'Oliver ', 'oli_rey@bluemail.ch', '7fcbbbc6d759dfb8377b1903e3d08eea', 1, 159, 332, 330, 1, 0),
 (206, 'St&uuml;rzinger', 'Florian', 'florian.stuerzinger@unic.com', 'd0ed1113042d59852f867e4c40eaf865', 1, 177, 272, 269, 2, 0),
@@ -1102,8 +1109,8 @@ CREATE TABLE IF NOT EXISTS `useronline` (
 --
 
 INSERT INTO `useronline` (`ip`, `zeit`, `userfsid`) VALUES
-('213.200.253.245', 1405361152, 0),
-('176.127.121.44', 1405361415, 0);
+('180.76.15.10', 1461958878, 0),
+('194.191.241.112', 1461958796, 0);
 
 -- --------------------------------------------------------
 
@@ -46538,3 +46545,7 @@ INSERT INTO `woher` (`woherid`, `bezeichnung`) VALUES
 (1, 'Kenne Organisatoren'),
 (2, 'Ein/e Kollege/Kollegin kennt Organisatoren'),
 (3, 'Zuf&auml;llig im Internet darauf gestossen');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
