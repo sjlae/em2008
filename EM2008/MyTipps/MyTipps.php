@@ -17,7 +17,7 @@ class MyTipps extends HTMLPage implements Page {
 	private $userHalbfinal = array();
 	private $userFinal = array();
 	private $userSieger= '';
-    private $userEntries = array();
+  private $userEntries = array();
 
 	private $link = '';
 
