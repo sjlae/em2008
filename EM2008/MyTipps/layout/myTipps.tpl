@@ -882,7 +882,7 @@
           var userEntriesArray = <?php  echo json_encode($this->userEntries); ?>;
           var allCountries = <?php  echo json_encode($allCountries); ?>;
           
-          var verifyTeam = function(allowedGroups, $selectToVerify) {
+          var isAllowedTeam = function(allowedGroups, teamName) {
             var allAllowedTeams = Array();
             
             allowedGroups.forEach(function(allowedGroup) {
@@ -895,18 +895,20 @@
               }));
             });
             
+            return $.inArray( teamName, allAllowedTeams );
+          };
+          
+          var verifyTeam = function(allowedGroups, $selectToVerify) {
             $('option', $selectToVerify).each(function() {
               var optionText = $(this).text();
 
               if(optionText != '') {
-                var isAllowedTeam = $.inArray( optionText, allAllowedTeams );
-              
-                if(isAllowedTeam < 0) {
+                if(isAllowedTeam(allowedGroups, optionText) < 0) {
                   $(this).remove();
                 }
               }
             });
-          }
+          };
           
           for(var index in gameplan) {
               var i = 1;
@@ -919,14 +921,51 @@
                       if($actualLevel.val() != '') {
                           var $selectedOptionActualLevel = $(':selected', $actualLevel);
                           var $newOption = $selectedOptionActualLevel.clone();
-                          
+
                           //user selection
                           var userSelection = userEntriesArray[gameplan[index].phpData.round][gameplan[index].phpData.index];
                           
+
                           if(userSelection != '' && userSelection == $newOption.val()) {
-                              $newOption.appendTo($(nextLevel));
+                            if(nextLevel === '#viertelfinal2' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
+                              if(isAllowedTeam(['B', 'E', 'F'], $newOption.text()) > 0) {
+                                $newOption.appendTo($(nextLevel));
+                              }
+                            } else if(nextLevel === '#viertelfinal3' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
+                              if(isAllowedTeam(['A', 'C', 'D'], $newOption.text()) > 0) {
+                                $newOption.appendTo($(nextLevel));
+                              }
+                            } else if(nextLevel === '#viertelfinal5' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
+                              if(isAllowedTeam(['A', 'B', 'F'], $newOption.text()) > 0) {
+                                $newOption.appendTo($(nextLevel));
+                              }
+                            } else if(nextLevel === '#viertelfinal7' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
+                              if(isAllowedTeam(['C', 'D', 'E'], $newOption.text()) > 0) {
+                                $newOption.appendTo($(nextLevel));
+                              }
+                            } else {
+                             $newOption.appendTo($(nextLevel)); 
+                            }
                           } else {
-                              $newOption.removeAttr('selected').appendTo($(nextLevel));
+                            if(nextLevel === '#viertelfinal2' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
+                              if(isAllowedTeam(['B', 'E', 'F'], $newOption.text()) > 0) {
+                                $newOption.removeAttr('selected').appendTo($(nextLevel));
+                              }
+                            } else if(nextLevel === '#viertelfinal3' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
+                              if(isAllowedTeam(['A', 'C', 'D'], $newOption.text()) > 0) {
+                                $newOption.removeAttr('selected').appendTo($(nextLevel));
+                              }
+                            } else if(nextLevel === '#viertelfinal5' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
+                              if(isAllowedTeam(['A', 'B', 'F'], $newOption.text()) > 0) {
+                                $newOption.removeAttr('selected').appendTo($(nextLevel));
+                              }
+                            } else if(nextLevel === '#viertelfinal7' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
+                              if(isAllowedTeam(['C', 'D', 'E'], $newOption.text()) > 0) {
+                                $newOption.removeAttr('selected').appendTo($(nextLevel));
+                              }
+                            } else {
+                             $newOption.removeAttr('selected').appendTo($(nextLevel));
+                            }
                           }
                           
                           $selectedOptionActualLevel.parent().data('prev', $selectedOptionActualLevel.text());
@@ -965,6 +1004,10 @@
                   }
               }
           }
+          
+
+            // verifyTeam(['B', 'E', 'F'], $('#viertelfinal2'));
+
 		});
   	</script>
       <?php endif; ?>
