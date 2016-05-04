@@ -35,13 +35,15 @@
 		<tr>
 			<td style="padding-top: 10px">
 				<input type="submit" value="Speichern" />
-			</td
+			</td>
 		</tr>
 	</table>
 </form>
 
 <?php $tabs->end(); ?>
-<?php $tabs->start("Reminder"); ?>
+
+<!--
+<?php // $tabs->start("Reminder"); ?>
 
 <form action="index.php?go=changePassword&action=reminder" method="POST">
 	<table>
@@ -69,6 +71,9 @@
 		</tr>
 	</table>
 </form>
-<?php $tabs->active = $this->action != 'reminder' ? "Passwort" : "Reminder"; ?>
-<?php $tabs->end(); ?>
+<?php // $tabs->active = $this->action != 'reminder' ? "Passwort" : "Reminder"; ?>
+<?php // $tabs->end(); ?>
+-->
+
+
 <?php $tabs->run(); ?>
