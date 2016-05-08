@@ -1011,9 +1011,9 @@
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal3');
             } else if(allGroups === 'B,C,E,F') {
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal3');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal3');
             } else if(allGroups === 'B,D,E,F') {
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal2');
