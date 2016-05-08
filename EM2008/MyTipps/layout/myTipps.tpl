@@ -449,9 +449,9 @@
   		<table>
   			<tr>
   					<td>2A - 2C = VF1</td>
-  					<td>1D - 3B/E/F = VF2</td>
-  					<td>1B - 3A/C/D = VF3</td>
-  					<td>1F - 2E = VF4</td>
+  					<td>1B - 3A/C/D = VF2</td>
+  					<td>1D - 3B/E/F = VF3</td>
+  					<td>1A - 3C/D/E = VF4</td>
   			</tr>
   				<tr>
 
@@ -472,8 +472,8 @@
   				</tr>
   			<tr>
   					<td>1C - 3A/B/F = VF5</td>
-  					<td>1E - 2D = VF6</td>
-  					<td>1A - 3C/D/E = VF7</td>
+  					<td>1F - 2E = VF6</td>
+  					<td>1E - 2D = VF7</td>
   					<td>2B - 2F = VF8</td>
   			</tr>
   				<tr>
@@ -749,7 +749,7 @@
               },
               {
                   'games': {
-                      '#viertelfinal2': ['#achtelfinal7']
+                      '#viertelfinal2': ['#achtelfinal3']
                   },
                   'phpData': {
                       'round': 'viertelfinal',
@@ -758,7 +758,7 @@
               },
               {
                   'games': {
-                      '#viertelfinal3': ['#achtelfinal3']
+                      '#viertelfinal3': ['#achtelfinal7']
                   },
                   'phpData': {
                       'round': 'viertelfinal',
@@ -767,7 +767,7 @@
               },
               {
                   'games': {
-                      '#viertelfinal4': ['#achtelfinal11', '#achtelfinal10']
+                      '#viertelfinal4': ['#achtelfinal1']
                   },
                   'phpData': {
                       'round': 'viertelfinal',
@@ -785,7 +785,7 @@
               },
               {
                   'games': {
-                      '#viertelfinal6': ['#achtelfinal9', '#achtelfinal8']
+                      '#viertelfinal6': ['#achtelfinal11', '#achtelfinal10']
                   },
                   'phpData': {
                       'round': 'viertelfinal',
@@ -794,7 +794,7 @@
               },
               {
                   'games': {
-                      '#viertelfinal7': ['#achtelfinal1']
+                      '#viertelfinal7': ['#achtelfinal9', '#achtelfinal8']
                   },
                   'phpData': {
                       'round': 'viertelfinal',
@@ -951,64 +951,64 @@
             
             if(allGroups === 'A,B,C,D') {
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal2');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal2');
             } else if(allGroups === 'A,B,C,E') {
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal2');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal3');
             } else if(allGroups === 'A,B,C,F') {
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal2');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal3');
             } else if(allGroups === 'A,B,D,E') {
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal2');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal3');
             } else if(allGroups === 'A,B,D,F') {
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal2');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal3');
             } else if(allGroups === 'A,B,E,F') {
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal2');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal3');
             } else if(allGroups === 'A,C,D,E') {
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal3');
             } else if(allGroups === 'A,C,D,F') {
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal3');
             } else if(allGroups === 'A,C,E,F') {
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal3');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal5');
             } else if(allGroups === 'A,D,E,F') {
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal3');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal5');
             } else if(allGroups === 'B,C,D,E') {
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal3');
             } else if(allGroups === 'B,C,D,F') {
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal3');
             } else if(allGroups === 'B,C,E,F') {
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal3');
@@ -1016,13 +1016,13 @@
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
             } else if(allGroups === 'B,D,E,F') {
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal3');
             } else if(allGroups === 'C,D,E,F') {
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
-              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal4');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal3');
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal5');
             }
             
