@@ -320,9 +320,9 @@
 	<table>
 		<tr>
 				<td>2A - 2C = VF1</td>
-				<td>1D - 3B/E/F = VF2</td>
-				<td>1B - 3A/C/D = VF3</td>
-				<td>1F - 2E = VF4</td>
+				<td>1B - 3A/C/D = VF2</td>
+				<td>1D - 3B/E/F = VF3</td>
+				<td>1A - 3C/D/E = VF4</td>
 		</tr>
 		<tr>
 			<td><select name="viertelfinal1" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
@@ -367,10 +367,10 @@
 			</select></td>
 		</tr>
 		<tr>
-				<td>1C - 3A/B/F = VF5</td>
-				<td>1E - 2D = VF6</td>
-				<td>1A - 3C/D/E = VF7</td>
-				<td>2B - 2F = VF8</td>
+			<td>1C - 3A/B/F = VF5</td>
+			<td>1F - 2E = VF6</td>
+			<td>1E - 2D = VF7</td>
+			<td>2B - 2F = VF8</td>
 		</tr>
 		<tr>
 			<td><select name="viertelfinal5" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[5], 2); ?>">
