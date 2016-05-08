@@ -267,10 +267,10 @@
 					</select></td>
 				</tr>
 				<tr>
-					<td>Sieger Gruppe G</td>
-					<td>Zweiter Gruppe G</td>
-					<td>Sieger Gruppe H</td>
-					<td>Zweiter Gruppe H</td>
+					<td>Beste 3. Platzierte</td>
+					<td>Beste 3. Platzierte</td>
+					<td>Beste 3. Platzierte</td>
+					<td>Beste 3. Platzierte</td>
 				</tr>
 				<tr>
 					<td><select name="achtelfinal13" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">
@@ -319,12 +319,10 @@
 	<h3>Viertelfinalteilnehmer</h3>
 	<table>
 		<tr>
-			
-				<td>1A - 2B = VF1</td>
-				<td>1C - 2D = VF2</td>
-				<td>1B - 2A = VF3</td>
-				<td>1D - 2C = VF4</td>
-			
+				<td>2A - 2C = VF1</td>
+				<td>1D - 3B/E/F = VF2</td>
+				<td>1B - 3A/C/D = VF3</td>
+				<td>1F - 2E = VF4</td>
 		</tr>
 		<tr>
 			<td><select name="viertelfinal1" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[1], 2); ?>">
@@ -369,12 +367,10 @@
 			</select></td>
 		</tr>
 		<tr>
-			
-				<td>1E - 2F = VF5</td>
-				<td>1G - 2H = VF6</td>
-				<td>1F - 2E = VF7</td>
-				<td>1H - 2G = VF8</td>
-			
+				<td>1C - 3A/B/F = VF5</td>
+				<td>1E - 2D = VF6</td>
+				<td>1A - 3C/D/E = VF7</td>
+				<td>2B - 2F = VF8</td>
 		</tr>
 		<tr>
 			<td><select name="viertelfinal5" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px; <?php echo $this->getStyle($this->userViertelfinal[5], 2); ?>">
@@ -422,12 +418,10 @@
 	<h3>Halbfinalteilnehmer</h3>
 	<table>
 		<tr>
-			
-				<td>VF1 - VF2 = HF1</td>
-				<td>VF5 - VF6 = HF2</td>
-				<td>VF3 - VF4 = HF3</td>
-				<td>VF7 - VF8 = HF4</td>
-			
+				<td>VF1 - VF3 = HF1</td>
+				<td>VF2 - VF6 = HF2</td>
+				<td>VF5 - VF7 = HF3</td>
+				<td>VF4 - VF8 = HF4</td>
 		</tr>
 		<tr>
 			<td><select name="halbfinal1" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px;<?php echo $this->getStyle($this->userHalbfinal[1], 3); ?>">
@@ -475,10 +469,8 @@
 	<h3>Finalteilnehmer</h3>
 	<table>
 		<tr>
-			
 				<td>HF1 - HF2 = F1</td>
 				<td>HF3 - HF4 = F2</td>
-			
 		</tr>
 		<tr>
 			<td><select name="final1" <?php echo $this->isDisabledHauptrunde(); ?> style="width: 110px;<?php echo $this->getStyle($this->userFinal[1], 4); ?>">
