@@ -495,10 +495,10 @@
 		<h3>Halbfinalteilnehmer</h3>
 		<table>
 			<tr>
-					<td>VF1 - VF2 = HF1</td>
-					<td>VF5 - VF6 = HF2</td>
-					<td>VF3 - VF4 = HF3</td>
-					<td>VF7 - VF8 = HF4</td>
+					<td>VF1 - VF3 = HF1</td>
+					<td>VF2 - VF6 = HF2</td>
+					<td>VF5 - VF7 = HF3</td>
+					<td>VF4 - VF8 = HF4</td>
 			</tr>
 			<tr>
 				<td><select name="halbfinal1" id="halbfinal1" <?php echo $isDisabled; ?> style="width: 110px;<?php echo $this->getStyle($this->userHalbfinal[1], 3); ?>">
@@ -812,7 +812,7 @@
               },
               {
                   'games': {
-                      '#halbfinal1': ['#viertelfinal1', '#viertelfinal2']
+                      '#halbfinal1': ['#viertelfinal1', '#viertelfinal3']
                   },
                   'phpData': {
                       'round': 'halbfinal',
@@ -822,7 +822,7 @@
 
               {
                   'games': {
-                      '#halbfinal2': ['#viertelfinal5', '#viertelfinal6']
+                      '#halbfinal2': ['#viertelfinal2', '#viertelfinal6']
                   },
                   'phpData': {
                       'round': 'halbfinal',
@@ -832,7 +832,7 @@
 
               {
                   'games': {
-                      '#halbfinal3': ['#viertelfinal3', '#viertelfinal4']
+                      '#halbfinal3': ['#viertelfinal5', '#viertelfinal7']
                   },
                   'phpData': {
                       'round': 'halbfinal',
@@ -842,7 +842,7 @@
 
               {
                   'games': {
-                      '#halbfinal4': ['#viertelfinal7', '#viertelfinal8']
+                      '#halbfinal4': ['#viertelfinal4', '#viertelfinal8']
                   },
                   'phpData': {
                       'round': 'halbfinal',
