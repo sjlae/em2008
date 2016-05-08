@@ -749,7 +749,7 @@
               },
               {
                   'games': {
-                      '#viertelfinal2': ['#achtelfinal7', '#achtelfinal13', '#achtelfinal14', '#achtelfinal15', '#achtelfinal16']
+                      '#viertelfinal2': ['#achtelfinal7']
                   },
                   'phpData': {
                       'round': 'viertelfinal',
@@ -758,7 +758,7 @@
               },
               {
                   'games': {
-                      '#viertelfinal3': ['#achtelfinal3', '#achtelfinal13', '#achtelfinal14', '#achtelfinal15', '#achtelfinal16']
+                      '#viertelfinal3': ['#achtelfinal3']
                   },
                   'phpData': {
                       'round': 'viertelfinal',
@@ -776,7 +776,7 @@
               },
               {
                   'games': {
-                      '#viertelfinal5': ['#achtelfinal5', '#achtelfinal13', '#achtelfinal14', '#achtelfinal15', '#achtelfinal16']
+                      '#viertelfinal5': ['#achtelfinal5']
                   },
                   'phpData': {
                       'round': 'viertelfinal',
@@ -794,7 +794,7 @@
               },
               {
                   'games': {
-                      '#viertelfinal7': ['#achtelfinal1', '#achtelfinal13', '#achtelfinal14', '#achtelfinal15', '#achtelfinal16']
+                      '#viertelfinal7': ['#achtelfinal1']
                   },
                   'phpData': {
                       'round': 'viertelfinal',
@@ -880,35 +880,197 @@
           ];
           
           var userEntriesArray = <?php  echo json_encode($this->userEntries); ?>;
-          var allCountries = <?php  echo json_encode($allCountries); ?>;
+         
+          //check if all 4 achtelfinal are selected
+          var areAllSpecialAchtelSelected = function() {
+            if($('#achtelfinal13').val() !== '' && $('#achtelfinal14').val() !== '' && $('#achtelfinal15').val() !== '' && $('#achtelfinal16').val() !== '') {
+              return true;
+            }
+            return false;
+          }
           
-          var isAllowedTeam = function(allowedGroups, teamName) {
-            var allAllowedTeams = Array();
-            
-            allowedGroups.forEach(function(allowedGroup) {
-              allAllowedTeams = allAllowedTeams.concat(allCountries[allowedGroup].map(function(countryObject) {
-                 var result=countryObject.land.replace(/&Ouml;/g, "Ö");
-                 result = result.replace(/&uuml;/g, 'ü');
-                 result = result.replace(/&auml;/g, 'ä');
-                 
-                return result;
-              }));
-            });
-            
-            return $.inArray( teamName, allAllowedTeams );
-          };
+          var getGroupOfCountry = function(countryNumber) {
+            if(countryNumber <= 4) {
+              return 'A';
+            } else if(countryNumber <= 8) {
+              return 'B';
+            } else if(countryNumber <= 12) {
+              return 'C';
+            } else if(countryNumber <= 16) {
+              return 'D';
+            } else if(countryNumber <= 20) {
+              return 'E';
+            } else if(countryNumber <= 24) {
+              return 'F';
+            }
+          }
           
-          var verifyTeam = function(allowedGroups, $selectToVerify) {
-            $('option', $selectToVerify).each(function() {
-              var optionText = $(this).text();
-
-              if(optionText != '') {
-                if(isAllowedTeam(allowedGroups, optionText) < 0) {
-                  $(this).remove();
-                }
-              }
+          var testCountryAndCopy = function(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, groupNeeded, viertelFinalSel) {
+            var $newOption = undefined;
+            
+            if(groupNeeded === countryAchtel13) {
+              $newOption = $('#achtelfinal13 option:selected').clone();
+            } else if(groupNeeded === countryAchtel14) {
+              $newOption = $('#achtelfinal14 option:selected').clone();
+            } else if(groupNeeded === countryAchtel15) {
+              $newOption = $('#achtelfinal15 option:selected').clone();
+            } else if(groupNeeded === countryAchtel16) {
+              $newOption = $('#achtelfinal16 option:selected').clone();
+            }
+            
+            $newOption.attr('special', true);
+            $newOption.appendTo($(viertelFinalSel));
+            
+            var viertelfinalNumber = undefined;
+            if(viertelFinalSel === '#viertelfinal2') {
+              viertelfinalNumber = 2;
+            } else if(viertelFinalSel === '#viertelfinal3') {
+              viertelfinalNumber = 3;
+            } else if(viertelFinalSel === '#viertelfinal5') {
+              viertelfinalNumber = 5;
+            } else if(viertelFinalSel === '#viertelfinal7') {
+              viertelfinalNumber = 7;
+            }
+            
+            if($newOption.val() === userEntriesArray['viertelfinal'][viertelfinalNumber]) {
+              $newOption.prop('selected', 'selected');
+            } else {
+              $newOption.removeAttr('selected');
+            }
+          }
+          
+          var addTeamsToViertelfinal = function() {
+            var countryAchtel13 = getGroupOfCountry($('#achtelfinal13').val());
+            var countryAchtel14 = getGroupOfCountry($('#achtelfinal14').val());
+            var countryAchtel15 = getGroupOfCountry($('#achtelfinal15').val());
+            var countryAchtel16 = getGroupOfCountry($('#achtelfinal16').val());
+            
+            var groupOfAchtenfinals = [countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16];
+            groupOfAchtenfinals.sort();
+            var allGroups = groupOfAchtenfinals.toString();
+            
+            if(allGroups === 'A,B,C,D') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
+            } else if(allGroups === 'A,B,C,E') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+            } else if(allGroups === 'A,B,C,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+            } else if(allGroups === 'A,B,D,E') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+            } else if(allGroups === 'A,B,D,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+            } else if(allGroups === 'A,B,E,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+            } else if(allGroups === 'A,C,D,E') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+            } else if(allGroups === 'A,C,D,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+            } else if(allGroups === 'A,C,E,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal5');
+            } else if(allGroups === 'A,D,E,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'A', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal5');
+            } else if(allGroups === 'B,C,D,E') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+            } else if(allGroups === 'B,C,D,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+            } else if(allGroups === 'B,C,E,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+            } else if(allGroups === 'B,D,E,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'B', '#viertelfinal5');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal2');
+            } else if(allGroups === 'C,D,E,F') {
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'C', '#viertelfinal7');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'D', '#viertelfinal3');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'E', '#viertelfinal2');
+              testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal5');
+            }
+            
+           
+          }
+          
+          if(areAllSpecialAchtelSelected()) {
+            //add teams to viertelfinal
+            addTeamsToViertelfinal();
+          }
+          
+          //check if the selects are changing
+          $('#achtelfinal13').on("change", function() {
+            $('[special="true"]').each(function(option) {
+              $(this).remove();
             });
-          };
+            if(areAllSpecialAchtelSelected()) {
+              //add teams to viertelfinal
+              addTeamsToViertelfinal();
+            }
+          });
+          $('#achtelfinal14').on("change", function() {
+            $('[special="true"]').each(function(option) {
+              $(this).remove();
+            });
+            if(areAllSpecialAchtelSelected()) {
+              //add teams to viertelfinal
+              addTeamsToViertelfinal();
+            }
+          });
+          $('#achtelfinal15').on("change", function() {
+            $('[special="true"]').each(function(option) {
+              $(this).remove();
+            });
+            if(areAllSpecialAchtelSelected()) {
+              //add teams to viertelfinal
+              addTeamsToViertelfinal();
+            }
+          });
+          $('#achtelfinal16').on("change", function() {
+            $('[special="true"]').each(function(option) {
+              $(this).remove();
+            });
+            if(areAllSpecialAchtelSelected()) {
+              //add teams to viertelfinal
+              addTeamsToViertelfinal();
+            }
+          });
           
           for(var index in gameplan) {
               var i = 1;
@@ -925,47 +1087,10 @@
                           //user selection
                           var userSelection = userEntriesArray[gameplan[index].phpData.round][gameplan[index].phpData.index];
                           
-
                           if(userSelection != '' && userSelection == $newOption.val()) {
-                            if(nextLevel === '#viertelfinal2' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
-                              if(isAllowedTeam(['B', 'E', 'F'], $newOption.text()) > 0) {
-                                $newOption.appendTo($(nextLevel));
-                              }
-                            } else if(nextLevel === '#viertelfinal3' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
-                              if(isAllowedTeam(['A', 'C', 'D'], $newOption.text()) > 0) {
-                                $newOption.appendTo($(nextLevel));
-                              }
-                            } else if(nextLevel === '#viertelfinal5' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
-                              if(isAllowedTeam(['A', 'B', 'F'], $newOption.text()) > 0) {
-                                $newOption.appendTo($(nextLevel));
-                              }
-                            } else if(nextLevel === '#viertelfinal7' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
-                              if(isAllowedTeam(['C', 'D', 'E'], $newOption.text()) > 0) {
-                                $newOption.appendTo($(nextLevel));
-                              }
-                            } else {
                              $newOption.appendTo($(nextLevel)); 
-                            }
                           } else {
-                            if(nextLevel === '#viertelfinal2' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
-                              if(isAllowedTeam(['B', 'E', 'F'], $newOption.text()) > 0) {
-                                $newOption.removeAttr('selected').appendTo($(nextLevel));
-                              }
-                            } else if(nextLevel === '#viertelfinal3' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
-                              if(isAllowedTeam(['A', 'C', 'D'], $newOption.text()) > 0) {
-                                $newOption.removeAttr('selected').appendTo($(nextLevel));
-                              }
-                            } else if(nextLevel === '#viertelfinal5' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
-                              if(isAllowedTeam(['A', 'B', 'F'], $newOption.text()) > 0) {
-                                $newOption.removeAttr('selected').appendTo($(nextLevel));
-                              }
-                            } else if(nextLevel === '#viertelfinal7' && (actualLevel === '#achtelfinal13' || actualLevel === '#achtelfinal14' || actualLevel === '#achtelfinal15' || actualLevel === '#achtelfinal16')) {
-                              if(isAllowedTeam(['C', 'D', 'E'], $newOption.text()) > 0) {
-                                $newOption.removeAttr('selected').appendTo($(nextLevel));
-                              }
-                            } else {
                              $newOption.removeAttr('selected').appendTo($(nextLevel));
-                            }
                           }
                           
                           $selectedOptionActualLevel.parent().data('prev', $selectedOptionActualLevel.text());
@@ -986,28 +1111,14 @@
                               
                           //add selection to next level
                           if($selectedOption.text() != '') {
-                          $selectedOption.clone().removeAttr('selected').appendTo($nextLevelSelect);
-                              $selectedOption.parent().data('prev', selectedText);
-                          }
-                          
-                          if(event.data.nextLevel === '#viertelfinal2') {
-                            verifyTeam(['B', 'E', 'F'], $nextLevelSelect);
-                          } else if(event.data.nextLevel === '#viertelfinal3') {
-                            verifyTeam(['A', 'C', 'D'], $nextLevelSelect);
-                          } else if(event.data.nextLevel === '#viertelfinal5') {
-                            verifyTeam(['A', 'B', 'F'], $nextLevelSelect);
-                          } else if(event.data.nextLevel === '#viertelfinal7') {
-                            verifyTeam(['C', 'D', 'E'], $nextLevelSelect);
+                            $selectedOption.clone().removeAttr('selected').appendTo($nextLevelSelect);
+                            $selectedOption.parent().data('prev', selectedText);
                           }
                       });
                       i++;
                   }
               }
           }
-          
-
-            // verifyTeam(['B', 'E', 'F'], $('#viertelfinal2'));
-
 		});
   	</script>
       <?php endif; ?>
