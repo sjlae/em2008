@@ -1092,7 +1092,7 @@
                           var userSelection = userEntriesArray[gameplan[index].phpData.round][gameplan[index].phpData.index];
                           
                           if(userSelection != '' && userSelection == $newOption.val()) {
-                             $newOption.appendTo($(nextLevel)); 
+                             $newOption.appendTo($(nextLevel));
                           } else {
                              $newOption.removeAttr('selected').appendTo($(nextLevel));
                           }
@@ -1115,8 +1115,11 @@
                               
                           //add selection to next level
                           if($selectedOption.text() != '') {
-                            $selectedOption.clone().removeAttr('selected').appendTo($nextLevelSelect);
-                            $selectedOption.parent().data('prev', selectedText);
+                            //don't add double entries
+                            if($('option[value="'+$selectedOption.val()+'"]', $nextLevelSelect).length == undefined || $('option[value="'+$selectedOption.val()+'"]', $nextLevelSelect).length == 0) {
+                              $selectedOption.clone().removeAttr('selected').appendTo($nextLevelSelect);
+                              $selectedOption.parent().data('prev', selectedText);
+                            }
                           }
                       });
                       i++;
