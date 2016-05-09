@@ -926,10 +926,10 @@
               viertelfinalNumber = 2;
             } else if(viertelFinalSel === '#viertelfinal3') {
               viertelfinalNumber = 3;
+            } else if(viertelFinalSel === '#viertelfinal4') {
+              viertelfinalNumber = 4;
             } else if(viertelFinalSel === '#viertelfinal5') {
               viertelfinalNumber = 5;
-            } else if(viertelFinalSel === '#viertelfinal7') {
-              viertelfinalNumber = 7;
             }
             
             if($newOption.val() === userEntriesArray['viertelfinal'][viertelfinalNumber]) {
