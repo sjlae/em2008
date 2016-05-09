@@ -42,7 +42,7 @@ class Password extends HTMLPage implements Page {
 				Hier ist dein neu generiertes Passwort, mit welchem du ab sofort bei tippy einloggen kannst:<br><br>
 				<b>$newpwd</b><br><br>
 				Bitte beachte, dass die Gross-/Kleinschreibung relevant ist. Sobald du dich eingeloggt hast, kannst du 
-				das Passwort unter dem Men&uuml;punkt 'Profil - Passwort &auml;ndern' wieder wechseln.<br><br>
+				das Passwort unter dem Men&uuml;punkt 'Passwort &auml;ndern' wieder wechseln.<br><br>
 				Sportliche Gr&uuml;sse<br>
 				Silvan St&auml;heli";
 				mail($empfaenger, $betreff, $mailtext, "From: $sender\n" . "Content-Type: text/html; charset=iso-8859-1\n"); 
