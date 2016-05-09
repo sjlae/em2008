@@ -907,6 +907,7 @@
           
           var testCountryAndCopy = function(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, groupNeeded, viertelFinalSel) {
             var $newOption = undefined;
+            console.log('test');
             
             if(groupNeeded === countryAchtel13) {
               $newOption = $('#achtelfinal13 option:selected').clone();
@@ -1026,7 +1027,11 @@
               testCountryAndCopy(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, 'F', '#viertelfinal5');
             }
             
-           
+            //refresh all teams
+            $('#viertelfinal2').trigger('change');
+            $('#viertelfinal3').trigger('change');
+            $('#viertelfinal4').trigger('change');
+            $('#viertelfinal5').trigger('change');
           }
           
           if(areAllSpecialAchtelSelected()) {
