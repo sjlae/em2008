@@ -907,7 +907,6 @@
           
           var testCountryAndCopy = function(countryAchtel13, countryAchtel14, countryAchtel15, countryAchtel16, groupNeeded, viertelFinalSel) {
             var $newOption = undefined;
-            console.log('test');
             
             if(groupNeeded === countryAchtel13) {
               $newOption = $('#achtelfinal13 option:selected').clone();
