@@ -19,34 +19,36 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 	<span style="color: red">Noch nicht bezahlt (rot eingef&auml;rbt) haben:&nbsp;&nbsp;<b><?php  echo mysql_result($countPlayersNotPayed,0); ?></b></span>
 	<br>
 <?php  } ?>
-<br>
 
-<?php  $isDisabled = count($this->gruppen) == '0' ? 'disabled' : ''; ?>
-
-<form action="index.php?go=ranking&action=gruppenfilter" name="formular" method="POST">
-	<select name="gruppe" <?php  echo $isDisabled; ?> onChange="this.form.submit()">
-		<option value="Alle">Alle</option>
-		<?php foreach($this->gruppen as $gruppe): ?>
-			<?php  if($this->gruppe == $gruppe['gruppeid']): ?>
-				<option value="<?php echo $gruppe['gruppeid']; ?>" selected><?php echo $gruppe['name']; ?></option>
-			<?php  else:?>
-				<option value="<?php echo $gruppe['gruppeid']; ?>"><?php echo $gruppe['name']; ?></option>
-			<?php  endif; ?>
-		<?php endforeach; ?>
-	</select>
-	&nbsp;
-	<?php  if($_SESSION['eingeloggt']){ ?>
-			<a href="index.php?go=ranking&action=addmodify" style="text-decoration: none;">
-				<img align="top" alt="Gruppe erstellen" title="Gruppe erstellen" src="icons_add.png" width="19px;"/>
+<?php  
+	$isDisabled = count($this->gruppen) == '0' ? 'disabled' : ''; 
+	if($_SESSION['eingeloggt']){
+?>
+	<br>
+	<form action="index.php?go=ranking&action=gruppenfilter" name="formular" method="POST">
+		<select name="gruppe" <?php  echo $isDisabled; ?> onChange="this.form.submit()">
+			<option value="Alle">Alle</option>
+			<?php foreach($this->gruppen as $gruppe): ?>
+				<?php  if($this->gruppe == $gruppe['gruppeid']): ?>
+					<option value="<?php echo $gruppe['gruppeid']; ?>" selected><?php echo $gruppe['name']; ?></option>
+				<?php  else:?>
+					<option value="<?php echo $gruppe['gruppeid']; ?>"><?php echo $gruppe['name']; ?></option>
+				<?php  endif; ?>
+			<?php endforeach; ?>
+		</select>
+		&nbsp;
+		<a href="index.php?go=ranking&action=addmodify" style="text-decoration: none;">
+			<img align="top" alt="Gruppe erstellen" title="Gruppe erstellen" src="icons_add.png" width="19px;"/>
+		</a>
+		&nbsp;
+		<?php  if($this->gruppe != 'Alle' && $this->gruppe != ''){ ?>
+			<a href="index.php?go=ranking&action=addmodify&gruppeid=<?php  echo $this->gruppe; ?>"  style="text-decoration: none;">
+				<img align="top" alt="Gruppe bearbeiten" title="Gruppe bearbeiten" src="icons_modify.png" width="18px;"/>
 			</a>
-			&nbsp;
-			<?php  if($this->gruppe != 'Alle' && $this->gruppe != ''){ ?>
-				<a href="index.php?go=ranking&action=addmodify&gruppeid=<?php  echo $this->gruppe; ?>"  style="text-decoration: none;">
-					<img align="top" alt="Gruppe bearbeiten" title="Gruppe bearbeiten" src="icons_modify.png" width="18px;"/>
-				</a>
-			<?php  } ?>
-	<?php  } ?>
-</form>
+		<?php  } ?>
+	</form>
+
+<?php } ?>
 
 <table>
 	<tr>
