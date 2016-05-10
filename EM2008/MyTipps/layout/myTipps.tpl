@@ -932,7 +932,7 @@
               viertelfinalNumber = 5;
             }
             
-            if($newOption.val() === userEntriesArray['viertelfinal'][viertelfinalNumber]) {
+            if(userEntriesArray['viertelfinal'] !== undefined && userEntriesArray['viertelfinal'][viertelfinalNumber] !== undefined && $newOption.val() === userEntriesArray['viertelfinal'][viertelfinalNumber]) {
               $newOption.prop('selected', 'selected');
             } else {
               $newOption.removeAttr('selected');
