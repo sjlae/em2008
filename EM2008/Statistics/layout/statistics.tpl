@@ -80,25 +80,44 @@
 			<?php endforeach; ?>
 		</table>
 <?php $tabs->end(); ?>
-<?php $tabs->start("Finalteilnehmer"); ?>		
-		Die in den Spalten angegebenen Werte zeigen auf, wieviele Tipps f&uuml;r ein Land abgegeben wurden, das die entsprechende Runde erreicht.
+<?php $tabs->start("Weitere Tipps"); ?>		
 		<table border="0" width="100%">
 			<tr>
-				<td style="white-space: nowrap; padding-bottom: 5px; padding-right: 5px" width="*"><b>Land</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>1/8 Final</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>1/4 Final</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>1/2 Final</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>Final</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px" align="center" width="14%"><b>Sieger</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px" width="*"><b>Land</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%" ><b>1/8 Final</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Bestes Team</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Schlechtestes Team</b></td>
+				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Sieger</b></td>
 			</tr>
-			<?php foreach($this->hauptrunde as $land): ?>
+			<?php foreach($this->teams as $land): ?>
 				<tr>
 					<td><img alt="" src="nationalFlags/<?php echo $land['id'] ?>.gif" width="20"/>&nbsp;<?php echo $land['team']; ?></td>
 					<td align="center"><?php echo $this->achtelfinal[$land['id']] != '' ? $this->achtelfinal[$land['id']] : 0; ?></td>
-					<td align="center"><?php echo $this->viertelfinal[$land['id']] != '' ? $this->viertelfinal[$land['id']] : 0; ?></td>
-					<td align="center"><?php echo $this->halbfinal[$land['id']] != '' ? $this->halbfinal[$land['id']] : 0; ?></td>
-					<td align="center"><?php echo $this->final[$land['id']] != '' ? $this->final[$land['id']] : 0; ?></td>
-					<td align="center"><?php echo $this->sieger[$land['id']] != '' ? $this->sieger[$land['id']] : 0; ?></td>
+					<td align="center"><?php echo $this->best[$land['id']] != '' ? $this->best[$land['id']] : 0; ?></td>
+					<td align="center"><?php echo $this->worst[$land['id']] != '' ? $this->worst[$land['id']] : 0; ?></td>
+					<td align="center"><?php echo $this->winner[$land['id']] != '' ? $this->winner[$land['id']] : 0; ?></td>
+				</tr>
+			<?php endforeach; ?>
+		</table>
+		<table border="0" width="100%">
+			<tr>
+				<td style="white-space: nowrap; padding-bottom: 5px" colspan="2"><b>Wie weit kommt die Schweiz im Turnier?</b></td>
+			</tr>
+			<?php foreach($this->phases as $phase): ?>
+				<tr>
+					<td style="white-space: nowrap;"><?php echo $phase['beschreibung'] != '' ? $phase['beschreibung'] : 0; ?></td>
+					<td width="100%" style="padding-left: 20px;"><?php echo $this->switzerland[$phase['id']] != '' ? $this->switzerland[$phase['id']] : 0; ?></td>
+				</tr>
+			<?php endforeach; ?>
+		</table>
+		<table border="0" width="100%">
+			<tr>
+				<td style="white-space: nowrap; padding-bottom: 5px" colspan="2"><b>Wie weit kommt der Titelverteidiger Deutschland im Turnier?</b></td>
+			</tr>
+			<?php foreach($this->phases as $phase): ?>
+				<tr>
+					<td style="white-space: nowrap;"><?php echo $phase['beschreibung'] != '' ? $phase['beschreibung'] : 0; ?></td>
+					<td width="100%" style="padding-left: 20px;"><?php echo $this->lastwinner[$phase['id']] != '' ? $this->lastwinner[$phase['id']] : 0; ?></td>
 				</tr>
 			<?php endforeach; ?>
 		</table>

@@ -7,7 +7,7 @@ require_once('Constants.php');
 class Admin extends HTMLPage implements Page{
 
 	private $errors = array();
-	
+	private $phases = array();
 	private $nnb = array();
 	private $all = array();
 	private $notTipped = array();
@@ -29,22 +29,12 @@ class Admin extends HTMLPage implements Page{
 	private $achtelfinal14 = '';
 	private $achtelfinal15 = '';
 	private $achtelfinal16 = '';
-	private $viertelfinal1 = '';
-	private $viertelfinal2 = '';
-	private $viertelfinal3 = '';
-	private $viertelfinal4 = '';
-	private $viertelfinal5 = '';
-	private $viertelfinal6 = '';
-	private $viertelfinal7 = '';
-	private $viertelfinal8 = '';
-	private $halbfinal1 = '';
-	private $halbfinal2 = '';
-	private $halbfinal3 = '';
-	private $halbfinal4 = '';
-	private $final1 = '';
-	private $final2 = '';
-	private $sieger = '';
-
+	private $winner = '';
+	private $best = '';
+	private $worst = '';
+	private $switzerland = '';
+	private $lastwinner = '';
+	
 	private $link = '';
 	
 	public function __construct() {
@@ -60,7 +50,7 @@ class Admin extends HTMLPage implements Page{
 			$this->setVorrundenResults();
 			$this->hasEqualTeams();
 			if(count($this->errors) == 0){
-				$this->setHauptrundenTeams();
+				$this->setWeitereTipps();
 				$this->updateUserPoints();
 			}
 			$this->updateRanking();
@@ -101,50 +91,6 @@ class Admin extends HTMLPage implements Page{
 				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
 				return;
 		}
-		
-		$viertelfinalArray = array();
-		
-		$viertelfinalArray[0] = $_POST["viertelfinal1"];
-		$viertelfinalArray[1] = $_POST["viertelfinal2"];
-		$viertelfinalArray[2] = $_POST["viertelfinal3"];
-		$viertelfinalArray[3] = $_POST["viertelfinal4"];
-		$viertelfinalArray[4] = $_POST["viertelfinal5"];
-		$viertelfinalArray[5] = $_POST["viertelfinal6"];
-		$viertelfinalArray[6] = $_POST["viertelfinal7"];
-		$viertelfinalArray[7] = $_POST["viertelfinal8"];
-		
-		$resultViertelFinalArray = array_count_values($viertelfinalArray);
-			
-		if(count($resultViertelFinalArray) <= (8 - ($resultViertelFinalArray[''] == 0 ? 1 : $resultViertelFinalArray['']))){
-				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
-				return;
-		}
-		
-		$halbfinalArray = array();
-		
-		$halbfinalArray[0] = $_POST["halbfinal1"];
-		$halbfinalArray[1] = $_POST["halbfinal2"];
-		$halbfinalArray[2] = $_POST["halbfinal3"];
-		$halbfinalArray[3] = $_POST["halbfinal4"];
-		
-		$resultHalbFinalArray = array_count_values($halbfinalArray);
-		
-		if(count($resultHalbFinalArray) <= (4 - ($resultHalbFinalArray[''] == 0 ? 1 : $resultHalbFinalArray['']))){
-				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
-				return;
-		}
-		
-		$finalArray = array();
-		
-		$finalArray[0] = $_POST["final1"];
-		$finalArray[1] = $_POST["final2"];
-		
-		$resultFinalArray = array_count_values($finalArray);
-		
-		if(count($resultFinalArray) <= (2 - ($resultFinalArray[''] == 0 ? 1 : $resultFinalArray['']))){
-				$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
-				return;
-		}
 	}
 		
 	private function setPayFlag() {
@@ -165,7 +111,7 @@ class Admin extends HTMLPage implements Page{
 				}
 				mysql_query("Delete from uservorrunde where userfsid = $user_id");
 				mysql_query("Delete from user where userid = $user_id");
-				mysql_query("Delete from hauptrunde where userfsid = $user_id");
+				mysql_query("Delete from userweiteretipps where userfsid = $user_id");
 				mysql_query("Delete from guestbook where userfsid = $user_id");
 			}
 		}
@@ -205,8 +151,8 @@ class Admin extends HTMLPage implements Page{
 		}
 	}
 	
-	private function getRealHauptrundenTeams() {
-		$abfrage = "SELECT * FROM realhauptrunde";
+	private function getRealWeitereTipps() {
+		$abfrage = "SELECT * FROM realweiteretipps";
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
@@ -226,25 +172,15 @@ class Admin extends HTMLPage implements Page{
 			$this->achtelfinal14 = $row['achtelfinal14'];
 			$this->achtelfinal15 = $row['achtelfinal15'];
 			$this->achtelfinal16 = $row['achtelfinal16'];
-			$this->viertelfinal1 = $row['viertelfinal1'];
-			$this->viertelfinal2 = $row['viertelfinal2'];
-			$this->viertelfinal3 = $row['viertelfinal3'];
-			$this->viertelfinal4 = $row['viertelfinal4'];
-			$this->viertelfinal5 = $row['viertelfinal5'];
-			$this->viertelfinal6 = $row['viertelfinal6'];
-			$this->viertelfinal7 = $row['viertelfinal7'];
-			$this->viertelfinal8 = $row['viertelfinal8'];
-			$this->halbfinal1 = $row['halbfinal1'];
-			$this->halbfinal2 = $row['halbfinal2'];
-			$this->halbfinal3 = $row['halbfinal3'];
-			$this->halbfinal4 = $row['halbfinal4'];
-			$this->final1 = $row['final1'];
-			$this->final2 = $row['final2'];
-			$this->sieger = $row['sieger'];
+			$this->winner = $row['winner'];
+			$this->best = $row['best'];
+			$this->worst = $row['worst'];
+			$this->switzerland = $row['switzerland'];
+			$this->lastwinner = $row['lastwinner'];
 		}
 	}
 	
-	private function setHauptrundenTeams() {
+	private function setWeitereTipps() {
 		$this->achtelfinal1 = $_POST["achtelfinal1"];
 		$this->achtelfinal2 = $_POST["achtelfinal2"];
 		$this->achtelfinal3 = $_POST["achtelfinal3"];
@@ -261,27 +197,15 @@ class Admin extends HTMLPage implements Page{
 		$this->achtelfinal14 = $_POST["achtelfinal14"];
 		$this->achtelfinal15 = $_POST["achtelfinal15"];
 		$this->achtelfinal16 = $_POST["achtelfinal16"];
-		$this->viertelfinal1 = $_POST["viertelfinal1"];
-		$this->viertelfinal2 = $_POST["viertelfinal2"];
-		$this->viertelfinal3 = $_POST["viertelfinal3"];
-		$this->viertelfinal4 = $_POST["viertelfinal4"];
-		$this->viertelfinal5 = $_POST["viertelfinal5"];
-		$this->viertelfinal6 = $_POST["viertelfinal6"];
-		$this->viertelfinal7 = $_POST["viertelfinal7"];
-		$this->viertelfinal8 = $_POST["viertelfinal8"];
-		$this->halbfinal1 = $_POST["halbfinal1"];
-		$this->halbfinal2 = $_POST["halbfinal2"];
-		$this->halbfinal3 = $_POST["halbfinal3"];
-		$this->halbfinal4 = $_POST["halbfinal4"];
-		$this->final1 = $_POST["final1"];
-		$this->final2 = $_POST["final2"];
-		$this->sieger = $_POST["sieger"];
+		$this->winner = $_POST['winner'];
+		$this->best = $_POST['best'];
+		$this->worst = $_POST['worst'];
+		$this->switzerland = $_POST['switzerland'];
+		$this->lastwinner = $_POST['lastwinner'];
 		
-		$abfrage = "Update realhauptrunde set achtelfinal1 ='".$this->achtelfinal1."', achtelfinal2 ='".$this->achtelfinal2."', achtelfinal3 ='".$this->achtelfinal3."', achtelfinal4 ='".$this->achtelfinal4."', achtelfinal5 ='".$this->achtelfinal5."', achtelfinal6 ='".$this->achtelfinal6."',
+		$abfrage = "Update realweiteretipps set achtelfinal1 ='".$this->achtelfinal1."', achtelfinal2 ='".$this->achtelfinal2."', achtelfinal3 ='".$this->achtelfinal3."', achtelfinal4 ='".$this->achtelfinal4."', achtelfinal5 ='".$this->achtelfinal5."', achtelfinal6 ='".$this->achtelfinal6."',
 						achtelfinal7 ='".$this->achtelfinal7."', achtelfinal8 ='".$this->achtelfinal8."', achtelfinal9 ='".$this->achtelfinal9."', achtelfinal10 ='".$this->achtelfinal10."', achtelfinal11 ='".$this->achtelfinal11."', achtelfinal12 ='".$this->achtelfinal12."', achtelfinal13 ='".$this->achtelfinal13."',
-						achtelfinal14 ='".$this->achtelfinal14."', achtelfinal15 ='".$this->achtelfinal15."', achtelfinal16 ='".$this->achtelfinal16."', viertelfinal1 ='".$this->viertelfinal1."', viertelfinal2 ='".$this->viertelfinal2."', viertelfinal3 ='".$this->viertelfinal3."', viertelfinal4 ='".$this->viertelfinal4."',
-						viertelfinal5 ='".$this->viertelfinal5."', viertelfinal6 ='".$this->viertelfinal6."', viertelfinal7 ='".$this->viertelfinal7."', viertelfinal8 ='".$this->viertelfinal8."', halbfinal1 ='".$this->halbfinal1."', halbfinal2 ='".$this->halbfinal2."', halbfinal3 ='".$this->halbfinal3."', halbfinal4 ='".$this->halbfinal4."',
-						final1 ='".$this->final1."', final2 ='".$this->final2."', sieger ='".$this->sieger."'";
+						achtelfinal14 ='".$this->achtelfinal14."', achtelfinal15 ='".$this->achtelfinal15."', achtelfinal16 ='".$this->achtelfinal16."', winner = '".$this->winner."', best = '".$this->best."', worst = '".$this->worst."', switzerland = '".$this->switzerland."', lastwinner = '".$this->lastwinner."'";
 		
 		mysql_query($abfrage);
 	}
@@ -384,13 +308,14 @@ class Admin extends HTMLPage implements Page{
 				{
 					$vorrundeid = $row['vorrundefsid'];
 					
-					$tippedMatch = "SELECT result1, result2, vorrundeteamsfsid FROM vorrunde where vorrundeid=$vorrundeid";
+					$tippedMatch = "SELECT result1, result2, highrisk, vorrundeteamsfsid FROM vorrunde where vorrundeid=$vorrundeid";
 					$resultTippedMatch = mysql_query($tippedMatch);
 					
 					while($row = mysql_fetch_assoc($resultTippedMatch))
 					{
 						$tipp1 = $row['result1'];
 						$tipp2 = $row['result2'];
+						$highrisk = $row['highrisk'];
 						
 						$match = $row['vorrundeteamsfsid'];
 						
@@ -403,45 +328,44 @@ class Admin extends HTMLPage implements Page{
 							$real2 = $row['realresult2'];
 							
 							if($real1 != '' && $real2 != '' && $tipp1 != '' && $tipp2 != '' && $tipp1>=0 && $tipp2>=0 && is_numeric($tipp1) && is_numeric($tipp2)){
-	                            if ($tipp1==$real1 && $tipp2==$real2) { 
-	                            	$points = $points+5; 
-	                            } 
-	                            else if ($real1>$real2 && $tipp1>$tipp2) { 
-	                            	if ($real1-$real2 == $tipp1-$tipp2) { 
-	                                	$points = $points+4; 
-	                                } 
-	                                else { 
-	                                	$points = $points+3; 
-	                                } 
-	                            } 
-	                            else if ($real2>$real1 && $tipp2>$tipp1) { 
-	                            	if ($real2-$real1 == $tipp2-$tipp1) { 
-	                                	$points = $points+4; 
-	                                } 
-	                                else { 
-	                                	$points = $points+3; 
-	                                }                                                    
-	                            } 
-	                            else if ($real1==$real2 && $tipp1==$tipp2) { 
-	                            	$points = $points+4; 
-	                            }
+								// punktevergabe für highrisk
+								if($highrisk == '1'){
+									if($real1 == $tipp1 && $real2 == $tipp2){
+										$points = $points+16;
+									}
+								}
+	                            
+								else{
+		                            // 4 Punkte für korrekten Ausgang & 2 Punkt für korrekte Differenz
+		                            if(($real1>$real2 && $tipp1>$tipp2) || ($real2>$real1 && $tipp2>$tipp1) || ($real1==$real2 && $tipp1==$tipp2)){
+		                            	$points = $points+4;
+		                            	if(($real1-$real2 == $tipp1-$tipp2) || ($real2-$real1 == $tipp2-$tipp1) || ($real1==$real2 && $tipp1==$tipp2)){
+		                            		$points = $points+2;
+		                            	}
+		                            }
+		                            // je 1 Punkt für korrekte Anzahl Tore der beiden Teams
+									if($tipp1==$real1){
+										$points = $points+1;
+									}
+									if($tipp2==$real2){
+										$points = $points+1;
+									}
+								}
 							}
 						}
 					}
 				}
 				
-				$hauptrundeTippsFromUser = "SELECT * FROM hauptrunde where userfsid=$userid";
-				$resultHauptrundeTippsFromUser = mysql_query($hauptrundeTippsFromUser);
+				$userweiteretipps = "SELECT * FROM userweiteretipps where userfsid=$userid";
+				$resultUserWeitereTipps = mysql_query($userweiteretipps);
 				
-				while($rowUser = mysql_fetch_assoc($resultHauptrundeTippsFromUser))
+				while($rowUser = mysql_fetch_assoc($resultUserWeitereTipps))
 				{
-					$achtelfinal_points = '2';
-					$viertelfinal_points = '3';
-					$halbfinal_points = '4';
-					$final_points = '5';
-					$sieger_points = '8';
+					$achtelfinal_points = '5';
+					$winner_points = '12';
+					$other_points = '5';
 					
-				if($rowUser['achtelfinal1'] != ''){
+					if($rowUser['achtelfinal1'] != ''){
 						if($this->isAchtelfinalTippCorrect($rowUser['achtelfinal1'])){
 							$points = $points+$achtelfinal_points; 
 						}
@@ -537,80 +461,24 @@ class Admin extends HTMLPage implements Page{
 						}
 					}
 					
-					if($rowUser['viertelfinal1'] != ''){
-						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal1'])){
-							$points = $points+$viertelfinal_points; 
-						}
+					if($rowUser['winner'] != '' && ($rowUser['winner'] == $this->winner)){
+						$points = $points+$winner_points;
 					}
-					if($rowUser['viertelfinal2'] != ''){
-						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal2'])){
-							$points = $points+$viertelfinal_points; 
-						}
+					
+					if($rowUser['best'] != '' && ($rowUser['best'] == $this->best)){
+						$points = $points+$other_points;
 					}
-					if($rowUser['viertelfinal3'] != ''){
-						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal3'])){
-							$points = $points+$viertelfinal_points; 
-						}
+					
+					if($rowUser['worst'] != '' && ($rowUser['worst'] == $this->worst)){
+						$points = $points+$other_points;
 					}
-					if($rowUser['viertelfinal4'] != ''){
-						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal4'])){
-							$points = $points+$viertelfinal_points; 
-						}
+					
+					if($rowUser['switzerland'] != '' && ($rowUser['switzerland'] == $this->switzerland)){
+						$points = $points+$other_points;
 					}
-					if($rowUser['viertelfinal5'] != ''){
-						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal5'])){
-							$points = $points+$viertelfinal_points; 
-						}
-					}
-					if($rowUser['viertelfinal6'] != ''){
-						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal6'])){
-							$points = $points+$viertelfinal_points; 
-						}
-					}
-					if($rowUser['viertelfinal7'] != ''){
-						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal7'])){
-							$points = $points+$viertelfinal_points; 
-						}
-					}
-					if($rowUser['viertelfinal8'] != ''){
-						if($this->isViertelfinalTippCorrect($rowUser['viertelfinal8'])){
-							$points = $points+$viertelfinal_points; 
-						}
-					}
-					if($rowUser['halbfinal1'] != ''){
-						if($this->isHalbfinalTippCorrect($rowUser['halbfinal1'])){
-							$points = $points+$halbfinal_points; 
-						}
-					}
-					if($rowUser['halbfinal2'] != ''){
-						if($this->isHalbfinalTippCorrect($rowUser['halbfinal2'])){
-							$points = $points+$halbfinal_points; 
-						}
-					}
-					if($rowUser['halbfinal3'] != ''){
-						if($this->isHalbfinalTippCorrect($rowUser['halbfinal3'])){
-							$points = $points+$halbfinal_points; 
-						}
-					}
-					if($rowUser['halbfinal4'] != ''){
-						if($this->isHalbfinalTippCorrect($rowUser['halbfinal4'])){
-							$points = $points+$halbfinal_points; 
-						}
-					}
-					if($rowUser['final1'] != ''){
-						if($this->isFinalTippCorrect($rowUser['final1'])){
-							$points = $points+$final_points; 
-						}
-					}
-					if($rowUser['final2'] != ''){
-						if($this->isFinalTippCorrect($rowUser['final2'])){
-							$points = $points+$final_points; 
-						}
-					}
-					if($rowUser['sieger'] != ''){
-						if($this->isSiegerTippCorrect($rowUser['sieger'])){
-							$points = $points+$sieger_points; 
-						}
+					
+					if($rowUser['lastwinner'] != '' && ($rowUser['lastwinner'] == $this->lastwinner)){
+						$points = $points+$other_points;
 					}
 				}
 				$abfrage = "Update user set punkte=$points where userid=$userid";
@@ -746,120 +614,6 @@ class Admin extends HTMLPage implements Page{
 		return $tippCorrect;			
 	}
 	
-	private function isViertelfinalTippCorrect($value){
-		$tippCorrect = false;
-		
-		if($this->viertelfinal1 != ''){
-			if($this->viertelfinal1 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->viertelfinal2 != ''){
-			if($this->viertelfinal2 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->viertelfinal3 != ''){
-			if($this->viertelfinal3 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->viertelfinal4 != ''){
-			if($this->viertelfinal4 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->viertelfinal5 != ''){
-			if($this->viertelfinal5 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->viertelfinal6 != ''){
-			if($this->viertelfinal6 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->viertelfinal7 != ''){
-			if($this->viertelfinal7 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->viertelfinal8 != ''){
-			if($this->viertelfinal8 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		return $tippCorrect;			
-	}
-	
-	private function isHalbfinalTippCorrect($value){
-		$tippCorrect = false;
-		
-		if($this->halbfinal1 != ''){
-			if($this->halbfinal1 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->halbfinal2 != ''){
-			if($this->halbfinal2 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->halbfinal3 != ''){
-			if($this->halbfinal3 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->halbfinal4 != ''){
-			if($this->halbfinal4 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		return $tippCorrect;			
-	}
-
-	private function isFinalTippCorrect($value){
-		$tippCorrect = false;
-		
-		if($this->final1 != ''){
-			if($this->final1 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		if($this->final2 != ''){
-			if($this->final2 == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		return $tippCorrect;			
-	}
-
-	private function isSiegerTippCorrect($value){
-		$tippCorrect = false;
-		
-		if($this->sieger != ''){
-			if($this->sieger == $value){
-				$tippCorrect = true;
-				return $tippCorrect;
-			}
-		}
-		return $tippCorrect;			
-	}
-	
 	private function saveNews(){
 		$title = $_POST["newsTitle"];
 		$text = $_POST["newsText"];
@@ -879,43 +633,33 @@ class Admin extends HTMLPage implements Page{
 		{
 			$user = $rowUser['userid'];
 			
-			$hauptrundeQuery = "SELECT * FROM hauptrunde WHERE userfsid = $user";
-			$resultHauptrunde = mysql_query($hauptrundeQuery);
+			$userweiteretippsquery = "SELECT * FROM userweiteretipps WHERE userfsid = $user";
+			$resultUserWeitereTipps = mysql_query($userweiteretippsquery);
 			
-			$rowHauptrunde = mysql_fetch_assoc($resultHauptrunde);
+			$rowWeitereTipps = mysql_fetch_assoc($resultUserWeitereTipps);
 			
-			if($rowHauptrunde != false){
-				if($rowHauptrunde['achtelfinal1'] == ''
-					|| $rowHauptrunde['achtelfinal2'] == ''
-					|| $rowHauptrunde['achtelfinal3'] == ''
-					|| $rowHauptrunde['achtelfinal4'] == ''
-					|| $rowHauptrunde['achtelfinal5'] == ''
-					|| $rowHauptrunde['achtelfinal6'] == ''
-					|| $rowHauptrunde['achtelfinal7'] == ''
-					|| $rowHauptrunde['achtelfinal8'] == ''
-					|| $rowHauptrunde['achtelfinal9'] == ''
-					|| $rowHauptrunde['achtelfinal10'] == ''
-					|| $rowHauptrunde['achtelfinal11'] == ''
-					|| $rowHauptrunde['achtelfinal12'] == ''
-					|| $rowHauptrunde['achtelfinal13'] == ''
-					|| $rowHauptrunde['achtelfinal14'] == ''
-					|| $rowHauptrunde['achtelfinal15'] == ''
-					|| $rowHauptrunde['achtelfinal16'] == ''
-					|| $rowHauptrunde['viertelfinal1'] == ''
-					|| $rowHauptrunde['viertelfinal2'] == ''
-					|| $rowHauptrunde['viertelfinal3'] == ''
-					|| $rowHauptrunde['viertelfinal4'] == ''
-					|| $rowHauptrunde['viertelfinal5'] == ''
-					|| $rowHauptrunde['viertelfinal6'] == ''
-					|| $rowHauptrunde['viertelfinal7'] == ''
-					|| $rowHauptrunde['viertelfinal8'] == ''
-					|| $rowHauptrunde['halbfinal1'] == ''
-					|| $rowHauptrunde['halbfinal2'] == ''
-					|| $rowHauptrunde['halbfinal3'] == ''
-					|| $rowHauptrunde['halbfinal4'] == ''
-					|| $rowHauptrunde['final1'] == ''
-					|| $rowHauptrunde['final2'] == ''
-					|| $rowHauptrunde['sieger'] == ''){
+			if($rowWeitereTipps != false){
+				if($rowWeitereTipps['achtelfinal1'] == ''
+					|| $rowWeitereTipps['achtelfinal2'] == ''
+					|| $rowWeitereTipps['achtelfinal3'] == ''
+					|| $rowWeitereTipps['achtelfinal4'] == ''
+					|| $rowWeitereTipps['achtelfinal5'] == ''
+					|| $rowWeitereTipps['achtelfinal6'] == ''
+					|| $rowWeitereTipps['achtelfinal7'] == ''
+					|| $rowWeitereTipps['achtelfinal8'] == ''
+					|| $rowWeitereTipps['achtelfinal9'] == ''
+					|| $rowWeitereTipps['achtelfinal10'] == ''
+					|| $rowWeitereTipps['achtelfinal11'] == ''
+					|| $rowWeitereTipps['achtelfinal12'] == ''
+					|| $rowWeitereTipps['achtelfinal13'] == ''
+					|| $rowWeitereTipps['achtelfinal14'] == ''
+					|| $rowWeitereTipps['achtelfinal15'] == ''
+					|| $rowWeitereTipps['achtelfinal16'] == ''
+					|| $rowWeitereTipps['winner'] == ''
+					|| $rowWeitereTipps['best'] == ''
+					|| $rowWeitereTipps['worst'] == ''
+					|| $rowWeitereTipps['switzerland'] == ''
+					|| $rowWeitereTipps['lastwinner'] == ''){
 						$this->notTipped[$i]['email'] = $rowUser['email'];
 						$i++;
 				}
@@ -927,13 +671,28 @@ class Admin extends HTMLPage implements Page{
 		}
 	}
 	
+	private function getPhases() {
+		$abfrage = "SELECT * FROM phase order by phaseid asc";
+	
+		$ergebnis = mysql_query($abfrage);
+	
+		$i=0;
+		while($row = mysql_fetch_assoc($ergebnis))
+		{
+			$this->phases[$i]['id'] = $row['phaseid'];
+			$this->phases[$i]['beschreibung'] = $row['beschreibung'];
+			$i++;
+		}
+	}
+	
 	public function getHTML() {
 		$this->getNNB();
 		$this->getAll();
 		$this->getGames();
 		$this->getCountries();
 		$this->getNotTipped();
-		$this->getRealHauptrundenTeams();
+		$this->getRealWeitereTipps();
+		$this->phases = Constants::getPhases();
 		require_once('layout/admin.tpl');
 	}
 }

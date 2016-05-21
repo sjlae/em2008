@@ -7,13 +7,14 @@ class Statistics extends HTMLPage implements Page {
 
 	private $link = '';
 	private $vorrunde = array();
-	private $hauptrunde = array();
-	
+	private $teams = array();
+	private $phases = array();
 	private $achtelfinal = array();
-	private $viertelfinal = array();
-	private $halbfinal = array();
-	private $final = array();
-	private $sieger = array();
+	private $winner = array();
+	private $best = array();
+	private $worst = array();
+	private $switzerland = array();
+	private $lastwinner = array();
 	
 	public function __construct() {
 		$this->link = Db::getConnection();
@@ -46,17 +47,15 @@ class Statistics extends HTMLPage implements Page {
 
 		while($row = mysql_fetch_assoc($ergebnis_finals))
 		{
-			$this->hauptrunde[$i]['id'] = $row['teamid'];
-			$this->hauptrunde[$i]['team'] = $row['land'];
+			$this->teams[$i]['id'] = $row['teamid'];
+			$this->teams[$i]['team'] = $row['land'];
 			$i++;
 		}
 		
-		$abfrage_hauptrunde = "SELECT * FROM hauptrunde";
-		$ergebnis_hauptrunde = mysql_query($abfrage_hauptrunde);
+		$abfrage_weiteretipps = "SELECT * FROM userweiteretipps";
+		$ergebnis_weiteretipps = mysql_query($abfrage_weiteretipps);
 	
-		$test = 0;
-		
-		while($row = mysql_fetch_assoc($ergebnis_hauptrunde))
+		while($row = mysql_fetch_assoc($ergebnis_weiteretipps))
 		{
 			$counter_achtel = 1;
 			while($counter_achtel <= 16){
@@ -64,25 +63,11 @@ class Statistics extends HTMLPage implements Page {
 				$counter_achtel++;
 			}
 			
-			$counter_viertel = 1;
-			while($counter_viertel <= 8){
-				$this->viertelfinal[$row['viertelfinal'.$counter_viertel]] = $this->viertelfinal[$row['viertelfinal'.$counter_viertel]] != '' ? $this->viertelfinal[$row['viertelfinal'.$counter_viertel]] + 1 : 1;
-				$counter_viertel++;
-			}
-			
-			$counter_halb = 1;
-			while($counter_halb <= 4){
-				$this->halbfinal[$row['halbfinal'.$counter_halb]] = $this->halbfinal[$row['halbfinal'.$counter_halb]] != '' ? $this->halbfinal[$row['halbfinal'.$counter_halb]] + 1 : 1;
-				$counter_halb++;
-			}
-			
-			$counter_final = 1;
-			while($counter_final <= 2){
-				$this->final[$row['final'.$counter_final]] = $this->final[$row['final'.$counter_final]] != '' ? $this->final[$row['final'.$counter_final]] + 1 : 1;
-				$counter_final++;
-			}
-						
-			$this->sieger[$row['sieger']] = $this->sieger[$row['sieger']] != '' ? $this->sieger[$row['sieger']] + 1 : 1;
+			$this->winner[$row['winner']] = $this->winner[$row['winner']] != '' ? $this->winner[$row['winner']] + 1 : 1;
+			$this->best[$row['best']] = $this->best[$row['best']] != '' ? $this->best[$row['best']] + 1 : 1;
+			$this->worst[$row['worst']] = $this->worst[$row['worst']] != '' ? $this->worst[$row['worst']] + 1 : 1;
+			$this->switzerland[$row['switzerland']] = $this->switzerland[$row['switzerland']] != '' ? $this->switzerland[$row['switzerland']] + 1 : 1;
+			$this->lastwinner[$row['lastwinner']] = $this->lastwinner[$row['lastwinner']] != '' ? $this->lastwinner[$row['lastwinner']] + 1 : 1;
 		}
 	}
 	
@@ -187,6 +172,7 @@ class Statistics extends HTMLPage implements Page {
 	}
 	
 	public function getHTML() {
+		$this->phases = Constants::getPhases();
 		include('layout/statistics.tpl');
 	}
 }

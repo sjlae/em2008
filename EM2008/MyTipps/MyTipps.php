@@ -7,17 +7,18 @@ class MyTipps extends HTMLPage implements Page {
 
 	private $vorrunde = array();
 	private $countries = array();
-	private $hauptrundefsid = '';
-	private $realhauptrunde = array();
+	private $phases = array();
+	private $isExistingUserWeitereTipps = '';
+	private $realweiteretipps = array();
 
 	private $errors = array();
 
 	private $userAchtelfinal = array();
-	private $userViertelfinal = array();
-	private $userHalbfinal = array();
-	private $userFinal = array();
-	private $userSieger= '';
-  	private $userEntries = array();
+	private $winner = '';
+	private $best = '';
+	private $worst = '';
+	private $switzerland = '';
+	private $lastwinner = '';
 
 	private $link = '';
 	
@@ -27,7 +28,7 @@ class MyTipps extends HTMLPage implements Page {
 	
 			$action = isset($_GET['action']) ? $_GET['action'] : '';
 	
-			$this->realhauptrunde = $this->getRealHauptrunde();
+			$this->realweiteretipps = $this->getRealWeitereTipps();
 			$this->getData();
 	
 			if($action == "setTipps") {
@@ -36,91 +37,75 @@ class MyTipps extends HTMLPage implements Page {
 	
 			$this->getData();
 	
-			$this->hauptrundefsid = $this->isExistingHauptrunde();
+			$this->isExistingUserWeitereTipps = $this->isExistingUserWeitereTipps();
 	
-			if($this->hauptrundefsid) {
-				$this->getUserHauptrundeTipps();
+			if($this->isExistingUserWeitereTipps) {
+				$this->getUserWeitereTipps();
 			}
 		}
 	}
 	
-	private function getRealHauptrunde() {
-		$abfrage = "Select * from realhauptrunde";
-		$realhauptrunde = array();
+	private function getRealWeitereTipps() {
+		$abfrage = "Select * from realweiteretipps";
+		$realWeitereTipps = array();
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal1']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal2']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal3']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal4']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal5']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal6']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal7']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal8']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal9']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal10']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal11']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal12']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal13']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal14']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal15']);
-			$realhauptrunde[] = $this->getTeam($row['achtelfinal16']);
+			// Achtelfinalisten
+			$realWeitereTipps[] = $row['achtelfinal1'];
+			$realWeitereTipps[] = $row['achtelfinal2'];
+			$realWeitereTipps[] = $row['achtelfinal3'];
+			$realWeitereTipps[] = $row['achtelfinal4'];
+			$realWeitereTipps[] = $row['achtelfinal5'];
+			$realWeitereTipps[] = $row['achtelfinal6'];
+			$realWeitereTipps[] = $row['achtelfinal7'];
+			$realWeitereTipps[] = $row['achtelfinal8'];
+			$realWeitereTipps[] = $row['achtelfinal9'];
+			$realWeitereTipps[] = $row['achtelfinal10'];
+			$realWeitereTipps[] = $row['achtelfinal11'];
+			$realWeitereTipps[] = $row['achtelfinal12'];
+			$realWeitereTipps[] = $row['achtelfinal13'];
+			$realWeitereTipps[] = $row['achtelfinal14'];
+			$realWeitereTipps[] = $row['achtelfinal15'];
+			$realWeitereTipps[] = $row['achtelfinal16'];
 			
-			$realhauptrunde[] = $this->getTeam($row['viertelfinal1']);
-			$realhauptrunde[] = $this->getTeam($row['viertelfinal2']);
-			$realhauptrunde[] = $this->getTeam($row['viertelfinal3']);
-			$realhauptrunde[] = $this->getTeam($row['viertelfinal4']);
-			$realhauptrunde[] = $this->getTeam($row['viertelfinal5']);
-			$realhauptrunde[] = $this->getTeam($row['viertelfinal6']);
-			$realhauptrunde[] = $this->getTeam($row['viertelfinal7']);
-			$realhauptrunde[] = $this->getTeam($row['viertelfinal8']);
-				
-			$realhauptrunde[] = $this->getTeam($row['halbfinal1']);
-			$realhauptrunde[] = $this->getTeam($row['halbfinal2']);
-			$realhauptrunde[] = $this->getTeam($row['halbfinal3']);
-			$realhauptrunde[] = $this->getTeam($row['halbfinal4']);
-				
-			$realhauptrunde[] = $this->getTeam($row['final1']);
-			$realhauptrunde[] = $this->getTeam($row['final2']);
-				
-			$realhauptrunde[] = $this->getTeam($row['sieger']);
+			// Sieger
+			$realWeitereTipps[] = $row['winner'];
+			
+			// Bestes Team Vorrunde
+			$realWeitereTipps[] = $row['best'];
+			
+			// Schlechtestes Team Vorrunde
+			$realWeitereTipps[] = $row['worst'];
+			
+			// Wie weit kommt die Schweiz
+			$realWeitereTipps[] = $row['switzerland'];
+			
+			// Wie weit kommt der Titelverteidiger
+			$realWeitereTipps[] =$row['lastwinner'];
 		}
 
-		return $realhauptrunde;
+		return $realWeitereTipps;
 	}
 
-	private function getUserHauptrundeTipps() {
+	private function getUserWeitereTipps() {
 		$userid = $_SESSION['userid'];
 
-		$abfrage = "Select * from hauptrunde where userfsid=".$userid;
+		$abfrage = "Select * from userweiteretipps where userfsid=".$userid;
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
 		{
 			for($i=1;$i<=16;$i++) {
-				$this->userAchtelfinal[$i] = $row['achtelfinal'.$i];
-			}
-			
-			for($i=1;$i<=8;$i++) {
-				$this->userViertelfinal[$i] = $row['viertelfinal'.$i];
-			}
-			
-			for($i=1;$i<=4;$i++) {
-				$this->userHalbfinal[$i] = $row['halbfinal'.$i];
+				$this->userAchtelfinal[$i] = isset($row['achtelfinal'.$i]) ? $row['achtelfinal'.$i] : '';
 			}
 
-			for($i=1;$i<=2;$i++) {
-				$this->userFinal[$i] = $row['final'.$i];
-			}
-
-			$this->userSieger = $row['sieger'];
-            
-            $this->userEntries['viertelfinal'] = $this->userViertelfinal;
-            $this->userEntries['halbfinal'] = $this->userHalbfinal;
-            $this->userEntries['final'] = $this->userFinal;
-            $this->userEntries['sieger'][1] = $this->userSieger;
+			$this->winner = isset($row['winner']) ? $row['winner'] : '';
+			$this->best = isset($row['best']) ? $row['best'] : '';
+			$this->worst = isset($row['worst']) ? $row['worst'] : '';
+			$this->switzerland = isset($row['switzerland']) ? $row['switzerland'] : '';
+			$this->lastwinner = isset($row['lastwinner']) ? $row['lastwinner'] : '';
 		}
 	}
 
@@ -131,7 +116,7 @@ class MyTipps extends HTMLPage implements Page {
 		for($i=1;$i<=$countGames['Number'];$i++) {
 			$result1 = $_POST['result1'.$i];
 			$result2 = $_POST['result2'.$i];
-            
+            $highrisk = isset($_POST['games_highrisk'.$i]) ? '1' : '0';
             
 			if($_SERVER['REQUEST_METHOD'] !== 'POST' || (($result1 != '' && !preg_match('/^\d{1,2}$/', $result1)) || ($result2 != '' && !preg_match('/^\d{1,2}$/', $result2)))){
 				if($showWarningMessage){
@@ -143,16 +128,16 @@ class MyTipps extends HTMLPage implements Page {
 			else if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled' || ($this->isDisabled($this->vorrunde[$i-1]['start']) == 'disabled' && ($result1 != '' || $result2 != ''))) {
 				if($this->isExisting($i)) {
 					if($this->isExisting($i)) {
-						$this->updateTipp($i, $result1, $result2);
+						$this->updateTipp($i, $result1, $result2, $highrisk);
 					} else {
-						$this->addTipp($i, $result1, $result2);
+						$this->addTipp($i, $result1, $result2, $highrisk);
 					}
 				} else {
 					if($result1 != '' || $result2 != '') {
 						if($this->isExisting($i)) {
-							$this->updateTipp($i, $result1, $result2);
+							$this->updateTipp($i, $result1, $result2, $highrisk);
 						} else {
-							$this->addTipp($i, $result1, $result2);
+							$this->addTipp($i, $result1, $result2, $highrisk);
 						}
 					}
 				}
@@ -163,79 +148,57 @@ class MyTipps extends HTMLPage implements Page {
 			return false;
 		}
 
-		//set hauptrunde tipps
-		//Existingcheck
-
-		$hauptrundetipps = array();
+		//set Weitere Tipps
+		$userweiteretipps = array();
 
 		$isStillEnabled = false;
 
 		for($i=1;$i<=16;$i++) {
 			$teamid = $_POST['achtelfinal'.$i];
-			$hauptrundetipps[] = $teamid;
+			$userweiteretipps[] = $teamid;
 			if(!$isStillEnabled && $teamid != ''){
 				$isStillEnabled = true;
 			}
 		}
 		
-		for($i=1;$i<=8;$i++) {
-			$teamid = $_POST['viertelfinal'.$i];
-			$hauptrundetipps[] = $teamid;
-			if(!$isStillEnabled && $teamid != ''){
-				$isStillEnabled = true;
-			}
-		}
-		
-		for($i=1;$i<=4;$i++) {
-			$teamid = $_POST['halbfinal'.$i];
-			$hauptrundetipps[] = $teamid;
-			if(!$isStillEnabled && $teamid != ''){
-				$isStillEnabled = true;
-			}
-		}
-
-		for($i=1;$i<=2;$i++) {
-			$teamid = $_POST['final'.$i];
-			$hauptrundetipps[] = $teamid;
-			if(!$isStillEnabled && $teamid != ''){
-				$isStillEnabled = true;
-			}
-		}
-
-		$teamid = $_POST['sieger'];
-		$hauptrundetipps[] = $teamid;
 		$areTippsOk = true;
 		
-		foreach($hauptrundetipps as $tipp){
+		foreach($userweiteretipps as $tipp){
 			if($tipp != '' && !preg_match('/^\d{1,2}$/', $tipp)){
 				$this->errors[] = "Wie auch immer du das angestellt hast, aber da lief nicht alles mit legalen Mitteln!";
 				$areTippsOk = false;
 				break;
 			}
 		}
+
+		$userweiteretipps[] = isset($_POST['winner']) ? $_POST['winner'] : '';
+		$userweiteretipps[] = isset($_POST['best']) ? $_POST['best'] : '';
+		$userweiteretipps[] = isset($_POST['worst']) ? $_POST['worst'] : '';
+		$userweiteretipps[] = isset($_POST['switzerland']) ? $_POST['switzerland'] : '';
+		$userweiteretipps[] = isset($_POST['lastwinner']) ? $_POST['lastwinner'] : '';
 		
 		if($areTippsOk){
 			//timecheck??
-			$this->hauptrundefsid = $this->isExistingHauptrunde();
-			if($this->isDisabledHauptrunde()=="enabled") {
-				if($this->hauptrundefsid) {
-					$this->updateHauptrundeTipp($hauptrundetipps);
+			$this->isExistingUserWeitereTipps = $this->isExistingUserWeitereTipps();
+			if($this->isDisabledWeitereTipps()=="enabled") {
+				if($this->isExistingUserWeitereTipps) {
+					$this->updateUserWeitereTipps($userweiteretipps);
 				} else {
-					$this->addHauptrundeTipp($hauptrundetipps);
+					$this->addUserWeitereTipps($userweiteretipps);
 				}
 			} else if($isStillEnabled) {
-				$this->errors[] = "Die Zeit ist abgelaufen, um Hauptrundentipps zu erfassen.";
+				$this->errors[] = "Die Zeit ist abgelaufen, um 'Weitere Tipps' zu erfassen.";
 			}
 			
 			$_SESSION['infos'][] = "Deine Tipps wurden erfolgreich erfasst.";
 
-			if(is_numeric(array_search('', $hauptrundetipps, false)) && $isStillEnabled){
-				$_SESSION['infos'][] = "Du hast noch nicht s&auml;mtliche Finalteilnehmer erfasst!";
+			if(is_numeric(array_search('', $userweiteretipps, false)) && $isStillEnabled){
+				$_SESSION['infos'][] = "Du hast noch nicht s&auml;mtliche 'Weitere Tipps' erfasst!";
 			}
 		}
 	}
 
-	private function isDisabledHauptrunde() {
+	private function isDisabledWeitereTipps() {
 		$abfrage = "SELECT start FROM vorrundeteams where vorrundeteamsid=1";
 
 		$ergebnis = mysql_query($abfrage);
@@ -248,22 +211,22 @@ class MyTipps extends HTMLPage implements Page {
 		}
 	}
 
-	private function updateHauptrundeTipp($hauptrundetipps) {
-		$abfrage = sprintf("Update hauptrunde set achtelfinal1 = '%s', achtelfinal2 = '%s', achtelfinal3 = '%s', achtelfinal4 = '%s', achtelfinal5 = '%s', achtelfinal6 = '%s', achtelfinal7 = '%s', achtelfinal8 = '%s', achtelfinal9 = '%s', achtelfinal10 = '%s', achtelfinal11 = '%s', achtelfinal12 = '%s', achtelfinal13 = '%s', achtelfinal14 = '%s', achtelfinal15 = '%s', achtelfinal16 = '%s', viertelfinal1 = '%s', viertelfinal2 = '%s', viertelfinal3 = '%s', viertelfinal4 = '%s', viertelfinal5 = '%s', viertelfinal6 = '%s', viertelfinal7 = '%s', viertelfinal8 = '%s', halbfinal1 = '%s', halbfinal2 = '%s', halbfinal3 = '%s', halbfinal4 = '%s', final1 = '%s', final2 = '%s', sieger = '%s' where userfsid=".$_SESSION['userid'], htmlentities($hauptrundetipps[0], ENT_QUOTES, 'UTF-8'),htmlentities($hauptrundetipps[1], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[2], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[3], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[4], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[5], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[6], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[7], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[8], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[9], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[10], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[11], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[12], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[13], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[14], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[15], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[16], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[17], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[18], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[19], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[20], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[21], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[22], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[23], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[24], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[25], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[26], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[27], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[28], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[29], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[30], ENT_QUOTES, 'UTF-8'));
+	private function updateUserWeitereTipps($userWeitereTipps) {
+		$abfrage = sprintf("Update userweiteretipps set achtelfinal1 = '%s', achtelfinal2 = '%s', achtelfinal3 = '%s', achtelfinal4 = '%s', achtelfinal5 = '%s', achtelfinal6 = '%s', achtelfinal7 = '%s', achtelfinal8 = '%s', achtelfinal9 = '%s', achtelfinal10 = '%s', achtelfinal11 = '%s', achtelfinal12 = '%s', achtelfinal13 = '%s', achtelfinal14 = '%s', achtelfinal15 = '%s', achtelfinal16 = '%s', winner = '%s', best = '%s', worst = '%s', switzerland = '%s', lastwinner = '%s' where userfsid=".$_SESSION['userid'], htmlentities($userWeitereTipps[0], ENT_QUOTES, 'UTF-8'),htmlentities($userWeitereTipps[1], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[2], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[3], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[4], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[5], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[6], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[7], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[8], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[9], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[10], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[11], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[12], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[13], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[14], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[15], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[16], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[17], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[18], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[19], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[20]));
 		
 		$ergebnis = mysql_query($abfrage, $this->link);
 	}
 
-	private function addHauptrundeTipp($hauptrundetipps) {
-		$abfrage = sprintf("Insert into hauptrunde values(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",$_SESSION['userid'], htmlentities($hauptrundetipps[0], ENT_QUOTES, 'UTF-8'),htmlentities($hauptrundetipps[1], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[2], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[3], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[4], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[5], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[6], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[7], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[8], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[9], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[10], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[11], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[12], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[13], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[14], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[15], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[16], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[17], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[18], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[19], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[20], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[21], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[22], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[23], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[24], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[25], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[26], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[27], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[28], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[29], ENT_QUOTES, 'UTF-8'), htmlentities($hauptrundetipps[30], ENT_QUOTES, 'UTF-8'));
+	private function addUserWeitereTipps($userWeitereTipps) {
+		$abfrage = sprintf("Insert into userweiteretipps values(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",$_SESSION['userid'], htmlentities($userWeitereTipps[0], ENT_QUOTES, 'UTF-8'),htmlentities($userWeitereTipps[1], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[2], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[3], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[4], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[5], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[6], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[7], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[8], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[9], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[10], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[11], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[12], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[13], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[14], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[15], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[16], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[17], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[18], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[19], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[20]));
 		
 		$ergebnis = mysql_query($abfrage, $this->link);
 	}
 
-	private function isExistingHauptrunde() {
+	private function isExistingUserWeitereTipps() {
 		$userid = $_SESSION['userid'];
 
-		$abfrage = "SELECT userfsid FROM hauptrunde where userfsid=".$userid;
+		$abfrage = "SELECT userfsid FROM userweiteretipps where userfsid=".$userid;
 
 		$ergebnis = mysql_query($abfrage);
 		while($row = mysql_fetch_assoc($ergebnis))
@@ -276,9 +239,9 @@ class MyTipps extends HTMLPage implements Page {
 		return false;
 	}
 
-	private function addTipp($i, $result1, $result2) {
+	private function addTipp($i, $result1, $result2, $highrisk) {
 		if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled') {
-			$abfrage = sprintf("Insert into vorrunde value('', '".$result1."', '".$result2."', '".$i."')", htmlentities($result1, ENT_QUOTES, 'UTF-8'),  htmlentities($result2, ENT_QUOTES, 'UTF-8'),  htmlentities($i, ENT_QUOTES, 'UTF-8'));
+			$abfrage = sprintf("Insert into vorrunde value('', '".$result1."', '".$result2."', '".$highrisk."','".$i."')", htmlentities($result1, ENT_QUOTES, 'UTF-8'),  htmlentities($result2, ENT_QUOTES, 'UTF-8'),  htmlentities($highrisk, ENT_QUOTES, 'UTF-8'),htmlentities($i, ENT_QUOTES, 'UTF-8'));
 			mysql_query($abfrage);
 
 			$vorrundeid = mysql_insert_id();
@@ -290,7 +253,7 @@ class MyTipps extends HTMLPage implements Page {
 		}
 	}
 
-	private function updateTipp($i, $result1, $result2) {
+	private function updateTipp($i, $result1, $result2, $highrisk) {
 		if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled') {
 
 			$userid = $_SESSION['userid'];
@@ -302,7 +265,7 @@ class MyTipps extends HTMLPage implements Page {
 			{
 				$vorrundeid = $row['vorrundefsid'];
 
-				$tippedMatch = sprintf("Update vorrunde set result1 = '%s', result2 = '%s' where vorrundeid=$vorrundeid and vorrundeteamsfsid=%d", htmlentities($result1, ENT_QUOTES, 'UTF-8'), htmlentities($result2, ENT_QUOTES, 'UTF-8'), htmlentities($i, ENT_QUOTES, 'UTF-8'));
+				$tippedMatch = sprintf("Update vorrunde set result1 = '%s', result2 = '%s', highrisk = '%s' where vorrundeid=$vorrundeid and vorrundeteamsfsid=%d", htmlentities($result1, ENT_QUOTES, 'UTF-8'), htmlentities($result2, ENT_QUOTES, 'UTF-8'), htmlentities($highrisk, ENT_QUOTES, 'UTF-8'),htmlentities($i, ENT_QUOTES, 'UTF-8'));
 
 				$resultTippedMatch = mysql_query($tippedMatch);
 
@@ -357,6 +320,7 @@ class MyTipps extends HTMLPage implements Page {
 				if($vorrundeteamsid == $row['vorrundeteamsfsid']){
 					$results[] = $row['result1'];
 					$results[] = $row['result2'];
+					$results[] = $row['highrisk'];
 
 					return $results;
 				}
@@ -370,6 +334,7 @@ class MyTipps extends HTMLPage implements Page {
 
 		return "enabled";
 	}
+	
 	private function getData() {
 		$abfrage = "SELECT * FROM vorrundeteams order by start asc";
 
@@ -387,12 +352,14 @@ class MyTipps extends HTMLPage implements Page {
 			$results = $this->getUserResult($row['vorrundeteamsid']);
 			$this->vorrunde[$i]['result1'] = $results[0];
 			$this->vorrunde[$i]['result2'] = $results[1];
+			$this->vorrunde[$i]['highrisk'] = $results[2];
 			$this->vorrunde[$i]['realresult1'] = $row['realresult1'];
 			$this->vorrunde[$i]['realresult2'] = $row['realresult2'];
 
 			$i++;
 		}
 	} 
+	
 	private function getCountries() {
 		$abfrage = "SELECT * FROM teams order by land asc";
 
@@ -422,65 +389,36 @@ class MyTipps extends HTMLPage implements Page {
 		return $groupArray;
 	}
 	
-	// $round --> 1 = Achtelfinal, 2 = Viertelfinal, 3 = Halbfinal, 4 = Final, 5 = Sieger
 	public function getStyle($id, $round){
 		if($id != ''){
 			$achtel_min = 0;
 			$achtel_max = 16;
-			$viertel_min = 16;
-			$halb_min = 24;
-			$final_min = 28;
-			$sieger = 30;
 			
-			if($round == 1 && $this->realhauptrunde[$achtel_min] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $achtel_min, $achtel_max)) !== false){ 
+			if($round == 1 && $this->realweiteretipps[$achtel_min] != ''){
+				if(array_search($id, array_slice($this->realweiteretipps, $achtel_min, $achtel_max)) !== false){ 
 					return "background-color: #00FF00";
 				}
-				else if($this->realhauptrunde[$achtel_max-1] != ''){
+				else if($this->realweiteretipps[$achtel_max-1] != ''){
 					return "background-color: #FF6633";
 				}
 			}
-			if($round == 2 && $this->realhauptrunde[$viertel_min] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $viertel_min, 8)) !== false){ 
-					return "background-color: #00FF00";
-				}
-				else if($this->realhauptrunde[$viertel_min+7] != ''){
-					return "background-color: #FF6633";
-				}
-			}
-			if($round == 3 && $this->realhauptrunde[$halb_min] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $halb_min, 4)) !== false){ 
-					return "background-color: #00FF00";
-				}
-				else if($this->realhauptrunde[$halb_min+3] != ''){
-					return "background-color: #FF6633";
-				}
-			}
-			if($round == 4 && $this->realhauptrunde[$final_min] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $final_min, 2)) !== false){ 
-					return "background-color: #00FF00";
-				}
-				else if($this->realhauptrunde[$final_min+1] != ''){
-					return "background-color: #FF6633";
-				}
-			}
-			if($round == 5 && $this->realhauptrunde[$sieger] != ''){
-				if(array_search($this->getTeam($id), array_slice($this->realhauptrunde, $sieger, 1)) !== false){ 
-					return "background-color: #00FF00";
-				}
-				else if($this->realhauptrunde[$sieger] != ''){
-					return "background-color: #FF6633";
+			else{
+				if($this->realweiteretipps[$round] != ''){
+					if($this->realweiteretipps[$round] == $id){
+						return "background-color: #00FF00";
+					}
+					else{
+						return "background-color: #FF6633";
+					}
 				}
 			}
 		}
 	}
 
 	private function hasEqualTeams(){
-		if($this->isDisabledHauptrunde() == "disabled"){
+		if($this->isDisabledWeitereTipps() == "disabled"){
 			return false;
 		}
-
-		$viertelfinalArray = array();
 
 		$achtelfinalArray[0] = $_POST["achtelfinal1"];
 		$achtelfinalArray[1] = $_POST["achtelfinal2"];
@@ -502,55 +440,14 @@ class MyTipps extends HTMLPage implements Page {
 		$resultAchtelFinalArray = array_count_values($achtelfinalArray);
 			
 		if(count($resultAchtelFinalArray) <= (16 - ($resultAchtelFinalArray[''] == 0 ? 1 : $resultAchtelFinalArray['']))){
-			$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
-			return true;
-		}
-		
-		$viertelfinalArray[0] = $_POST["viertelfinal1"];
-		$viertelfinalArray[1] = $_POST["viertelfinal2"];
-		$viertelfinalArray[2] = $_POST["viertelfinal3"];
-		$viertelfinalArray[3] = $_POST["viertelfinal4"];
-		$viertelfinalArray[4] = $_POST["viertelfinal5"];
-		$viertelfinalArray[5] = $_POST["viertelfinal6"];
-		$viertelfinalArray[6] = $_POST["viertelfinal7"];
-		$viertelfinalArray[7] = $_POST["viertelfinal8"];
-
-		$resultViertelFinalArray = array_count_values($viertelfinalArray);
-			
-		if(count($resultViertelFinalArray) <= (8 - ($resultViertelFinalArray[''] == 0 ? 1 : $resultViertelFinalArray['']))){
-			$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
-			return true;
-		}
-
-		$halbfinalArray = array();
-
-		$halbfinalArray[0] = $_POST["halbfinal1"];
-		$halbfinalArray[1] = $_POST["halbfinal2"];
-		$halbfinalArray[2] = $_POST["halbfinal3"];
-		$halbfinalArray[3] = $_POST["halbfinal4"];
-
-		$resultHalbFinalArray = array_count_values($halbfinalArray);
-
-		if(count($resultHalbFinalArray) <= (4 - ($resultHalbFinalArray[''] == 0 ? 1 : $resultHalbFinalArray['']))){
-			$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
-			return true;
-		}
-
-		$finalArray = array();
-
-		$finalArray[0] = $_POST["final1"];
-		$finalArray[1] = $_POST["final2"];
-
-		$resultFinalArray = array_count_values($finalArray);
-
-		if(count($resultFinalArray) <= (2 - ($resultFinalArray[''] == 0 ? 1 : $resultFinalArray['']))){
-			$this->errors[] = "Mehrfachnennungen von gleichen Teams innerhalb derselben Finalrunde sind nicht erlaubt!";
+			$this->errors[] = "Es d&uuml;rfen nicht mehrfach die gleichen Teams bei der Frage 'Wer &uuml;bersteht die Gruppenphase' selektiert werden!";
 			return true;
 		}
 	}
 
 	public function getHTML() {
 		$this->getCountries();
+		$this->phases = Constants::getPhases();
 		include('layout/myTipps.tpl');
 	}
 }

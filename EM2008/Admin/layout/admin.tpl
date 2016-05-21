@@ -50,21 +50,11 @@
 		$achtel14 = $this->achtelfinal14; 
 		$achtel15 = $this->achtelfinal15; 
 		$achtel16 = $this->achtelfinal16; 
-	 	$viertel1 = $this->viertelfinal1; 
-	 	$viertel2 = $this->viertelfinal2; 
-	 	$viertel3 = $this->viertelfinal3; 
-	 	$viertel4 = $this->viertelfinal4; 
-	 	$viertel5 = $this->viertelfinal5; 
-	 	$viertel6 = $this->viertelfinal6; 
-	 	$viertel7 = $this->viertelfinal7; 
-	 	$viertel8 = $this->viertelfinal8; 
-	 	$halb1 = $this->halbfinal1; 
-	 	$halb2 = $this->halbfinal2; 
-	 	$halb3 = $this->halbfinal3; 
-	 	$halb4 = $this->halbfinal4; 
-	 	$final1 = $this->final1; 
-	 	$final2 = $this->final2; 
-	 	$sieger = $this->sieger; 
+	 	$winner = $this->winner;
+	 	$best = $this->best;
+	 	$worst = $this->worst;
+	 	$switzerland = $this->switzerland;
+	 	$lastwinner = $this->lastwinner;
 	?>
 	<form action="index.php?go=admin&action=results" method="POST">
 		<table border="0">
@@ -471,341 +461,66 @@
 			</table>
 			<br>	
 		
-		<b>Viertelfinalteilnehmer</b>
-		<table>
-			<tr>
-				<td>Team 1</td>
-				<td>Team 2</td>
-				<td>Team 3</td>
-				<td>Team 4</td>
-			</tr>
-			<tr>
-				<td>
-					<select name="viertelfinal1">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($viertel1 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="viertelfinal2">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($viertel2 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="viertelfinal3">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($viertel3 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="viertelfinal4">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($viertel4 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>Team 5</td>
-				<td>Team 6</td>
-				<td>Team 7</td>
-				<td>Team 8</td>
-			</tr>
-			<tr>
-				<td>
-					<select name="viertelfinal5">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($viertel5 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="viertelfinal6">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($viertel6 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="viertelfinal7">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($viertel7 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="viertelfinal8">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($viertel8 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<b>Halbfinalteilnehmer</b>
-		<table>
-			<tr>
-				<td>Team 1</td>
-				<td>Team 2</td>
-				<td>Team 3</td>
-				<td>Team 4</td>
-			</tr>
-			<tr>
-				<td>
-					<select name="halbfinal1">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($halb1 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="halbfinal2">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($halb2 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="halbfinal3">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($halb3 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="halbfinal4">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($halb4 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<b>Finalteilnehmer</b>
-		<table>
-			<tr>
-				<td>Team 1</td>
-				<td>Team 2</td>
-			</tr>
-			<tr>
-				<td>
-					<select name="final1">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($final1 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-				<td>
-					<select name="final2">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($final2 == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-			</tr>
-		</table>
-		<br>
-		<b><?php echo Constants::getWinnerLabel() ?></b>
-		<table>
-			<tr>
-				<td>Team 1</td>
-			</tr>
-			<tr>
-				<td>
-					<select name="sieger">
-						<option value=""></option>
-						<?php foreach($this->countries as $country): ?>
-							<?php  
-								if($sieger == $country['id']){
-							?>
-									<option value="<?php echo $country['id'] ?>" selected><?php echo $country['land'] ?></option>
-							<?php 
-								}
-								else{
-							?>
-									<option value="<?php echo $country['id'] ?>"><?php echo $country['land'] ?></option>
-							<?php 
-								}
-							?>
-						<?php endforeach; ?>
-					</select>
-				</td>
-			</tr>
-		</table>
+			<h4>Welches wird das <i>beste</i> Team der Vorrunde?</h4>
+			<select name="best" id="best" style="width: 110px;">
+				<option value=''></option>
+				<?php foreach($this->countries as $country): ?>
+					<?php if($this->best == $country['id']): ?>
+						<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
+					<?php else:?>
+						<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</select>
+			
+			<h4>Welches wird das <i>schlechteste</i> Team der Vorrunde?</h4>
+			<select name="worst" id="worst" style="width: 110px;">
+				<option value=''></option>
+				<?php foreach($this->countries as $country): ?>
+					<?php if($this->worst == $country['id']): ?>
+						<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
+					<?php else:?>
+						<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</select>
+			
+			<h4>Wie weit kommt die <i>Schweiz</i> im Turnier?</h4>
+			<select name="switzerland" id="switzerland" style="width: 200px;">
+				<option value=''></option>
+				<?php foreach($this->phases as $phase): ?>
+					<?php if($this->switzerland == $phase['id']): ?>
+						<option value="<?php echo $phase['id']; ?>" selected><?php echo $phase['beschreibung']; ?></option>
+					<?php else:?>
+						<option value="<?php echo $phase['id']; ?>"><?php echo $phase['beschreibung']; ?></option>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</select>
+			
+			<h4>Wie weit kommt der Titelverteidiger <i>Deutschland</i> im Turnier?</h4>
+			<select name="lastwinner" id="lastwinner" style="width: 200px;">
+				<option value=''></option>
+				<?php foreach($this->phases as $phase): ?>
+					<?php if($this->lastwinner == $phase['id']): ?>
+						<option value="<?php echo $phase['id']; ?>" selected><?php echo $phase['beschreibung']; ?></option>
+					<?php else:?>
+						<option value="<?php echo $phase['id']; ?>"><?php echo $phase['beschreibung']; ?></option>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</select>
+			
+			<h4>Wer wird <?php echo Constants::$winnerLabel; ?>?</h4>
+			<select name="winner" id="winner" style="width: 110px;">
+				<option value=''></option>
+				<?php foreach($this->countries as $country): ?>
+					<?php if($this->winner == $country['id']): ?>
+						<option value="<?php echo $country['id']; ?>" selected><?php echo $country['land']; ?></option>
+					<?php else:?>
+						<option value="<?php echo $country['id']; ?>"><?php echo $country['land']; ?></option>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</select>
+		
 		<div style="padding-top: 5px"><input type="submit" value="Aktualisieren" /></div>
 	</form>
 	<?php if($_GET['action'] == 'results'){ $tabs->active = "Resultate"; } ?>
