@@ -17,10 +17,10 @@
 			<b>&nbsp;</b>
 		</td>
 		<td style="padding-left: 20px">
-			<b>Vorname</b>
+			<b>Nachname</b>
 		</td>
 		<td style="padding-left: 20px">
-			<b>Nachname</b>
+			<b>Vorname</b>
 		</td>
 	</tr>
 	<tr />
@@ -37,10 +37,10 @@
 					 	<?php } ?>
 					</td>
 					<td style="padding-left: 20px;">
-						<?php echo $ranking['vorname']?>
+						<?php echo $ranking['nachname']?>
 					</td>
 					<td style="padding-left: 20px;">
-						<?php echo $ranking['nachname']?>
+						<?php echo $ranking['vorname']?>
 					</td>
 				</tr>
 	<?php 
