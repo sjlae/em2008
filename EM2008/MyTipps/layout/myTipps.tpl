@@ -1115,4 +1115,4 @@
   	</script>
       <?php endif; ?>
 <?php $tabs->end(); ?>
-<?php $tabs->active = $this->isAlreadyFinalround; $tabs->run(); ?>
+<?php $tabs->active = Constants::isAlreadyFinalround(); $tabs->run(); ?>

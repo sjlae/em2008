@@ -16,7 +16,6 @@ class OtherTipps extends HTMLPage implements Page {
 	private $userSieger = '';
 	private $realhauptrunde = array();
 	private $sort;
-	private $isAlreadyFinalround = 'Gruppenspiele';
 	
 	private $link = '';
 
@@ -33,23 +32,8 @@ class OtherTipps extends HTMLPage implements Page {
 			$this->realhauptrunde = $this->getRealHauptrunde();
 		}
 		$this->getPlayers();
-
-		$this->setIsAlreadyFinalround();
 	}
 
-	private function setIsAlreadyFinalround(){
-		$relevantRow = (Constants::$isWM ? 49 : 37);
-	
-		$result = mysql_query("Select * from vorrundeteams WHERE vorrundeteamsid = $relevantRow");
-		$dbRow = mysql_fetch_row($result);
-	
-		if($dbRow[4] != '' && $dbRow[5] != ''){
-			$this->isAlreadyFinalround = 'Finalspiele';
-			return;
-		}
-		$this->isAlreadyFinalround = 'Gruppenspiele';
-	}
-	
 	private function getUserResult($vorrundeteamsid) {
 
 		$anzahlUserTipps = "SELECT vorrundefsid FROM uservorrunde where userfsid=".$this->realid;

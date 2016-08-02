@@ -1,4 +1,5 @@
 <?php
+require_once('Datenbank/db.php');
 
 class Constants{
 	public static $isWM = true;
@@ -59,6 +60,31 @@ class Constants{
 		else if($points == 0){
 			return "0";
 		}
+	}
+	
+	public function hasTournamentStarted() {
+		$abfrage = "SELECT start FROM vorrundeteams where vorrundeteamsid=1";
+	
+		$ergebnis = mysql_query($abfrage);
+		$startTime = mysql_fetch_row($ergebnis);
+		if(mktime() > strtotime($startTime[0])){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public function isAlreadyFinalround(){
+		$relevantRow = (Constants::$isWM ? 49 : 37);
+	
+		$result = mysql_query("Select * from vorrundeteams WHERE vorrundeteamsid = $relevantRow");
+		$dbRow = mysql_fetch_row($result);
+	
+		if($dbRow[4] != '' && $dbRow[5] != ''){
+			return "Finalspiele";
+		}
+		return "Gruppenspiele";
 	}
 }
 

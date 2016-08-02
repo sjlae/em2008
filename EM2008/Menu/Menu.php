@@ -1,5 +1,6 @@
 <?php
 require_once('Datenbank/db.php');
+require_once('Constants.php');
 
 class Menu {
 
@@ -16,8 +17,11 @@ class Menu {
 		if($registered) {
 			return 'Menu/layout/registered.tpl';
 		}
+		else if(Constants::hasTournamentStarted()){
+			return 'Menu/layout/notRegistered_started.tpl';
+		}
 		else {
-			return 'Menu/layout/notRegistered.tpl';
+			return 'Menu/layout/notRegistered_notStarted.tpl';
 		}
 	}
 	

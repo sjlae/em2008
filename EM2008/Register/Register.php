@@ -61,6 +61,10 @@ class Register extends HTMLPage implements Page {
 			$this->errors[] = "Wie auch immer du das angestellt hast, aber da lief nicht alles mit legalen Mitteln!";
 		}
 		
+		if(Constants::hasTournamentStarted()){
+			$this->errors[] = "Das Turnier l&auml;uft bereits und daher kannst du dich nicht mehr registrieren!";
+		}
+		
 		if(count($this->errors) == 0) {
 			
 			$pwd = md5($this->passwort1);
