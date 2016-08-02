@@ -17,10 +17,11 @@ class MyTipps extends HTMLPage implements Page {
 	private $userHalbfinal = array();
 	private $userFinal = array();
 	private $userSieger= '';
-  private $userEntries = array();
+  	private $userEntries = array();
 
 	private $link = '';
-
+	private $isAlreadyFinalround = 'Gruppenspiele';
+	
 	public function __construct() {
 		if($_SESSION['eingeloggt'] || $_SESSION['userid']){
 			$this->link = Db::getConnection();
@@ -41,9 +42,24 @@ class MyTipps extends HTMLPage implements Page {
 			if($this->hauptrundefsid) {
 				$this->getUserHauptrundeTipps();
 			}
+			
+			$this->setIsAlreadyFinalround();
 		}
 	}
+	
+	private function setIsAlreadyFinalround(){
+		$relevantRow = (Constants::$isWM ? 49 : 37);
+		
+		$result = mysql_query("Select * from vorrundeteams WHERE vorrundeteamsid = $relevantRow");
+		$dbRow = mysql_fetch_row($result);
 
+		if($dbRow[4] != '' && $dbRow[5] != ''){
+			$this->isAlreadyFinalround = 'Finalspiele';
+			return;
+		}
+		$this->isAlreadyFinalround = 'Gruppenspiele';
+	}
+	
 	private function getRealHauptrunde() {
 		$abfrage = "Select * from realhauptrunde";
 		$realhauptrunde = array();

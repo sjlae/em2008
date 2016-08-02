@@ -47,13 +47,7 @@
 							<td align="center" valign="top"><b><?php echo $spiel['realresult2']; ?></b></td>
 							<td valign="top" style="white-space: nowrap;">
 								<?php
-									$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
-
-									if($points != ""){
-								?>
-										<img alt="" src="Layout/<?php echo $points ?>" width="15px"/>
-								<?php
-									}
+									echo Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
 								?>
 							</td>
 						</tr>
@@ -62,7 +56,6 @@
 			?>
 		</table>
 		<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='groups'"/></div>
-		<?php if($_POST['page'] == 'groups'){ $tabs->active = "Gruppenspiele"; } ?>
 
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalspiele"); ?>
@@ -102,13 +95,7 @@
 						<td align="center" valign="top"><b><?php echo $spiel['realresult2']; ?></b></td>
 						<td valign="top" style="white-space: nowrap;">
 							<?php
-								$points = Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
-
-								if($points != ""){
-							?>
-									<img alt="" src="Layout/<?php echo $points ?>" width="15px"/>
-							<?php
-								}
+								echo Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2']);
 							?>
 						</td>
 					</tr>
@@ -117,7 +104,6 @@
 		?>
 	</table>
 	<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='finals'"/></div>
-	<?php if($_POST['page'] == 'finals'){ $tabs->active = "Finalspiele"; } ?>
 
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalteilnehmer"); ?>
@@ -535,7 +521,6 @@
 			<option value=''></option>
 		</select></div>
 		<div style="text-align: right;"><input type="submit" value="Speichern" onclick="document.formular.page.value='countries'"/></div>
-		<?php if($_POST['page'] == 'countries'){ $tabs->active = "Finalteilnehmer"; } ?>
 	</form>
       <?php if(Constants::$isWM): ?>
     	<script type="text/javascript">  
@@ -1130,4 +1115,4 @@
   	</script>
       <?php endif; ?>
 <?php $tabs->end(); ?>
-<?php $tabs->run(); ?>
+<?php $tabs->active = $this->isAlreadyFinalround; $tabs->run(); ?>

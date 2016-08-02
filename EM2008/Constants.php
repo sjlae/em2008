@@ -1,8 +1,8 @@
 <?php
 
 class Constants{
-	public static $isWM = false;
-	public static $winnerLabel = 'Europameister';
+	public static $isWM = true;
+	public static $winnerLabel = 'Weltmeister';
 	 
 	public static $regexSpecialSigns = '/[<>&\'"\\\]+/';
 	
@@ -25,34 +25,39 @@ class Constants{
 	}
 	
 	public static function getPointsPng($tipp1, $tipp2, $real1, $real2){
-		if($real1 != '' && $real2 != '' && $tipp1 != '' && $tipp2 != '' && $tipp1>=0 && $tipp2>=0 && is_numeric($tipp1) && is_numeric($tipp2)){
-        	if ($tipp1==$real1 && $tipp2==$real2) { 
-            	return "gold.png"; // 5
-            } 
-            else if ($real1>$real2 && $tipp1>$tipp2) { 
-                if ($real1-$real2 == $tipp1-$tipp2) { 
-                	return "silver.png"; // 4
-                } 
-                else { 
-                	return "bronce.png"; // 3
-                } 
-           	} 
-            else if ($real2>$real1 && $tipp2>$tipp1) { 
-            	if ($real2-$real1 == $tipp2-$tipp1) { 
-                	return "silver.png"; // 4
-                } 
-            	else { 
-            		return "bronce.png"; // 3
-            	}                                                    
-        	} 
-        	else if ($real1==$real2 && $tipp1==$tipp2) { 
-        		return "silver.png"; // 4
-        	}
-        	
-        	return "white.png"; // 0
+		$points;
+		// 4 Punkte für korrekten Ausgang & 2 Punkt für korrekte Differenz
+		if(($real1>$real2 && $tipp1>$tipp2) || ($real2>$real1 && $tipp2>$tipp1) || ($real1==$real2 && $tipp1==$tipp2)){
+			$points = $points+4;
+			if(($real1-$real2 == $tipp1-$tipp2) || ($real2-$real1 == $tipp2-$tipp1) || ($real1==$real2 && $tipp1==$tipp2)){
+				$points = $points+2;
+			}
 		}
-		else{
-			return ""; // etwas leer
+		// je 1 Punkt für korrekte Anzahl Tore der beiden Teams
+		if($tipp1==$real1){
+			$points = $points+1;
+		}
+		if($tipp2==$real2){
+			$points = $points+1;
+		}
+		
+		if($points == 8){
+			return "8";
+		}
+		else if($points == 6){
+			return "6";
+		}
+		else if($points == 5){
+			return "5";
+		}
+		else if($points == 4){
+			return "4";
+		}
+		else if($points == 1){
+			return "1";
+		}
+		else if($points == 0){
+			return "0";
 		}
 	}
 }
