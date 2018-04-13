@@ -35,7 +35,7 @@
                                 <!-- Logo-->
                                 <div class="col col-xl-12 text-center">
                                     <div class="logo">
-                                        <a href="index.html" title="Return Home">
+                                        <a href="index.php" title="Return Home">
                                             <img src="img/logo_2.png" alt="Logo" class="logo_img">
                                         </a>
                                     </div>
@@ -58,3 +58,4 @@
             		$menu = new Menu();
             		include($menu->getMenu());
                     ?>
+\
