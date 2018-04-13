@@ -5,10 +5,7 @@
             <head>
                 <!-- Basic -->
                 <meta charset="utf-8">
-                <title>Das ultimative <WM-Tippspiel></WM-Tippspiel></title>
-                <meta name="keywords" content="HTML5 Template" />
-                <meta name="description" content="SportsCup - Bootstrap 4 Theme for Sports">
-                <meta name="author" content="iwthemes.com">
+                <title>Das ultimative WM-Tippspiel</title>
 
                 <!-- Mobile Metas -->
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -58,4 +55,3 @@
             		$menu = new Menu();
             		include($menu->getMenu());
                     ?>
-\
