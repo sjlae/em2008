@@ -32,10 +32,10 @@ class Constants{
 			// punktevergabe für highrisk
 			if($highrisk == '1'){
 				if($real1 == $tipp1 && $real2 == $tipp2){
-					return "16";
+					return "16_punkte.png";
 				}
 				else{
-					return "0";
+					return "0_punkte.png";
 				}
 			}
 			
@@ -55,22 +55,22 @@ class Constants{
 			}
 			
 			if($points == 8){
-				return "8";
+				return "8_punkte.png";
 			}
 			else if($points == 6){
-				return "6";
+				return "6_punkte.png";
 			}
 			else if($points == 5){
-				return "5";
+				return "5_punkte.png";
 			}
 			else if($points == 4){
-				return "4";
+				return "4_punkte.png";
 			}
 			else if($points == 1){
-				return "1";
+				return "1_punkt.png";
 			}
 			else if($points == 0){
-				return "0";
+				return "0_punkte.png";
 			}
 		}
 	}

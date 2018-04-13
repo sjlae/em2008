@@ -40,9 +40,7 @@
 							<?php } ?>
 						</td>
 						<td align="center" valign="top" style="white-space: nowrap;" title="<?php echo 'Korrektes Resultat: '; echo $spiel['realresult1']; echo ':'; echo $spiel['realresult2']; ?>">
-							<?php
-								echo Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2'],$spiel['highrisk']);
-							?>
+							<img alt="" src="Layout/<?php echo Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2'],$spiel['highrisk']);  ?>" width="22px" />
 						</td>
 					</tr>
 		<?php 	}
@@ -84,9 +82,7 @@
 							<?php } ?>
 						</td>
 						<td align="center" valign="top" style="white-space: nowrap;" title="<?php echo 'Korrektes Resultat: '; echo $spiel['realresult1']; echo ':'; echo $spiel['realresult2']; ?>">
-							<?php
-								echo Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2'],$spiel['highrisk']);
-							?>
+							<img alt="" src="Layout/<?php echo Constants::getPointsPng($spiel['result1'],$spiel['result2'],$spiel['realresult1'],$spiel['realresult2'],$spiel['highrisk']);  ?>" width="22px" />
 						</td>
 					</tr>
 		<?php 	}
