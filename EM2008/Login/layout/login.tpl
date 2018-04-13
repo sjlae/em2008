@@ -40,10 +40,10 @@
 	</tr>
 	<tr>
 		<td style="padding-top: 10px">
-			<input type="submit" value="Einloggen" />
+			<input type="submit" value="Einloggen" class="bnt btn-iw"  />
 		</td>
 		<td style="padding-top: 10px; padding-left: 10px;">
-			<input type="submit" value="Passwort vergessen" onclick="document.forms['forgot'].submit(); return(false);"/>
+			<input type="submit" value="Passwort vergessen" class="bnt btn-iw" onclick="document.forms['forgot'].submit(); return(false);"/>
 		</td>
 	</tr>
 </table>
