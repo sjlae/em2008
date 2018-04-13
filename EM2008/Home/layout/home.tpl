@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h1>Das ultimative Tippspiel - tippy.ch</h1>
+                <h1>Das ultimative Tippspiel</h1>
             </div>
         </div>
     </div>
