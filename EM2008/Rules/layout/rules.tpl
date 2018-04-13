@@ -1,5 +1,4 @@
 <h2>Spielregeln</h2>
-	ENTFERNE MICH
 		<p>Nachfolgend erkl&auml;ren wir Dir s&auml;mtliche Spielregeln von Tippy, damit Du alles Notwendige weisst.
 		Auf der rechten Seite siehst Du unsere Men&uuml;leiste.<br> 
 		
