@@ -1,23 +1,58 @@
-<ul id="menu">
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=home"><span>Startseite</span></a></li>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=ranking"><span>Rangliste</span></a></li>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=login"><span>Login</span></a></li>
-  	<li class="Startseite" id="mn_Standard"><a href="index.php?go=register"><span>Registrieren</span></a></li> 
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=rules"><span>Spielregeln</span></a></li>
-	<?php
-		if(isset($_SESSION['users_names'])){
-	?>
-			<li class="Startseite" id="mn_Standard"><a class="tooltip" href="#"><?php echo $_SESSION['users'] ?><span><?php echo $_SESSION['users_names'] ?></span></a></li>
-	<?php
-		}
-		else{
-	?>
-			<li class="Startseite" id="mn_Standard"><a class="tooltip" href="#"><?php echo $_SESSION['users'] ?></a></li>
-	<?php
-		}
-	?>
-</ul>
-<?php 
-	unset($_SESSION['users']);
-	unset($_SESSION['users_names']);
-?>
+<!-- mainmenu-->
+            <nav class="mainmenu">
+                <div class="container">
+                    <!-- Menu-->
+                    <ul class="sf-menu" id="menu">
+                        <li class="current">
+                            <a href="index.php?go=home">Startseite</a>
+                        </li>
+                        <li class="current">
+                            <a href="index.php?go=ranking">Rangliste</a>
+                        </li>
+                        <li class="current">
+                            <a href="index.php?go=login">Login</a>
+                        </li>
+                        <li class="current">
+                            <a href="index.php?go=register">Registrieren</a>
+                        </li>
+                        <li class="current">
+                            <a href="index.php?go=rules">Spielregeln</a>
+                        </li>
+                    </ul>
+                    <!-- End Menu-->
+                </div>
+            </nav>
+            <!-- End mainmenu-->
+</header>
+<!-- Mobile Nav-->
+<div id="mobile-nav">
+    <!-- Menu-->
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+            <ul>
+                <li >
+                    <a href="index.php?go=home">Startseite</a>
+                </li>
+                <li >
+                    <a href="index.php?go=ranking">Rangliste</a>
+                </li>
+                <li >
+                    <a href="index.php?go=login">Login</a>
+                </li>
+                <li >
+                    <a href="index.php?go=register">Registrieren</a>
+                </li>
+                <li s>
+                    <a href="index.php?go=rules">Spielregeln</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="contact.html">Contact</a>
+        </li>
+    </ul>
+    <!-- End Menu-->
+</div>
+<!-- End Mobile Nav-->

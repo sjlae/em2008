@@ -1,18 +1,69 @@
-</div>
-	
-	<div id="footer">
-		<a href="#container">Top</a> | <a href="mailto:info@tippy.ch">Kontakt</a>
+
+<!-- footer-->
+<footer id="footer">
+	<!-- Footer Top-->
+	<div class="top-footer">
+
+		<!-- Logo Footer-->
+		<div class="col-lg-12">
+			<div class="logo-footer">
+				<h2>tippy.ch</h2>
+			</div>
+		</div>
+		<!-- End Logo Footer-->
+
+	</div>
+	<!-- End Footer Top-->
+
+	<!-- Links Footer-->
+	<div class="links-footer">
+		<div class="container">
+			<div class="row">
+
+				<!-- Column Links -->
+				<div class="col-lg-2 col-md-5 col-sm-5">
+					<div class="info-links">
+						<h5>Kontakt</h5>
+						<ul>
+							<li><a href="mailto:info@tippy.ch">Email</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- End Column Links -->
+			</div>
+		</div>
+	</div>
+	<!-- End Links Footer-->
+
+</footer>
+<!-- End footer-->
+
+<!-- footer Down-->
+<div class="footer-down">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p>&copy; 2018 tippy.ch . All Rights Reserved</p>
+			</div>
+		</div>
 	</div>
 </div>
+<!-- footer Down-->
+</div>
+<!-- End layout-->
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-60203-13");
-pageTracker._trackPageview();
-} catch(err) {}</script>	
+<!-- ======================= JQuery libs =========================== -->
+<!-- jQuery local-->
+<script type="text/javascript" src="assets/js/jquery.js"></script>
+<!-- popper.js-->
+<script type="text/javascript" src="assets/js/popper.min.js"></script>
+<!-- bootstrap.min.js-->
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<!-- required-scripts.js-->
+<script type="text/javascript" src="assets/js/theme-scripts.js"></script>
+<!-- theme-main.js-->
+<script type="text/javascript" src="assets/js/theme-main.js"></script>
+<!-- ======================= End JQuery libs =========================== -->
+
 </body>
 </html>

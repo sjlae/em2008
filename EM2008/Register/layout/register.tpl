@@ -1,4 +1,23 @@
-<h2>Registrieren</h2>
+<!-- Section Title -->
+<div class="section-title" style="background:url(img/slide/1.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Registrieren</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Section Title -->
+
+<!-- Section Area - Content Central -->
+<section class="content-info">
+
+	<div class="container paddings-mini">
+		<div class="panel-box block-form">
+			<div class="titles text-center">
+				<h4>Melde dich jetzt an!</h4>
+			</div>
 <?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=register&action=register" method="POST">
 	<table>
@@ -62,3 +81,7 @@
 		</tr>
 	</table>
 </form>
+		</div>
+</div>
+</section>
+<!-- End Section Area -  Content Central -->

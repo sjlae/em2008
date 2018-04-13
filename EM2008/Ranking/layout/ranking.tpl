@@ -1,4 +1,20 @@
-<h2>Rangliste</h2>
+<!-- Section Title -->
+<div class="section-title" style="background:url(img/slide/1.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Rangliste</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Section Title -->
+
+<!-- Section Area - Content Central -->
+<section class="content-info">
+
+	<div class="container paddings-mini">
+
 <?php  require_once('Layout/infos.tpl'); ?>
 <?php 
    $countPlayers = mysql_result($countPlayers,0);
@@ -50,24 +66,26 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 
 <?php } ?>
 
-<table>
+<table class="table-striped table-responsive table-hover result-point">
+	<thead class="point-table-head">
 	<tr>
-		<td>
+		<th>
 			<b>Rang</b>
-		</td>
-		<td>
+		</th>
+		<th>
 			&nbsp;
-		</td>
-		<td style="padding-left: 20px">
+		</th>
+		<th style="padding-left: 20px">
 			<b>Nachname</b>
-		</td>
-		<td style="padding-left: 20px">
+		</th>
+		<th style="padding-left: 20px">
 			<b>Vorname</b>
-		</td>
-		<td style="padding-left: 20px" align="right">
+		</th>
+		<th style="padding-left: 20px" align="right">
 			<b>Punkte</b>
-		</td>
+		</th>
 	</tr>
+	</thead>
 	<tr />
 	<?php  
 		$previousRank = 0;
@@ -184,3 +202,6 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 		}
 	?>
 </table>
+	</div>
+</section>
+<!-- End Section Area -  Content Central -->

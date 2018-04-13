@@ -1,4 +1,23 @@
-<h2>Login</h2>
+<!-- Section Title -->
+<div class="section-title" style="background:url(img/slide/1.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Login</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Section Title -->
+
+<!-- Section Area - Content Central -->
+<section class="content-info">
+
+	<div class="container paddings-mini">
+		<div class="panel-box block-form">
+			<div class="titles text-center">
+				<h4>Einloggen</h4>
+			</div>
 <?php require_once('Layout/infos.tpl'); ?>
 <?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=login&action=login" method="POST">
@@ -35,3 +54,8 @@
 </script>
 </form>
 <form action="index.php?go=password" method="POST" name="forgot"/>
+
+		</div>
+	</div>
+</section>
+<!-- End Section Area -  Content Central -->

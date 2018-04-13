@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `vorname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `passwort` varchar(255) NOT NULL,
-  `bezahlt` int(11) NOT NULL,
+  `bezahlt` int(11) NOT NULL DEFAULT '0',
   `punkte` int(11) NOT NULL,
   `rank_now` int(11) NOT NULL DEFAULT '0',
   `rank_last` int(11) NOT NULL DEFAULT '0',

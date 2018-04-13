@@ -45,18 +45,18 @@ class Register extends HTMLPage implements Page {
 		}
 		
 		if (!preg_match('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', $this->email)) {
-		  // $email ist ungültig, weil der lokale Teil nicht gültig ist
+		  // $email ist ungï¿½ltig, weil der lokale Teil nicht gï¿½ltig ist
 		  $this->errors[] = "Deine eingegebene Email ist ung&uuml;ltig";
 		}
 		else {
-		  	// Alles ausser der Domain aus der Email löschen
+		  	// Alles ausser der Domain aus der Email lï¿½schen
 		  	$domain = preg_replace('/^[a-zA-Z0-9][a-zA-Z0-9\._\-&!?=#]*@/', '', $this->email);
-		  	// Prüfen, ob die Domain registriert ist (funktioniert NICHT unter windows)!
+		  	// Prï¿½fen, ob die Domain registriert ist (funktioniert NICHT unter windows)!
 			if (!Constants::isLocal() && !checkdnsrr($domain)) {
 		  		$this->errors[] = "Deine eingegebene Email ist ung&uuml;ltig";
 		  	}
 		}	
-		
+
 		if(!preg_match('/^\d$/', $where)){
 			$this->errors[] = "Wie auch immer du das angestellt hast, aber da lief nicht alles mit legalen Mitteln!";
 		}
@@ -64,16 +64,18 @@ class Register extends HTMLPage implements Page {
 		if(Constants::hasTournamentStarted()){
 			$this->errors[] = "Das Turnier l&auml;uft bereits und daher kannst du dich nicht mehr registrieren!";
 		}
-		
+
 		if(count($this->errors) == 0) {
-			
+		var_dump("test");
 			$pwd = md5($this->passwort1);
 
 			$query = sprintf("Insert into user(nachname, vorname, email, passwort, rank_now, rank_last, woherfsid) values('%s', '%s', '%s', '%s', '%s',' %s', '%s')", htmlentities($this->nachname, ENT_QUOTES, 'UTF-8'), htmlentities($this->vorname, ENT_QUOTES, 'UTF-8'), htmlentities($this->email, ENT_QUOTES, 'UTF-8'), htmlentities($pwd, ENT_QUOTES, 'UTF-8'), '1', '1', htmlentities($where, ENT_QUOTES, 'UTF-8'));
-				
+				var_dump($query);
 			mysql_query($query,$this->link);
-
+			var_dump("test3");
+var_dump(mysql_affected_rows($this->link));
 		 if (mysql_affected_rows($this->link) > 0) {
+
 		 	if(!Constants::isLocal()){
 		 		$sender = "info@tippy.ch";
 				$empfaenger = $this->email;
@@ -82,7 +84,7 @@ class Register extends HTMLPage implements Page {
 				Super, hast du dich bei tippy.ch angemeldet. Ab sofort kannst du deine Tipps erfassen, im G&auml;stebuch Kommentare schreiben, 
 				die Statistiken betrachten oder Tipps der Konkurrenten ansehen. Ich rate dir jedoch (falls noch nicht geschehen), zuerst die 
 				Spielregeln zu lesen, denn es gibt noch viel mehr Funktionen bei tippy.ch!<br><br>
-				Damit du auch tats&auml;chlich am Tippspiel teilnehmen kannst, ben&ouml;tige ich von dir noch <b>Fr. 20.00 </b> ! Am liebsten wäre
+				Damit du auch tats&auml;chlich am Tippspiel teilnehmen kannst, ben&ouml;tige ich von dir noch <b>Fr. 20.00 </b> ! Am liebsten wï¿½re
 				es mir, wenn du mir das Geld direkt auf mein Bankkonto &uuml;berweisen k&ouml;nntest oder mir via Paymit schickst:<br><br>
 				IBAN: CH75 0021 4214 4048 4640 T<br>
 				ADRESSE: Silvan St&auml;heli, Tannenrauchstrasse 102, 8038 Z&uuml;rich<br><br>
@@ -96,8 +98,9 @@ class Register extends HTMLPage implements Page {
 		 	}
 		 	
 		 	$_SESSION['infos'][] = "Du wurdest erfolgreich registriert und hast soeben eine E-Mail erhalten";
-
+var_dump("test6");
 		 	header('location:	index.php?go=login');
+		 	var_dump("test7");
 		 	return false;
 		 }
 		}
