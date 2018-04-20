@@ -1,41 +1,106 @@
-<ul id="menu">
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=home"><span>Startseite</span></a></li>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=myTipps"><span>Tipps erfassen</span></a></li>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=otherTipps"><span>Tipps Mitspieler</span></a></li>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=ranking"><span>Rangliste</span></a></li>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=statistics"><span>Statistiken</span></a></li>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=guestbook"><span>G&auml;stebuch</span></a></li>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=rules"><span>Spielregeln</span></a></li>
-	<?php
+<!-- mainmenu-->
+<nav class="mainmenu">
+    <div class="container">
+        <!-- Menu-->
+        <ul class="sf-menu" id="menu">
+            <li class="current">
+                <a href="index.php?go=home">Startseite</a>
+            </li>
+            <li class="current">
+                <a href="index.php?go=myTipps">Tipps erfassen</a>
+            </li>
+            <li class="current">
+                <a href="index.php?go=otherTipps">Tipps Mitspieler</a>
+            </li>
+            <li class="current">
+                <a href="index.php?go=ranking">Rangliste</a>
+            </li>
+            <li class="current">
+                <a href="index.php?go=statistics">Statistiken</a>
+            </li>
+            <li class="current">
+                <a href="index.php?go=guestbook">Gästebuch</a>
+            </li>
+            <li class="current">
+                <a href="index.php?go=rules">Spielregeln</a>
+            </li>
+            <?php
 		$abfrage = "SELECT * FROM user where userid='".$_SESSION['userid']."'";
 
-		$ergebnis = mysql_query($abfrage);
-		
-		while($row = mysql_fetch_assoc($ergebnis))
-		{
-			if($row['admin'] == '1'){
-	?>
-				<li class="Startseite" id="mn_Standard"><a href="index.php?go=admin"><span>Admin</span></a></li>
-	<?php
+            $ergebnis = mysql_query($abfrage);
+
+            while($row = mysql_fetch_assoc($ergebnis))
+            {
+            if($row['admin'] == '1'){
+            ?>
+            <li class="current">
+                <a href="index.php?go=admin">Admin</a>
+            </li>
+            <?php
 			}
-		}		
-	?>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=changePassword"><span>Passwort &auml;ndern</span></a></li>
-	<li class="Startseite" id="mn_Standard"><a href="index.php?go=logout"><span>Logout</span></a></li>
-	<?php
-		if(isset($_SESSION['users_names'])){
-	?>
-			<li class="Startseite" id="mn_Standard"><a class="tooltip" href="#"><?php echo $_SESSION['users'] ?><span><?php echo $_SESSION['users_names'] ?></span></a></li>
-	<?php
-		}
-		else{
-	?>
-			<li class="Startseite" id="mn_Standard"><a class="tooltip" href="#"><?php echo $_SESSION['users'] ?></a></li>
-	<?php
 		}
 	?>
-</ul>
-<?php 
-	unset($_SESSION['users']);
-	unset($_SESSION['users_names']);
-?>
+            <li class="current">
+                <a href="index.php?go=changePassword">Passwort &auml;ndern</a>
+            </li>
+            <li class="current">
+                <a href="index.php?go=logout">Logout</a>
+            </li>
+        </ul>
+        <!-- End Menu-->
+    </div>
+</nav>
+<!-- End mainmenu-->
+</header>
+<!-- Mobile Nav-->
+<div id="mobile-nav">
+    <!-- Menu-->
+    <ul>
+        <li>
+            <a href="index.php?go=home">Startseite</a>
+        </li>
+        <li>
+            <a href="index.php?go=myTipps">Tipps erfassen</a>
+        </li>
+        <li>
+            <a href="index.php?go=otherTipps">Tipps Mitspieler</a>
+        </li>
+        <li>
+            <a href="index.php?go=ranking">Rangliste</a>
+        </li>
+        <li>
+            <a href="index.php?go=statistics">Statistiken</a>
+        </li>
+        <li>
+            <a href="index.php?go=guestbook">Gästebuch</a>
+        </li>
+        <li s>
+            <a href="index.php?go=rules">Spielregeln</a>
+        </li>
+        <?php
+		$abfrage = "SELECT * FROM user where userid='".$_SESSION['userid']."'";
+
+            $ergebnis = mysql_query($abfrage);
+
+            while($row = mysql_fetch_assoc($ergebnis))
+            {
+            if($row['admin'] == '1'){
+            ?>
+        <li >
+            <a href="index.php?go=admin">Admin</a>
+        </li>
+        <?php
+			}
+		}
+	?>
+        <li >
+            <a href="index.php?go=changePassword">Passwort &auml;ndern</a>
+        </li>
+        <li >
+            <a href="index.php?go=logout">Logout</a>
+        </li>
+    </ul>
+
+    <!-- End Menu-->
+</div>
+<!-- End Mobile Nav-->
