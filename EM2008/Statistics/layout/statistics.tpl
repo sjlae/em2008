@@ -92,9 +92,6 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
-				<td colspan="5"><hr/></td>
-			</tr>
 			<?php endforeach; ?>
 		</table>
 <?php $tabs->end(); ?>
