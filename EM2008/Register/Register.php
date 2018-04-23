@@ -85,7 +85,7 @@ var_dump(mysql_affected_rows($this->link));
 				die Statistiken betrachten oder Tipps der Konkurrenten ansehen. Ich rate dir jedoch (falls noch nicht geschehen), zuerst die 
 				Spielregeln zu lesen, denn es gibt noch viel mehr Funktionen bei tippy.ch!<br><br>
 				Damit du auch tats&auml;chlich am Tippspiel teilnehmen kannst, ben&ouml;tige ich von dir noch <b>Fr. 20.00 </b> ! Am liebsten w�re
-				es mir, wenn du mir das Geld direkt auf mein Bankkonto &uuml;berweisen k&ouml;nntest oder mir via Paymit schickst:<br><br>
+				es mir, wenn du mir das Geld direkt auf mein Bankkonto &uuml;berweisen k&ouml;nntest oder mir via Twint schickst:<br><br>
 				IBAN: CH75 0021 4214 4048 4640 T<br>
 				ADRESSE: Silvan St&auml;heli, Tannenrauchstrasse 102, 8038 Z&uuml;rich<br><br>
 				Handy-Nummer: 079 605 73 21<br><br>

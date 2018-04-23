@@ -58,7 +58,7 @@
 				Passwort wiederholen:
 			</td>
 			<td>
-				<input type="password" name="passwort2" style="width: 150px"/>
+				<input type="password" name="passwort2" style="width: 150px" class="form-control"/>
 			</td>
 		</tr>
 		<tr>
