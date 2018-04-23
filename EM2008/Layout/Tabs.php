@@ -43,14 +43,19 @@ class tabs {
 			echo "\tdocument.getElementById('tabcontent_".$this->name."_'+id).style.display = '';\n";
 			echo "}\n";
 			echo "</script>\n";
+			echo "<div class='col-lg-8 col-xl-9'>";
+			echo "<ul class='nav nav-tabs' id='myTab'>";
 			foreach($this->tabs as $tabname => $tabcontent){
 				$tabid = "tab_".$this->name."_$tabname";
 				$contentid = "tabcontent_".$this->name."_$tabname";
-				echo "<DIV CLASS='";
-				if ($this->active == $tabname){ echo "tab_active"; }else{ echo "tab_inactive"; }
+				echo "<li class='";
+				if ($this->active == $tabname){ echo "active"; }
 				echo "' ID='$tabid' ";
-				echo "onClick=\"tab_".$this->name."('$tabname');\">$tabname</DIV>\n";
+				echo "onClick=\"tab_".$this->name."('$tabname');\"><a data-toggle='tab'>$tabname</a></li>\n";
 			}
+
+			echo "</ul>";
+			echo "</div>";
 			//echo "<DIV STYLE='float: left; clear:both;'></DIV>\n";
 			foreach($this->tabs as $tabname => $tabcontent){
 				$contentid = "tabcontent_".$this->name."_$tabname";

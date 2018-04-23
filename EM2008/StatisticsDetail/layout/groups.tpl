@@ -1,7 +1,22 @@
-<h2>Statistik-Details</h2>
+<!-- Section Title -->
+<div class="section-title" style="background:url(img/slide/1.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Statistik-Details</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Section Title -->
+
+<!-- Section Area - Content Central -->
+<section class="content-info">
+
+	<div class="container paddings-mini">
 <form action="index.php?go=statisticsDetail&action=sort&id=<?php echo $this->id; ?>&result=<?php echo $this->result; ?>" name="formular" method="POST">
 	Sortierung:&nbsp;
-	<select name="sort" value="" onChange="this.form.submit()">
+	<select name="sort" value="" onChange="this.form.submit()" class="form-control" style="display: inline; margin-bottom: 10px; width: 20%">
 		<?php if($this->sort == 'Nachname'){ ?>
 			<option value="Nachname" selected>Nachname</option>
 		<?php } else{?>
@@ -14,7 +29,7 @@
 		<?php } ?>
 	</select>
 	&nbsp;&nbsp;&nbsp;Filter:&nbsp;
-	<select name="filterResult" value="" onChange="this.form.submit()">
+	<select name="filterResult" value="" onChange="this.form.submit()"class="form-control" style="display: inline; margin-bottom: 10px; width: 20%">
 		<option value="Alle">Alle</option>
 		<?php foreach($this->filter as $filter): ?>
 			<?php if($this->filterResult == $filter): ?>
@@ -25,13 +40,15 @@
 		<?php endforeach; ?>
 	</select>
 </form>
-<table border="0">
+		<table class="table-striped table-responsive table-hover result-point">
+			<thead class="point-table-head">
 	<tr>
-		<td style="white-space: nowrap;"><b>Vorname</b></td>
-		<td style="white-space: nowrap; padding-left: 10px;"><b>Nachname</b></td>
-		<td style="white-space: nowrap; padding-left: 10px;"><b><?php echo $this->team1; ?></b></td>
-		<td style="white-space: nowrap; padding-left: 10px;"><b><?php echo $this->team2; ?></b></td>
+		<th style="white-space: nowrap;"><b>Vorname</b></th>
+		<th style="white-space: nowrap; padding-left: 10px;"><b>Nachname</b></th>
+		<th style="white-space: nowrap; padding-left: 10px;"><b><?php echo $this->team1; ?></b></th>
+		<th style="white-space: nowrap; padding-left: 10px;"><b><?php echo $this->team2; ?></b></th>
 	</tr>
+			</thead>
 	
 	<?php foreach($this->tipps as $tipps): ?>
 		<tr>
@@ -42,3 +59,5 @@
 		</tr>
 	<?php endforeach; ?>
 </table>
+</div>
+</section>

@@ -26,7 +26,7 @@
 				Vorname:
 			</td>
 			<td>
-				<input type="text" name="vorname" value="<?php echo htmlentities($this->vorname, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
+				<input type="text" name="vorname" value="<?php echo htmlentities($this->vorname, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" class="form-control"/>
 			</td>
 		</tr>
 		<tr>
@@ -34,7 +34,7 @@
 				Name:
 			</td>
 			<td>
-				<input type="text" name="nachname" value="<?php echo htmlentities($this->nachname, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
+				<input type="text" name="nachname" value="<?php echo htmlentities($this->nachname, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" class="form-control"/>
 			</td>
 		</tr>
 		<tr>
@@ -42,7 +42,7 @@
 				Email:
 			</td>
 			<td>
-				<input type="text" name="email" value="<?php echo htmlentities($this->email, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
+				<input type="text" name="email" value="<?php echo htmlentities($this->email, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" class="form-control"/>
 			</td>
 		</tr>
 		<tr>
@@ -50,7 +50,7 @@
 				Passwort:
 			</td>
 			<td>
-				<input type="password" name="passwort1" style="width: 150px"/>
+				<input type="password" name="passwort1" style="width: 150px" class="form-control"/>
 			</td>
 		</tr>
 		<tr>
@@ -66,7 +66,7 @@
 				Kam zu dieser Seite:
 			</td>
 			<td>
-				<select name="where">
+				<select name="where" class="form-control">
 					<?php $i=0; ?>
 					<?php foreach($this->wheres as $where): ?>
 						<option value="<?php echo ++$i; ?>"><?php echo $where; ?></option>
@@ -75,8 +75,9 @@
 			</td>
 		</tr>
 		<tr>
+			<td></td>
 			<td style="padding-top: 10px">
-				<input type="submit" value="Registrieren" />
+				<input type="submit" value="Registrieren" class="bnt btn-iw" />
 			</td
 		</tr>
 	</table>

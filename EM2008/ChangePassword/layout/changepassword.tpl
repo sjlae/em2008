@@ -1,10 +1,27 @@
-<h2>Passwort &auml;ndern</h2>
+<!-- Section Title -->
+<div class="section-title" style="background:url(img/slide/1.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Passwort &auml;ndern</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Section Title -->
+
+<!-- Section Area - Content Central -->
+<section class="content-info">
+
+	<div class="container paddings-mini">
+		<div class="panel-box block-form">
+			<div class="titles text-center">
+				<h4>Passwort &auml;ndern</h4>
+			</div>
 <?php require_once('Layout/infos.tpl'); ?>
 <?php require_once('Layout/errors.tpl'); ?>
 <?php require_once('Layout/Tabs.php'); ?>
 
-<?php $tabs = new Tabs("Profil"); ?>
-<?php $tabs->start("Passwort"); ?>
 
 <form action="index.php?go=changePassword&action=change" method="POST">
 	<table>
@@ -13,7 +30,7 @@
 				Altes Passwort:
 			</td>
 			<td>
-				<input type="password" name="oldPassword" value="<?php echo htmlentities($this->oldPassword, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
+				<input class="form-control" type="password" name="oldPassword" value="<?php echo htmlentities($this->oldPassword, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
 			</td>
 		</tr>
 		<tr> 
@@ -21,7 +38,7 @@
 				Neues Passwort:
 			</td>
 			<td>
-				<input type="password" name="newPassword1" value="<?php echo htmlentities($this->newPassword1, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
+				<input class="form-control" type="password" name="newPassword1" value="<?php echo htmlentities($this->newPassword1, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
 			</td>
 		</tr>
 		<tr>
@@ -29,51 +46,18 @@
 				Neues Passwort wiederholen:
 			</td>
 			<td>
-				<input type="password" name="newPassword2" value="<?php echo htmlentities($this->newPassword2, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
+				<input class="form-control" type="password" name="newPassword2" value="<?php echo htmlentities($this->newPassword2, ENT_COMPAT, 'UTF-8'); ?>" style="width: 150px" />
 			</td>
 		</tr>
 		<tr>
 			<td style="padding-top: 10px">
-				<input type="submit" value="Speichern" />
+				<input type="submit" value="Speichern" class="bnt btn-iw" />
 			</td>
 		</tr>
 	</table>
 </form>
 
-<?php $tabs->end(); ?>
-
-<!--
-<?php // $tabs->start("Reminder"); ?>
-
-<form action="index.php?go=changePassword&action=reminder" method="POST">
-	<table>
-		<tr>
-			<td style="padding-top: 5px; colspan="2">	
-				<?php 
-					$color = $this->reminder == '1' ? 'green' : 'red'; 
-					$text = $this->reminder == '1' ? 'EIN' : 'AUS';
-				?>
-				Aktuelle Remindereinstellung: <b style="color: <?php echo $color;?>;"><?php echo $text; ?></b>
-			</td>
-		</tr>
-		<tr>
-			<td style="padding-top: 5px">	
-				Anw&auml;hlen sofern t&auml;glicher Reminder per Mail erw&uuml;nscht.
-			</td>
-			<td>
-				<input type="checkbox" name="reminder" <?php echo $this->reminder == '1' ? 'checked' : ''; ?>/>
-			</td>
-		</tr>
-		<tr>
-			<td style="padding-top: 10px">
-				<input type="submit" value="Speichern" />
-			</td
-		</tr>
-	</table>
-</form>
-<?php // $tabs->active = $this->action != 'reminder' ? "Passwort" : "Reminder"; ?>
-<?php // $tabs->end(); ?>
--->
-
-
-<?php $tabs->run(); ?>
+		</div>
+	</div>
+</section>
+<!-- End Section Area -  Content Central -->

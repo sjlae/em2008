@@ -42,7 +42,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 ?>
 	<br>
 	<form action="index.php?go=ranking&action=gruppenfilter" name="formular" method="POST">
-		<select name="gruppe" <?php  echo $isDisabled; ?> onChange="this.form.submit()">
+		<select name="gruppe" <?php  echo $isDisabled; ?> onChange="this.form.submit()" class="form-control" style="display: inline; margin-bottom: 10px; width: 20%">
 			<option value="Alle">Alle</option>
 			<?php foreach($this->gruppen as $gruppe): ?>
 				<?php  if($this->gruppe == $gruppe['gruppeid']): ?>
@@ -107,7 +107,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 					$hasWinLinePainted = true;
 				}
 	?>		
-				<tr style="background-color: <?php  if($_SESSION['userid'] == $ranking['userid']){ echo 'yellow'; } ?>;">
+				<tr style="<?php  if($_SESSION['userid'] == $ranking['userid']){ echo 'background-color:#01d099; color: white;'; } ?>;">
 					<td>
 						<?php 
 							if($ranking['now'] != 0){

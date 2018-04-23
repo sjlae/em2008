@@ -1,20 +1,38 @@
+<!-- Section Title -->
+<div class="section-title" style="background:url(img/slide/1.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Admin</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Section Title -->
+
+<!-- Section Area - Content Central -->
+<section class="content-info">
+
+	<!--<div class="container paddings-mini">-->
+	<div class="single-player-tabs">
+		<div class="container">
 <?php require_once('Layout/errors.tpl'); ?>
 <?php require_once('Layout/Tabs.php'); ?>
 <?php require_once('Constants.php'); ?>
-
-<h2>Admin</h2>
 
 <?php $tabs = new Tabs("Tabs"); ?>
 <?php $tabs->start("Zahlungen"); ?>
 
 	<form action="index.php?go=admin&action=nnb" method="POST">
-		<table>
+		<table class="table-striped table-responsive table-hover result-point">
+			<thead class="point-table-head">
 			<tr>
-				<td></td>
-				<td style="padding-left: 5px"><b>Nachname</b></td>
-				<td style="padding-left: 5px"><b>Vorname</b></td>
-				<td style="padding-left: 5px"><b>Email</b></td>
+				<th></th>
+				<th style="padding-left: 5px"><b>Nachname</b></th>
+				<th style="padding-left: 5px"><b>Vorname</b></th>
+				<th style="padding-left: 5px"><b>Email</b></th>
 			</tr>
+			</thead>
 			<?php $i=0; ?>
 			<?php foreach($this->nnb as $nnbUser): ?>
 			<tr>
@@ -26,7 +44,7 @@
 			<?php $i++; ?>
 			<?php endforeach; ?>
 		</table>
-		<input type="submit" value="Erfassen" />
+		<input type="submit" value="Erfassen" class="bnt btn-iw" />
 	</form>
 	<?php if($_GET['action'] == 'nnb'){ $tabs->active = "Zahlungen"; } ?>
 	
@@ -57,15 +75,17 @@
 	 	$lastwinner = $this->lastwinner;
 	?>
 	<form action="index.php?go=admin&action=results" method="POST">
-		<table border="0">
+		<table class="table-striped table-responsive table-hover result-point">
+			<thead class="point-table-head">
 			<tr>
-				<td style="white-space: nowrap; padding-left: 5px"><b>Datum</b></td>
-				<td style="white-space: nowrap; padding-left: 5px"><b>Team 1</b></td>
-				<td style="white-space: nowrap; padding-left: 5px"><b>Team 2</b></td>
-				<td style="white-space: nowrap; padding-left: 5px"><b>Res. 1</b></td>
-				<td />
-				<td style="white-space: nowrap; padding-left: 5px"><b>Res. 2</b></td>
+				<th style="white-space: nowrap; padding-left: 5px"><b>Datum</b></th>
+				<th style="white-space: nowrap; padding-left: 5px"><b>Team 1</b></th>
+				<th style="white-space: nowrap; padding-left: 5px"><b>Team 2</b></th>
+				<th style="white-space: nowrap; padding-left: 5px"><b>Res. 1</b></th>
+				<th />
+				<th style="white-space: nowrap; padding-left: 5px"><b>Res. 2</b></th>
 			</tr>
+			</thead>
 			<?php foreach($this->vorrunde as $spiel): ?>
 			<tr>
 				<td style="white-space: nowrap; padding-left: 5px"><?php echo $spiel['start']; ?></td>
@@ -121,7 +141,7 @@
 		</table>
 		<br>
 			<b>Achtelfinalteilnehmer</b>
-			<table>
+		<table class="table-striped table-responsive table-hover result-point">
 				<tr>
 					<td>Team 1</td>
 					<td>Team 2</td>
@@ -130,7 +150,7 @@
 				</tr>
 				<tr>
 					<td>
-						<select name="achtelfinal1">
+						<select name="achtelfinal1" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -149,7 +169,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal2">
+						<select name="achtelfinal2" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -168,7 +188,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal3">
+						<select name="achtelfinal3" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -187,7 +207,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal4">
+						<select name="achtelfinal4" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -214,7 +234,7 @@
 				</tr>
 				<tr>
 					<td>
-						<select name="achtelfinal5">
+						<select name="achtelfinal5" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -233,7 +253,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal6">
+						<select name="achtelfinal6" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -252,7 +272,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal7">
+						<select name="achtelfinal7" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -271,7 +291,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal8">
+						<select name="achtelfinal8" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -298,7 +318,7 @@
 				</tr>
 				<tr>
 					<td>
-						<select name="achtelfinal9">
+						<select name="achtelfinal9" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -317,7 +337,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal10">
+						<select name="achtelfinal10" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -336,7 +356,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal11">
+						<select name="achtelfinal11" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -355,7 +375,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal12">
+						<select name="achtelfinal12" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -382,7 +402,7 @@
 				</tr>
 				<tr>
 					<td>
-						<select name="achtelfinal13">
+						<select name="achtelfinal13" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -401,7 +421,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal14">
+						<select name="achtelfinal14" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -420,7 +440,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal15">
+						<select name="achtelfinal15" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -439,7 +459,7 @@
 						</select>
 					</td>
 					<td>
-						<select name="achtelfinal16">
+						<select name="achtelfinal16" class="form-control">
 							<option value=""></option>
 							<?php foreach($this->countries as $country): ?>
 								<?php  
@@ -462,7 +482,7 @@
 			<br>	
 		
 			<h4>Welches wird das <i>beste</i> Team der Vorrunde?</h4>
-			<select name="best" id="best" style="width: 110px;">
+			<select name="best" id="best" style="width: 110px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->countries as $country): ?>
 					<?php if($this->best == $country['id']): ?>
@@ -474,7 +494,7 @@
 			</select>
 			
 			<h4>Welches wird das <i>schlechteste</i> Team der Vorrunde?</h4>
-			<select name="worst" id="worst" style="width: 110px;">
+			<select name="worst" id="worst" style="width: 110px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->countries as $country): ?>
 					<?php if($this->worst == $country['id']): ?>
@@ -486,7 +506,7 @@
 			</select>
 			
 			<h4>Wie weit kommt die <i>Schweiz</i> im Turnier?</h4>
-			<select name="switzerland" id="switzerland" style="width: 200px;">
+			<select name="switzerland" id="switzerland" style="width: 200px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->phases as $phase): ?>
 					<?php if($this->switzerland == $phase['id']): ?>
@@ -498,7 +518,7 @@
 			</select>
 			
 			<h4>Wie weit kommt der Titelverteidiger <i>Deutschland</i> im Turnier?</h4>
-			<select name="lastwinner" id="lastwinner" style="width: 200px;">
+			<select name="lastwinner" id="lastwinner" style="width: 200px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->phases as $phase): ?>
 					<?php if($this->lastwinner == $phase['id']): ?>
@@ -510,7 +530,7 @@
 			</select>
 			
 			<h4>Wer wird <?php echo Constants::$winnerLabel; ?>?</h4>
-			<select name="winner" id="winner" style="width: 110px;">
+			<select name="winner" id="winner" style="width: 110px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->countries as $country): ?>
 					<?php if($this->winner == $country['id']): ?>
@@ -521,7 +541,7 @@
 				<?php endforeach; ?>
 			</select>
 		
-		<div style="padding-top: 5px"><input type="submit" value="Aktualisieren" /></div>
+		<div style="padding-top: 5px"><input type="submit" value="Aktualisieren" class="bnt btn-iw"/></div>
 	</form>
 	<?php if($_GET['action'] == 'results'){ $tabs->active = "Resultate"; } ?>
 	
@@ -535,7 +555,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="text" name="newsTitle" style="width: 100%;"/>
+					<input type="text" name="newsTitle" style="width: 100%;" class="form-control"/>
 				</td>
 			</tr>
 			<tr>
@@ -543,12 +563,12 @@
 			</tr>
 			<tr>
 				<td>
-					<textarea name="newsText" cols="50" rows="10" style="width: 100%;"></textarea>
+					<textarea name="newsText" cols="50" rows="10" style="width: 100%;" class="form-control"></textarea>
 				</td>
 			</tr>
 			
 		</table>
-		<input type="submit" value="Erfassen" />
+		<input type="submit" value="Erfassen" class="bnt btn-iw" />
 	</form>
 	<?php if($_GET['action'] == 'news'){ $tabs->active = "News"; } ?>
 	
@@ -556,17 +576,19 @@
 <?php $tabs->start("Loeschen"); ?>
 	
 	<form action="index.php?go=admin&action=delete" method="POST">
-		<table>
+		<table class="table-striped table-responsive table-hover result-point">
+			<thead class="point-table-head">
 			<tr>
-				<td></td>
-				<td style="padding-left: 5px"><b>Nachname</b></td>
-				<td style="padding-left: 5px"><b>Vorname</b></td>
-				<td style="padding-left: 5px"><b>Email</b></td>
+				<th></th>
+				<th style="padding-left: 5px"><b>Nachname</b></th>
+				<th style="padding-left: 5px"><b>Vorname</b></th>
+				<th style="padding-left: 5px"><b>Email</b></th>
 			</tr>
+			</thead>
 			<?php $i=0; ?>
 			<?php foreach($this->all as $allUser): ?>
 			<tr>
-				<td><input type="checkbox" name="users_delete[]" value="<?php echo $allUser['userid']; ?>" /></td>
+				<td><input type="checkbox" name="users_delete[]" value="<?php echo $allUser['userid']; ?>"  class="form-control"/></td>
 				<td style="padding-left: 5px"><?php echo $allUser['nachname']; ?></td>
 				<td style="padding-left: 5px"><?php echo $allUser['vorname']; ?></td>
 				<td style="padding-left: 5px"><a href="mailto:<?php echo $allUser['email']; ?>"><?php echo $allUser['email']; ?></a></td>
@@ -574,7 +596,7 @@
 			<?php $i++; ?>
 			<?php endforeach; ?>
 		</table>
-		<input type="submit" value="L&ouml;schen" />
+		<input type="submit" value="L&ouml;schen" class="bnt btn-iw" />
 	</form>
 	<?php if($_GET['action'] == 'delete'){ $tabs->active = "Loeschen"; } ?>
 	
@@ -582,10 +604,12 @@
 <?php $tabs->start("Not Tipped"); ?>
 	
 	<form action="index.php?go=admin&action=notTipped" method="POST">
-		<table>
+		<table class="table-striped table-responsive table-hover result-point">
+			<thead class="point-table-head">
 			<tr>
-				<td><b>Email</b></td>
+				<th><b>Email</b></th>
 			</tr>
+			</thead>
 			<?php $i=0; ?>
 			<?php foreach($this->notTipped as $user): ?>
 				<tr>
@@ -598,3 +622,7 @@
 	
 <?php $tabs->end(); ?>
 <?php $tabs->run(); ?>
+
+		</div>
+	</div>
+</section>

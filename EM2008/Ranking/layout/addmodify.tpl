@@ -1,4 +1,19 @@
-<h2>Gruppe erstellen / bearbeiten</h2>
+<!-- Section Title -->
+<div class="section-title" style="background:url(img/slide/1.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Gruppe erstellen / bearbeiten</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Section Title -->
+
+<!-- Section Area - Content Central -->
+<section class="content-info">
+
+	<div class="container paddings-mini">
 <?php require_once('Layout/infos.tpl'); ?>
 <?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=ranking&action=savegroup" name="formular" method="POST">
@@ -7,22 +22,25 @@
 <?php } ?>
 
 	Gruppenname:
-	<input type="text" style="width: 150px;" value="<?php echo $this->gruppenname; ?>" name="gruppenname" maxLength="30" />
+	<input type="text" style="width: 150px; margin-bottom: 10px;" value="<?php echo $this->gruppenname; ?>" name="gruppenname" maxLength="30" class="form-control"/>
+
 	<?php if(isset($this->gruppeid)){ ?>
-		 <input type="button" value="Gruppe l&ouml;schen" onclick="document.forms['deletegroup'].submit()"/>
+		 <input type="button" value="Gruppe l&ouml;schen" onclick="document.forms['deletegroup'].submit()" class="bnt btn-iw" />
 	<?php } ?>
-<table>
+	<table class="table-striped table-responsive table-hover result-point">
+		<thead>
 	<tr>
-		<td>
+		<th>
 			<b>&nbsp;</b>
-		</td>
-		<td style="padding-left: 20px">
+		</th>
+		<th style="padding-left: 20px">
 			<b>Nachname</b>
-		</td>
-		<td style="padding-left: 20px">
+		</th>
+		<th style="padding-left: 20px">
 			<b>Vorname</b>
-		</td>
+		</th>
 	</tr>
+		</thead>
 	<tr />
 	<?php 
 		if($this->rankingArray != null){
@@ -49,7 +67,7 @@
 	?>
 </table>
 <br>
-<input type="submit" value="Gruppe speichern" />
+<input type="submit" value="Gruppe speichern" class="bnt btn-iw" />
 	
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -58,3 +76,5 @@
 </script>
 </form>
 <form action="index.php?go=ranking&action=deletegroup&gruppeid=<?php echo $this->gruppeid; ?>" name="deletegroup" method="POST" />
+	</div>
+</section>

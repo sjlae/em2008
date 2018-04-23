@@ -1,4 +1,22 @@
-<h2>Auswertung aller abgegebenen Tipps</h2>
+<!-- Section Title -->
+<div class="section-title" style="background:url(img/slide/1.jpg)">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Auswertung aller abgegebenen Tipps</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Section Title -->
+
+<!-- Section Area - Content Central -->
+<section class="content-info">
+
+	<!--<div class="container paddings-mini">-->
+	<div class="single-player-tabs">
+		<div class="container">
+
 <?php require_once('Layout/infos.tpl'); ?>
 <?php require_once('Layout/errors.tpl'); ?>
 <?php require_once('Layout/Tabs.php'); ?>
@@ -80,15 +98,17 @@
 			<?php endforeach; ?>
 		</table>
 <?php $tabs->end(); ?>
-<?php $tabs->start("Weitere Tipps"); ?>		
-		<table border="0" width="100%">
+<?php $tabs->start("Weitere Tipps"); ?>
+		<table class="table-striped table-responsive table-hover result-point">
+			<thead class="point-table-head">
 			<tr>
-				<td style="white-space: nowrap; padding-bottom: 5px" width="*"><b>Land</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%" ><b>1/8 Final</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Bestes Team</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Schlechtestes Team</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Sieger</b></td>
+				<th style="white-space: nowrap; padding-bottom: 5px" width="*"><b>Land</b></th>
+				<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%" ><b>1/8 Final</b></th>
+				<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Bestes Team</b></th>
+				<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Schlechtestes Team</b></th>
+				<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Sieger</b></th>
 			</tr>
+			</thead>
 			<?php foreach($this->teams as $land): ?>
 				<tr>
 					<td><img alt="" src="nationalFlags/<?php echo $land['id'] ?>.gif" width="20"/>&nbsp;<?php echo $land['team']; ?></td>
@@ -99,7 +119,7 @@
 				</tr>
 			<?php endforeach; ?>
 		</table>
-		<table border="0" width="100%">
+		<table class="table-striped table-responsive table-hover result-point">
 			<tr>
 				<td style="white-space: nowrap; padding-bottom: 5px" colspan="2"><b>Wie weit kommt die Schweiz im Turnier?</b></td>
 			</tr>
@@ -110,7 +130,7 @@
 				</tr>
 			<?php endforeach; ?>
 		</table>
-		<table border="0" width="100%">
+		<table class="table-striped table-responsive table-hover result-point">
 			<tr>
 				<td style="white-space: nowrap; padding-bottom: 5px" colspan="2"><b>Wie weit kommt der Titelverteidiger Deutschland im Turnier?</b></td>
 			</tr>
@@ -123,3 +143,6 @@
 		</table>
 <?php $tabs->end(); ?>
 <?php $tabs->run(); ?>
+		</div>
+	</div>
+</section>
