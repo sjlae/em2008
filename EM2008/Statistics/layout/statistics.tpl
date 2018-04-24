@@ -28,17 +28,14 @@
 	<table border="0">
 		<tr>
 			<td style="background-color: #7F99FF; width: 30px;">&nbsp;</td>
-			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 1</td>
 		</tr>
 		<tr>
 			<td style="background-color: #FFCC33; width: 30px;">&nbsp;</td>
-			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Unentschieden</td>
 		</tr>
 		<tr>
 			<td style="background-color: #009966; width: 30px;">&nbsp;</td>
-			<td style="width: 10px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 2</td>
 		</tr>
 	</table>
@@ -99,11 +96,11 @@
 		<table class="table-striped table-responsive table-hover result-point">
 			<thead class="point-table-head">
 			<tr>
-				<th style="white-space: nowrap; padding-bottom: 5px" width="*"><b>Land</b></th>
-				<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%" ><b>1/8 Final</b></th>
-				<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Bestes Team</b></th>
-				<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Schlechtestes Team</b></th>
-				<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;" align="center" width="14%"><b>Sieger</b></th>
+				<td style="white-space: nowrap; width="*"><b>Land</b></td>
+				<td style="white-space: nowrap; text-align: center; width: 14%;"><b>1/8 Final</b></td>
+				<td style="white-space: nowrap; text-align: center; width: 14%;"><b>Bestes Team</b></td>
+				<td style="white-space: nowrap; text-align: center; width: 14%;"><b>Schlechtestes Team</b></td>
+				<td style="white-space: nowrap; text-align: center; width: 14%;"><b>Sieger</b></td>
 			</tr>
 			</thead>
 			<?php foreach($this->teams as $land): ?>

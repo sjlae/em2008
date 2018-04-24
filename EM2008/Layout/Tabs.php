@@ -51,7 +51,7 @@ class tabs {
 				echo "<li class='";
 				if ($this->active == $tabname){ echo "active"; }
 				echo "' ID='$tabid' ";
-				echo "onClick=\"tab_".$this->name."('$tabname');\"><a data-toggle='tab'>$tabname</a></li>\n";
+				echo "onClick=\"tab_".$this->name."('$tabname');\"><a href='#' data-toggle='tab'>$tabname</a></li>\n";
 			}
 
 			echo "</ul>";
