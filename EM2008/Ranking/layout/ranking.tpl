@@ -69,7 +69,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 <table class="table-striped table-responsive table-hover result-point">
 	<thead class="point-table-head">
 	<tr>
-		<th>
+		<th style="width: 20px;">
 			<b>Rang</b>
 		</th>
 		<th>
@@ -121,26 +121,26 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 							}
 						?>
 					</td>
-					<td>
+					<td class="text-left number" style="width: 120px;">
 						<?php 
 							if($ranking['now'] > $ranking['last']){
 								$diff = $ranking['now'] - $ranking['last'];
 						?>
-								<img alt="" src="icons_down.png" width="15px;"/>
 								(-<?php echo $diff;?>)
+						<i class="fa fa-caret-down" aria-hidden="true"></i>
 						<?php 	
 							}
 							else if($ranking['now'] < $ranking['last']){
 								$diff = $ranking['last'] - $ranking['now'];
 						?>
-								<img alt="" src="icons_up.png" width="15px;"/>
 								(+<?php echo $diff;?>)
+						<i class="fa fa-caret-up" aria-hidden="true"></i>
 						<?php 	
 							}
 							else{
 						?>
-								<img alt="" src="icons_right.png" width="15px;"/>
 								(+0)
+						<i class="fa fa-circle" aria-hidden="true"></i>
 						<?php 	
 							}
 						?>
