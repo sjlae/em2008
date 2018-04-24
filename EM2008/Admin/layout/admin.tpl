@@ -482,7 +482,7 @@
 			<br>	
 		
 			<h4>Welches wird das <i>beste</i> Team der Vorrunde?</h4>
-			<select name="best" id="best" style="width: 110px;" class="form-control">
+			<select name="best" id="best" style="width: 240px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->countries as $country): ?>
 					<?php if($this->best == $country['id']): ?>
@@ -494,7 +494,7 @@
 			</select>
 			
 			<h4>Welches wird das <i>schlechteste</i> Team der Vorrunde?</h4>
-			<select name="worst" id="worst" style="width: 110px;" class="form-control">
+			<select name="worst" id="worst" style="width: 240px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->countries as $country): ?>
 					<?php if($this->worst == $country['id']): ?>
@@ -506,7 +506,7 @@
 			</select>
 			
 			<h4>Wie weit kommt die <i>Schweiz</i> im Turnier?</h4>
-			<select name="switzerland" id="switzerland" style="width: 200px;" class="form-control">
+			<select name="switzerland" id="switzerland" style="width: 240px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->phases as $phase): ?>
 					<?php if($this->switzerland == $phase['id']): ?>
@@ -518,7 +518,7 @@
 			</select>
 			
 			<h4>Wie weit kommt der Titelverteidiger <i>Deutschland</i> im Turnier?</h4>
-			<select name="lastwinner" id="lastwinner" style="width: 200px;" class="form-control">
+			<select name="lastwinner" id="lastwinner" style="width: 240px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->phases as $phase): ?>
 					<?php if($this->lastwinner == $phase['id']): ?>
@@ -530,7 +530,7 @@
 			</select>
 			
 			<h4>Wer wird <?php echo Constants::$winnerLabel; ?>?</h4>
-			<select name="winner" id="winner" style="width: 110px;" class="form-control">
+			<select name="winner" id="winner" style="width: 240px;" class="form-control">
 				<option value=''></option>
 				<?php foreach($this->countries as $country): ?>
 					<?php if($this->winner == $country['id']): ?>

@@ -133,7 +133,7 @@
 
 						<?php $isDisabled = $this->isDisabledWeitereTipps(); ?>
 
-						<td><select name="achtelfinal1" id="achtelfinal1" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[1], 1); ?>">
+						<td><select name="achtelfinal1" id="achtelfinal1" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[1], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('A') as $country): ?>
 							<?php if($this->userAchtelfinal[1] == $country['id']): ?>
@@ -143,7 +143,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal2" id="achtelfinal2" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[2], 1); ?>">
+						<td><select name="achtelfinal2" id="achtelfinal2" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[2], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('A') as $country): ?>
 							<?php if($this->userAchtelfinal[2] == $country['id']): ?>
@@ -153,7 +153,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal3" id="achtelfinal3" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[3], 1); ?>">
+						<td><select name="achtelfinal3" id="achtelfinal3" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[3], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('B') as $country): ?>
 							<?php if($this->userAchtelfinal[3] == $country['id']): ?>
@@ -163,7 +163,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal4" id="achtelfinal4" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[4], 1); ?>">
+						<td><select name="achtelfinal4" id="achtelfinal4" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[4], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('B') as $country): ?>
 							<?php if($this->userAchtelfinal[4] == $country['id']): ?>
@@ -181,7 +181,7 @@
 						<td>Zweiter Gruppe D</td>
 					</tr>
 					<tr>
-						<td><select name="achtelfinal5" id="achtelfinal5" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[5], 1); ?>">
+						<td><select name="achtelfinal5" id="achtelfinal5" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[5], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('C') as $country): ?>
 							<?php if($this->userAchtelfinal[5] == $country['id']): ?>
@@ -191,7 +191,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal6" id="achtelfinal6" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[6], 1); ?>">
+						<td><select name="achtelfinal6" id="achtelfinal6" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[6], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('C') as $country): ?>
 							<?php if($this->userAchtelfinal[6] == $country['id']): ?>
@@ -201,7 +201,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal7" id="achtelfinal7" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[7], 1); ?>">
+						<td><select name="achtelfinal7" id="achtelfinal7" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[7], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('D') as $country): ?>
 							<?php if($this->userAchtelfinal[7] == $country['id']): ?>
@@ -211,7 +211,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal8" id="achtelfinal8" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[8], 1); ?>">
+						<td><select name="achtelfinal8" id="achtelfinal8" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[8], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('D') as $country): ?>
 							<?php if($this->userAchtelfinal[8] == $country['id']): ?>
@@ -230,7 +230,7 @@
 					</tr>
 					<tr>
 
-						<td><select name="achtelfinal9" id="achtelfinal9" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[9], 1); ?>">
+						<td><select name="achtelfinal9" id="achtelfinal9" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[9], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('E') as $country): ?>
 							<?php if($this->userAchtelfinal[9] == $country['id']): ?>
@@ -240,7 +240,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal10" id="achtelfinal10" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[10], 1); ?>">
+						<td><select name="achtelfinal10" id="achtelfinal10" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[10], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('E') as $country): ?>
 							<?php if($this->userAchtelfinal[10] == $country['id']): ?>
@@ -250,7 +250,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal11" id="achtelfinal11" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[11], 1); ?>">
+						<td><select name="achtelfinal11" id="achtelfinal11" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[11], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('F') as $country): ?>
 							<?php if($this->userAchtelfinal[11] == $country['id']): ?>
@@ -260,7 +260,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal12" id="achtelfinal12" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[12], 1); ?>">
+						<td><select name="achtelfinal12" id="achtelfinal12" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[12], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('F') as $country): ?>
 							<?php if($this->userAchtelfinal[12] == $country['id']): ?>
@@ -279,7 +279,7 @@
 						<td>Zweiter Gruppe H</td>
 					</tr>
 					<tr>
-						<td><select name="achtelfinal13" id="achtelfinal13" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">
+						<td><select name="achtelfinal13" id="achtelfinal13" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('G') as $country): ?>
 							<?php if($this->userAchtelfinal[13] == $country['id']): ?>
@@ -289,7 +289,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal14" id="achtelfinal14" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[14], 1); ?>">
+						<td><select name="achtelfinal14" id="achtelfinal14" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[14], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('G') as $country): ?>
 							<?php if($this->userAchtelfinal[14] == $country['id']): ?>
@@ -299,7 +299,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal15" id="achtelfinal15" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[15], 1); ?>">
+						<td><select name="achtelfinal15" id="achtelfinal15" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[15], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('H') as $country): ?>
 							<?php if($this->userAchtelfinal[15] == $country['id']): ?>
@@ -309,7 +309,7 @@
 							<?php endif; ?>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal16" id="achtelfinal16" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[16], 1); ?>">
+						<td><select name="achtelfinal16" id="achtelfinal16" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[16], 1); ?>">
 							<option value=''></option>
 							<?php foreach($this->getGroupTeams('H') as $country): ?>
 							<?php if($this->userAchtelfinal[16] == $country['id']): ?>
@@ -328,7 +328,7 @@
 						<td>Beste 3. Platzierte</td>
 					</tr>
 					<tr>
-						<td><select name="achtelfinal13" id="achtelfinal13" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">
+						<td><select name="achtelfinal13" id="achtelfinal13" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">
 							<option value=''></option>
 							<?php foreach($allCountries as $key=>$value): ?>
                 <optgroup label="<?php echo $key; ?>">
@@ -342,7 +342,7 @@
               </optgroup>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal14" id="achtelfinal14" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[14], 1); ?>">
+						<td><select name="achtelfinal14" id="achtelfinal14" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[14], 1); ?>">
 							<option value=''></option>
 							<?php foreach($allCountries as $key=>$value): ?>
                 <optgroup label="<?php echo $key; ?>">
@@ -356,7 +356,7 @@
               </optgroup>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal15" id="achtelfinal15" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[15], 1); ?>">
+						<td><select name="achtelfinal15" id="achtelfinal15" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[15], 1); ?>">
 							<option value=''></option>
 							<?php foreach($allCountries as $key=>$value): ?>
                 <optgroup label="<?php echo $key; ?>">
@@ -370,7 +370,7 @@
               </optgroup>
 							<?php endforeach; ?>
 						</select></td>
-						<td><select name="achtelfinal16" id="achtelfinal16" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->userAchtelfinal[16], 1); ?>">
+						<td><select name="achtelfinal16" id="achtelfinal16" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[16], 1); ?>">
 							<option value=''></option>
 							<?php foreach($allCountries as $key=>$value): ?>
                 <optgroup label="<?php echo $key; ?>">
@@ -391,7 +391,7 @@
 	<h3>Welches wird das <i>beste</i> Team der Vorrunde?</h3>
 	<table>
 		<tr>
-			<td><select name="best" id="best" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->best, 17); ?>">
+			<td><select name="best" id="best" class="form-control" <?php echo $isDisabled; ?> style="width: 240px; <?php echo $this->getStyle($this->best, 17); ?>">
 				<option value=''></option>
 				<?php foreach($this->countries as $country): ?>
 					<?php if($this->best == $country['id']): ?>
@@ -407,7 +407,7 @@
 	<h3>Welches wird das <i>schlechteste</i> Team der Vorrunde?</h3>
 	<table>
 		<tr>
-			<td><select name="worst" id="worst" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->worst, 18); ?>">
+			<td><select name="worst" id="worst" class="form-control" <?php echo $isDisabled; ?> style="width: 240px; <?php echo $this->getStyle($this->worst, 18); ?>">
 				<option value=''></option>
 				<?php foreach($this->countries as $country): ?>
 					<?php if($this->worst == $country['id']): ?>
@@ -423,7 +423,7 @@
 	<h3>Wie weit kommt die <i>Schweiz</i> im Turnier?</h3>
 	<table>
 		<tr>
-			<td><select name="switzerland" id="switzerland" class="form-control" <?php echo $isDisabled; ?> style="width: 200px; <?php echo $this->getStyle($this->switzerland, 19); ?>">
+			<td><select name="switzerland" id="switzerland" class="form-control" <?php echo $isDisabled; ?> style="width: 240px; <?php echo $this->getStyle($this->switzerland, 19); ?>">
 				<option value=''></option>
 				<?php foreach($this->phases as $phase): ?>
 					<?php if($this->switzerland == $phase['id']): ?>
@@ -439,7 +439,7 @@
 	<h3>Wie weit kommt der Titelverteidiger <i>Deutschland</i> im Turnier?</h3>
 	<table>
 		<tr>
-			<td><select name="lastwinner" id="lastwinner" class="form-control" <?php echo $isDisabled; ?> style="width: 200px; <?php echo $this->getStyle($this->lastwinner, 20); ?>">
+			<td><select name="lastwinner" id="lastwinner" class="form-control" <?php echo $isDisabled; ?> style="width: 240px; <?php echo $this->getStyle($this->lastwinner, 20); ?>">
 				<option value=''></option>
 				<?php foreach($this->phases as $phase): ?>
 					<?php if($this->lastwinner == $phase['id']): ?>
@@ -455,7 +455,7 @@
 	<h3>Wer wird <?php echo Constants::$winnerLabel; ?>?</h3>
 	<table>
 		<tr>
-			<td><select name="winner" id="winner" class="form-control" <?php echo $isDisabled; ?> style="width: 110px; <?php echo $this->getStyle($this->winner, 16); ?>">
+			<td><select name="winner" id="winner" class="form-control" <?php echo $isDisabled; ?> style="width: 240px; <?php echo $this->getStyle($this->winner, 16); ?>">
 				<option value=''></option>
 				<?php foreach($this->countries as $country): ?>
 					<?php if($this->winner == $country['id']): ?>
