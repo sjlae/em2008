@@ -53,7 +53,7 @@
 								aber gleich die doppelte Anzahl! Bei jedem anderen Spielausgang gehst Du leer aus. Quasi ein All-In Tipp! Die genaue Punkteverteilung findest Du unter der Rubrik Punktevergabe.<br>
 								<br><i>Weitere Tipps:</i> Zus&auml;tzlich zu den Resultattipps musst Du noch weitere Tipps abgeben. Du musst tippen, welche Teams Deiner Meinung nach die
 								Gruppenphase &uuml;berstehen und somit in die Achtelfinalspiele vorstossen werden. Zu guter Letzt musst Du noch tippen, wer das Turnier gewinnt, welches
-								das beste bzw. schlechteste Team der Vorrunde wird (<font color="red"><i>Kriterien</i>: Anzahl Punkte, Torverh&auml;ltnis, Anzahl geschossener Tore</font>) und
+								das beste bzw. schlechteste Team der Vorrunde wird (<font color="red"><i>Kriterien</i>: Anzahl Punkte, Torverh&auml;ltnis, Anzahl geschossener Tore, Los</font>) und
 								wie weit die Schweiz bzw. der Titelverteidiger im Turnier kommen werden. Diese Tipps musst Du allesamt bis zum Turnierstart (<font color="red">sprich vor dem Start des
 									Er&ouml;ffnungsspieles</font>) erfasst haben. Danach kannst Du diese nicht mehr ausw&auml;hlen oder &auml;ndern.</p>
 							<br>
