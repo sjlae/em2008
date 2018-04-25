@@ -10,6 +10,8 @@
 </div>
 <!-- End Section Title -->
 
+<?php require_once('Layout/errors.tpl'); ?>
+
 <!-- Section Area - Content Central -->
 <section class="content-info">
 
@@ -18,7 +20,6 @@
 			<div class="titles text-center">
 				<h4>Melde dich jetzt an!</h4>
 			</div>
-<?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=register&action=register" method="POST">
 	<table>
 		<tr>

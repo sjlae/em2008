@@ -10,6 +10,9 @@
 </div>
 <!-- End Section Title -->
 
+<?php require_once('Layout/infos.tpl'); ?>
+<?php require_once('Layout/errors.tpl'); ?>
+
 <!-- Section Area - Content Central -->
 <section class="content-info">
 
@@ -18,8 +21,6 @@
 			<div class="titles text-center">
 				<h4>Einloggen</h4>
 			</div>
-<?php require_once('Layout/infos.tpl'); ?>
-<?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=login&action=login" method="POST">
 <table>
 	<tr>

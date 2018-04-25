@@ -10,13 +10,14 @@
 </div>
 <!-- End Section Title -->
 
+<?php require_once('Layout/errors.tpl'); ?>
+
 <!-- Section Area - Content Central -->
 <section class="content-info">
 
 	<!--<div class="container paddings-mini">-->
 	<div class="single-player-tabs">
 		<div class="container">
-<?php require_once('Layout/errors.tpl'); ?>
 <?php require_once('Layout/Tabs.php'); ?>
 <?php require_once('Constants.php'); ?>
 

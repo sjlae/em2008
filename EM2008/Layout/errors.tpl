@@ -1,11 +1,31 @@
 <?php if(count($this->errors) > 0): ?>
-	<div style="background-color: #FF0000; padding-top: 5px; padding-bottom: 5px" id="errors">
-		<p><b>Fehler:</b></p>
-		<ul>	
-			<?php foreach($this->errors as $error):?>
-				<li><?php echo $error; ?></li>
-			<?php endforeach ?>
-		</ul>
+<section class="content-info info-container">
+
+	<div class="container paddings-mini">
+		<div class="row">
+
+			<div class="col-lg-12">
+				<!-- Content Text-->
+				<div class="panel-box">
+					<div class="titles">
+						<h4>Fehler</h4>
+					</div>
+
+
+					<!-- Post Item -->
+					<div class="post-item">
+						<ul>
+							<?php foreach($this->errors as $error):?>
+							<li><?php echo $error; ?></li>
+							<?php endforeach ?>
+						</ul>
+					</div>
+					<!-- End Post Item -->
+
+				</div>
+				<!-- End Content Text-->
+			</div>
+		</div>
 	</div>
-	<br/>
+</section>
 <?php endif?>

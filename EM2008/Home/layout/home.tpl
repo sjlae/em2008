@@ -1,4 +1,4 @@
-<?php require_once('Layout/infos.tpl'); ?>
+
 <!-- Section Title -->
 <div class="section-title" style="background:url(img/slide/1.jpg)">
     <div class="container">
@@ -10,6 +10,7 @@
     </div>
 </div>
 <!-- End Section Title -->
+<?php require_once('Layout/infos.tpl'); ?>
 
 <!-- Section Area - Content Central -->
 <section class="content-info">

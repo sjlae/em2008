@@ -9,14 +9,14 @@
 	</div>
 </div>
 <!-- End Section Title -->
+<?php require_once('Layout/infos.tpl'); ?>
+<?php require_once('Layout/errors.tpl'); ?>
 
 <!-- Section Area - Content Central -->
 <section class="content-info">
 
 	<div class="container paddings-mini">
 
-		<?php require_once('Layout/infos.tpl'); ?>
-		<?php require_once('Layout/errors.tpl'); ?>
 
 <form action="index.php?go=guestbook&action=newEntry" name="formular" method="POST">
 	<div class="panel-box">

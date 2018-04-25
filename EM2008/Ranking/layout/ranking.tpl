@@ -10,12 +10,13 @@
 </div>
 <!-- End Section Title -->
 
+<?php  require_once('Layout/infos.tpl'); ?>
+
 <!-- Section Area - Content Central -->
 <section class="content-info">
 
 	<div class="container paddings-mini">
 
-<?php  require_once('Layout/infos.tpl'); ?>
 <?php 
    $countPlayers = mysql_result($countPlayers,0);
 ?>

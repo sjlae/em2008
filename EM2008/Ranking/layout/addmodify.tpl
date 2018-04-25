@@ -10,12 +10,14 @@
 </div>
 <!-- End Section Title -->
 
+
+<?php require_once('Layout/infos.tpl'); ?>
+<?php require_once('Layout/errors.tpl'); ?>
+
 <!-- Section Area - Content Central -->
 <section class="content-info">
 
 	<div class="container paddings-mini">
-<?php require_once('Layout/infos.tpl'); ?>
-<?php require_once('Layout/errors.tpl'); ?>
 <form action="index.php?go=ranking&action=savegroup" name="formular" method="POST">
 <?php if(isset($this->gruppeid) && $this->gruppeid != ''){ ?>
 	 <input type="hidden" name="gruppeid" value="<?php echo $this->gruppeid ?>" />

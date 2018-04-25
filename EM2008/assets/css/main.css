@@ -19145,3 +19145,16 @@ table.career tr td img {
 table tr td img.points {
   border: none;
 }
+
+.info-container .paddings-mini {
+  padding-bottom: 0px;
+  padding-top: 30px;
+}
+
+.info-container .paddings-mini .panel-box {
+  margin-bottom: 0px;
+}
+
+.info-container .paddings-mini .panel-box .post-item {
+  margin-bottom: 0px;
+}

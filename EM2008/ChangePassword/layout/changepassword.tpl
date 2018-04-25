@@ -9,6 +9,8 @@
 	</div>
 </div>
 <!-- End Section Title -->
+<?php require_once('Layout/infos.tpl'); ?>
+<?php require_once('Layout/errors.tpl'); ?>
 
 <!-- Section Area - Content Central -->
 <section class="content-info">
@@ -18,9 +20,6 @@
 			<div class="titles text-center">
 				<h4>Passwort &auml;ndern</h4>
 			</div>
-<?php require_once('Layout/infos.tpl'); ?>
-<?php require_once('Layout/errors.tpl'); ?>
-<?php require_once('Layout/Tabs.php'); ?>
 
 
 <form action="index.php?go=changePassword&action=change" method="POST">
