@@ -7,10 +7,9 @@
 			<div class="col-lg-12">
 				<!-- Content Text-->
 				<div class="panel-box">
-					<div class="titles">
-						<h4>Info</h4>
+					<div class="titles_info">
+						<h5>Info</h5>
 					</div>
-
 
 					<!-- Post Item -->
 					<div class="post-item">

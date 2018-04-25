@@ -7,8 +7,8 @@
 			<div class="col-lg-12">
 				<!-- Content Text-->
 				<div class="panel-box">
-					<div class="titles">
-						<h4>Fehler</h4>
+					<div class="titles_error">
+						<h5>Fehler</h5>
 					</div>
 
 
