@@ -70,19 +70,19 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 <table class="table-striped table-responsive table-hover result-point">
 	<thead class="point-table-head">
 	<tr>
-		<th style="width: 20px;">
+		<th>
 			<b>Rang</b>
 		</th>
 		<th>
 			&nbsp;
 		</th>
-		<th style="padding-left: 20px">
+		<th >
 			<b>Nachname</b>
 		</th>
-		<th style="padding-left: 20px">
+		<th >
 			<b>Vorname</b>
 		</th>
-		<th style="padding-left: 20px" align="right">
+		<th align="right">
 			<b>Punkte</b>
 		</th>
 	</tr>
@@ -122,7 +122,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 							}
 						?>
 					</td>
-					<td class="text-left number" style="width: 120px;">
+					<td class="text-left number">
 						<?php 
 							if($ranking['now'] > $ranking['last']){
 								$diff = $ranking['now'] - $ranking['last'];
