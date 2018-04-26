@@ -9,8 +9,6 @@
 	</div>
 </div>
 <!-- End Section Title -->
-<?php require_once('Layout/infos.tpl'); ?>
-<?php require_once('Layout/errors.tpl'); ?>
 
 
 <!-- Section Area - Content Central -->

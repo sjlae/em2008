@@ -10,9 +10,6 @@
 </div>
 <!-- End Section Title -->
 
-<?php require_once('Layout/infos.tpl'); ?>
-<?php require_once('Layout/errors.tpl'); ?>
-
 <!-- Section Area - Content Central -->
 <section class="content-info">
 
@@ -25,6 +22,8 @@
 
 <?php $tabs = new Tabs("MyTipps"); ?>
 <?php $tabs->start("Gruppenspiele"); ?>
+			<?php require_once('Layout/infos.tpl'); ?>
+			<?php require_once('Layout/errors.tpl'); ?>
 
 	<form action="index.php?go=myTipps&action=setTipps" name="formular" method="POST">
 		<input type="hidden" name="page" value="groups" id="page"/>
@@ -80,6 +79,9 @@
 
 <?php $tabs->end(); ?>
 <?php $tabs->start("Finalspiele"); ?>
+		<?php require_once('Layout/infos.tpl'); ?>
+		<?php require_once('Layout/errors.tpl'); ?>
+
 	<table  class="table-striped table-responsive table-hover result-point">
 		<thead>
 			<tr>
@@ -131,7 +133,9 @@
 <?php $tabs->end(); ?>
 <?php $tabs->start("Weitere Tipps"); ?>
 <?php $allCountries = array(); ?>
-		
+
+		<?php require_once('Layout/infos.tpl'); ?>
+		<?php require_once('Layout/errors.tpl'); ?>
 				<h3>Wer &uuml;bersteht die Gruppenphase?</h3>
 				<table class="table-striped table-responsive table-hover result-point">
 					<tr>
