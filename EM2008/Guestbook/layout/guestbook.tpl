@@ -30,7 +30,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td align="right">
+			<td align="left">
 				<input type="submit" value="Eintragen" class="bnt btn-iw" />
 			</td>
 		</tr>
@@ -38,17 +38,17 @@
 	</div>
 	<div class="row">
 	<?php foreach($this->entries as $entry): ?>
-		<table border="0" width="520px">
+		<table border="0">
 			<tr>
 				<td><b><?php echo $entry['name'] ?></b>&nbsp;schrieb am&nbsp;<?php echo $entry['timestamp'] ?></td>
 			</tr>
 			<tr>
 				<td><?php echo $entry['text'] ?></td>
 			</tr>
-			<hr noshade="noshade" width="520px"/>
+			<hr noshade="noshade"/>
 		</table>
 	<?php endforeach; ?>
-	<hr noshade="noshade" width="520px"/>
+	<hr noshade="noshade"/>
 </form>
 		</div>
 	</div>
