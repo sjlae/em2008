@@ -73,9 +73,8 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 		<th>
 			<b>Rang</b>
 		</th>
-		<th>
-			&nbsp;
-		</th>
+		<th style="color: white">
+			&nbsp;gggggggggg</th>
 		<th >
 			<b>Nachname</b>
 		</th>
@@ -108,7 +107,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 					$hasWinLinePainted = true;
 				}
 	?>		
-				<tr style="<?php  if($_SESSION['userid'] == $ranking['userid']){ echo 'background-color:#01d099; color: white;'; } ?>;">
+				<tr style="<?php  if($_SESSION['userid'] == $ranking['userid']){ echo 'background-color:#01d099; color: white;'; } ?>">
 					<td>
 						<?php 
 							if($ranking['now'] != 0){
