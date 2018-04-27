@@ -10,8 +10,6 @@
 </div>
 <!-- End Section Title -->
 
-<?php require_once('Layout/errors.tpl'); ?>
-
 <!-- Section Area - Content Central -->
 <section class="content-info">
 
@@ -23,6 +21,7 @@
 
 <?php $tabs = new Tabs("Tabs"); ?>
 <?php $tabs->start("Zahlungen"); ?>
+			<?php require_once('Layout/errors.tpl'); ?>
 
 	<form action="index.php?go=admin&action=nnb" method="POST">
 		<table class="table-striped table-responsive table-hover result-point">
