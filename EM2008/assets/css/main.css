@@ -19180,3 +19180,7 @@ table tr td img.points {
 .tab_content .info-container {
   margin-bottom: 20px;
 }
+
+.tabs .info-container .paddings-mini {
+  padding-top: 0;
+}
