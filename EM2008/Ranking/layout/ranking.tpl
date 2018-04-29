@@ -100,7 +100,7 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 	?>
 					<tr>
 						<td colspan="5">
-							<hr/>
+							<hr style="margin-top: 5px; margin-bottom: 5px; border-color: red"/>
 						</td>
 					</tr>	
 	<?php 
