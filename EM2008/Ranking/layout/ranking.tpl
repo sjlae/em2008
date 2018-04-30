@@ -20,7 +20,7 @@
 <?php 
    $countPlayers = mysql_result($countPlayers,0);
 ?>
-Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
+Anzahl Teilnehmer/innen:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 <?php  
 	$userDependentWinLine = '8';
 	if($countPlayers >= '201'){
