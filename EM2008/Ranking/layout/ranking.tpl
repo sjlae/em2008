@@ -136,20 +136,20 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 								$diff = $ranking['now'] - $ranking['last'];
 						?>
 								(-<?php echo $diff;?>)
-						<i class="fa fa-caret-down" aria-hidden="true"></i>
+						<i class="fa fa-caret-down" aria-hidden="true" style="margin-top: 2px;"></i>
 						<?php 	
 							}
 							else if($ranking['now'] < $ranking['last']){
 								$diff = $ranking['last'] - $ranking['now'];
 						?>
 								(+<?php echo $diff;?>)
-						<i class="fa fa-caret-up" aria-hidden="true"></i>
+						<i class="fa fa-caret-up" aria-hidden="true" style="margin-top: 1px;"></i>
 						<?php 	
 							}
 							else{
 						?>
 								(+0)
-						<i class="fa fa-circle" aria-hidden="true"></i>
+						<i class="fa fa-circle" aria-hidden="true" style="margin-top: 8px;"></i>
 						<?php 	
 							}
 						?>
