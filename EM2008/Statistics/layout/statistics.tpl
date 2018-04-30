@@ -26,15 +26,15 @@
 
 	<table border="0">
 		<tr>
-			<td style="background-color: #7F99FF; width: 30px;">&nbsp;</td>
+			<td style="background-color: #2196f3; width: 30px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 1</td>
 		</tr>
 		<tr>
-			<td style="background-color: #FFCC33; width: 30px;">&nbsp;</td>
+			<td style="background-color: #ffc107; width: 30px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Unentschieden</td>
 		</tr>
 		<tr>
-			<td style="background-color: #009966; width: 30px;">&nbsp;</td>
+			<td style="background-color: #4caf50; width: 30px;">&nbsp;</td>
 			<td>Anzahl Tipps auf Sieg Team 2</td>
 		</tr>
 	</table>
@@ -42,14 +42,14 @@
 	<form action="index.php?go=statistics&page=groups" name="formular" method="POST">
 		<table border="0">
 			<tr>
-				<td style="white-space: nowrap; padding-bottom: 5px"><b>Datum</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 1</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px"><b>Team 2</b></td>
-				<td style="white-space: nowrap; padding-bottom: 5px"><b>Tippverteilung</b></td>
+				<td style="white-space: nowrap; width: 20px;"><b>Datum</b></td>
+				<td style="white-space: nowrap;"><b>Team 1</b></td>
+				<td style="white-space: nowrap;"><b>Team 2</b></td>
+				<td style="white-space: nowrap;"><b>Tippverteilung</b></td>
 			</tr>
 			<?php foreach($this->vorrunde as $spiel): ?>
 			<tr>
-				<td valign="top"><?php echo $spiel['start']; ?></td>
+				<td valign="top" style="white-space: nowrap;"><?php echo $spiel['start']; ?></td>
 				<td valign="top" style="white-space: nowrap;"><?php echo $spiel['team1']; ?></td>
 				<td valign="top" style="white-space: nowrap;"><?php echo $spiel['team2']; ?></td>
 				<td width="100%" valign="top">
@@ -70,18 +70,21 @@
 							?>
 							
 							<?php if($wert1 != 0){ ?>
-								<td align="center" style="background-color: #7F99FF; width: <?php echo $wert1 ?>% ">
-									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=1" <?php echo $spiel['userResult'] == '1' ? 'style="color: red;"' : 'style="color: black;"'; ?>><b><?php echo $spiel['total_1']; ?></b></a>
+								<?php $link1 = "index.php?go=statisticsDetail&id=" . $spiel['id'] . "&result=1"; ?>
+								<td align="center" style="background-color: #2196f3; width: <?php echo $wert1 ?>%; cursor: pointer;" onclick="document.location='<?php echo $link1 ?>'">
+									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=1" <?php echo $spiel['userResult'] == '1' ? 'style="color: red;text-decoration: underline; "' : 'style="color: white; text-decoration: underline;"'; ?>><b><?php echo $spiel['total_1']; ?></b></a>
 								</td>
 							<?php } ?>
 							<?php if($wertX != 0){ ?>
-								<td align="center" style="background-color: #FFCC33; width: <?php echo $wertX ?>%">
-									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=X" <?php echo $spiel['userResult'] == 'X' ? 'style="color: red;"' : 'style="color: black;"'; ?>><b><?php echo $spiel['total_X']; ?></b></a>
+								<?php $linkX = "index.php?go=statisticsDetail&id=" . $spiel['id'] . "&result=X"; ?>
+								<td align="center" style="background-color: #ffc107; width: <?php echo $wertX ?>%; cursor: pointer;"  onclick="document.location='<?php echo $linkX ?>'">
+									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=X" <?php echo $spiel['userResult'] == 'X' ? 'style="color: red;text-decoration: underline;"' : 'style="color: white;text-decoration: underline;"'; ?>><b><?php echo $spiel['total_X']; ?></b></a>
 								</td>
 							<?php } ?>
 							<?php if($wert2 != 0){ ?>
-								<td align="center" style="background-color: #009966; width: <?php echo $wert2 ?>%">
-									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=2" <?php echo $spiel['userResult'] == '2' ? 'style="color: red;"' : 'style="color: black;"'; ?>><b><?php echo $spiel['total_2']; ?></b></a>
+								<?php $link2 = "index.php?go=statisticsDetail&id=" . $spiel['id'] . "&result=2"; ?>
+								<td align="center" style="background-color: #4caf50; width: <?php echo $wert2 ?>%;  cursor: pointer;" onclick="document.location='<?php echo $link2 ?>'">
+									<a href="index.php?go=statisticsDetail&id=<?php echo $spiel['id']; ?>&result=2" <?php echo $spiel['userResult'] == '2' ? 'style="color: red;text-decoration: underline;"' : 'style="color: white;text-decoration: underline;"'; ?>><b><?php echo $spiel['total_2']; ?></b></a>
 								</td>
 							<?php } ?>
 						</tr>
