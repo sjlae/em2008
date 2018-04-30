@@ -106,8 +106,17 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 	<?php 
 					$hasWinLinePainted = true;
 				}
-	?>		
-				<tr style="<?php  if($_SESSION['userid'] == $ranking['userid']){ echo 'background-color:#01d099; color: white;'; } ?>">
+	?>
+	<?php
+	if($_SESSION['eingeloggt']){
+		$link = "index.php?go=otherTipps&action=getTipps&id=". ($ranking['userid']+5);
+	?>
+	<tr style="<?php  if($_SESSION['userid'] == $ranking['userid']){ echo 'background-color:#01d099; color: white;'; } ?> cursor: pointer;" onclick="document.location='<?php echo $link ?>'">
+	<?php
+	} else{
+	?>
+	<tr style="<?php  if($_SESSION['userid'] == $ranking['userid']){ echo 'background-color:#01d099; color: white;'; } ?>">
+	<?php } ?>
 					<td>
 						<?php 
 							if($ranking['now'] != 0){
