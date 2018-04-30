@@ -27,14 +27,14 @@
 	<table class="table-striped table-responsive table-hover result-point">
 		<thead class="point-table-head">
 		<tr>
-			<th style="white-space: nowrap; padding-bottom: 5px" width="10px;"><b>Datum</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;"><b>Team 1</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;"><b>Team 2</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;"><b>Tipp 1</b></th>
-			<th padding-bottom: 5px/>
-			<th style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 2</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 10px;"><b>High Risk</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 10px;"><b>Punkte</b></th>
+			<th style="white-space: nowrap; width: 20px;"><b>Datum</b></th>
+			<th style="white-space: nowrap; "><b>Team 1</b></th>
+			<th style="white-space: nowrap; "><b>Team 2</b></th>
+			<th style="white-space: nowrap; width: 20px;"><b>Tipp 1</b></th>
+			<th style="width: 10px;"/>
+			<th style="white-space: nowrap; width: 20px;"><b>Tipp 2</b></th>
+			<th style="white-space:nowrap; width: 20px;"><b>High Risk</b></th>
+			<th style="white-space: nowrap; "><b>Punkte</b></th>
 		</tr>
 		</thead>
 		<?php
@@ -44,7 +44,7 @@
 				if($counter <= (Constants::$isWM ? 48 : 36)){
 		?>
 					<tr>
-						<td valign="top"><?php echo $spiel['start']; ?></td>
+						<td valign="top" style="white-space: nowrap; "><?php echo $spiel['start']; ?></td>
 						<td valign="top" style="padding-left: 5px"><?php echo $spiel['team1']; ?></td>
 						<td valign="top" style="padding-left: 5px"><?php echo $spiel['team2']; ?></td>
 						<td align="center" valign="top">
@@ -78,14 +78,14 @@
 			<table  class="table-striped table-responsive table-hover result-point">
 				<thead>
 		<tr>
-			<th style="white-space: nowrap; padding-bottom: 5px" width="10px;"><b>Datum</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;"><b>Team 1</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;"><b>Team 2</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 5px;"><b>Tipp 1</b></th>
-			<th padding-bottom: 5px/>
-			<th style="white-space: nowrap; padding-bottom: 5px"><b>Tipp 2</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 10px;"><b>High Risk</b></th>
-			<th style="white-space: nowrap; padding-bottom: 5px; padding-left: 10px;"><b>Punkte</b></th>
+			<th style="white-space: nowrap; width: 20px;"><b>Datum</b></th>
+			<th style="white-space: nowrap; "><b>Team 1</b></th>
+			<th style="white-space: nowrap; "><b>Team 2</b></th>
+			<th style="white-space: nowrap; width: 20px;"><b>Tipp 1</b></th>
+			<th style="width: 10px;"/>
+			<th style="white-space: nowrap; width: 20px;"><b>Tipp 2</b></th>
+			<th style="white-space:nowrap; width: 20px;"><b>High Risk</b></th>
+			<th style="white-space: nowrap; "><b>Punkte</b></th>
 		</tr>
 				</thead>
 		<?php
@@ -93,7 +93,7 @@
 				if($spiel['id'] > (Constants::$isWM ? 48 : 36)){
 		?>
 					<tr>
-						<td valign="top"><?php echo $spiel['start']; ?></td>
+						<td valign="top" style="white-space: nowrap; "><?php echo $spiel['start']; ?></td>
 						<td valign="top" style="padding-left: 5px"><?php echo $spiel['team1']; ?></td>
 						<td valign="top" style="padding-left: 5px"><?php echo $spiel['team2']; ?></td>
 						<td align="center" valign="top">
