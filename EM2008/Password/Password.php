@@ -39,9 +39,9 @@ class Password extends HTMLPage implements Page {
 				$empfaenger = $this->email;
 				$betreff = "Neues Passwort auf tippy.ch";
 				$mailtext = "Hallo<br><br>
-				Hier ist dein neu generiertes Passwort, mit welchem du ab sofort bei tippy einloggen kannst:<br><br>
+				Hier ist Dein neu generiertes Passwort, mit welchem Du ab sofort bei tippy einloggen kannst:<br><br>
 				<b>$newpwd</b><br><br>
-				Bitte beachte, dass die Gross-/Kleinschreibung relevant ist. Sobald du dich eingeloggt hast, kannst du 
+				Bitte beachte, dass die Gross-/Kleinschreibung relevant ist. Sobald Du Dich eingeloggt hast, kannst Du 
 				das Passwort unter dem Men&uuml;punkt 'Passwort &auml;ndern' wieder wechseln.<br><br>
 				Sportliche Gr&uuml;sse<br>
 				Silvan St&auml;heli";

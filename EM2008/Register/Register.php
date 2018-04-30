@@ -79,17 +79,18 @@ class Register extends HTMLPage implements Page {
 				$empfaenger = $this->email;
 				$betreff = "Erfolgreiche Registrierung bei tippy";
 				$mailtext = "Hallo $this->vorname<br><br>
-				Super, hast du dich bei tippy.ch angemeldet. Ab sofort kannst du deine Tipps erfassen, im G&auml;stebuch Kommentare schreiben, 
-				die Statistiken betrachten oder Tipps der Konkurrenten ansehen. Ich rate dir jedoch (falls noch nicht geschehen), zuerst die 
+				Super, hast Du Dich bei tippy.ch angemeldet. Ab sofort kannst Du Deine Tipps erfassen, im G&auml;stebuch Kommentare schreiben, 
+				die Statistiken betrachten oder Tipps der Konkurrenten und Konkurrentinnen ansehen. Ich rate Dir jedoch (falls noch nicht geschehen), zuerst die 
 				Spielregeln zu lesen, denn es gibt noch viel mehr Funktionen bei tippy.ch!<br><br>
-				Damit du auch tats&auml;chlich am Tippspiel teilnehmen kannst, ben&ouml;tige ich von dir noch <b>Fr. 20.00 </b> ! Am liebsten w�re
-				es mir, wenn du mir das Geld direkt auf mein Bankkonto &uuml;berweisen k&ouml;nntest oder mir via Twint schickst:<br><br>
+				Damit Du auch tats&auml;chlich am Tippspiel teilnehmen kannst, ben&ouml;tige ich von dir noch <b>Fr. 20.00 </b> ! Am liebsten w&auml;re
+				es mir, wenn Du mir das Geld direkt auf mein Bankkonto &uuml;berweisen k&ouml;nntest oder mir via Twint schickst:<br><br>
 				IBAN: CH75 0021 4214 4048 4640 T<br>
 				ADRESSE: Silvan St&auml;heli, Tannenrauchstrasse 102, 8038 Z&uuml;rich<br><br>
 				Handy-Nummer: 079 605 73 21<br><br>
-				<b>WICHTIG:</b> Bitte unbedingt deinen Namen (wie du ihn bei Tippy erfasst hast) als Kommentar hinzuf&uuml;gen, damit ich erkenne, 
+				<b>WICHTIG:</b> Bitte unbedingt Deinen Namen (wie Du ihn bei Tippy erfasst hast) als Kommentar hinzuf&uuml;gen, damit ich erkenne, 
 				von wem die Fr. 20.00 stammen !<br><br>
-				Dann bleibt mir nichts mehr anderes &uuml;brig als dir viel Gl&uuml;ck und Spass bei tippy zu w&uuml;nschen.<br><br>
+				Dann bleibt mir nichts mehr anderes &uuml;brig als Dir viel Gl&uuml;ck und Spass bei tippy zu w&uuml;nschen und denk daran, schicke den Link an
+                weitere interessierte Tipper und Tipperinnen!<br><br>
 				Sportliche Gr&uuml;sse<br>
 				Silvan St&auml;heli";
 				mail($empfaenger, $betreff, $mailtext, "From: $sender\n" . "Content-Type: text/html; charset=iso-8859-1\n"); 
