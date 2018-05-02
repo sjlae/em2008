@@ -96,8 +96,8 @@
 								<thead class="point-table-head">
 								<tr align="right">
 									<th><b>Rang</b></th>
-									<th><b>1-200</b></th>
-									<th><b>201-mehr</b></th>
+									<th><b>Bei 1-200 Teilnehmer/innen</b></th>
+									<th><b>Bei 201-mehr Teilnehmer/innen</b></th>
 								</tr>
 								</thead>
 								<tr align="right">
