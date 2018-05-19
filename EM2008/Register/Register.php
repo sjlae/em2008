@@ -94,6 +94,8 @@ class Register extends HTMLPage implements Page {
 				Sportliche Gr&uuml;sse<br>
 				Silvan St&auml;heli";
 				mail($empfaenger, $betreff, $mailtext, "From: $sender\n" . "Content-Type: text/html; charset=iso-8859-1\n"); 
+				$mailtext = $this->vorname .' '.$this->nachname;
+				mail("silvan.staeheli@bluewin.ch", "Neuer Tipper", $mailtext, "From: $sender\n" . "Content-Type: text/html; charset=iso-8859-1\n");
 		 	}
 		 	
 		 	$_SESSION['infos'][] = "Du wurdest erfolgreich registriert und hast soeben eine E-Mail erhalten";
