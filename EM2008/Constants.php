@@ -73,6 +73,7 @@ class Constants{
 				return "0_punkte.png";
 			}
 		}
+		return "0_punkte.png";
 	}
 	
 	public function hasTournamentStarted() {

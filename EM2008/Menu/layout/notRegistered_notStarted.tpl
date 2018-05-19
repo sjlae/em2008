@@ -26,6 +26,7 @@
 </header>
 <!-- Mobile Nav-->
 <div id="mobile-nav">
+    <ul>
     <!-- Menu-->
     <li>
         <a href="index.php?go=home">Startseite</a>
