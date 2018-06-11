@@ -39,7 +39,7 @@
 				<td><input type="checkbox" name="users_nnb[]" value="<?php echo $nnbUser['userid']; ?>" /></td>
 				<td style="padding-left: 5px"><?php echo $nnbUser['nachname']; ?></td>
 				<td style="padding-left: 5px"><?php echo $nnbUser['vorname']; ?></td>
-				<td style="padding-left: 5px"><a href="mailto:<?php echo $nnbUser['email']; ?>"><?php echo $nnbUser['email']; ?></a></td>
+				<td style="padding-left: 5px"><a href="mailto:<?php echo $nnbUser['email']; ?>"><?php echo $nnbUser['email']; ?>;</a></td>
 			</tr>
 			<?php $i++; ?>
 			<?php endforeach; ?>
@@ -613,7 +613,7 @@
 			<?php $i=0; ?>
 			<?php foreach($this->notTipped as $user): ?>
 				<tr>
-					<td><?php echo $user['email']; ?></td>
+					<td><?php echo $user['email']; ?>;</td>
 				</tr>
 				<?php $i++; ?>
 			<?php endforeach; ?>
