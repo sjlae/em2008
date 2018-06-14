@@ -86,7 +86,7 @@ class Register extends HTMLPage implements Page {
 				es mir, wenn Du mir das Geld direkt auf mein Bankkonto &uuml;berweisen k&ouml;nntest oder mir via Twint schickst:<br><br>
 				IBAN: CH75 0021 4214 4048 4640 T<br>
 				ADRESSE: Silvan St&auml;heli, Tannenrauchstrasse 102, 8038 Z&uuml;rich<br><br>
-				Handy-Nummer: 079 605 73 21<br><br>
+				Handy-Nummer: 079 542 95 20<br><br>
 				<b>WICHTIG:</b> Bitte unbedingt Deinen Namen (wie Du ihn bei Tippy erfasst hast) als Kommentar hinzuf&uuml;gen, damit ich erkenne, 
 				von wem die Fr. 20.00 stammen !<br><br>
 				Dann bleibt mir nichts mehr anderes &uuml;brig als Dir viel Gl&uuml;ck und Spass bei tippy zu w&uuml;nschen und denk daran, schicke den Link an
