@@ -28,10 +28,6 @@ switch($go) {
 		$login = new Login();
 		$login->getView();
 		break;
-	case 'register':
-		$register = new Register();
-		$register->getView();
-		break;
 	case 'ranking':
 		$ranking = new Ranking();
 		$ranking->getView();
