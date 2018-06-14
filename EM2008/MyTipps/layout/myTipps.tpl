@@ -136,13 +136,13 @@
 
 		<?php require_once('Layout/infos.tpl'); ?>
 		<?php require_once('Layout/errors.tpl'); ?>
-				<h3>Wer &uuml;bersteht die Gruppenphase?</h3>
+				<h3>Wer &uuml;bersteht die Gruppenphase? -> w&auml;hle zwei Teams pro Gruppe</h3>
 				<table class="table-striped table-responsive table-hover result-point">
 					<tr>
-						<td>Sieger Gruppe A</td>
-						<td>Zweiter Gruppe A</td>
-						<td>Sieger Gruppe B</td>
-						<td>Zweiter Gruppe B</td>
+						<td>Gruppe A</td>
+						<td>Gruppe A</td>
+						<td>Gruppe B</td>
+						<td>Gruppe B</td>
 					</tr>
 					<tr>
 
@@ -190,10 +190,10 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td>Sieger Gruppe C</td>
-						<td>Zweiter Gruppe C</td>
-						<td>Sieger Gruppe D</td>
-						<td>Zweiter Gruppe D</td>
+						<td>Gruppe C</td>
+						<td>Gruppe C</td>
+						<td>Gruppe D</td>
+						<td>Gruppe D</td>
 					</tr>
 					<tr>
 						<td><select name="achtelfinal5" id="achtelfinal5" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[5], 1); ?>">
@@ -238,10 +238,10 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td>Sieger Gruppe E</td>
-						<td>Zweiter Gruppe E</td>
-						<td>Sieger Gruppe F</td>
-						<td>Zweiter Gruppe F</td>
+						<td>Gruppe E</td>
+						<td>Gruppe E</td>
+						<td>Gruppe F</td>
+						<td>Gruppe F</td>
 					</tr>
 					<tr>
 
@@ -288,10 +288,10 @@
 					</tr>
           <?php if(Constants::$isWM): ?>
 					<tr>
-						<td>Sieger Gruppe G</td>
-						<td>Zweiter Gruppe G</td>
-						<td>Sieger Gruppe H</td>
-						<td>Zweiter Gruppe H</td>
+						<td>Gruppe G</td>
+						<td>Gruppe G</td>
+						<td>Gruppe H</td>
+						<td>Gruppe H</td>
 					</tr>
 					<tr>
 						<td><select name="achtelfinal13" id="achtelfinal13" class="form-control" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">
