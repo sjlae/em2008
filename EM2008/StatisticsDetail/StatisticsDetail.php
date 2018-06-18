@@ -78,6 +78,7 @@ class StatisticsDetail extends HTMLPage implements Page {
 						}
 						$this->tipps[$i]['result1'] = $row_result['result1'];
 						$this->tipps[$i]['result2'] = $row_result['result2'];
+						$this->tipps[$i]['highrisk'] = $row_result['highrisk'];
 						$this->tipps[$i]['userid']  = $userid;
 					}
 					
