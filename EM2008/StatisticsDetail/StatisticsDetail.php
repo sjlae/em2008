@@ -106,7 +106,6 @@ class StatisticsDetail extends HTMLPage implements Page {
 				asort($this->tipps);
 			}
 			$this->count = count($this->tipps);
-			echo $this->count;
 		}
 	}
 	
