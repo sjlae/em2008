@@ -39,6 +39,12 @@
 			<?php endif; ?>
 		<?php endforeach; ?>
 	</select>
+	&nbsp;&nbsp;&nbsp;Nur High Risk Tipps:&nbsp;
+	<?php if($this->highrisk == '1'){ ?>
+		<input type="checkbox" name="highrisk" value="1" checked onChange="this.form.submit()"/>
+	<?php } else{?>
+		<input type="checkbox" name="highrisk" value="1" onChange="this.form.submit()"/>
+	<?php } ?>
 </form>
 		<table class="table-striped table-responsive table-hover result-point">
 			<thead class="point-table-head">
@@ -47,6 +53,7 @@
 		<th style="white-space: nowrap; padding-left: 10px;"><b>Nachname</b></th>
 		<th style="white-space: nowrap; padding-left: 10px;"><b><?php echo $this->team1; ?></b></th>
 		<th style="white-space: nowrap; padding-left: 10px;"><b><?php echo $this->team2; ?></b></th>
+		<th style="white-space: nowrap; padding-left: 10px;"><b>High Risk</b></th>
 	</tr>
 			</thead>
 	
@@ -56,6 +63,13 @@
 			<td style="white-space: nowrap; padding-left: 10px;"><a href="index.php?go=otherTipps&action=getTipps&id=<?php echo $tipps['userid']+5; ?>"><?php echo $tipps['nachname'] ?>&nbsp;(<?php echo $tipps['rank_now']; ?>.)</a></td>
 			<td style="white-space: nowrap; padding-left: 10px;" align="center"><?php echo $tipps['result1'] ?></td>
 			<td style="white-space: nowrap; padding-left: 10px;" align="center"><?php echo $tipps['result2'] ?></td>
+			<td style="white-space: nowrap; padding-left: 10px;" align="center">
+				<?php if($tipps['highrisk'] == 1){ ?>
+					<input type="checkbox" name="games_highrisk" disabled checked/>
+				<?php } else{ ?>
+					<input type="checkbox" name="games_highrisk" disabled/>
+				<?php } ?>
+			</td>
 		</tr>
 	<?php endforeach; ?>
 </table>

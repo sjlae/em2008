@@ -129,10 +129,10 @@
 			<table  class="table-striped table-responsive table-hover result-point">
 				<thead>
 				<tr>
-						<th>Sieger Gruppe A</th>
-						<th>Zweiter Gruppe A</th>
-						<th>Sieger Gruppe B</th>
-						<th>Zweiter Gruppe B</th>
+						<th>Gruppe A</th>
+						<th>Gruppe A</th>
+						<th>Gruppe B</th>
+						<th>Gruppe B</th>
 					</tr>
 				</thead>
 					<tr>
@@ -181,10 +181,10 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td>Sieger Gruppe C</td>
-						<td>Zweiter Gruppe C</td>
-						<td>Sieger Gruppe D</td>
-						<td>Zweiter Gruppe D</td>
+						<td>Gruppe C</td>
+						<td>Gruppe C</td>
+						<td>Gruppe D</td>
+						<td>Gruppe D</td>
 					</tr>
 					<tr>
 						<td><select class="form-control" name="achtelfinal5" id="achtelfinal5" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[5], 1); ?>">
@@ -229,10 +229,10 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td>Sieger Gruppe E</td>
-						<td>Zweiter Gruppe E</td>
-						<td>Sieger Gruppe F</td>
-						<td>Zweiter Gruppe F</td>
+						<td>Gruppe E</td>
+						<td>Gruppe E</td>
+						<td>Gruppe F</td>
+						<td>Gruppe F</td>
 					</tr>
 					<tr>
 
@@ -279,10 +279,10 @@
 					</tr>
           <?php if(Constants::$isWM): ?>
 					<tr>
-						<td>Sieger Gruppe G</td>
-						<td>Zweiter Gruppe G</td>
-						<td>Sieger Gruppe H</td>
-						<td>Zweiter Gruppe H</td>
+						<td>Gruppe G</td>
+						<td>Gruppe G</td>
+						<td>Gruppe H</td>
+						<td>Gruppe H</td>
 					</tr>
 					<tr>
 						<td><select class="form-control" name="achtelfinal13" id="achtelfinal13" <?php echo $isDisabled; ?> style="width: 130px; <?php echo $this->getStyle($this->userAchtelfinal[13], 1); ?>">

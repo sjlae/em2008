@@ -14,6 +14,7 @@ class StatisticsDetail extends HTMLPage implements Page {
 	private $filterResult;
 	private $team1;
 	private $team2;
+	private $highrisk;
 	
 	public function __construct() {
 		if(isset($_GET['result']) && isset($_GET['id'])){
@@ -23,6 +24,7 @@ class StatisticsDetail extends HTMLPage implements Page {
 			$this->action = isset($_GET['action']) ? $_GET['action'] : '';
 			$this->sort = isset($_POST['sort']) ? $_POST['sort'] : '';
 			$this->filterResult = isset($_POST['filterResult']) ? $_POST['filterResult'] : '';
+			$this->highrisk = isset($_POST['highrisk']) ? $_POST['highrisk'] : '';
 			$this->getData();
 		}
 	}
@@ -53,7 +55,12 @@ class StatisticsDetail extends HTMLPage implements Page {
 				$sql_query = "result1 < result2";
 			}
 			
-			$abfrage_result = "SELECT * FROM vorrunde WHERE ".$sql_query." AND vorrundeteamsfsid = ".$this->id;
+			$sql_query_highrisk = "";
+			if($this->highrisk == 1){
+				$sql_query_highrisk = "AND highrisk = 1";
+			}
+			
+			$abfrage_result = "SELECT * FROM vorrunde WHERE ".$sql_query." AND vorrundeteamsfsid = ".$this->id." ".$sql_query_highrisk;
 			$ergebnis_result = mysql_query($abfrage_result);
 			$i = 0;
 			while($row_result = mysql_fetch_assoc($ergebnis_result))
@@ -78,6 +85,7 @@ class StatisticsDetail extends HTMLPage implements Page {
 						}
 						$this->tipps[$i]['result1'] = $row_result['result1'];
 						$this->tipps[$i]['result2'] = $row_result['result2'];
+						$this->tipps[$i]['highrisk'] = $row_result['highrisk'];
 						$this->tipps[$i]['userid']  = $userid;
 					}
 					
