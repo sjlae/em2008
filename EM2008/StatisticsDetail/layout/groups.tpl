@@ -45,6 +45,7 @@
 	<?php } else{?>
 		<input type="checkbox" name="highrisk" value="1" onChange="this.form.submit()"/>
 	<?php } ?>
+	&nbsp;&nbsp;&nbsp;Anzahl Treffer:&nbsp;<?php echo $this->count; ?>
 </form>
 		<table class="table-striped table-responsive table-hover result-point">
 			<thead class="point-table-head">

@@ -15,6 +15,7 @@ class StatisticsDetail extends HTMLPage implements Page {
 	private $team1;
 	private $team2;
 	private $highrisk;
+	private $count;
 	
 	public function __construct() {
 		if(isset($_GET['result']) && isset($_GET['id'])){
@@ -104,6 +105,8 @@ class StatisticsDetail extends HTMLPage implements Page {
 			else{
 				asort($this->tipps);
 			}
+			$this->count = count($this->tipps);
+			echo $this->count;
 		}
 	}
 	
