@@ -133,9 +133,9 @@
 					<?php }
 						else{ echo $spiel['team2']; } ?>
 				</td>
-				<td align="center" style="white-space: nowrap; padding-left: 5px"><input type="text" style="width: 25px" value="<?php echo $spiel['realresult1']; ?>" name="result1_<?php echo $spiel['id']; ?>" /></td>
+				<td align="center" style="white-space: nowrap; padding-left: 5px"><input type="text" style="width: 30px" value="<?php echo $spiel['realresult1']; ?>" name="result1_<?php echo $spiel['id']; ?>" /></td>
 				<td>:</td>
-				<td align="center" style="white-space: nowrap; padding-left: 5px"><input type="text" style="width: 25px" value="<?php echo $spiel['realresult2']; ?>" name="result2_<?php echo $spiel['id']; ?>" /></td>
+				<td align="center" style="white-space: nowrap; padding-left: 5px"><input type="text" style="width: 30px" value="<?php echo $spiel['realresult2']; ?>" name="result2_<?php echo $spiel['id']; ?>" /></td>
 			</tr>
 			<?php endforeach; ?>
 		</table>
