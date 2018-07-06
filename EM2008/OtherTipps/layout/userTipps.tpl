@@ -129,10 +129,10 @@
 			<table  class="table-striped table-responsive table-hover result-point">
 				<thead>
 				<tr>
-						<th>Gruppe A</th>
-						<th>Gruppe A</th>
-						<th>Gruppe B</th>
-						<th>Gruppe B</th>
+						<td>Gruppe A</td>
+						<td>Gruppe A</td>
+						<td>Gruppe B</td>
+						<td>Gruppe B</td>
 					</tr>
 				</thead>
 					<tr>
