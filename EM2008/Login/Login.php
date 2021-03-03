@@ -37,10 +37,10 @@ class Login extends HTMLPage implements Page{
 				
 			$abfrage = sprintf("SELECT * FROM user where email='%s' and passwort='%s'",  htmlentities($this->email, ENT_QUOTES, 'UTF-8'), htmlentities($this->passwort, ENT_QUOTES, 'UTF-8'));
 
-			$ergebnis = mysql_query($abfrage, $this->link);
+			$ergebnis = mysqli_query($this->link, $abfrage);
 				
 			$ok = false;
-			while($row = mysql_fetch_assoc($ergebnis))
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				$ok = true;
 				$_SESSION['eingeloggt'] = true;
@@ -53,12 +53,13 @@ class Login extends HTMLPage implements Page{
 				$ip_full = $ip.'_'.$userid;
 				
 				//Zeitpunkt erneuern
-				mysql_query("UPDATE useronline SET ip = '".$ip_full."', zeit = '".(time()+$zeitspanne)."', userfsid = $userid WHERE ip='".$ip."'");
+				mysqli_query($this->link, "UPDATE useronline SET ip = '".$ip_full."', zeit = '".(time()+$zeitspanne)."', userfsid = $userid WHERE ip='".$ip."'");
 								
 				// open file
 				$fd = fopen("log.txt", "a");
 				// write string
-				$str = "[" . date("Y/m/d H:i:s", mktime()) . ' '. $row['vorname'] . ' '. $row['nachname'] . ' hat eingeloggt'; 
+				
+				$str = "[" . date("Y/m/d H:i:s", time()) . ' '. $row['vorname'] . ' '. $row['nachname'] . ' hat eingeloggt'; 
 				fwrite($fd, $str. "\n");
 				// close file
 				fclose($fd);

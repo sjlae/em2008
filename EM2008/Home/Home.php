@@ -18,9 +18,9 @@ class Home extends HTMLPage implements Page{
 	private function getNews(){
 		$abfrage = "SELECT * FROM news order by datum desc LIMIT 5";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		$counter = 0;
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->news[$counter]['date'] = date('d.m.Y H:i', strtotime($row['datum']));
 			$this->news[$counter]['title'] = $row['titel'];

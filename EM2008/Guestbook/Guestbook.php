@@ -24,15 +24,15 @@ class Guestbook extends HTMLPage implements Page {
 
 	private function getData() {
 		$abfrage_guest = "Select * from guestbook order by timestamp DESC LIMIT 20";
-		$ergebnis_guest = mysql_query($abfrage_guest);
+		$ergebnis_guest = mysqli_query($this->link, $abfrage_guest);
 		
 		if(!empty($ergebnis_guest)){
-			for($i = 1; $row = mysql_fetch_assoc($ergebnis_guest); $i++)
+			for($i = 1; $row = mysqli_fetch_assoc($ergebnis_guest); $i++)
 			{	
 				$userid = $row['userfsid'];
 				$abfrage = "Select nachname, vorname from user where userid = $userid";
-				$ergebnis = mysql_query($abfrage);
-				$row_user = mysql_fetch_assoc($ergebnis);
+				$ergebnis = mysqli_query($this->link, $abfrage);
+				$row_user = mysqli_fetch_assoc($ergebnis);
 				
 				$this->entries[$i]['name'] = $row_user['vorname'] . " " . $row_user['nachname'];
 				$this->entries[$i]['timestamp'] = date('d.m.Y H:i', strtotime($row['timestamp']));
@@ -53,7 +53,7 @@ class Guestbook extends HTMLPage implements Page {
 				$userid = $_SESSION['userid'];
 						
 				$abfrage = "Insert into guestbook (userfsid, text) values ('$userid', '".$this->text."')";
-				$ergebnis = mysql_query($abfrage);
+				$ergebnis = mysqli_query($this->link, $abfrage);
 				
 				$this->text = '';
 			}	

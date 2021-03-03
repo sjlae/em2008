@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- End headerbox-->
+                    <!-- End headerbox--> 
                     <?php
             		include ('Menu/Menu.php');
             		$menu = new Menu();

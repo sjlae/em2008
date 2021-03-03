@@ -1,4 +1,4 @@
-<?php if(count($_SESSION['infos']) > 0): ?>
+<?php if($_SESSION['infos'] != null && count($_SESSION['infos']) > 0): ?>
 <section class="content-info info-container">
 
 	<div class="container paddings-mini">

@@ -23,11 +23,11 @@ class Statistics extends HTMLPage implements Page {
 
 	private function getData() {
 		$abfrage_groups = "SELECT * FROM vorrundeteams order by start asc";
-		$ergebnis_groups = mysql_query($abfrage_groups);
+		$ergebnis_groups = mysqli_query($this->link, $abfrage_groups);
 
 		$i = 0;
 
-		while($row = mysql_fetch_assoc($ergebnis_groups))
+		while($row = mysqli_fetch_assoc($ergebnis_groups))
 		{
 			$this->vorrunde[$i]['id'] = $row['vorrundeteamsid'];
 			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
@@ -41,11 +41,11 @@ class Statistics extends HTMLPage implements Page {
 		}
 						
 		$abfrage_finals = "SELECT * FROM teams order by land ASC";
-		$ergebnis_finals = mysql_query($abfrage_finals);
+		$ergebnis_finals = mysqli_query($this->link, $abfrage_finals);
 
 		$i = 0;
 
-		while($row = mysql_fetch_assoc($ergebnis_finals))
+		while($row = mysqli_fetch_assoc($ergebnis_finals))
 		{
 			$this->teams[$i]['id'] = $row['teamid'];
 			$this->teams[$i]['team'] = $row['land'];
@@ -53,9 +53,9 @@ class Statistics extends HTMLPage implements Page {
 		}
 		
 		$abfrage_weiteretipps = "SELECT * FROM userweiteretipps";
-		$ergebnis_weiteretipps = mysql_query($abfrage_weiteretipps);
+		$ergebnis_weiteretipps = mysqli_query($this->link, $abfrage_weiteretipps);
 	
-		while($row = mysql_fetch_assoc($ergebnis_weiteretipps))
+		while($row = mysqli_fetch_assoc($ergebnis_weiteretipps))
 		{
 			$counter_achtel = 1;
 			while($counter_achtel <= 16){
@@ -75,8 +75,8 @@ class Statistics extends HTMLPage implements Page {
 		if($id != ''){
 			$abfrage = "SELECT * FROM teams where teamid=".$id;
 
-			$ergebnis = mysql_query($abfrage);
-			while($row = mysql_fetch_assoc($ergebnis))
+			$ergebnis = mysqli_query($this->link, $abfrage);
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				return $row['land'];
 			}
@@ -85,11 +85,11 @@ class Statistics extends HTMLPage implements Page {
 	
 	private function getTotal_1($id){
 		$abfrage = "SELECT result1, result2 FROM vorrunde where vorrundeteamsfsid=".$id;
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		
 		$counter = 0;
 		
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			if($this->isValid($row['result1'], $row['result2'])){
 				if($row['result1'] > $row['result2']){
@@ -103,11 +103,11 @@ class Statistics extends HTMLPage implements Page {
 	
 	private function getTotal_X($id){
 		$abfrage = "SELECT result1, result2 FROM vorrunde where vorrundeteamsfsid=".$id;
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		
 		$counter = 0;
 		
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			if($this->isValid($row['result1'], $row['result2'])){
 				if($row['result1'] == $row['result2']){
@@ -121,11 +121,11 @@ class Statistics extends HTMLPage implements Page {
 	
 	private function getTotal_2($id){
 		$abfrage = "SELECT result1, result2 FROM vorrunde where vorrundeteamsfsid=".$id;
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		
 		$counter = 0;
 		
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			if($this->isValid($row['result1'], $row['result2'])){
 				if($row['result1'] < $row['result2']){
@@ -139,9 +139,9 @@ class Statistics extends HTMLPage implements Page {
 	
 	private function getUserResult($id){
 		$userid = $_SESSION['userid'];
-		$ergebnis = mysql_query("SELECT vorrunde.result1, vorrunde.result2 from vorrunde, uservorrunde where (vorrunde.vorrundeteamsfsid = '$id' and uservorrunde.userfsid = '$userid' and uservorrunde.vorrundefsid = vorrunde.vorrundeid);");
+		$ergebnis = mysqli_query($this->link, "SELECT vorrunde.result1, vorrunde.result2 from vorrunde, uservorrunde where (vorrunde.vorrundeteamsfsid = '$id' and uservorrunde.userfsid = '$userid' and uservorrunde.vorrundefsid = vorrunde.vorrundeid);");
 		
-		$result = mysql_fetch_assoc($ergebnis);
+		$result = mysqli_fetch_assoc($ergebnis);
 		
 		if(!is_numeric($result['result1']) || !is_numeric($result['result2'])){
 			return '0';

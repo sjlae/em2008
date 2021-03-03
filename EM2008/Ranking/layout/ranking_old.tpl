@@ -1,9 +1,7 @@
 <h2>Rangliste</h2>
 <?php  require_once('Layout/infos.tpl'); ?>
-<?php 
-   $countPlayers = mysql_result($countPlayers,0);
-?>
-Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
+
+Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $this->countPlayers; ?></b>
 <?php  
 	$userDependentWinLine = '8';
 	if($countPlayers >= '201'){
@@ -14,9 +12,9 @@ Anzahl Teilnehmer:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 		<b><?php  echo $this->currentPlace;?></b>
 <?php 	} ?>
 <br>
-<?php  if(mysql_result($countPlayersNotPayed,0) != 0){ ?>
+<?php  if($this->countPlayersNotPayed != 0){ ?>
 	<br>
-	<span style="color: red">Noch nicht bezahlt (rot eingef&auml;rbt) haben:&nbsp;&nbsp;<b><?php  echo mysql_result($countPlayersNotPayed,0); ?></b></span>
+	<span style="color: red">Noch nicht bezahlt (rot eingef&auml;rbt) haben:&nbsp;&nbsp;<b><?php  echo $this->countPlayersNotPayed; ?></b></span>
 	<br>
 <?php  } ?>
 

@@ -97,7 +97,7 @@ class Admin extends HTMLPage implements Page{
 		if(isset($_POST['users_nnb'])){
 			foreach($_POST['users_nnb'] as $user_id){
 				$abfrage = "Update user set bezahlt=1 where userid=$user_id";
-				mysql_query($abfrage);
+				mysqli_query($this->link, $abfrage);
 			}
 		}
 	}
@@ -105,21 +105,21 @@ class Admin extends HTMLPage implements Page{
 	private function deleteUsers() {
 		if(isset($_POST['users_delete'])){
 			foreach($_POST['users_delete'] as $user_id){
-				$vorrunde_ids = mysql_query("Select vorrundefsid FROM uservorrunde where userfsid = $user_id");
-				while($row = mysql_fetch_assoc($vorrunde_ids)){
-					mysql_query("Delete from vorrunde where vorrundeid = $row[vorrundefsid]");
+				$vorrunde_ids = mysqli_query($this->link, "Select vorrundefsid FROM uservorrunde where userfsid = $user_id");
+				while($row = mysqli_fetch_assoc($vorrunde_ids)){
+					mysqli_query($this->link, "Delete from vorrunde where vorrundeid = $row[vorrundefsid]");
 				}
-				mysql_query("Delete from uservorrunde where userfsid = $user_id");
-				mysql_query("Delete from user where userid = $user_id");
-				mysql_query("Delete from userweiteretipps where userfsid = $user_id");
-				mysql_query("Delete from guestbook where userfsid = $user_id");
+				mysqli_query($this->link, "Delete from uservorrunde where userfsid = $user_id");
+				mysqli_query($this->link, "Delete from user where userid = $user_id");
+				mysqli_query($this->link, "Delete from userweiteretipps where userfsid = $user_id");
+				mysqli_query($this->link, "Delete from guestbook where userfsid = $user_id");
 			}
 		}
 	}
 	
 	private function setVorrundenResults() {
-		$result = mysql_query("Select COUNT(start) as Number from vorrundeteams");
-		$countGames = mysql_fetch_assoc($result);
+		$result = mysqli_query($this->link, "Select COUNT(start) as Number from vorrundeteams");
+		$countGames = mysqli_fetch_assoc($result);
 		for($counter=1; $counter<=$countGames['Number']; $counter++) {
 			$result1 = $_POST["result1_$counter"];
 			$result2 = $_POST["result2_$counter"];
@@ -142,19 +142,19 @@ class Admin extends HTMLPage implements Page{
 					$abfrage = "Update vorrundeteams set team2fsid='".$team2."', realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
 				}
 				
-				mysql_query($abfrage);
+				mysqli_query($this->link, $abfrage);
 			}
 			else{
 				$abfrage = "Update vorrundeteams set realresult1='".$result1."', realresult2='".$result2."' where vorrundeteamsid=$counter";
-				mysql_query($abfrage);
+				mysqli_query($this->link, $abfrage);
 			}
 		}
 	}
 	
 	private function getRealWeitereTipps() {
 		$abfrage = "SELECT * FROM realweiteretipps";
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
+		$ergebnis = mysqli_query($this->link, $abfrage);
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->achtelfinal1 = $row['achtelfinal1'];
 			$this->achtelfinal2 = $row['achtelfinal2'];
@@ -207,16 +207,16 @@ class Admin extends HTMLPage implements Page{
 						achtelfinal7 ='".$this->achtelfinal7."', achtelfinal8 ='".$this->achtelfinal8."', achtelfinal9 ='".$this->achtelfinal9."', achtelfinal10 ='".$this->achtelfinal10."', achtelfinal11 ='".$this->achtelfinal11."', achtelfinal12 ='".$this->achtelfinal12."', achtelfinal13 ='".$this->achtelfinal13."',
 						achtelfinal14 ='".$this->achtelfinal14."', achtelfinal15 ='".$this->achtelfinal15."', achtelfinal16 ='".$this->achtelfinal16."', winner = '".$this->winner."', best = '".$this->best."', worst = '".$this->worst."', switzerland = '".$this->switzerland."', lastwinner = '".$this->lastwinner."'";
 		
-		mysql_query($abfrage);
+		mysqli_query($this->link, $abfrage);
 	}
 
 	private function getNNB() {
 		$abfrage = "SELECT userid, nachname, vorname, email FROM user where bezahlt=0 order by nachname ASC";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		$counter = 0;
 		if(isset($ergebnis) && $ergebnis != null) {
-			while($row = mysql_fetch_assoc($ergebnis))
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				$this->nnb[$counter]['userid'] = $row['userid'];
 				$this->nnb[$counter]['nachname'] = $row['nachname'];
@@ -231,10 +231,10 @@ class Admin extends HTMLPage implements Page{
 	private function getAll() {
 		$abfrage = "SELECT userid, nachname, vorname, email FROM user order by nachname ASC";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		$counter = 0;
 		if(isset($ergebnis) && $ergebnis != null) {
-			while($row = mysql_fetch_assoc($ergebnis))
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				$this->all[$counter]['userid'] = $row['userid'];
 				$this->all[$counter]['nachname'] = $row['nachname'];
@@ -249,11 +249,11 @@ class Admin extends HTMLPage implements Page{
 	private function getGames() {
 		$abfrage = "SELECT vorrundeteamsid, start, team1fsid, team2fsid, realresult1, realresult2 FROM vorrundeteams order by start asc";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 
 		$i = 0;
 
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->vorrunde[$i]['id'] = $row['vorrundeteamsid'];
 			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
@@ -271,8 +271,8 @@ class Admin extends HTMLPage implements Page{
 	private function getTeam($id) {
 		$abfrage = "SELECT land FROM teams where teamid=".$id;
 
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
+		$ergebnis = mysqli_query($this->link, $abfrage);
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			return $row['land'];
 		}
@@ -281,9 +281,9 @@ class Admin extends HTMLPage implements Page{
 	private function getCountries() {
 		$abfrage = "SELECT land, teamid FROM teams order by land asc";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		$counter = 0;
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->countries[$counter]['land'] = $row['land'];
 			$this->countries[$counter]['id'] = $row['teamid'];
@@ -294,24 +294,24 @@ class Admin extends HTMLPage implements Page{
 	private function updateUserPoints() {
 		$userids = "SELECT userid FROM user";
 		
-		$resultUsers = mysql_query($userids);
+		$resultUsers = mysqli_query($this->link, $userids);
 		
-		while($row = mysql_fetch_assoc($resultUsers))
+		while($row = mysqli_fetch_assoc($resultUsers))
 			{
 				$userid = $row['userid'];
 				$points = 0;
 				
 				$anzahlUserTipps = "SELECT vorrundefsid FROM uservorrunde where userfsid=$userid";
-				$resultUserTipps = mysql_query($anzahlUserTipps);
+				$resultUserTipps = mysqli_query($this->link, $anzahlUserTipps);
 				
-				while($row = mysql_fetch_assoc($resultUserTipps))
+				while($row = mysqli_fetch_assoc($resultUserTipps))
 				{
 					$vorrundeid = $row['vorrundefsid'];
 					
 					$tippedMatch = "SELECT result1, result2, highrisk, vorrundeteamsfsid FROM vorrunde where vorrundeid=$vorrundeid";
-					$resultTippedMatch = mysql_query($tippedMatch);
+					$resultTippedMatch = mysqli_query($this->link, $tippedMatch);
 					
-					while($row = mysql_fetch_assoc($resultTippedMatch))
+					while($row = mysqli_fetch_assoc($resultTippedMatch))
 					{
 						$tipp1 = $row['result1'];
 						$tipp2 = $row['result2'];
@@ -321,8 +321,8 @@ class Admin extends HTMLPage implements Page{
 						
 						$realResults = "SELECT realresult1, realresult2 FROM vorrundeteams where vorrundeteamsid=".$match;
 						
-						$resultRealResults = mysql_query($realResults);
-						while($row = mysql_fetch_assoc($resultRealResults))
+						$resultRealResults = mysqli_query($this->link, $realResults);
+						while($row = mysqli_fetch_assoc($resultRealResults))
 						{	
 							$real1 = $row['realresult1'];
 							$real2 = $row['realresult2'];
@@ -357,9 +357,9 @@ class Admin extends HTMLPage implements Page{
 				}
 				
 				$userweiteretipps = "SELECT * FROM userweiteretipps where userfsid=$userid";
-				$resultUserWeitereTipps = mysql_query($userweiteretipps);
+				$resultUserWeitereTipps = mysqli_query($this->link, $userweiteretipps);
 				
-				while($rowUser = mysql_fetch_assoc($resultUserWeitereTipps))
+				while($rowUser = mysqli_fetch_assoc($resultUserWeitereTipps))
 				{
 					$achtelfinal_points = '5';
 					$winner_points = '12';
@@ -482,19 +482,19 @@ class Admin extends HTMLPage implements Page{
 					}
 				}
 				$abfrage = "Update user set punkte=$points where userid=$userid";
-				mysql_query($abfrage);
+				mysqli_query($this->link, $abfrage);
 			}
 	}
 	
 	private function updateRanking(){
 		$userids = "SELECT userid, rank_now, punkte FROM user ORDER BY punkte DESC";
 		
-		$resultUsers = mysql_query($userids);
+		$resultUsers = mysqli_query($this->link, $userids);
 		
 		$temp_points = '';
 		$rank_counter = 1;
 		$rank_logic= 1;
-		while($row = mysql_fetch_assoc($resultUsers))
+		while($row = mysqli_fetch_assoc($resultUsers))
 		{
 			$userid = $row['userid'];
 			$rank_now = $row['rank_now'];
@@ -506,7 +506,7 @@ class Admin extends HTMLPage implements Page{
 			
 			$ranks = "Update user set rank_now=$rank_logic, rank_last=$rank_now where userid=$userid";
 	
-			mysql_query($ranks);	
+			mysqli_query($this->link, $ranks);	
 
 			$rank_counter++;
 		}
@@ -620,23 +620,23 @@ class Admin extends HTMLPage implements Page{
 		
 		$query = "Insert into news(titel, text) values('".$title."', '".$text."')";
 			
-		mysql_query($query);
+		mysqli_query($this->link, $query);
 	}
 	
 	private function getNotTipped(){
 		$userQuery = "SELECT userid, email FROM user";
-		$resultUser = mysql_query($userQuery);
+		$resultUser = mysqli_query($this->link, $userQuery);
 		
 		$i = 0;
 		
-		while($rowUser = mysql_fetch_assoc($resultUser))
+		while($rowUser = mysqli_fetch_assoc($resultUser))
 		{
 			$user = $rowUser['userid'];
 			
 			$userweiteretippsquery = "SELECT * FROM userweiteretipps WHERE userfsid = $user";
-			$resultUserWeitereTipps = mysql_query($userweiteretippsquery);
+			$resultUserWeitereTipps = mysqli_query($this->link, $userweiteretippsquery);
 			
-			$rowWeitereTipps = mysql_fetch_assoc($resultUserWeitereTipps);
+			$rowWeitereTipps = mysqli_fetch_assoc($resultUserWeitereTipps);
 			
 			if($rowWeitereTipps != false){
 				if($rowWeitereTipps['achtelfinal1'] == ''
@@ -674,10 +674,10 @@ class Admin extends HTMLPage implements Page{
 	private function getPhases() {
 		$abfrage = "SELECT * FROM phase order by phaseid asc";
 	
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 	
 		$i=0;
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->phases[$i]['id'] = $row['phaseid'];
 			$this->phases[$i]['beschreibung'] = $row['beschreibung'];

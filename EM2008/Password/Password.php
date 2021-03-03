@@ -32,10 +32,10 @@ class Password extends HTMLPage implements Page {
 			$pwd = md5($newpwd);
 
 			$abfrage = "Update user set passwort='$pwd' where email='$this->email'";
-			mysql_query($abfrage);
+			mysqli_query($this->link, $abfrage);
 			
 			if(!Constants::isLocal()){
-		 		$sender = "info@tippy.ch";
+		 		$sender = "tippy@myinbox.ch";
 				$empfaenger = $this->email;
 				$betreff = "Neues Passwort auf tippy.ch";
 				$mailtext = "Hallo<br><br>
@@ -70,9 +70,9 @@ class Password extends HTMLPage implements Page {
 	public function checkExistingEmail($email) {
 		$abfrage = sprintf("SELECT * FROM user where email='%s'", htmlentities($email, ENT_QUOTES, 'UTF-8'));
 
-		$result = mysql_query($abfrage);
+		$result = mysqli_query($this->link, $abfrage);
 
-		while($row = mysql_fetch_assoc($result))
+		while($row = mysqli_fetch_assoc($result))
 		{
 			return true;
 		}

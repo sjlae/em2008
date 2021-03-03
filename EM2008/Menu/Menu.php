@@ -35,37 +35,37 @@ class Menu {
 			$ip = $ip.'_'.$userid;
 		}
 		//veraltete Einträge löschen
-		mysql_query("DELETE FROM useronline WHERE zeit < ".time()."");
+		mysqli_query($this->link, "DELETE FROM useronline WHERE zeit < ".time()."");
 		
 		//Zeitpunkt erneuern
-		mysql_query("UPDATE useronline SET zeit = '".(time()+$zeitspanne)."', userfsid = $userid WHERE ip='".$ip."'");
+		mysqli_query($this->link, "UPDATE useronline SET zeit = '".(time()+$zeitspanne)."', userfsid = $userid WHERE ip='".$ip."'");
 		
 		// ist der Besucher noch nicht eigetragen, so wird ein neuer Eintrag erzeugt.
 		$query = "SELECT ip from useronline WHERE ip='".$ip."'";
-		$daten = mysql_query($query);
-		if(mysql_num_rows($daten) === 0) {
-			mysql_query("INSERT INTO useronline (ip,zeit,userfsid) VALUES ('$ip','".(time()+$zeitspanne)."','$userid')");
+		$daten = mysqli_query($this->link, $query);
+		if(mysqli_num_rows($daten) === 0) {
+			mysqli_query($this->link, "INSERT INTO useronline (ip,zeit,userfsid) VALUES ('$ip','".(time()+$zeitspanne)."','$userid')");
 		}
 		
 		// die Zahl der Online-User ermitteln.
-		$result = mysql_query("SELECT count(*) FROM useronline");
+		$result = mysqli_query($this->link, "SELECT count(*) FROM useronline");
 		
 		// namen der eingeloggten users ermitteln
 		$query_online_names = "SELECT userfsid from useronline";
-		$daten_online_names = mysql_query($query_online_names);
+		$daten_online_names = mysqli_query($this->link, $query_online_names);
 		
 		$names = '';
 		$first = true;
 		
-		while($row = mysql_fetch_assoc($daten_online_names))
+		while($row = mysqli_fetch_assoc($daten_online_names))
 		{
 			$userid = $row['userfsid'];
 			
 			if($userid != 0){
 				$actual_name = "SELECT nachname, vorname from user WHERE userid = $userid";
-				$actual_name_result = mysql_query($actual_name);
+				$actual_name_result = mysqli_query($this->link, $actual_name);
 				
-				$row_user_name = mysql_fetch_assoc($actual_name_result);
+				$row_user_name = mysqli_fetch_assoc($actual_name_result);
 				
 				if($first){
 					$names = "<b>davon eingeloggt:</b><br>";
@@ -78,7 +78,7 @@ class Menu {
 		if($names != ''){
 			$_SESSION['users_names'] = $names;
 		}
-		$_SESSION['users'] = "&nbsp;" .mysql_result($result,0)." User online";
+		//$_SESSION['users'] = "&nbsp;" .mysqli_result($result,0)." User online";
 	}
 }
 ?>

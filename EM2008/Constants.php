@@ -19,7 +19,7 @@ class Constants{
 	}
 	
 	public static function isLocal(){
-		if($_SERVER[HTTP_HOST] == "localhost"){
+	    if($_SERVER['REMOTE_ADDR'] == '127.0.0.1'){
 			return true;
 		}
 		return false;
@@ -76,12 +76,12 @@ class Constants{
 		return "0_punkte.png";
 	}
 	
-	public function hasTournamentStarted() {
+	public static function hasTournamentStarted() {
 		$abfrage = "SELECT start FROM vorrundeteams where vorrundeteamsid=1";
 	
-		$ergebnis = mysql_query($abfrage);
-		$startTime = mysql_fetch_row($ergebnis);
-		if(mktime() > strtotime($startTime[0])){
+		$ergebnis = mysqli_query(Db::getConnection(), $abfrage);
+		$startTime = mysqli_fetch_row($ergebnis);
+		if(time() > strtotime($startTime[0])){
 			return true;
 		}
 		else{
@@ -89,11 +89,11 @@ class Constants{
 		}
 	}
 	
-	public function isAlreadyFinalround(){
+	public static function isAlreadyFinalround(){
 		$relevantRow = (Constants::$isWM ? 49 : 37);
 	
-		$result = mysql_query("Select * from vorrundeteams WHERE vorrundeteamsid = $relevantRow");
-		$dbRow = mysql_fetch_row($result);
+		$result = mysqli_query(Db::getConnection(), "Select * from vorrundeteams WHERE vorrundeteamsid = $relevantRow");
+		$dbRow = mysqli_fetch_row($result);
 	
 		if($dbRow[4] != '' && $dbRow[5] != ''){
 			return "Finalspiele";
@@ -101,14 +101,14 @@ class Constants{
 		return "Gruppenspiele";
 	}
 	
-	public function getPhases() {
+	public static function getPhases() {
 		$abfrage = "SELECT * FROM phase order by phaseid asc";
 	
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query(Db::getConnection(), $abfrage);
 		
 		$phases = array();
 		$i=0;
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$phases[$i]['id'] = $row['phaseid'];
 			$phases[$i]['beschreibung'] = $row['beschreibung'];

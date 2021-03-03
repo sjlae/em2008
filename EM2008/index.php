@@ -70,7 +70,7 @@ switch($go) {
 		
 		$link = Db::getConnection();	
 		//veraltete Einträge löschen
-		mysql_query("DELETE FROM useronline WHERE ip='".$ip."'");
+		mysqli_query($link, "DELETE FROM useronline WHERE ip='".$ip."'");
 		
 		unset($_SESSION['eingeloggt']);
 		unset($_SESSION['userid']);

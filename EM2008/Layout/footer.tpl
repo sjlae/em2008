@@ -25,7 +25,7 @@
 					<div class="info-links">
 						<h5>Kontakt</h5>
 						<ul>
-							<li><a href="mailto:info@tippy.ch">Email</a></li>
+							<li><a href="mailto:tippy@myinbox.ch">Email</a></li>
 						</ul>
 					</div>
 				</div>
@@ -43,7 +43,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<p>&copy; 2018 tippy.ch . All Rights Reserved</p>
+				<p>&copy; 2021 tippy.ch . All Rights Reserved</p>
 			</div>
 		</div>
 	</div>

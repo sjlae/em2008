@@ -27,9 +27,9 @@
             <?php
 		$abfrage = "SELECT * FROM user where userid='".$_SESSION['userid']."'";
 
-            $ergebnis = mysql_query($abfrage);
+            $ergebnis = mysqli_query(Db::getConnection(), $abfrage);
 
-            while($row = mysql_fetch_assoc($ergebnis))
+            while($row = mysqli_fetch_assoc($ergebnis))
             {
             if($row['admin'] == '1'){
             ?>
@@ -80,9 +80,9 @@
         <?php
 		$abfrage = "SELECT * FROM user where userid='".$_SESSION['userid']."'";
 
-            $ergebnis = mysql_query($abfrage);
+            $ergebnis = mysqli_query(Db::getConnection(), $abfrage);
 
-            while($row = mysql_fetch_assoc($ergebnis))
+            while($row = mysqli_fetch_assoc($ergebnis))
             {
             if($row['admin'] == '1'){
             ?>

@@ -14,6 +14,8 @@ class Ranking extends HTMLPage implements Page {
 	private $action;
 	private $gruppenname;
 	private $errors = array();
+	private $countPlayers;
+	private $countPlayersNotPayed;
 	
 	public function __construct() {
 		$this->link = Db::getConnection();
@@ -51,16 +53,16 @@ class Ranking extends HTMLPage implements Page {
 	public function addmodify($gruppeid) {
 		if(isset($gruppeid) && $gruppeid != ''){
 			$this->gruppeid = $gruppeid;
-			$query = mysql_query("SELECT name FROM gruppe where gruppeid = '$this->gruppeid'");
-			$result = mysql_fetch_assoc($query);
+			$query = mysqli_query($this->link, "SELECT name FROM gruppe where gruppeid = '$this->gruppeid'");
+			$result = mysqli_fetch_assoc($query);
 			$this->gruppenname = $result['name'];
 			
 			$abfrage = "SELECT userfsid FROM gruppeuser where gruppefsid = '$this->gruppeid'";
-			$ergebnis = mysql_query($abfrage);
+			$ergebnis = mysqli_query($this->link, $abfrage);
 			
 			if($ergebnis != null){
 				$counter = 1;
-				while($row = mysql_fetch_assoc($ergebnis))
+				while($row = mysqli_fetch_assoc($ergebnis))
 				{
 					$this->currentUsers[$counter]= $row['userfsid'];
 					
@@ -71,11 +73,11 @@ class Ranking extends HTMLPage implements Page {
 		
 		$abfrage = "SELECT userid, vorname, nachname FROM user ORDER BY nachname ASC";
 		
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		
 		if($ergebnis != null){
 			$counter = 0;
-			while($row = mysql_fetch_assoc($ergebnis))
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				$this->rankingArray[$counter]['userid'] = $row['userid'];
 				$this->rankingArray[$counter]['vorname'] = $row['vorname'];
@@ -90,8 +92,8 @@ class Ranking extends HTMLPage implements Page {
 		if(isset($_GET['gruppeid'])){
 			$gruppeid = $_GET['gruppeid'];			
 			
-			mysql_query("Delete from gruppeuser where gruppefsid = '$gruppeid'");
-			mysql_query("Delete from gruppe where gruppeid = '$gruppeid'");
+			mysqli_query($this->link, "Delete from gruppeuser where gruppefsid = '$gruppeid'");
+			mysqli_query($this->link, "Delete from gruppe where gruppeid = '$gruppeid'");
 		}
 		
 		$_SESSION['infos'][] = "Die Gruppe wurde erfolgreich gel&ouml;scht.";
@@ -124,20 +126,20 @@ class Ranking extends HTMLPage implements Page {
 		if(isset($_POST['gruppeid'])){
 			$gruppeid = $_POST['gruppeid'];
 				
-			mysql_query("Delete from gruppeuser where gruppefsid = '$gruppeid'");
-			mysql_query("Delete from gruppe where gruppeid = '$gruppeid'");
+			mysqli_query($this->link, "Delete from gruppeuser where gruppefsid = '$gruppeid'");
+			mysqli_query($this->link, "Delete from gruppe where gruppeid = '$gruppeid'");
 		}
 		
 		$query = "Insert into gruppe (name) values('".$this->gruppenname."')";
-		mysql_query($query);
+		mysqli_query($this->link, $query);
 		
-		$query = mysql_query("SELECT gruppeid FROM gruppe where name = '$this->gruppenname'");
-		$result = mysql_fetch_assoc($query);
+		$query = mysqli_query($this->link, "SELECT gruppeid FROM gruppe where name = '$this->gruppenname'");
+		$result = mysqli_fetch_assoc($query);
 		
 		if(isset($_POST['users_group'])){
 			foreach($_POST['users_group'] as $user_id){
 				$abfrage = "Insert into gruppeuser (gruppefsid, userfsid) values('".$result['gruppeid']."', '".$user_id."')";
-				mysql_query($abfrage);
+				mysqli_query($this->link, $abfrage);
 			}
 		}
 		
@@ -149,8 +151,8 @@ class Ranking extends HTMLPage implements Page {
 	public function checkExistingName($gruppenname) {
 		if(isset($_POST['gruppeid'])){
 			$gruppeid = $_POST['gruppeid'];
-			$query = mysql_query("SELECT name FROM gruppe where gruppeid = '$gruppeid'");
-			$result = mysql_fetch_assoc($query);
+			$query = mysqli_query($this->link, "SELECT name FROM gruppe where gruppeid = '$gruppeid'");
+			$result = mysqli_fetch_assoc($query);
 			if($gruppenname == $result['name']){
 				return false;
 			}
@@ -158,9 +160,9 @@ class Ranking extends HTMLPage implements Page {
 		
 		$abfrage = sprintf("SELECT * FROM gruppe where name='$gruppenname'");
 	
-		$result = mysql_query($abfrage);
+		$result = mysqli_query($this->link, $abfrage);
 	
-		while($row = mysql_fetch_assoc($result))
+		while($row = mysqli_fetch_assoc($result))
 		{
 			return true;
 		}
@@ -181,11 +183,11 @@ class Ranking extends HTMLPage implements Page {
    						AND b.gruppeid ='$this->gruppe' 
 					ORDER BY punkte DESC, a.nachname ";
 		
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		
 		if($ergebnis != null){
 			$counter = 0;
-			while($row = mysql_fetch_assoc($ergebnis))
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				$this->rankingArray[$counter]['userid'] = $row['userid'];
 				$this->rankingArray[$counter]['vorname'] = $row['vorname'];
@@ -209,11 +211,11 @@ class Ranking extends HTMLPage implements Page {
 	public function getFullRanking() {
 		$abfrage = "SELECT userid, vorname, nachname, punkte, bezahlt, rank_last, rank_now FROM user ORDER BY punkte DESC, nachname";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 		
 		if($ergebnis != null){
 			$counter = 0;
-			while($row = mysql_fetch_assoc($ergebnis))
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				$this->rankingArray[$counter]['userid'] = $row['userid'];
 				$this->rankingArray[$counter]['vorname'] = $row['vorname'];
@@ -242,11 +244,11 @@ class Ranking extends HTMLPage implements Page {
 		}
 		
 		else{
-			$count = "SELECT COUNT(*) FROM user";
-			$countPlayers = mysql_query($count);
+			$count = "SELECT COUNT(*) FROM user"; 
+			$this->countPlayers = mysqli_query($this->link, $count)->fetch_row()[0];
 			
 			$countNotPayed = "SELECT COUNT(*) FROM user WHERE bezahlt = 0";
-			$countPlayersNotPayed = mysql_query($countNotPayed);
+			$this->countPlayersNotPayed = mysqli_query($this->link, $countNotPayed)->fetch_row()[0];
 			
 			$userid = isset($_SESSION['userid']) ? $_SESSION['userid'] : '';
 			$abfrage = "SELECT
@@ -258,11 +260,11 @@ class Ranking extends HTMLPage implements Page {
 						a.gruppeid = b.gruppefsid and b.userfsid = '$userid'
 					ORDER BY a.name ASC";
 			
-			$ergebnis = mysql_query($abfrage);
+			$ergebnis = mysqli_query($this->link, $abfrage);
 			if($ergebnis != null){
 				$counter = 0;
 	
-				while($row = mysql_fetch_assoc($ergebnis))
+				while($row = mysqli_fetch_assoc($ergebnis))
 				{
 					$this->gruppen[$counter]['name'] = $row['name'];
 					$this->gruppen[$counter]['gruppeid'] = $row['gruppeid'];

@@ -32,11 +32,11 @@ class StatisticsDetail extends HTMLPage implements Page {
 
 	private function getData() {
 		$abfrage_game = "SELECT * FROM vorrundeteams WHERE vorrundeteamsid = ".$this->id;
-		$ergebnis_game = mysql_query($abfrage_game);
+		$ergebnis_game = mysqli_query($this->link, $abfrage_game);
 		
 		if($ergebnis_game != null){
 		
-			while($row_game = mysql_fetch_assoc($ergebnis_game))
+			while($row_game = mysqli_fetch_assoc($ergebnis_game))
 			{
 				$this->team1 =  $this->getTeam($row_game['team1fsid']);
 				$this->team2 =  $this->getTeam($row_game['team2fsid']);
@@ -46,13 +46,13 @@ class StatisticsDetail extends HTMLPage implements Page {
 			
 			$sql_query = "result1 > result2";
 			
-			if($this->result == 1){
+			if($this->result == '1'){
 				$sql_query = "result1 > result2";
 			}
-			else if($this->result == X){
+			else if($this->result == 'X'){
 				$sql_query = "result1 = result2";
 			}
-			else if($this->result == 2){
+			else if($this->result == '2'){
 				$sql_query = "result1 < result2";
 			}
 			
@@ -62,9 +62,9 @@ class StatisticsDetail extends HTMLPage implements Page {
 			}
 			
 			$abfrage_result = "SELECT * FROM vorrunde WHERE ".$sql_query." AND vorrundeteamsfsid = ".$this->id." ".$sql_query_highrisk;
-			$ergebnis_result = mysql_query($abfrage_result);
+			$ergebnis_result = mysqli_query($this->link, $abfrage_result);
 			$i = 0;
-			while($row_result = mysql_fetch_assoc($ergebnis_result))
+			while($row_result = mysqli_fetch_assoc($ergebnis_result))
 			{
 				if($row_result['result1'] != '' || $row_result['result2'] != ''){
 					$search = $row_result['result1'].':'.$row_result['result2'];
@@ -77,8 +77,8 @@ class StatisticsDetail extends HTMLPage implements Page {
 						$userid = $this->getUserId($row_result['vorrundeid']);
 							
 						$abfrage_user = "SELECT * FROM user WHERE userid = ".$userid;
-						$ergebnis_user = mysql_query($abfrage_user);
-						while($row_user = mysql_fetch_assoc($ergebnis_user))
+						$ergebnis_user = mysqli_query($this->link, $abfrage_user);
+						while($row_user = mysqli_fetch_assoc($ergebnis_user))
 						{
 							$this->tipps[$i]['nachname'] = $row_user['nachname'];
 							$this->tipps[$i]['vorname'] = $row_user['vorname'];
@@ -113,9 +113,9 @@ class StatisticsDetail extends HTMLPage implements Page {
 		if($id != ''){
 			$abfrage = "SELECT * FROM teams where teamid=".$id;
 
-			$ergebnis = mysql_query($abfrage);
+			$ergebnis = mysqli_query($this->link, $abfrage);
 			if($ergebnis != null){
-				while($row = mysql_fetch_assoc($ergebnis))
+				while($row = mysqli_fetch_assoc($ergebnis))
 				{
 					return $row['land'];
 				}
@@ -128,8 +128,8 @@ class StatisticsDetail extends HTMLPage implements Page {
 		if($id != ''){
 			$abfrage = "SELECT * FROM uservorrunde where vorrundefsid=".$id;
 
-			$ergebnis = mysql_query($abfrage);
-			while($row = mysql_fetch_assoc($ergebnis))
+			$ergebnis = mysqli_query($this->link, $abfrage);
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				return $row['userfsid'];
 			}

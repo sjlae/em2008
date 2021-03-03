@@ -70,12 +70,12 @@ class Register extends HTMLPage implements Page {
 			$pwd = md5($this->passwort1);
 
 			$query = sprintf("Insert into user(nachname, vorname, email, passwort, rank_now, rank_last, woherfsid) values('%s', '%s', '%s', '%s', '%s',' %s', '%s')", htmlentities($this->nachname, ENT_QUOTES, 'UTF-8'), htmlentities($this->vorname, ENT_QUOTES, 'UTF-8'), htmlentities($this->email, ENT_QUOTES, 'UTF-8'), htmlentities($pwd, ENT_QUOTES, 'UTF-8'), '1', '1', htmlentities($where, ENT_QUOTES, 'UTF-8'));
-			mysql_query($query,$this->link);
+			mysqli_query($this->link, $query,$this->link);
 
 		 if (mysql_affected_rows($this->link) > 0) {
 
 		 	if(!Constants::isLocal()){
-		 		$sender = "info@tippy.ch";
+		 		$sender = "tippy@myinbox.ch";
 				$empfaenger = $this->email;
 				$betreff = "Erfolgreiche Registrierung bei tippy";
 				$mailtext = "Hallo $this->vorname<br><br>
@@ -95,7 +95,7 @@ class Register extends HTMLPage implements Page {
 				Silvan St&auml;heli";
 				mail($empfaenger, $betreff, $mailtext, "From: $sender\n" . "Content-Type: text/html; charset=iso-8859-1\n"); 
 				$mailtext = $this->vorname .' '.$this->nachname;
-				mail("silvan.staeheli@bluewin.ch", "Neuer Tipper", $mailtext, "From: $sender\n" . "Content-Type: text/html; charset=iso-8859-1\n");
+				mail("tippy@myinbox.ch", "Neuer Tipper", $mailtext, "From: $sender\n" . "Content-Type: text/html; charset=iso-8859-1\n");
 		 	}
 		 	
 		 	$_SESSION['infos'][] = "Du wurdest erfolgreich registriert und hast soeben eine E-Mail erhalten";
@@ -111,9 +111,9 @@ class Register extends HTMLPage implements Page {
 	public function checkExistingEmail($email) {
 		$abfrage = sprintf("SELECT * FROM user where email='%s'", htmlentities($email, ENT_QUOTES, 'UTF-8'));
 
-		$result = mysql_query($abfrage);
+		$result = mysqli_query($this->link, $abfrage);
 
-		while($row = mysql_fetch_assoc($result))
+		while($row = mysqli_fetch_assoc($result))
 		{
 			return true;
 		}
@@ -136,9 +136,9 @@ class Register extends HTMLPage implements Page {
 	public function getHTML() {
 		$abfrage = "SELECT * FROM woher";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->wheres[] =$row['bezeichnung'];
 		}

@@ -17,13 +17,10 @@
 
 	<div class="container paddings-mini">
 
-<?php 
-   $countPlayers = mysql_result($countPlayers,0);
-?>
-Anzahl Teilnehmer/innen:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
+Anzahl Teilnehmer/innen:&nbsp;&nbsp;<b><?php  echo $this->countPlayers; ?></b>
 <?php  
 	$userDependentWinLine = '8';
-	if($countPlayers >= '201'){
+	if($this->countPlayers >= '201'){ 
 		$userDependentWinLine = '18';		
 	}
 	if($_SESSION['eingeloggt']){?>
@@ -31,9 +28,9 @@ Anzahl Teilnehmer/innen:&nbsp;&nbsp;<b><?php  echo $countPlayers; ?></b>
 		<b><?php  echo $this->currentPlace;?></b>
 <?php 	} ?>
 <br>
-<?php  if(mysql_result($countPlayersNotPayed,0) != 0){ ?>
-	<br>
-	<span style="color: red">Noch nicht bezahlt (rot eingef&auml;rbt) haben:&nbsp;&nbsp;<b><?php  echo mysql_result($countPlayersNotPayed,0); ?></b></span>
+<?php  if($this->countPlayersNotPayed != 0){ ?>
+	<br> 
+	<span style="color: red">Noch nicht bezahlt (rot eingef&auml;rbt) haben:&nbsp;&nbsp;<b><?php  echo $this->countPlayersNotPayed; ?></b></span>
 	<br>
 <?php  } ?>
 

@@ -49,8 +49,8 @@ class MyTipps extends HTMLPage implements Page {
 		$abfrage = "Select * from realweiteretipps";
 		$realWeitereTipps = array();
 
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
+		$ergebnis = mysqli_query($this->link, $abfrage);
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			// Achtelfinalisten
 			$realWeitereTipps[] = $row['achtelfinal1'];
@@ -94,8 +94,8 @@ class MyTipps extends HTMLPage implements Page {
 
 		$abfrage = "Select * from userweiteretipps where userfsid=".$userid;
 
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
+		$ergebnis = mysqli_query($this->link, $abfrage);
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			for($i=1;$i<=16;$i++) {
 				$this->userAchtelfinal[$i] = isset($row['achtelfinal'.$i]) ? $row['achtelfinal'.$i] : '';
@@ -110,8 +110,8 @@ class MyTipps extends HTMLPage implements Page {
 	}
 
 	private function setTipps() {
-		$result = mysql_query("Select COUNT(start) as Number from vorrundeteams");
-		$countGames = mysql_fetch_assoc($result);
+		$result = mysqli_query($this->link, "Select COUNT(start) as Number from vorrundeteams");
+		$countGames = mysqli_fetch_assoc($result);
 		$showWarningMessage = true;
 		for($i=1;$i<=$countGames['Number'];$i++) {
 			$result1 = $_POST['result1'.$i];
@@ -201,9 +201,9 @@ class MyTipps extends HTMLPage implements Page {
 	private function isDisabledWeitereTipps() {
 		$abfrage = "SELECT start FROM vorrundeteams where vorrundeteamsid=1";
 
-		$ergebnis = mysql_query($abfrage);
-		$startTime = mysql_fetch_row($ergebnis);
-		if(mktime() > strtotime($startTime[0])){
+		$ergebnis = mysqli_query($this->link, $abfrage);
+		$startTime = mysqli_fetch_row($ergebnis);
+		if(time() > strtotime($startTime[0])){
 			return "disabled";
 		}
 		else{
@@ -214,13 +214,13 @@ class MyTipps extends HTMLPage implements Page {
 	private function updateUserWeitereTipps($userWeitereTipps) {
 		$abfrage = sprintf("Update userweiteretipps set achtelfinal1 = '%s', achtelfinal2 = '%s', achtelfinal3 = '%s', achtelfinal4 = '%s', achtelfinal5 = '%s', achtelfinal6 = '%s', achtelfinal7 = '%s', achtelfinal8 = '%s', achtelfinal9 = '%s', achtelfinal10 = '%s', achtelfinal11 = '%s', achtelfinal12 = '%s', achtelfinal13 = '%s', achtelfinal14 = '%s', achtelfinal15 = '%s', achtelfinal16 = '%s', winner = '%s', best = '%s', worst = '%s', switzerland = '%s', lastwinner = '%s' where userfsid=".$_SESSION['userid'], htmlentities($userWeitereTipps[0], ENT_QUOTES, 'UTF-8'),htmlentities($userWeitereTipps[1], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[2], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[3], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[4], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[5], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[6], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[7], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[8], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[9], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[10], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[11], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[12], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[13], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[14], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[15], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[16], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[17], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[18], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[19], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[20]));
 		
-		$ergebnis = mysql_query($abfrage, $this->link);
+		$ergebnis = mysqli_query($this->link, $abfrage, $this->link);
 	}
 
 	private function addUserWeitereTipps($userWeitereTipps) {
 		$abfrage = sprintf("Insert into userweiteretipps values(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",$_SESSION['userid'], htmlentities($userWeitereTipps[0], ENT_QUOTES, 'UTF-8'),htmlentities($userWeitereTipps[1], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[2], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[3], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[4], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[5], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[6], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[7], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[8], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[9], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[10], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[11], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[12], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[13], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[14], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[15], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[16], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[17], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[18], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[19], ENT_QUOTES, 'UTF-8'), htmlentities($userWeitereTipps[20]));
 		
-		$ergebnis = mysql_query($abfrage, $this->link);
+		$ergebnis = mysqli_query($this->link, $abfrage, $this->link);
 	}
 
 	private function isExistingUserWeitereTipps() {
@@ -228,8 +228,8 @@ class MyTipps extends HTMLPage implements Page {
 
 		$abfrage = "SELECT userfsid FROM userweiteretipps where userfsid=".$userid;
 
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
+		$ergebnis = mysqli_query($this->link, $abfrage);
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			if($row['userfsid'] == '')
 			return false;
@@ -242,12 +242,12 @@ class MyTipps extends HTMLPage implements Page {
 	private function addTipp($i, $result1, $result2, $highrisk) {
 		if($this->isDisabled($this->vorrunde[$i-1]['start']) == 'enabled') {
 			$abfrage = sprintf("Insert into vorrunde value('', '".$result1."', '".$result2."', '".$highrisk."','".$i."')", htmlentities($result1, ENT_QUOTES, 'UTF-8'),  htmlentities($result2, ENT_QUOTES, 'UTF-8'),  htmlentities($highrisk, ENT_QUOTES, 'UTF-8'),htmlentities($i, ENT_QUOTES, 'UTF-8'));
-			mysql_query($abfrage);
+			mysqli_query($this->link, $abfrage);
 
 			$vorrundeid = mysql_insert_id();
 
 			$abfrage = "Insert into uservorrunde value(".$_SESSION['userid'].", ".$vorrundeid.")";
-			mysql_query($abfrage);
+			mysqli_query($this->link, $abfrage);
 		} else {
 			$this->errors[] = "Die Zeit ist abgelaufen, um Resultattipps zu erfassen.";
 		}
@@ -259,15 +259,15 @@ class MyTipps extends HTMLPage implements Page {
 			$userid = $_SESSION['userid'];
 
 			$anzahlUserTipps = "SELECT vorrundefsid FROM uservorrunde where userfsid=$userid";
-			$resultUserTipps = mysql_query($anzahlUserTipps);
+			$resultUserTipps = mysqli_query($this->link, $anzahlUserTipps);
 
-			while($row = mysql_fetch_assoc($resultUserTipps))
+			while($row = mysqli_fetch_assoc($resultUserTipps))
 			{
 				$vorrundeid = $row['vorrundefsid'];
 
 				$tippedMatch = sprintf("Update vorrunde set result1 = '%s', result2 = '%s', highrisk = '%s' where vorrundeid=$vorrundeid and vorrundeteamsfsid=%d", htmlentities($result1, ENT_QUOTES, 'UTF-8'), htmlentities($result2, ENT_QUOTES, 'UTF-8'), htmlentities($highrisk, ENT_QUOTES, 'UTF-8'),htmlentities($i, ENT_QUOTES, 'UTF-8'));
 
-				$resultTippedMatch = mysql_query($tippedMatch);
+				$resultTippedMatch = mysqli_query($this->link, $tippedMatch);
 
 			}
 
@@ -281,8 +281,8 @@ class MyTipps extends HTMLPage implements Page {
 
 		$abfrage = "select * from uservorrunde, vorrunde where vorrundeteamsfsid=".$vorrundeteamsid." and userfsid=".$userid." and vorrundefsid=vorrundeid";
 
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
+		$ergebnis = mysqli_query($this->link, $abfrage);
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			return true;
 		}
@@ -294,8 +294,8 @@ class MyTipps extends HTMLPage implements Page {
 		if($id != ''){
 			$abfrage = "SELECT * FROM teams where teamid=".$id;
 
-			$ergebnis = mysql_query($abfrage);
-			while($row = mysql_fetch_assoc($ergebnis))
+			$ergebnis = mysqli_query($this->link, $abfrage);
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				return $row['land'];
 			}
@@ -306,16 +306,16 @@ class MyTipps extends HTMLPage implements Page {
 		$userid = $_SESSION['userid'];
 
 		$anzahlUserTipps = "SELECT vorrundefsid FROM uservorrunde where userfsid=$userid";
-		$resultUserTipps = mysql_query($anzahlUserTipps);
+		$resultUserTipps = mysqli_query($this->link, $anzahlUserTipps);
 
-		while($row = mysql_fetch_assoc($resultUserTipps))
+		while($row = mysqli_fetch_assoc($resultUserTipps))
 		{
 			$vorrundeid = $row['vorrundefsid'];
 
 			$tippedMatch = "SELECT * FROM vorrunde where vorrundeid=$vorrundeid";
-			$resultTippedMatch = mysql_query($tippedMatch);
+			$resultTippedMatch = mysqli_query($this->link, $tippedMatch);
 
-			while($row = mysql_fetch_assoc($resultTippedMatch))
+			while($row = mysqli_fetch_assoc($resultTippedMatch))
 			{
 				if($vorrundeteamsid == $row['vorrundeteamsfsid']){
 					$results[] = $row['result1'];
@@ -329,7 +329,7 @@ class MyTipps extends HTMLPage implements Page {
 	}
 
 	private function isDisabled($start) {
-		if(mktime() > strtotime($start))
+		if(time() > strtotime($start))
 		return "disabled";
 
 		return "enabled";
@@ -338,11 +338,11 @@ class MyTipps extends HTMLPage implements Page {
 	private function getData() {
 		$abfrage = "SELECT * FROM vorrundeteams order by start asc";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 
 		$i = 0;
 
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->vorrunde[$i]['id'] = $row['vorrundeteamsid'];
 			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
@@ -363,10 +363,10 @@ class MyTipps extends HTMLPage implements Page {
 	private function getCountries() {
 		$abfrage = "SELECT * FROM teams order by land asc";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 
 		$i=0;
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->countries[$i]['id'] = $row['teamid'];
 			$this->countries[$i]['land'] = $row['land'];

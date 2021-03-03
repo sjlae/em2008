@@ -1,4 +1,4 @@
-<?php if(count($this->errors) > 0): ?>
+<?php if($this->errors != null && count($this->errors) > 0): ?>
 <section class="content-info info-container">
 
 	<div class="container paddings-mini">

@@ -51,16 +51,16 @@ class OtherTipps extends HTMLPage implements Page {
 	
 	private function getUserResult($vorrundeteamsid) {
 		$anzahlUserTipps = "SELECT vorrundefsid FROM uservorrunde where userfsid=".$this->realid;
-		$resultUserTipps = mysql_query($anzahlUserTipps);
+		$resultUserTipps = mysqli_query($this->link, $anzahlUserTipps);
 		
-		while($row = mysql_fetch_assoc($resultUserTipps))
+		while($row = mysqli_fetch_assoc($resultUserTipps))
 		{
 			$vorrundeid = $row['vorrundefsid'];
 
 			$tippedMatch = "SELECT * FROM vorrunde where vorrundeid=$vorrundeid";
-			$resultTippedMatch = mysql_query($tippedMatch);
+			$resultTippedMatch = mysqli_query($this->link, $tippedMatch);
 
-			while($row = mysql_fetch_assoc($resultTippedMatch))
+			while($row = mysqli_fetch_assoc($resultTippedMatch))
 			{
 				if($vorrundeteamsid == $row['vorrundeteamsfsid']){
 					$results[] = $row['result1'];
@@ -77,8 +77,8 @@ class OtherTipps extends HTMLPage implements Page {
 		if($id != ''){
 			$abfrage = "SELECT * FROM teams where teamid=".$id;
 
-			$ergebnis = mysql_query($abfrage);
-			while($row = mysql_fetch_assoc($ergebnis))
+			$ergebnis = mysqli_query($this->link, $abfrage);
+			while($row = mysqli_fetch_assoc($ergebnis))
 			{
 				return $row['land'];
 			}
@@ -88,11 +88,11 @@ class OtherTipps extends HTMLPage implements Page {
 	private function getData() {
 		$abfrage = "SELECT * FROM vorrundeteams order by start asc";
 
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 
 		$i = 0;
 
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->vorrunde[$i]['id'] = $row['vorrundeteamsid'];
 			$this->vorrunde[$i]['start'] = date('d.m.Y H:i', strtotime($row['start']));
@@ -124,9 +124,9 @@ class OtherTipps extends HTMLPage implements Page {
 			$abfrage = "Select * from user order by nachname asc";
 		}
 		
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->players[$row['userid']]['id'] = $row['userid'] + 5;
 			$this->players[$row['userid']]['rank_now'] = $row['rank_now'];
@@ -140,8 +140,8 @@ class OtherTipps extends HTMLPage implements Page {
 
 		$abfrage = "Select * from userweiteretipps where userfsid=".$userid;
 
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
+		$ergebnis = mysqli_query($this->link, $abfrage);
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			for($i=1;$i<=16;$i++) {
 				$this->userAchtelfinal[$i] = $row['achtelfinal'.$i];
@@ -194,8 +194,8 @@ class OtherTipps extends HTMLPage implements Page {
 		$abfrage = "Select * from realweiteretipps";
 		$realWeitereTipps = array();
 
-		$ergebnis = mysql_query($abfrage);
-		while($row = mysql_fetch_assoc($ergebnis))
+		$ergebnis = mysqli_query($this->link, $abfrage);
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			// Achtelfinalisten
 			$realWeitereTipps[] = $row['achtelfinal1'];
@@ -237,10 +237,10 @@ class OtherTipps extends HTMLPage implements Page {
 	private function getCountries() {
 		$abfrage = "SELECT * FROM teams order by land asc";
 	
-		$ergebnis = mysql_query($abfrage);
+		$ergebnis = mysqli_query($this->link, $abfrage);
 	
 		$i=0;
-		while($row = mysql_fetch_assoc($ergebnis))
+		while($row = mysqli_fetch_assoc($ergebnis))
 		{
 			$this->countries[$i]['id'] = $row['teamid'];
 			$this->countries[$i]['land'] = $row['land'];
